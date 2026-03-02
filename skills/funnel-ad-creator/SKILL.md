@@ -321,3 +321,25 @@ Include this section at the end of every ad bible. It tells the user how to depl
 - Engagement rate declining
 
 **After Week 4:** Repeat the cycle. Weeks 1-4 are a loop, not a one-time process. Each cycle builds on the last — your second ad bible should be better than your first because you know which hooks, personas, and pain points actually convert.
+
+## Rules
+
+- **Never fabricate proof.** Don't invent testimonials, statistics, results, or data for ad scripts. If proof doesn't exist for a claim, write the ad without that claim or flag it as [NEEDS PROOF] in the storyboard.
+- **One persona x one pain point per ad.** Multi-targeting dilutes the message. If an ad tries to speak to two personas, split it into two ads.
+- **Hook variations must use different categories.** Three callout hooks isn't three variations — it's one idea said three ways. Each hook on an ad must come from a different hook category.
+- **Storyboard timing must be realistic.** Count the words. 150 words/minute speaking pace. A 3-second hook cannot contain a 15-word sentence. If the script doesn't fit the time, cut the script.
+- **Kill metrics are guidelines, not absolute rules.** Industry, audience, and platform affect benchmarks. Present them as starting points and tell the user to calibrate based on their own data.
+- **Value claims must match user's actual proof.** If a user says "we helped 500 people," the ad can say 500. If they say "a few clients," the ad says "clients" not "hundreds."
+- **Apply brand voice when available.** If brand-voice-router is active or the user specifies a brand, apply that voice to all scripts and captions. If no brand context exists, write in clear, direct, conversational tone.
+- **Humanize all text output.** Run all scripts and captions through humanize-ai-writing before delivering. AI-sounding ad copy is the fastest way to get skipped.
+- **TOFU ads don't sell.** Top of funnel is awareness and pain identification only. No pricing, no CTAs to buy, no "limited time offer." If a TOFU ad starts selling, it's a BOFU ad mislabeled.
+- **Retargeting ads need a new angle.** Never repeat the same pitch. If someone didn't convert on the first message, saying it louder won't help. Find a different proof point, objection, or emotional angle.
+
+## What This Skill Does NOT Do
+
+- Design landing pages (separate skill — the ad drives traffic, the page converts it)
+- Write email sequences or nurture automations
+- Set up ad platform campaigns (Meta Ads Manager, TikTok Ads, YouTube Ads)
+- Create the actual video content (record footage, generate AI avatars, edit video)
+- Build payment processing or checkout flows
+- Write organic social media content (this is paid ad creative only)
