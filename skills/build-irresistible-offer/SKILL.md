@@ -206,3 +206,23 @@ Audit the offer against these criteria and flag anything missing or weak:
 - **Unanswered clarity questions:** Any questions from Phase 1 the user couldn't answer — list them here with recommendations.
 
 For each gap, recommend a specific action to close it.
+
+## Rules
+
+- **Never fabricate proof.** Don't invent testimonials, case studies, results, or data. If proof doesn't exist, flag it as a gap.
+- **Value stack amounts must be justifiable.** Every dollar value needs a market-rate basis. "A $5,000 value!" with no justification is the same move every bad offer makes.
+- **Anti-guarantee conditions must be binary.** "Gave their best effort" is not trackable. "Submitted weekly check-in by Sunday midnight" is.
+- **Don't design the sales page.** This skill produces the offer architecture. The sales page, funnel, and copy are downstream deliverables.
+- **Don't write DM scripts.** Qualification scripts are a separate skill with different triggers and output format.
+- **Apply brand voice when available.** If brand-voice-router is active or the user specifies a brand, selling statements should use that voice. If no brand context exists, write in clear, direct, professional tone.
+- **Humanize all text output.** Run selling statements through humanize-ai-writing before delivering. The user's audience (especially senior tech professionals) will spot AI copy instantly.
+- **One offer per blueprint.** If the user wants to build multiple offers, produce separate blueprints. Don't combine an offer ladder into one document — each tier gets its own blueprint.
+- **Existing offers get the full treatment.** If the user shares an existing offer for evaluation, don't just critique it. Run it through the full framework and produce a complete blueprint showing what it should become.
+
+## What This Skill Does NOT Do
+
+- Write sales page copy (that's copywriting, not offer architecture)
+- Create DM qualification scripts (separate skill)
+- Design email sequences or funnels (separate skill)
+- Build the product itself
+- Set up payment processing or delivery
