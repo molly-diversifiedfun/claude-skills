@@ -249,3 +249,75 @@ Every ad uses this two-column storyboard format. This is what gets handed to the
 - **Timing must be realistic.** Count the words in the script column — average speaking pace is 150 words/minute (2.5 words/second). A 3-second hook can fit ~7 words max.
 - **One ad = one persona x one pain point.** Never multi-target.
 - **B-roll suggestions** should match the emotional tone of the funnel stage: TOFU = relatable/raw, MOFU = educational/credible, BOFU = aspirational/urgent, Retargeting = personal/intimate
+
+## 4-Week Ad Testing Protocol
+
+Include this section at the end of every ad bible. It tells the user how to deploy, measure, and iterate on the ads.
+
+### Week 1: Launch & Hook Test
+
+**Goal:** Find which hooks stop the scroll. Don't optimize for conversions yet — optimize for attention.
+
+**Actions:**
+- Deploy 3-4 TOFU ads with different hook variations
+- Budget: $5-10/day per ad
+- Run for 5-7 days minimum before making decisions
+- Track: Hook rate (% who watch past 3 seconds), video completion rate, engagement rate
+
+**Decision Framework:**
+- Hook rate > 25%: Keep running, this hook works
+- Hook rate 15-25%: Test a new hook on the same ad body
+- Hook rate < 15%: Kill the ad entirely — the hook failed
+
+### Week 2: Optimize & Expand
+
+**Goal:** Kill losers, scale winners, add MOFU ads to catch the warm audience.
+
+**Actions:**
+- Kill any TOFU ad below 25% hook rate
+- Increase budget 2x on winners
+- Launch 2-3 MOFU ads targeting people who watched 50%+ of TOFU ads
+- Test hook variations on MOFU (same body, different hooks)
+- Track: CTR, cost per click, lead magnet opt-in rate
+
+**Decision Framework:**
+- MOFU CTR > 1%: Winner — keep running
+- MOFU CTR 0.5-1%: Test new hooks or adjust the mechanism reveal section
+- MOFU CTR < 0.5%: Kill — the message isn't resonating with warm audience
+
+### Week 3: Full Funnel & Scale
+
+**Goal:** Activate all funnel stages. Optimize by persona, not just by ad.
+
+**Actions:**
+- Launch BOFU ads targeting page visitors and cart abandoners
+- Launch retargeting ads for non-converters
+- Analyze which persona x pain point combos drive the most conversions
+- Double down on winning personas, pause underperformers
+- Track: Conversion rate, cost per acquisition, ROAS
+
+**Decision Framework:**
+- BOFU conversion > 2%: Scale aggressively
+- BOFU conversion 1-2%: Adjust value stack or guarantee messaging
+- BOFU conversion < 1%: Landing page problem, not ad problem — check downstream
+- Retargeting conversion > 3%: Strong — increase retargeting window
+- Retargeting conversion < 3%: Try different angles or new proof points
+
+### Week 4: Refresh & Iterate
+
+**Goal:** Combat ad fatigue. Replace underperformers. Build new creative from winning patterns.
+
+**Actions:**
+- Identify ads with declining hook rates (fatigue signal)
+- Create new ads using the SAME winning hook categories but fresh scripts
+- Test new personas or pain points from your matrix that haven't been used yet
+- Review full-funnel metrics: overall cost per acquisition, funnel conversion rate, ROAS
+- Document what worked for future ad bibles
+
+**Ad Fatigue Signals:**
+- Hook rate dropping week over week
+- CPM increasing without audience changes
+- Frequency above 3.0 (same person seeing the ad 3+ times)
+- Engagement rate declining
+
+**After Week 4:** Repeat the cycle. Weeks 1-4 are a loop, not a one-time process. Each cycle builds on the last — your second ad bible should be better than your first because you know which hooks, personas, and pain points actually convert.
