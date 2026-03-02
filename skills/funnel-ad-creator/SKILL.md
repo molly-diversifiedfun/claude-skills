@@ -212,7 +212,7 @@ After hook approval, generate 12-16 ads across 4 funnel stages. Each ad is a com
 
 ### Storyboard Format
 
-Every ad uses this two-column storyboard format. This is what gets handed to the video editor or AI avatar tool.
+Every ad uses this storyboard format. This is what gets handed to the video editor or AI avatar tool.
 
 **Format for each ad:**
 
@@ -331,7 +331,7 @@ Include this section at the end of every ad bible. It tells the user how to depl
 - **Kill metrics are guidelines, not absolute rules.** Industry, audience, and platform affect benchmarks. Present them as starting points and tell the user to calibrate based on their own data.
 - **Value claims must match user's actual proof.** If a user says "we helped 500 people," the ad can say 500. If they say "a few clients," the ad says "clients" not "hundreds."
 - **Apply brand voice when available.** If brand-voice-router is active or the user specifies a brand, apply that voice to all scripts and captions. If no brand context exists, write in clear, direct, conversational tone.
-- **Humanize all text output.** Run all scripts and captions through humanize-ai-writing before delivering. AI-sounding ad copy is the fastest way to get skipped.
+- **Humanize all text output.** Run all scripts and captions through humanize-ai-writing before delivering. If humanize-ai-writing is not available, write in a natural, conversational tone — avoid generic AI phrasing. AI-sounding ad copy is the fastest way to get skipped.
 - **TOFU ads don't sell.** Top of funnel is awareness and pain identification only. No pricing, no CTAs to buy, no "limited time offer." If a TOFU ad starts selling, it's a BOFU ad mislabeled.
 - **Retargeting ads need a new angle.** Never repeat the same pitch. If someone didn't convert on the first message, saying it louder won't help. Find a different proof point, objection, or emotional angle.
 
