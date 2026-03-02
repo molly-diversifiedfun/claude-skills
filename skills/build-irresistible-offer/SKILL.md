@@ -60,3 +60,149 @@ Disqualification sharpens positioning. Name the people who should not buy this. 
 Entry ($10-$100), core ($500-$5,000), premium ($5,000-$50,000+), or continuity (monthly). What comes before it? What comes after? Is there a gap in the ladder?
 
 *If stuck, ask:* "What's the cheapest version of this you could sell? What's the most expensive? Where does this one sit between those?"
+
+## Phase 2: Generate the Offer Blueprint
+
+After gathering all 8 answers, generate a structured document with these 7 sections. Use the user's answers as raw material — don't just repeat their words back. Synthesize, sharpen, and fill gaps.
+
+### Section 1: Offer Formula Score
+
+Apply the formula: **(Dream Outcome × Speed × Certainty) ÷ Risk**
+
+Rate each factor 1-10 based on the user's answers:
+- **Dream Outcome (1-10):** How desirable is the transformation? Is it specific and vivid?
+- **Speed (1-10):** How fast? Faster = higher score. Vague timeline = low score.
+- **Certainty (1-10):** How much proof exists? Named method + testimonials + credentials = high. "Trust me" = low.
+- **Risk (1-10):** 10 = maximum risk (high price, no guarantee, unknown provider). 1 = minimal risk.
+
+Show the math. Identify the weakest lever and recommend how to improve it.
+
+Example:
+> **Dream Outcome:** 8/10 — Specific (shipped product in 6 weeks), emotionally resonant
+> **Speed:** 9/10 — Clear timeline, first result in week 1
+> **Certainty:** 6/10 — Strong credentials but only 3 testimonials
+> **Risk:** 4/10 — $4,500 with guarantee reduces perceived risk
+> **Score:** (8 × 9 × 6) ÷ 4 = **108** — Strong. Weakest lever: Certainty. Get 5 more testimonials.
+
+### Section 2: Value Stack
+
+Build a table with every deliverable component. For each:
+- Name the component
+- Assign a market-rate dollar value
+- Justify that value (what would this cost if bought separately?)
+
+**Rules:**
+- Dollar values must reflect actual market rates, not fantasy numbers
+- Include the core offer components AND bonus assets
+- Bonuses should have high perceived value but low fulfillment cost (templates, frameworks, recordings, tools — not more of your time)
+- Total perceived value should be 3-5x the actual price
+- If the ratio is below 3x, recommend additional components or bonuses
+
+Format as a table:
+
+| Component | Description | Market Value |
+|-----------|-------------|-------------|
+| [Name] | [What it is and what they get] | $X,XXX |
+| ... | ... | ... |
+| **Total Perceived Value** | | **$XX,XXX** |
+| **Your Price** | | **$X,XXX** |
+| **Value Ratio** | | **X.Xx** |
+
+### Section 3: Named IP
+
+Transform every generic process component into named intellectual property.
+
+**Rules:**
+- Format: "The [Memorable Name]™"
+- The name should imply the mechanism or outcome — not just sound clever
+- Every core deliverable gets a name. Support elements can stay generic.
+- Don't name everything — over-naming dilutes impact. 3-6 named components is the sweet spot.
+
+For each named component, provide:
+- **The name**
+- **What it replaces** (the generic version)
+- **Why this name works** (what it implies about the mechanism or outcome)
+
+Example:
+> **The Scope Guillotine™** replaces "scope definition process." Implies decisive, permanent cutting — no scope creep, no "maybe later." The violence of the metaphor signals that this is about ruthless prioritization.
+
+### Section 4: Guarantee + Anti-Guarantee
+
+Build a dual guarantee structure:
+
+**The Guarantee (positive promise):**
+State the specific outcome you guarantee. Not "you'll be satisfied" — the actual transformation. "You will ship your V1 within 6 weeks" or "You will have a complete, conversion-ready offer blueprint."
+
+**The Anti-Guarantee (client conditions):**
+List 3-7 specific, binary, trackable conditions the client must meet for the guarantee to apply.
+
+**Rules for conditions:**
+- Each must be yes/no verifiable (not subjective)
+- Each must be within the client's control
+- Each must be reasonable (don't create impossible hoops)
+- Include attendance/participation, deadline adherence, communication requirements, and scope adherence
+
+**State the consequence:** What happens if they meet all conditions and don't get the outcome? Full refund, extended service, partial refund, credit toward next tier? Be specific.
+
+**Example:**
+> I guarantee you will ship your V1 within 6 weeks if you:
+> 1. Attend 100% of scheduled sessions
+> 2. Submit weekly check-ins by Sunday at midnight
+> 3. Complete sprint tasks by each deadline
+> 4. Adhere to your locked scope (no feature additions)
+> 5. Communicate blockers within 24 hours
+>
+> If you do all five and don't ship, I continue working with you at no cost until you do.
+
+### Section 5: Urgency Mechanics
+
+Design real urgency — never manufactured. Three components:
+
+**1. Fast Action Bonus**
+An asset that increases perceived value without adding fulfillment time. Something you've already created or can create once and give to everyone. High perceived value, zero marginal cost.
+
+- Name the bonus
+- Assign a dollar value (market rate)
+- Set the decision window (24-72 hours after sales call/pitch)
+
+**2. Decision Window**
+After a sales call or pitch, hold the spot for a specific number of hours. Not a fake countdown — a real hold because your capacity is limited.
+
+**3. Scarcity (only if real)**
+If you have genuine capacity limits (e.g., "I take 3-5 clients per month"), state them. If you don't, skip this. Fake scarcity destroys trust with sophisticated buyers.
+
+**Rules:**
+- Never manufacture urgency that doesn't exist
+- Always give a reason WHY the deadline matters (capacity, cohort start date, price change, bonus availability)
+- The fast action bonus should be something you'd actually sell separately
+
+### Section 6: Selling Statements
+
+Write 3-5 one-paragraph descriptions of the offer for different contexts. Each hits a different angle but communicates the same core value.
+
+Write one for each:
+1. **Sales page hero** — The 2-3 sentence version that sits above the fold. Outcome-first.
+2. **Email pitch** — A paragraph you could drop into an email that explains the offer and creates desire.
+3. **DM/conversation intro** — How you'd explain this to someone who just said "tell me more" in a DM. Casual, direct.
+4. **Ad copy** — A short paragraph for paid social. Hook + transformation + proof hint + CTA.
+5. **Casual explanation** — How you'd describe this to a friend at dinner who asked "so what do you do?"
+
+**Rules:**
+- If brand-voice-router is active, apply the detected brand voice
+- All selling statements must be run through humanize-ai-writing before delivery
+- Never fabricate proof, results, or testimonials in selling statements
+- Each statement should stand alone — don't assume the reader saw the others
+
+### Section 7: Offer Gaps & Recommendations
+
+Audit the offer against these criteria and flag anything missing or weak:
+
+- **Proof gaps:** Are there claims without supporting evidence? Flag them with [NEEDS PROOF].
+- **Ladder gaps:** Does this offer connect to what comes before and after? Is there a price jump that loses people?
+- **Guarantee enforceability:** Can you actually track the anti-guarantee conditions? Are they realistic?
+- **Value stack ratio:** Is it below 3x? What could be added?
+- **Urgency authenticity:** Is the urgency real or manufactured?
+- **Disqualification clarity:** Is the "not for" specific enough to actually filter people?
+- **Unanswered clarity questions:** Any questions from Phase 1 the user couldn't answer — list them here with recommendations.
+
+For each gap, recommend a specific action to close it.
