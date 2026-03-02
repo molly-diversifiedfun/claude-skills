@@ -67,3 +67,76 @@ Present this table for user review:
 **Tell the user:** "Here's your Persona x Pain Point Matrix. Review it — edit anything that doesn't feel right. Once you approve, I'll generate hook variations for each ad."
 
 Wait for approval before moving to Phase 2.
+
+## Phase 2: Hook Bank Generation
+
+Using the approved Persona x Pain Point Matrix, generate 3 hook variations for each planned ad. Hooks are the first 3 seconds — they determine whether someone watches or scrolls.
+
+### The 8 Hook Categories
+
+Each hook follows a fill-in-the-blank pattern. Use the persona and pain point data from the matrix to fill the variables.
+
+**1. Callout Hook**
+Directly names the audience. Makes them feel seen.
+> "Hey [persona] — if you're still [pain point behavior], this is for you."
+> "Every [persona] I talk to says the same thing: [common complaint]."
+
+**2. Contrast Hook**
+Shows the gap between what most people do and what actually works.
+> "Most [personas] try to [common approach]. Here's why that keeps you stuck."
+> "[Common advice] sounds smart. It's actually the reason you're [pain point]."
+
+**3. Question Hook**
+Opens a curiosity loop that demands an answer.
+> "What if [pain point] wasn't something you had to live with?"
+> "Why do some [personas] [achieve outcome] in [timeframe] while others struggle for years?"
+
+**4. Myth-Bust Hook**
+Attacks a belief the audience holds. Creates cognitive dissonance.
+> "You've been told [common belief about solution]. That's the worst advice I've ever heard."
+> "The [industry] is lying to you about [topic]. Here's what actually works."
+
+**5. Story Hook**
+Opens with a relatable moment. Creates emotional connection.
+> "I was [relatable situation] when I realized [insight]."
+> "Last [time period], a [persona] came to me with [specific problem]. Here's what happened."
+
+**6. Data Hook**
+Leads with a specific, surprising number. Creates authority.
+> "[Specific number] of [personas] [surprising statistic] — and most don't even know why."
+> "We tracked [metric] across [sample size]. The results changed everything."
+
+**7. Identity Hook**
+Speaks to who the viewer IS, not what they want. Tribal.
+> "This is for the [persona] who [specific behavior that shows identity]."
+> "If you're the kind of [persona] who [identity marker], keep watching."
+
+**8. Absurdist Hook**
+Pattern interrupt. Unexpected visual or statement that stops the scroll through sheer weirdness.
+> "[Completely unexpected statement or visual that relates to the pain point in a non-obvious way]"
+> Use sparingly — 1-2 per ad bible max. Works best for TOFU.
+
+### Hook Assignment Rules
+
+- Each ad gets 3 hook variations from 3 DIFFERENT categories
+- No ad bible should use the same hook category more than 4 times total
+- TOFU ads favor: Callout, Question, Absurdist, Identity
+- MOFU ads favor: Data, Myth-Bust, Story, Contrast
+- BOFU ads favor: Story, Data, Callout, Contrast
+- Retargeting ads favor: Callout, Question, Story
+
+### Phase 2 Output: Hook Bank
+
+Present hooks organized by funnel stage and ad:
+
+**TOFU Ad 1 — [Persona]: [Pain Point]**
+- Hook A (Callout): "[Full hook text]"
+- Hook B (Question): "[Full hook text]"
+- Hook C (Identity): "[Full hook text]"
+
+**TOFU Ad 2 — [Persona]: [Pain Point]**
+...
+
+**Tell the user:** "Here are your hook variations for each ad. Review them — swap any that don't feel right. Once you approve, I'll generate the full ad bible with storyboards."
+
+Wait for approval before moving to Phase 3.
