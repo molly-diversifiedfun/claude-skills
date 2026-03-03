@@ -263,3 +263,61 @@ Separate from the timed script's per-row notes, provide overall filming guidance
 - **Pacing:** Where to speak faster, where to pause, where to let a beat land
 - **Eye line:** Direct to camera, or looking away for specific moments
 - **Multiple takes guidance:** Which sections need the most takes (usually the hook and the screenshot line)
+
+### 12-Point Scoring Rubric
+
+After generating the Reel package, score it. Show the full breakdown to the user — don't summarize or hide weak scores.
+
+Rate each dimension 1-10. Be honest. A score of 8+ requires specific justification — don't inflate.
+
+**1. Hook Strength (1-10)**
+Does the first 3 seconds stop the scroll? Is there a reason to keep watching? A 10 is "I physically cannot scroll past this." A 5 is "I might watch if I'm bored."
+
+**2. Identity Mirror (1-10)**
+Does the viewer see themselves in this Reel? Does it reflect a gap, behavior, or feeling they recognize but haven't heard articulated? A 10 is "I feel personally called out." A 5 is "this is generally relatable."
+
+**3. Brand Voice (1-10)**
+Does it sound like this brand? No banned words used? Vocabulary matches guidelines? A 10 is "unmistakably this person/brand." A 5 is "could be anyone in this niche."
+
+**4. Shareability (1-10)**
+Is there a screenshot-worthy moment? Would someone send this to a friend or share to their Story? A 10 is "I've already screenshotted this." A 5 is "I enjoyed it but won't share it."
+
+**5. Emotional Arc (1-10)**
+Does the viewer's emotional state change from start to finish? Can you name the before and after feeling? A 10 is "I started frustrated and ended empowered." A 5 is "I felt the same throughout."
+
+**6. Timing (1-10)**
+Does the script fit the chosen beat structure's target length? Is the pacing natural — no rushed sections, no dead air? A 10 is "every second earns its place." A 5 is "some sections drag or feel crammed."
+
+**7. Specificity (1-10)**
+Are there real anchors — specific numbers, scenarios, behaviors, examples? Or is it generic advice that applies to everyone and therefore resonates with no one? A 10 is "this references exact situations I've been in." A 5 is "this is true but vague."
+
+**8. Ending Quality (1-10)**
+Does the Reel land cleanly? No trailing off, no preaching, no "and that's why you should..." moralizing? A 10 is "the last line lands and I want to rewatch." A 5 is "it kind of fizzled out."
+
+**9. CTA Alignment (1-10)**
+Does the call to action match the Reel's primary goal? A vulnerability Reel asking for DMs is a mismatch. A framework Reel asking for saves is aligned. A 10 is "the CTA is the natural next step." A 5 is "the CTA feels bolted on."
+
+**10. Vulnerability / Authenticity (1-10)**
+Does this feel genuine? Could a real human say this without feeling performative? Is there something at stake for the creator? A 10 is "this took courage to post." A 5 is "this is safe content."
+
+**11. System Visibility (1-10)**
+If the Reel mentions a system, method, or framework — are the actual steps shown? Not just "I have a system" but "here are the 3 steps." If no system is mentioned, score based on whether the insight is concrete enough to act on. A 10 is "I can implement this today." A 5 is "interesting but what do I do with this?"
+
+**12. Differentiation (1-10)**
+Could only THIS brand make this Reel? Or could any creator in this niche say the same thing? A 10 is "this is unmistakably [brand name]." A 5 is "a generic content coach could post this."
+
+### Scoring Output
+
+Present the full rubric as a table:
+
+| # | Dimension | Score | Notes |
+|---|-----------|-------|-------|
+| 1 | Hook Strength | X/10 | [Brief justification] |
+| 2 | Identity Mirror | X/10 | [Brief justification] |
+| ... | ... | ... | ... |
+| 12 | Differentiation | X/10 | [Brief justification] |
+| | **Total** | **XX/120** | |
+
+**Flag any dimension scoring below 7.** For each flagged dimension, provide a specific fix suggestion — not "make it better" but "change the hook from [current] to [proposed] because [reason]."
+
+**Tell the user:** "Here's the score breakdown. [N] dimensions flagged for improvement. Want me to revise the script to address the flagged items, or is this ready to film?"
