@@ -46,7 +46,7 @@ Present the options:
 - **Shares** — reach new people through audience distribution (Contrarian Reframe, Painfully Accurate Observation)
 - **Saves** — become a reference resource (Framework Drop, Data/Stat Lead)
 - **Comments** — drive engagement and conversation (Question Hook)
-- **DM Conversions** — move to private conversation (only for conversion-focused content, never for vulnerability Reels)
+- **DM Conversions** — move to private conversation (Identity Call-Out or Framework Drop hooks work best; only for conversion-focused content, never for vulnerability Reels)
 
 *If stuck, ask:* "If this Reel performed perfectly, what would you see? More followers? People sharing it? People saving it for later? Or people DMing you?"
 
