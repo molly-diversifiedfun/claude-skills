@@ -321,3 +321,43 @@ Present the full rubric as a table:
 **Flag any dimension scoring below 7.** For each flagged dimension, provide a specific fix suggestion — not "make it better" but "change the hook from [current] to [proposed] because [reason]."
 
 **Tell the user:** "Here's the score breakdown. [N] dimensions flagged for improvement. Want me to revise the script to address the flagged items, or is this ready to film?"
+
+## Unstuck Preset
+
+When the brand is "Unstuck," auto-apply these constraints. The user does not need to answer the brand questions in Phase 1 — this preset provides the answers.
+
+**Audience:** High-earning PMs, founders, and operators who are great at building other people's products but stuck on their own side projects. They give excellent team advice they can't follow themselves.
+
+**Voice:**
+- PM terminology over generic coaching language (sprints, scope, shipping, retros — not "journeys" or "transformations")
+- Vulnerability over motivation. Show the struggle, not just the win.
+- Systems over willpower. "Here's the process" not "just believe in yourself."
+- Conversational and direct. Write how a smart PM talks to a friend, not how a coach talks to a client.
+
+**Banned Words:** journey, unlock, transform, elevate, empower, level up, crush it, hustle, grind, or any generic coaching/motivational language. These are hard filters — if they appear in the script, it fails the Brand Voice scoring dimension.
+
+**Identity Mirrors:** The gap between how they help their team and how they treat their own projects. They can scope a product for 50 engineers but can't decide what to build on a Saturday. They run retros at work but haven't reflected on their side project in months.
+
+**Differentiation Test:** "Could a fitness coach or generic content creator say this? If yes, it's too generic for Unstuck." Every Reel must pass this test — if the content could come from any self-improvement account, it doesn't belong.
+
+**Default Emotional Arc:** Shame -> Permission -> Pride (most Unstuck content addresses the shame of being "capable but stuck").
+
+## Rules
+
+- **Brand voice constraints are hard filters.** Banned words are banned. If a banned word appears in a generated script, remove it and find a better word. This is not a suggestion — it's a constraint.
+- **Never fabricate engagement data or competitor stats.** If niche research finds specific numbers, use them with attribution. If you can't find real data, say "based on common patterns in [niche]" not "studies show" or "data suggests."
+- **CTA must match Reel goal.** A vulnerability Reel about feeling stuck should not end with "DM me for coaching." A framework Reel about a productivity system can ask for saves. If the CTA doesn't match, the CTA Alignment score should reflect it.
+- **Script timing must be realistic.** 150 words per minute. ~2.5 words per second. If the script has 100 words and the beat structure targets 30 seconds, the math works. If it has 100 words targeting 20 seconds, cut the script — don't pretend people talk faster.
+- **Screenshot line must work standalone.** If someone screenshots that one line and shares it with zero context, it must still be interesting, provocative, or validating. If it requires the Reel to make sense, pick a different line.
+- **Self-scoring must be honest.** A score of 9 or 10 on any dimension requires specific, concrete justification. "This is really good" is not justification. "The hook uses the exact phrase the audience uses in their own DMs" is. When in doubt, score lower.
+- **Filming notes must be specific enough to execute.** Not "film with energy" — instead "direct to camera, lean slightly forward, speaking pace 10% faster than conversational, pause for one beat after the hook before continuing." A creator should be able to read the notes and set up the shot without asking questions.
+- **Humanize all text output.** If humanize-ai-writing is available, run all scripts and captions through it. If humanize-ai-writing is not available, write in a natural, conversational tone — avoid generic AI phrasing, corporate speak, or motivational cliches.
+- **Apply brand voice when available.** If brand-voice-router is active or the user specified a brand, apply that voice to all scripts, captions, and filming notes. If no brand context exists, write in clear, direct, conversational tone.
+
+## What This Skill Does NOT Do
+
+- Edit or produce actual video content (this generates scripts, not videos)
+- Schedule or post to Instagram (use a scheduling tool for that)
+- Manage ad campaigns (that's funnel-ad-creator)
+- Write carousel or static post copy (Reels and short-form video scripts only)
+- Replace a content strategy or content calendar (creates individual Reels, one at a time)
