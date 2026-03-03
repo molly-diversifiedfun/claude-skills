@@ -200,3 +200,66 @@ Summarize the chosen combination:
 **Tell the user:** "Here's your Reel blueprint: [hook] + [beat structure] + [emotional arc]. Does this combination feel right? Once you approve, I'll generate the full script with filming notes and scoring."
 
 Wait for approval before moving to Phase 3.
+
+## Phase 3: Script Generation + Scoring
+
+Using the approved strategy selections, generate the complete Reel package.
+
+### Timed Script
+
+Every Reel uses this format. The script is timed to the second — each row maps to a segment the creator can film.
+
+| Time | Script | Visual / Filming Notes |
+|------|--------|----------------------|
+| 0-3s | "[Hook line — exact words to say]" | [Camera setup, energy level, setting, any props] |
+| 3-Xs | "[Body — exact words for this segment]" | [Visual direction, B-roll, transitions, gestures] |
+| ... | ... | ... |
+| Xs-End | "[Closing + CTA — exact words]" | [Final visual direction, energy shift] |
+
+**Timed Script Rules:**
+- **Word count must match timing.** Average speaking pace is 150 words/minute (~2.5 words/second). A 3-second hook fits ~7 words max. Count every row.
+- **Write for speaking, not reading.** Use contractions. Short sentences. Conversational rhythm. Read it out loud in your head — if it sounds like an essay, rewrite it.
+- **Visual/Filming Notes must be actionable.** Not "look confident" — instead "direct to camera, slight lean forward, hands visible, natural lighting." Specific enough for someone to set up the shot.
+- **Energy notes matter.** Mark where energy should shift: "calm and conversational here," "increase pace," "pause for 1 beat after this line," "this line is the loudest moment."
+- **Match beat structure timing.** If the user chose Rant to Reframe (40s), the script must fit 40 seconds. Don't drift.
+
+### Screenshot Line
+
+Engineer one line from the script that works as a standalone screenshot. This is the line people will share to their Instagram Story with a "watch this Reel" tag.
+
+**Screenshot Line Rules:**
+- Must be understandable without any context from the rest of the Reel
+- Must be provocative, validating, or insight-dense enough to share
+- Should be 8-15 words (fits cleanly in a Story screenshot)
+- Mark it clearly in the timed script with **[SCREENSHOT LINE]**
+
+### Caption
+
+Write full caption copy to accompany the Reel post:
+
+**Hook Line:** The first line of the caption — this is what shows before "...more." Must work as a standalone scroll-stopper. Often a variation of the Reel's hook, adapted for text.
+
+**Body:** 2-4 sentences expanding on the Reel's core insight. Not a transcript — adds context, depth, or a different angle than the video.
+
+**CTA:** Must match the Reel's primary goal from Phase 1:
+- **Goal = Follows:** "Follow for more [topic] content" or "I post about [topic] every [frequency]"
+- **Goal = Shares:** "Tag someone who needs to hear this" or "Share this with your [persona] friend"
+- **Goal = Saves:** "Save this for when you need it" or "Bookmark this [framework/system]"
+- **Goal = Comments:** "Tell me in the comments: [specific question]" or "Drop a [emoji] if this is you"
+- **Goal = DM Conversions:** "DM me [keyword] for [specific resource]"
+
+**Hashtags:** 5-8 hashtags. Mix of:
+- 1-2 broad (100K+ posts): reach
+- 3-4 niche (10K-100K posts): targeting
+- 1-2 micro (under 10K posts): community
+
+### Filming Notes
+
+Separate from the timed script's per-row notes, provide overall filming guidance:
+
+- **Energy:** Overall energy level and any shifts (e.g., "Start at 7/10 energy, drop to 4/10 for the vulnerable section, end at 8/10")
+- **Setting:** Recommended environment (e.g., "desk setup with natural light" or "walking outdoors for casual energy")
+- **Wardrobe/Props:** If relevant to the hook or beat structure
+- **Pacing:** Where to speak faster, where to pause, where to let a beat land
+- **Eye line:** Direct to camera, or looking away for specific moments
+- **Multiple takes guidance:** Which sections need the most takes (usually the hook and the screenshot line)
