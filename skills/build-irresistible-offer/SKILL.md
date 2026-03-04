@@ -207,6 +207,70 @@ Audit the offer against these criteria and flag anything missing or weak:
 
 For each gap, recommend a specific action to close it.
 
+
+## Unstuck Preset
+
+When the brand is "Unstuck," auto-apply these constraints. The user does not need to answer the offer clarity questions about audience, transformation, proof, or pricing — this preset provides the answers.
+
+**The Offer:** The 6-Week Build Partnership — $4,500. Build Audit™ → Scope Guillotine™ → Weekly build sessions → Ship Guarantee™. Limited to 3–5 clients/month.
+
+**Full Offer Stack (for product ladder context):**
+1. The Momentum Method — $21 self-guided 21-day framework (entry product)
+2. The 6-Week Build Partnership — $4,500, core offer (default for this blueprint)
+3. The Accountability Container — Monthly, for builders who know what they're building
+4. 1:1 Strategic Partnership — Ongoing post-ship support
+
+**Conversion path:** Content → Free Build Partner Call (30 min) → $4,500 Build Partnership
+**Default CTA:** "Book Your Free Build Partner Call"
+
+**Audience:** High-earning PMs, founders, and operators who are great at building other people's products but stuck on their own side projects. $150K–$400K+ total comp, 6–22 years experience, FAANG/FAANG-adjacent/Series C+.
+
+**The Four Archetypes (use as personas for Q7 disqualification and throughout):**
+1. The Overtime Optimizer — Runs million-dollar roadmaps at work. Sunday night Notion ritual. No sprint plan = no progress.
+2. The Perfectionist Creator — Redesigned the landing page four times. "Quality control" is fear in a convincing disguise.
+3. The Golden Handcuffs Builder — Comp too good to leave. Side project lives in "hobby" territory.
+4. The Accidental Consultant — Done freelance gigs through word of mouth. No website, no pricing, no pipeline.
+
+**Transformation (Q1 answer):** From stuck (great at building for others, stalled on their own thing) to shipped — a launched V1 within 6 weeks, with systems to keep building after the partnership ends.
+
+**Speed (Q2 answer):** First noticeable result in week 1 (Build Audit™ creates immediate clarity). Shipped V1 within 6 weeks.
+
+**Voice:**
+- PM terminology over generic coaching language (sprints, scope, shipping, retros — not "journeys" or "transformations")
+- Vulnerability over motivation. Show the struggle, not just the win.
+- Systems over willpower. "Here's the process" not "just believe in yourself."
+- Conversational and direct. Write how a smart PM talks to a friend, not how a coach talks to a client.
+- NEVER use "coach" or "coaching" — always "build partner" or "build partnership"
+
+**Banned Words:** journey, unlock, transform, elevate, empower, level up, crush it, hustle, grind, unleash, manifest, game-changer, revolutionary, step into your power, align with your purpose, limiting beliefs, thrive, vibrant, reimagine, cutting-edge, synergy, holistic, paradigm shift, lean in, move the needle. These are hard filters — if they appear in selling statements, remove them.
+
+**Named IP (already exists — use in value stack):**
+- The Build Audit™ — Replaces "discovery call" or "intake assessment"
+- The Scope Guillotine™ — Replaces "scope definition process"
+- The Ship Guarantee™ — Replaces "satisfaction guarantee"
+- The Momentum Method — Replaces "starter course" or "mini-course"
+
+**Proof Points (Q6 answers):**
+- 20+ years in tech (Google, SoftBank, Heap/Contentsquare)
+- 3+ businesses built while working full-time
+- Fortune 500 product leadership
+- 50+ builders helped to ship
+- 7 verified testimonials on file (Eric Kanner, Aakash Niraula, Jai K., Tom D., Jeff Cotrupe, Calvin C., John Ruiz)
+
+**Signature Stories (use as proof in selling statements):**
+- The 40-Foot Flamingo — Built a 40-foot flamingo in 4 months
+- The $5M Migration — PostgreSQL→SingleStore, recovered $5M, $2M+ annual savings
+- Bikini Donuts — Paid for a Shopify store for 4 years without launching
+- The Notion Board Graveyard — 4 months of Sunday night Notion staring
+
+**Core Contrarian Beliefs (thread into selling statements):**
+- "You don't have a motivation problem. You have an infrastructure problem."
+- "Clarity comes FROM building, not before it."
+- "Competence becomes a trap when turned inward without infrastructure."
+- "That's not a character flaw. That's a systems failure."
+
+**Differentiation Test:** "Could a life coach or generic business guru say this? If yes, it's too generic for Unstuck." Every selling statement must pass this test.
+
 ## Rules
 
 - **Never fabricate proof.** Don't invent testimonials, case studies, results, or data. If proof doesn't exist, flag it as a gap.

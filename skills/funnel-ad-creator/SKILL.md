@@ -322,6 +322,77 @@ Include this section at the end of every ad bible. It tells the user how to depl
 
 **After Week 4:** Repeat the cycle. Weeks 1-4 are a loop, not a one-time process. Each cycle builds on the last — your second ad bible should be better than your first because you know which hooks, personas, and pain points actually convert.
 
+
+## Unstuck Preset
+
+When the brand is "Unstuck," auto-apply these constraints. The user does not need to answer the Phase 1 discovery questions — this preset provides the product, personas, pain points, proof, and funnel positioning.
+
+**The Product:** The 6-Week Build Partnership — $4,500. Build Audit™ → Scope Guillotine™ → Weekly build sessions → Ship Guarantee™. Limited to 3–5 clients/month.
+
+**Transformation:** From stuck (great at building for others, stalled on their own thing) to shipped — a launched V1 within 6 weeks, with systems to keep building after the partnership ends.
+
+**Full Funnel Positioning:**
+- Entry: The Momentum Method — $21 self-guided 21-day framework
+- Core: The 6-Week Build Partnership — $4,500 (primary ad target)
+- Upsell: The Accountability Container — Monthly post-ship support
+- Premium: 1:1 Strategic Partnership — Ongoing
+
+**Conversion path:** Content → Free Build Partner Call (30 min) → $4,500 Build Partnership
+**Default CTA:** "Book Your Free Build Partner Call"
+
+**Personas (use as the core audience personas):**
+
+1. **The Overtime Optimizer** — Senior PM/engineer, $200K+ comp, runs million-dollar roadmaps at work but can't scope their own side project. Sunday night Notion ritual followed by Monday morning "real work." Believes they need a better plan before they can start.
+
+2. **The Perfectionist Creator** — Designer/developer, $150K+ comp, redesigned the landing page four times. Has 47 saved Figma iterations. Calls it quality control but knows it's fear. Terrified of shipping something "not ready."
+
+3. **The Golden Handcuffs Builder** — Director/VP-level, $300K+ comp, comp too good to leave but dying inside. Side project lives in "hobby" territory because taking it seriously means confronting the exit question. Uses "I'm too busy" as armor.
+
+**Pain Points per Persona (pre-built Persona x Pain Point Matrix):**
+
+| Persona | Pain Point | Desired Outcome | Proof Available | Funnel Stage Priority |
+|---------|-----------|-----------------|-----------------|----------------------|
+| Overtime Optimizer | Gives the team sprint plans but stares at blank Notion boards on Sundays | Shipped V1 with a real sprint plan for their own project | Yes — testimonials + Molly's own story | TOFU |
+| Overtime Optimizer | Has started and abandoned the same project 3+ times | Systems that prevent the start-stop cycle | Yes — 50+ builders helped | MOFU |
+| Overtime Optimizer | Knows exactly what to do but can't do it for their own thing | Infrastructure that makes progress automatic | Yes — Build Audit™ + Scope Guillotine™ | BOFU |
+| Perfectionist Creator | Redesigned the landing page again instead of launching | Launched "good enough" V1 with real user feedback | Yes — Ship Guarantee™ | TOFU |
+| Perfectionist Creator | Has a beautiful Notion board and no shipped product | Working product in real users' hands | Yes — 50+ builders shipped | MOFU |
+| Golden Handcuffs Builder | Tells themselves "next quarter" every quarter | Side project with real momentum alongside day job | Yes — Molly built 3+ businesses while at Google/SoftBank | TOFU |
+| Golden Handcuffs Builder | Uses "too busy" as an excuse but knows it's not about time | Honest infrastructure for building alongside a demanding job | Yes — Build Partnership model designed for this | BOFU |
+
+**Proof Available:**
+- 20+ years in tech (Google, SoftBank, Heap/Contentsquare)
+- 3+ businesses built while working full-time
+- 50+ builders helped to ship
+- 7 verified testimonials on file (Eric Kanner, Aakash Niraula, Jai K., Tom D., Jeff Cotrupe, Calvin C., John Ruiz)
+
+**Signature Stories (use as proof in MOFU/BOFU ads):**
+- The 40-Foot Flamingo — Built a 40-foot flamingo in 4 months
+- The $5M Migration — PostgreSQL→SingleStore, recovered $5M, $2M+ annual savings
+- Bikini Donuts — Paid for a Shopify store for 4 years without launching
+- The Notion Board Graveyard — 4 months of Sunday night Notion staring
+- The Core Paradox — "I refuse to use my superpowers on myself."
+
+**Voice:**
+- PM terminology over generic coaching language (sprints, scope, shipping, retros — not "journeys" or "transformations")
+- Vulnerability over motivation. Show the struggle, not just the win.
+- Systems over willpower. "Here's the process" not "just believe in yourself."
+- Conversational and direct. Write how a smart PM talks to a friend, not how a coach talks to a client.
+- NEVER use "coach" or "coaching" in any ad script — always "build partner" or "build partnership"
+
+**Banned Words:** journey, unlock, transform, elevate, empower, level up, crush it, hustle, grind, unleash, manifest, game-changer, revolutionary, step into your power, align with your purpose, limiting beliefs, thrive, vibrant, reimagine, cutting-edge, synergy, holistic, paradigm shift, lean in, move the needle. These are hard filters — if they appear in ad scripts, remove them.
+
+**Core Contrarian Beliefs (use as hook and script material):**
+- "You don't have a motivation problem. You have an infrastructure problem."
+- "Clarity comes FROM building, not before it."
+- "Competence becomes a trap when turned inward without infrastructure."
+- "That's not a character flaw. That's a systems failure."
+- "Masterminds are support groups for people who are also not launching."
+
+**Emotional State of the Audience:** NOT desperate — frustrated. Quietly embarrassed they can ship $10M products at work but can't launch their own landing page. Skeptical of coaching, masterminds, and guru culture. They identify as builders, not "entrepreneurs."
+
+**Differentiation Test:** "Could a life coach, fitness influencer, or generic business guru say this? If yes, it's too generic for Unstuck." Every ad script must pass this test.
+
 ## Rules
 
 - **Never fabricate proof.** Don't invent testimonials, statistics, results, or data for ad scripts. If proof doesn't exist for a claim, write the ad without that claim or flag it as [NEEDS PROOF] in the storyboard.
