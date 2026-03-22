@@ -1,94 +1,87 @@
-> **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).
+# Molly's Claude Skills
 
-# Skills
-Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way, whether that's creating documents with your company's brand guidelines, analyzing data using your organization's specific workflows, or automating personal tasks.
+Free skills I've built for Claude Code and Claude.ai. Take them. Use them. Ship something.
 
-For more information, check out:
-- [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
-- [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)
-- [How to create custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills)
-- [Equipping agents for the real world with Agent Skills](https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
-
-# About This Repository
-
-This repository contains skills that demonstrate what's possible with Claude's skills system. These skills range from creative applications (art, music, design) to technical tasks (testing web apps, MCP server generation) to enterprise workflows (communications, branding, etc.).
-
-Each skill is self-contained in its own folder with a `SKILL.md` file containing the instructions and metadata that Claude uses. Browse through these skills to get inspiration for your own skills or to understand different patterns and approaches.
-
-Many skills in this repo are open source (Apache 2.0). We've also included the document creation & editing skills that power [Claude's document capabilities](https://www.anthropic.com/news/create-files) under the hood in the [`skills/docx`](./skills/docx), [`skills/pdf`](./skills/pdf), [`skills/pptx`](./skills/pptx), and [`skills/xlsx`](./skills/xlsx) subfolders. These are source-available, not open source, but we wanted to share these with developers as a reference for more complex skills that are actively used in a production AI application.
-
-## Disclaimer
-
-**These skills are provided for demonstration and educational purposes only.** While some of these capabilities may be available in Claude, the implementations and behaviors you receive from Claude may differ from what is shown in these skills. These skills are meant to illustrate patterns and possibilities. Always test skills thoroughly in your own environment before relying on them for critical tasks.
-
-# Skill Sets
-- [./skills](./skills): Skill examples for Creative & Design, Development & Technical, Enterprise & Communication, and Document Skills
-- [./spec](./spec): The Agent Skills specification
-- [./template](./template): Skill template
-
-# Try in Claude Code, Claude.ai, and the API
-
-## Claude Code
-You can register this repository as a Claude Code Plugin marketplace by running the following command in Claude Code:
-```
-/plugin marketplace add anthropics/skills
-```
-
-Then, to install a specific set of skills:
-1. Select `Browse and install plugins`
-2. Select `anthropic-agent-skills`
-3. Select `document-skills` or `example-skills`
-4. Select `Install now`
-
-Alternatively, directly install either Plugin via:
-```
-/plugin install document-skills@anthropic-agent-skills
-/plugin install example-skills@anthropic-agent-skills
-```
-
-After installing the plugin, you can use the skill by just mentioning it. For instance, if you install the `document-skills` plugin from the marketplace, you can ask Claude Code to do something like: "Use the PDF skill to extract the form fields from `path/to/some-file.pdf`"
-
-## Claude.ai
-
-These example skills are all already available to paid plans in Claude.ai. 
-
-To use any skill from this repository or upload custom skills, follow the instructions in [Using skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude#h_a4222fa77b).
-
-## Claude API
-
-You can use Anthropic's pre-built skills, and upload custom skills, via the Claude API. See the [Skills API Quickstart](https://docs.claude.com/en/api/skills-guide#creating-a-skill) for more.
-
-# Creating a Basic Skill
-
-Skills are simple to create - just a folder with a `SKILL.md` file containing YAML frontmatter and instructions. You can use the **template-skill** in this repository as a starting point:
-
-```markdown
----
-name: my-skill-name
-description: A clear description of what this skill does and when to use it
 ---
 
-# My Skill Name
+## What's Here
 
-[Add your instructions here that Claude will follow when this skill is active]
+7 skills across three categories. Each one is a self-contained folder with a `SKILL.md` file that teaches Claude how to do something specific.
 
-## Examples
-- Example usage 1
-- Example usage 2
+### For Builders & Shippers
 
-## Guidelines
-- Guideline 1
-- Guideline 2
+| Skill | What It Does |
+|-------|-------------|
+| [`unstuck-coach`](./unstuck-coach/) | Modular coaching system for side-project shippers. Diagnoses stuck patterns, audits builds, cuts scope, validates ideas, plans sprints, and creates roadmaps. 8 modules, each produces a concrete artifact. |
+
+### For Marketers
+
+Three skills from my [Solopreneur Skills](https://github.com/molly-diversifiedfun/solopreneur-skills) collection — free samples so you can see if the approach clicks.
+
+| Skill | What It Does |
+|-------|-------------|
+| [`build-irresistible-offer`](./build-irresistible-offer/) | Architect offers people feel stupid saying no to. Value stacking, named IP, guarantee structure, urgency mechanics. Based on the Hormozi Value Equation. |
+| [`funnel-ad-creator`](./funnel-ad-creator/) | Generate a complete ad script bible — 12-16 storyboarded ads across TOFU/MOFU/BOFU/Retargeting with a 4-week testing protocol. |
+| [`instagram-reels-framework`](./instagram-reels-framework/) | Production-ready Reel scripts with timed beats, filming notes, 7 hook types, 5 beat structures, and a 12-point scoring rubric. |
+
+### For Claude Code Power Users
+
+| Skill | What It Does |
+|-------|-------------|
+| [`carl-manager`](./carl-manager/) | Manage CARL (Context Augmentation & Reinforcement Layer) domains and rules. Persistent memory for how you work — define rules once, they load automatically when relevant. |
+| [`carl-help`](./carl-help/) | Reference docs for CARL — what it is, how it works, file structure, rule format, troubleshooting. |
+| [`nano-banana`](./nano-banana/) | Image generation via Gemini CLI. Blog images, thumbnails, icons, diagrams, illustrations — any visual asset. Requires [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed. |
+
+---
+
+## Install
+
+### Claude Code
+
+Clone and point Claude Code at the skill you want:
+
+```bash
+git clone https://github.com/molly-diversifiedfun/claude-skills.git
 ```
 
-The frontmatter requires only two fields:
-- `name` - A unique identifier for your skill (lowercase, hyphens for spaces)
-- `description` - A complete description of what the skill does and when to use it
+Then install a skill to your Claude Code environment:
 
-The markdown content below contains the instructions, examples, and guidelines that Claude will follow. For more details, see [How to create custom skills](https://support.claude.com/en/articles/12512198-creating-custom-skills).
+```bash
+# Copy a skill to your local skills directory
+cp -r claude-skills/unstuck-coach ~/.claude/skills/unstuck-coach
+```
 
-# Partner Skills
+Or reference the skill directly in a conversation — Claude will read the `SKILL.md` when you point it at the folder.
 
-Skills are a great way to teach Claude how to get better at using specific pieces of software. As we see awesome example skills from partners, we may highlight some of them here:
+### Claude.ai
 
-- **Notion** - [Notion Skills for Claude](https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0)
+Upload any skill's `SKILL.md` file as a Project Knowledge file. Claude picks it up automatically.
+
+---
+
+## Want the Full Marketing Toolkit?
+
+The three marketing skills here are samples from **[Solopreneur Skills](https://github.com/molly-diversifiedfun/solopreneur-skills)** — a 25-skill system that covers the entire solopreneur pipeline from audience research through referral engines.
+
+The skills chain together: output from one feeds directly into the next. Run `skill-router` with your situation and it maps the exact skills to run, in order.
+
+**ATTRACT** (8 skills) — personas, messaging, hooks, content, ads, brand voice
+**CONVERT** (10 skills) — offers, pricing, sales letters, landing pages, launches
+**DELIVER & GROW** (6 skills) — onboarding, email, automation, win-back, referrals
+**META** (1 skill) — skill-router that sequences everything for your situation
+
+---
+
+## Who Made These
+
+[Molly Shelestak](https://github.com/molly-diversifiedfun) — Principal PM by day, builder of too many things by night. I make tools that help people stop planning and start shipping.
+
+- **Unstuck with Molly** — Build partnership for side-project shippers
+- **Diversified Fun** — Strategic consulting for creative businesses
+- **The Flamingo Effect** — Book on building followable systems (coming 2026)
+
+---
+
+## License
+
+These skills are free to use, modify, and share. If you build something cool with them, I'd love to hear about it.

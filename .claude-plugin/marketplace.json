@@ -1,44 +1,43 @@
 {
-  "name": "anthropic-agent-skills",
+  "name": "molly-claude-skills",
   "owner": {
-    "name": "Keith Lazuka",
-    "email": "klazuka@anthropic.com"
+    "name": "Molly Shelestak",
+    "email": "molly@diversifiedfun.com"
   },
   "metadata": {
-    "description": "Anthropic example skills",
+    "description": "Free Claude skills for builders, marketers, and Claude Code power users",
     "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "document-skills",
-      "description": "Collection of document processing suite including Excel, Word, PowerPoint, and PDF capabilities",
+      "name": "builder-skills",
+      "description": "Skills for side-project shippers: coaching, diagnostics, sprint planning, and roadmaps",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/xlsx",
-        "./skills/docx",
-        "./skills/pptx",
-        "./skills/pdf"
+        "./unstuck-coach"
       ]
     },
     {
-      "name": "example-skills",
-      "description": "Collection of example skills demonstrating various capabilities including skill creation, MCP building, visual design, algorithmic art, internal communications, web testing, artifact building, Slack GIFs, and theme styling",
+      "name": "marketing-skills",
+      "description": "Free samples from the Solopreneur Skills collection: offer architecture, ad scripts, and Reels frameworks",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/algorithmic-art",
-        "./skills/brand-guidelines",
-        "./skills/canvas-design",
-        "./skills/doc-coauthoring",
-        "./skills/frontend-design",
-        "./skills/internal-comms",
-        "./skills/mcp-builder",
-        "./skills/skill-creator",
-        "./skills/slack-gif-creator",
-        "./skills/theme-factory",
-        "./skills/web-artifacts-builder",
-        "./skills/webapp-testing"
+        "./build-irresistible-offer",
+        "./funnel-ad-creator",
+        "./instagram-reels-framework"
+      ]
+    },
+    {
+      "name": "power-user-skills",
+      "description": "Claude Code productivity tools: CARL rules management and image generation via Gemini CLI",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./carl-manager",
+        "./carl-help",
+        "./nano-banana"
       ]
     }
   ]
