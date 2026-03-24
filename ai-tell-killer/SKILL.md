@@ -1,209 +1,194 @@
 ---
-name: ai-tell-killer
-description: Detect and surgically remove AI writing patterns from text. Use when user wants to make AI-generated text sound human, remove AI tells, humanize AI writing, fix robotic prose, or beat AI detection through better writing. Trigger on phrases like "this sounds like AI," "make this more human," "remove AI tells," "humanize this," "this reads like ChatGPT," "AI fingerprint," "sounds robotic," or any request to edit AI-generated text to read as human-written. NOT for rewriting from scratch — that destroys voice. NOT for editing human-written text — use precision-editor for that.
+name: humanize-ai-writing
+description: Strip AI patterns from any written content and make it sound like a real human wrote it. Use this skill whenever the user says anything like "make this sound human," "this sounds like AI," "de-AI this," "make it sound like me," "humanize this," "this sounds robotic," "rewrite this naturally," "this doesn't sound right," "make it less AI," "sound more natural," or any variation of wanting content to feel authentic and human-written rather than machine-generated. Also trigger when reviewing any draft, copy, script, email, DM, social post, or marketing content where the user hasn't explicitly asked for humanization but the output clearly contains AI patterns. If the user has a brand voice skill active, combine this skill with that voice. This skill is about the WAY writing sounds, not WHAT it says.
 ---
 
-# AI Tell Killer
+# Humanize AI Writing v2
 
-## What This Skill Does
+## Why AI Text Gets Caught
 
-Takes AI-generated or AI-assisted text, identifies specific AI patterns using a categorized taxonomy with confidence ratings, and surgically fixes only the flagged patterns. Everything else stays untouched. Two-pass architecture: first pass catches known tells, second pass audits for anything the first pass missed.
+Detectors measure two core signals: **perplexity** (how predictable each word choice is) and **burstiness** (how much sentence length varies). AI scores low on both because every token converges toward the most statistically likely next word. The result reads like the average of everything on the internet — technically correct, stylistically dead.
 
-This is not a rewriter. Rewriters make text worse 74% of the time (Masrour et al., ACL 2025). This is a pattern detector and surgical editor.
+But modern detectors (GPTZero, Originality.ai, Pangram Labs) now go far beyond those two signals. They use multi-model classifiers trained on outputs from specific LLM families. Claude, GPT, Gemini, and Llama each leave distinct **stylistic fingerprints** that survive prompting tricks, custom writing styles, and even manual editing — unless you break the underlying structural patterns.
 
-**Goal:** Remove the machine fingerprint. Not fool AI detectors (they're unreliable). Make the text stop *feeling* AI-generated to human readers.
+This skill targets those structural patterns. Not surface swaps.
 
-**Core principle:** Change fewer than 20% of sentences. If you're changing more, something is wrong.
+## The Two-Pass System
 
-## Before You Start
-
-Read the full taxonomy at `references/tell-taxonomy.md` in this skill's directory. That file contains every detection rule, genre threshold, and fix strategy. This file defines the interaction flow and operating rules.
-
----
-
-## Step 1: Input + Preset Selection
-
-When the user provides text, ask:
-
-> **What's the genre?**
-> (a) Blog post
-> (b) Business / email / report
-> (c) Academic
-> (d) Creative fiction
-> (e) Social media
->
-> This adjusts what gets flagged. Academic writing tolerates more hedging. Creative writing has a lower threshold for AI vocabulary. Pick the closest match.
-
-If the user specifies genre in their initial message, skip the question and proceed.
-
-**Store the genre preset.** It controls every threshold in the taxonomy.
+Every piece of content runs through **two passes**. The second pass re-reads the rewrite and catches patterns that survive the first edit. This is not optional — AI-isms are recursive. Fixing one often introduces another.
 
 ---
 
-## Step 2: First Pass — Pattern Detection + Annotation
+## PASS 1: Audit and Rewrite
 
-Scan the user's text against the full taxonomy (references/tell-taxonomy.md). Work through each category systematically:
+Run these seven checks in order. They compound.
 
-### Scan Order (structural and rhythm first — these matter most)
+### 1. Strip Claude-Specific Fingerprints
 
-1. **Rhythm** — Calculate sentence-length variation. Check for sterile perfection.
-2. **Structure** — Summary paragraphs, heading inflation, list overuse, tricolon, parallel construction.
-3. **Vocabulary** — Cluster detection (3+ co-occurring words), hedging phrases, elegant variation.
-4. **Transitions** — Stacked formal transitions, "Let's explore" patterns, mechanical intervals.
-5. **Punctuation** — Em dash density, absence patterns.
-6. **Semantic** — False balance, signposting, cliche openers. Only flag these if Tier 1/2 tells already present.
+Claude has model-specific tells that other LLMs don't share. These are the first things to kill because they're what Claude-trained detectors look for.
 
-### Apply genre thresholds
+**Thoughtful qualifiers.** Claude constantly hedges with "I think," "it seems," "from my understanding," "it's worth noting," "broadly speaking." Delete or replace with direct statements.
 
-Use the threshold tables in the taxonomy for every detection rule. A blog post and an academic paper have different tolerances.
+**Balanced-perspective reflex.** Claude presents both sides even when the topic has a clear answer. "While some argue X, others contend Y" — if you have a position, state it. Don't false-balance.
 
-### Output the Annotated Report
+**Ethical insertion.** Claude reflexively adds ethical implications, caveats about responsible use, or disclaimers about limitations. Strip these unless the content genuinely requires them.
 
-Present findings in this exact format:
+**Helpful disclaimers.** "This is a complex topic," "results may vary," "it's important to consult a professional" — delete unless legally necessary.
 
-```
-## AI Tell Report
+**Structured over-organization.** Claude defaults to headers, numbered lists, and bullet points even in conversational content. If the format is a DM, email, social post, or script — strip all structural formatting.
 
-**Overall AI Signature: [None / Low / Medium / High]**
-([N] patterns detected across [N] categories)
+**The warmth pattern.** Claude opens with validation ("That's a great question," "I appreciate you sharing that," "Absolutely!") and closes with offers ("I hope this helps," "Let me know if you'd like me to expand on any section"). Delete all of it.
 
-### Flagged Patterns
+### 2. Kill AI Vocabulary
 
-1. **[CATEGORY]** Lines [X-Y]: [What was detected and why].
-   Confidence: [High / Medium].
-   → Suggested fix: [Specific replacement text or structural change.
-   Show the exact before and after.]
+Consult `references/kill-list.md` for the complete tiered list. The tiers work like this:
 
-2. **[CATEGORY]** Lines [X-Y]: [Description].
-   Confidence: [High / Medium].
-   → Suggested fix: [Specific fix.]
+- **Tier 1 (Always flag):** These words appear 50%+ more in AI text than human text. Replace on sight. No exceptions. Examples: delve, leverage, utilize, robust, comprehensive, multifaceted, pivotal, seamless, tapestry, landscape (metaphorical), moreover, furthermore.
+- **Tier 2 (Flag when clustered):** These are normal English words that become AI tells when 3+ appear in the same section. Examples: foster, illuminate, crucial, dynamic, innovative, catalyst, trajectory, spectrum.
+- **Tier 3 (Flag at density):** Common words that only signal AI when they appear at unusually high frequency. Examples: significant, effectively, potential, approach, framework, context, enhance.
 
-[Continue for all flagged patterns]
+Also kill **era-specific vocabulary** — detectors now track which words cluster by model generation:
+- 2023-era (GPT-4): delve, tapestry, testament, vibrant, intricate, meticulous
+- 2024-era (GPT-4o): fostering, showcasing, highlighting, bolstered, align with
+- 2025+ era (GPT-5): emphasizing, enhance, highlighting, showcasing
+- Claude-specific at any era: nuanced, straightforward, genuinely, I'd be happy to
 
-### Passed (not flagged)
-- [Category]: [Brief reason it passed]
-- [Category]: [Brief reason it passed]
-```
+### 3. Fix Structural Patterns
 
-**Rules for the report:**
-- Number every flagged pattern.
-- Always state the category in brackets: VOCABULARY CLUSTER, RHYTHM, STRUCTURE, TRANSITION, PUNCTUATION, SEMANTIC, OPENING.
-- Always include confidence level.
-- Every flag MUST have a specific suggested fix — not "consider revising" but the actual replacement text.
-- The "Passed" section builds trust. Show the user what you checked and found acceptable.
-- If zero patterns found, say so: "No AI tells detected at [genre] thresholds. This text reads as human-written."
+These are shapes, not words. You can't ctrl+F for them.
 
-### Severity Scale
+**Copula avoidance.** The single most underrated AI tell. AI writes "serves as," "functions as," "acts as," "features," "boasts," "presents" instead of "is" and "has." Replace aggressively. "The platform serves as a unified hub" → "The platform is a dashboard." "The building features a rooftop garden" → "The building has a rooftop garden."
 
-- **High (3+ categories flagged):** "This text has a strong AI signature. Multiple pattern types co-occur."
-- **Medium (2 categories flagged):** "Moderate AI signature. A few patterns stand out."
-- **Low (1 category flagged):** "Mild AI signature. One pattern type detected."
-- **None:** "No AI tells detected at these thresholds."
+**Significance inflation.** AI can't describe anything without inflating its importance. "Marking a pivotal moment in the evolution of..." → "was founded in 2019." "A watershed moment for the industry" → just state the fact. If a sentence claims something is significant, pivotal, transformative, or groundbreaking, delete the claim and let the fact speak.
 
----
+**Present participial clause-endings.** This is one of the top detection signals flagged by Wikipedia's AI Cleanup project. AI ends sentences with "-ing" clauses that make vague claims of importance: "...highlighting the need for continued innovation," "...underscoring the significance of this development," "...reflecting broader industry trends." These appear 2-5x more in AI text. Cut them. End sentences directly.
 
-## Step 3: User Review
+**The formulaic challenges/future section.** AI writes a "Despite challenges... continues to thrive" paragraph, often followed by "Future Prospects." This rigid formula — positive → acknowledge challenges → pivot back to positive — is a top detection signal. Either be specific about the actual challenge and response, or cut the section.
 
-After presenting the report, ask:
+**Hourglass structure.** AI opens with a synthesis, narrows to details, then closes with another synthesis. Human writing doesn't follow this pattern reliably. Vary your structure. Start mid-argument sometimes. End abruptly sometimes.
 
-> **How do you want to proceed?**
-> (a) Apply all fixes
-> (b) Review each fix individually — I'll show them one at a time and you approve or reject
-> (c) Apply all except [list numbers to skip]
+**Even paragraphing.** AI produces paragraphs of roughly equal length, creating visual symmetry that detectors flag. Vary dramatically. One sentence can be a paragraph. A ten-sentence paragraph is fine if it flows.
 
-Wait for the user's response. Do not apply any fixes until instructed.
+**Negative parallelisms.** "It's not just X — it's Y." "It's not about the technology — it's about the people." AI uses this construction constantly. State the point directly instead.
 
-If the user chooses (b), present each fix as:
+**The rule of three.** "Smart, strategic, and scalable." "Clear, concise, and compelling." AI defaults to triple constructions. Use two items. Use four. Use one. Vary.
 
-> **Fix [N]: [CATEGORY]**
-> Before: "[exact original text]"
-> After: "[exact proposed replacement]"
-> Apply this fix? (y/n)
+### 4. Fix Rhythm (Burstiness)
 
----
+This is the most mechanically measurable signal. AI averages ~27 words per sentence with minimal variance. Humans swing between 3-word fragments and 40-word run-ons.
 
-## Step 4: Second Pass — Residual Audit
+**Rules:**
+- No two consecutive sentences should be within 5 words of each other in length
+- Include at least one sentence under 5 words per paragraph
+- Include at least one sentence over 25 words per section
+- Start at least one sentence with "And" or "But"
+- Use a fragment for emphasis at least once
+- Break a grammar rule intentionally at least once (start with a conjunction, use a comma splice, end with a preposition)
+- Vary paragraph length: some 1 sentence, some 6+
 
-After applying the approved fixes from Step 3, re-read the complete edited text as a whole. Do not re-check against the taxonomy mechanically — instead, read it as a skeptical human reader who regularly encounters AI output.
+### 5. Replace Generality with Specificity
 
-Ask yourself: **"What still feels AI-generated about this text?"**
+AI generalizes because it doesn't have lived experience. Every vague reference is a flag. Every specific detail is proof of a person.
 
-The second pass catches:
-- Structural patterns that only become visible after vocabulary fixes (the "uncanny valley" where individual sentences are fine but the overall flow is mechanical)
-- Rhythm problems created by the first-pass edits themselves
-- Patterns the taxonomy doesn't cover but a perceptive reader would notice
+**Replace:**
+- "a popular tool" → name the tool (Notion, Figma, Linear)
+- "a recent study" → name the study or at minimum the source and year
+- "industry experts" → name one person or cite one org
+- "a significant amount" → state the number
+- "over time" → state the timeframe
+- "various stakeholders" → name who specifically
+- "the meeting went well" → what specifically happened
 
-If the second pass finds issues, present them the same way as Step 2 — numbered, categorized, with specific fixes. Ask the user to approve before applying.
+**Add at least one detail per section that only someone present would know.** A day of the week. An exact dollar amount. A named person. A real tool version number. A specific metric.
 
-If the second pass finds nothing: "Second pass complete. No remaining AI signature detected."
+### 6. Inject Voice and Opinion
 
----
+AI is diplomatically neutral. Humans take sides.
 
-## Step 5: Output
+- State at least one unhedged opinion per piece ("This is wrong" not "Some might consider this suboptimal")
+- Include a parenthetical aside, tangent, or "but I digress" moment
+- Switch emotional register at least once (analytical → frustrated → amused)
+- Write one sentence you'd actually say at a bar — if it's too polished for that, rewrite it
+- Add self-deprecation, sarcasm, or dry humor where the content supports it
+- If a brand voice exists (check brand-voice-router), apply it here
 
-Deliver the final edited text. Then offer:
+### 7. Kill Remaining Formatting Tells
 
-> **Want a diff view?** I can show exactly what changed, line by line.
+**Em dashes.** One per 500 words maximum. Replace with periods, commas, or restructure.
 
-If the user says yes, show a before/after comparison with changes marked. Use strikethrough for removed text and bold for added text, or a side-by-side format — whatever is clearest for the amount of changes.
+**Synonym cycling.** AI rotates words for the same concept — "platform" → "solution" → "ecosystem" → "framework." Pick one word. Repeat it. Real writers repeat themselves.
 
----
+**Boldface/formatting in conversational content.** Bold headers, inline bold labels ("**Key insight:**"), emoji headers (🚀💡✅) — strip all of it in DMs, emails, social posts, scripts.
 
-## Hard Rules — Never Violate These
+**Curly quotes.** Claude sometimes produces typographic curly quotes (" ") instead of straight quotes (" "). Normalize to straight quotes.
 
-### Surgical editing, not rewriting
-- If more than 30% of sentences change, stop and reassess. You are overcorrecting.
-- Preserve the author's sentence structure, argument order, and examples unless they are themselves AI tells.
-- The user should recognize the output as their own text with targeted fixes.
+**Hyphenated word pair clustering.** "Cross-functional, data-driven, client-facing, solution-oriented" — AI stacks these. Use one, maximum two, per paragraph.
 
-### Co-occurrence, not word bans
-- Never flag a single vocabulary word in isolation. The signal is clustering — 3+ AI-associated words in proximity.
-- "Robust" in an engineering paper is fine. "Robust, nuanced, and multifaceted" in a blog post is a tell.
-- ESL writers, academic writers, and formal prose all share features with AI output. Single-word flags produce unacceptable false positives.
-
-### Structure and rhythm over vocabulary
-- Prioritize fixing sentence-length uniformity and structural patterns over swapping individual words.
-- Synonym swapping alone does not change the statistical fingerprint. Rhythm and structure do.
-
-### Never add deliberate errors
-- Do not introduce typos, grammatical mistakes, or awkward phrasing to seem "more human."
-- This is the Undetectable.ai failure mode. It degrades quality without fooling anyone.
-
-### Never strip all structure
-- Well-organized writing is not an AI tell. Formulaic organization is.
-- A blog post with three clear sections is fine. A blog post where every section has exactly three bullet points with bold lead-ins is a tell.
-
-### Never remove human signals
-- Contractions, first-person pronouns, personal anecdotes, sentence fragments, and informal punctuation are HUMAN signals.
-- If these are present in the input, preserve them. If they're absent, consider adding them as fixes.
-
-### Em dashes are not the enemy
-- 1-2 em dashes per 500 words is normal human usage. Only flag excess density alongside other tells.
-- Never remove all em dashes.
-
-### Respect the genre
-- Academic text tolerates hedging, formal transitions, and structured organization.
-- Creative text tolerates em dashes and sentence fragments but not AI vocabulary.
-- Social media tolerates almost nothing from the AI playbook.
-- Always use the genre-specific thresholds from the taxonomy.
+**Title Case in headings.** AI capitalizes "Strategic Negotiations And Partnerships." Use sentence case: "Strategic negotiations and partnerships."
 
 ---
 
-## Anti-Patterns — Do Not Do These
+## PASS 2: Verify Rewrite
 
-- Do not rewrite paragraphs from scratch. Edit surgically.
-- Do not flag contractions, first-person pronouns, or personal anecdotes as tells. These are human signals.
-- Do not remove all em dashes. 1-2 per 500 words is normal.
-- Do not add "deliberate imperfections" — misspellings, fragments where they don't fit, forced slang.
-- Do not guarantee the text will pass AI detection tools. Those tools are unreliable.
-- Do not edit human-written text with this skill. This skill targets the machine fingerprint in AI output.
-- Do not apply fixes the user rejected.
-- Do not skip the second pass. It catches what the taxonomy misses.
-- Do not flag patterns below their genre threshold.
+Read the rewrite fresh. Check for these survivals:
+
+1. **Recycled transitions.** Did "moreover" become "additionally" become "furthermore"? All three are AI tells. Use "and," "also," "plus," or restructure.
+2. **Lingering copula swaps.** Did "serves as" become "functions as" or "acts as"? Still AI. Use "is."
+3. **Inflation creep.** Did you cut "groundbreaking" but introduce "transformative" or "game-changing"? Same problem, different word.
+4. **Rhythm relapse.** Read the rewritten version aloud. Did sentence lengths re-flatten? Check word counts.
+5. **The emotional flatline.** Did the rewrite claim "What surprised me most was..." or "I was fascinated to discover..." without earning the emotion? Either make the reader feel it through specifics, or cut the emotional claim.
+6. **Chatbot artifacts.** Any surviving "I hope this helps," "Let me know if," "Feel free to," "Great question," "Absolutely!" — delete.
+7. **Template phrases.** "A [adj] step towards [adj] [noun]" — this mad-libs construction is an instant tell. Rewrite as a specific claim.
+8. **Filler phrases.** "In order to" → "To." "Due to the fact that" → "Because." "It is worth noting that" → delete.
+9. **Generic conclusions.** "The future looks bright," "Exciting times lie ahead," "Only time will tell" — cut or replace with a specific closing thought.
+10. **Cutoff disclaimers.** "While specific details are limited..." "Based on available information..." — either find the information or remove the sentence.
+
+If the Pass 2 audit finds more than 3 surviving patterns, run the rewrite through Pass 1 again before delivering.
 
 ---
 
-## Pairs With
+## Content-Type Quick Reference
 
-- **voice-extractor**: Load the user's voice profile before running ai-tell-killer. Fixes will match the user's natural style instead of generic alternatives.
-- **precision-editor**: Different tool. precision-editor works on human text at configurable edit levels. ai-tell-killer targets the machine fingerprint in AI-generated text.
+### DMs / Text Messages
+- 1-3 sentences per message. No transitions. One thought per message.
+- Lowercase where natural. Abbreviations fine. No formatting.
+- Zero em dashes. Zero bold. Zero structure.
+
+### Social Posts / Captions
+- Start mid-thought, not with "In today's..."
+- One emoji maximum (or zero). No hashtag stuffing.
+- Write like you're texting a group chat. End with a real question or a half-thought, not a polished CTA.
+
+### Emails
+- Open with the point. No "I hope this finds you well."
+- End with a specific ask, not "Please don't hesitate to reach out."
+- One ask per email. One.
+
+### Sales Copy / Scripts
+- Real numbers, real names, real stories. Be specific about who this is NOT for.
+- State the price without flinching. No "Imagine a world where..."
+
+### Long-Form (Articles, Guides, Docs)
+- Vary section lengths dramatically. Some get two sentences. Some get a full page.
+- Use the same word for the same thing. Don't cycle synonyms.
+- Include a personal observation that breaks the analytical register.
+
+### LinkedIn Posts
+- No "I'm thrilled to announce." Start with the insight or the tension.
+- One line per paragraph (LinkedIn formatting). But vary — some paragraphs get 2-3 lines.
+- End with a genuine question, not a performative one.
+
+---
+
+## What NOT to Do
+
+- Don't just add contractions and call it human. That's surface-level.
+- Don't over-correct into chaos. The goal is natural, not sloppy.
+- Don't add fake typos or "um"s. That's cosplay.
+- Don't swap AI words for simpler synonyms while keeping the same structure. The structure IS the problem.
+- Don't use AI-humanizer tools or paraphrasers. They create a different flavor of uncanny valley — detectors are now trained on humanizer outputs specifically.
+- Don't assume one pass is enough. It never is.
+
+## Reference Files
+
+- `references/kill-list.md` — Complete tiered vocabulary kill list with era-specific tracking and replacement tables. Consult during Pass 1, Step 2.
