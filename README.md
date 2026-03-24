@@ -27,7 +27,8 @@ Skills that fix the #1 complaint about AI: "It doesn't sound like me."
 | Skill | What It Does |
 |-------|-------------|
 | [`voice-extractor`](./voice-extractor/) | Feed it 3-5 writing samples, get a reusable voice profile (.md file). Sample-based extraction, not adjective-based — because research shows descriptions like "engaging and punchy" produce generic output. The profile works in any Claude conversation. |
-| [`ai-tell-killer`](./ai-tell-killer/) | Surgical removal of AI writing patterns. Doesn't rewrite your text — identifies specific tells (vocabulary clusters, rhythm uniformity, structural patterns) and fixes only those. Two-pass architecture. Existing "humanizer" tools make text worse 74% of the time. This one doesn't. |
+| [`ai-tell-killer`](./ai-tell-killer/) | The scalpel. Surgical removal of AI writing patterns — identifies specific tells with confidence ratings and fixes only those. Annotated report shows what it found before changing anything. For writers who want to preserve their voice. |
+| [`humanize-ai-writing`](./humanize-ai-writing/) | The power washer. Aggressive 7-step rewrite that strips AI fingerprints AND injects human voice — opinion, specificity, rhythm variation, Claude-specific pattern removal. Includes a 278-term tiered kill list. For when you need content de-AI'd fast. |
 | [`precision-editor`](./precision-editor/) | *Coming soon.* Pick an editing level (flag only / suggest / light edit / heavy edit) and the skill stays within bounds. Solves "I asked for a light edit and got a complete rewrite." |
 
 ### Build Your Career
