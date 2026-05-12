@@ -127,7 +127,7 @@ The research and PRDs live in [`docs/`](./docs/) if you want to see the thinking
 
 ## Want the Full Marketing Toolkit?
 
-The marketing skills here are samples from **[Solopreneur Skills](https://github.com/molly-diversifiedfun/solopreneur-skills)** — a 25-skill system that covers the entire solopreneur pipeline from audience research through referral engines.
+The marketing skills here are samples from **[Marketing OS](https://github.com/molly-diversifiedfun/marketing-os)** (formerly Solopreneur Skills) — a 25-skill system that covers the entire solopreneur pipeline from audience research through referral engines.
 
 **ATTRACT** (8 skills) — personas, messaging, hooks, content, ads, brand voice
 **CONVERT** (10 skills) — offers, pricing, sales letters, landing pages, launches
