@@ -1,5 +1,5 @@
 <overview>
-Complete methodology reference for the Unstuck with Molly coaching system. Modules reference specific sections as needed — not all content is needed for every module.
+Complete methodology reference for the Unstuck with Molly Build Partner system. Modules reference specific sections as needed — not all content is needed for every module.
 </overview>
 
 <stuck_patterns>

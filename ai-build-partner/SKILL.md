@@ -1,6 +1,6 @@
 ---
 name: ai-build-partner
-description: AI Build Partner for side-project shippers — the Unstuck with Molly methodology as an installable skill. Diagnoses stuck patterns, audits builds, cuts scope, validates ideas, plans sprints, and creates roadmaps. Use when someone needs help shipping a side project, is stuck on what to build, or wants structured build-partnership through the Unstuck Method. Trigger on phrases like "I'm stuck," "side project," "can't ship," "scope creep," "what should I build," or any request for build coaching, build partnership, or shipping help.
+description: AI Build Partner for side-project shippers — the Unstuck with Molly methodology as an installable skill. Diagnoses stuck patterns, audits builds, cuts scope, validates ideas, plans sprints, and creates roadmaps. Use when someone needs help shipping a side project, is stuck on what to build, or wants structured build-partnership through the Unstuck Method. Trigger on phrases like "I'm stuck," "side project," "can't ship," "scope creep," "what should I build," or any request for a build partner, side-project structure, or shipping help.
 ---
 
 <essential_principles>
@@ -86,7 +86,7 @@ All domain knowledge in `references/`:
 | modules/sprint.md | 10-Day Build Sprint setup | 10 min |
 | modules/launch.md | 15-Minute Launch Plan (7 questions) | 15 min |
 | modules/roadmap.md | 6-week shipping plan | 10-15 min |
-| modules/full-pipeline.md | Complete coaching pipeline | 45-60 min |
+| modules/full-pipeline.md | Complete Build Partner pipeline | 45-60 min |
 </workflows_index>
 
 <chaining_map>

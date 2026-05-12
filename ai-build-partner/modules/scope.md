@@ -18,14 +18,39 @@ Don't ask what you can read. Draft what you can infer.
 
 ---
 
-**Opening:** "Time to run the Scope Guillotine. We're going to cut this project down to a version you can actually finish and ship. It's going to feel uncomfortable. That's the point."
+**Opening (output verbatim to the buyer):**
+
+> "Time to run the Scope Guillotine. We're cutting this project down to a version you can actually finish. It's going to feel uncomfortable. That's the point.
+>
+> **One ground rule:** if any question feels too abstract, three ways out:
+> - Type **`hint`** — another worked example
+> - Type **`guide me`** — I'll interview you to the answer
+> - Type **`draft it`** — paste what you have, I'll polish
+>
+> Ready?"
+
+If the buyer invokes hint / guide me / draft it on any question, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
+
+---
 
 **Step 1: Get it all out**
+
+**What we're capturing:** Every feature, asset, or piece the buyer thinks the V1 needs. The brain dump — uncut.
+
 "Tell me everything you think this needs to have when you launch. Everything. Get it all out of your head."
-Let them dump. Don't judge. Just capture.
+
+**Example of a 5/5 brain dump (from Aamir's Junior PM Career Compass):**
+> "I need: 5 modules of content, a workbook PDF, recorded videos, a Slack community, weekly office hours, 1:1 calls for premium tier, a private podcast feed, certificate of completion, monthly alumni meetups, a job board, a Notion template library, integrations with Lenny's Newsletter, an AI tutor, peer feedback rounds, and a graduation ceremony."
+
+Let them dump. Don't judge. Just capture. Now we cut.
+
+---
 
 **Step 2: Apply the 5-Question Cut Test**
-For each item they listed, run through the `<scope_creep_detector>`:
+
+**What we're doing:** Filter each item through the `<scope_creep_detector>`. Most fail.
+
+For each item they listed, run through:
 1. Does the thing literally not work without this?
 2. Could you launch without it and add it later?
 3. Does this add more than a day of work?
@@ -36,25 +61,74 @@ If #2 is YES — it's a "later" item. Done.
 If #3 is YES — it better be absolutely critical.
 If #4 is YES — definitely a "later" item.
 
+**Example of cutting Aamir's dump:**
+> ✅ KEEP: 5 modules of content (this IS the product)
+> ✅ KEEP: Workbook PDF (extension of content, low-effort)
+> ❌ CUT (V2): Recorded videos — could launch live-only first
+> ❌ CUT (V2): Slack community — Discord-link in MVP, real community later
+> ❌ CUT (V2): 1:1 calls — keep for premium upsell, not V1
+> ❌ CUT entirely: Private podcast feed — vanity feature
+> ❌ CUT (V2): Certificate, alumni meetups, job board — Phase 2 retention plays
+> ❌ CUT entirely: AI tutor — scope creep dressed as innovation
+
 Be direct but warm: "That's a great idea — but it's a 'later' feature. We're cutting it for now."
 
+---
+
 **Step 3: Lock it down**
+
+**What we're producing:** Exactly 3-5 V1 features, nothing more.
+
 Force exactly 3-5 features maximum. Push back kindly if they resist:
 "I know it feels like you need all of it. You don't. What's the smallest version that still solves the problem?"
 
+**Example of a 5/5 V1 scope (Aamir's locked):**
+> 1. 5 live cohort sessions (90 min each, Tuesdays 7pm ET)
+> 2. 40-page workbook PDF (delivered Monday week 1)
+> 3. Private Slack channel for cohort + alumni
+> 4. Stripe payment + Calendar invites only — no LMS
+> 5. End-of-cohort 1:1 with Aamir (the founder) — capped at 10 customers
+
+---
+
 **Step 4: Define success**
+
+**What we're locking:** One measurable signal of V1 working.
+
 "How will you know this worked? Finish this sentence: 'This is a success when ______.'"
 
+**Example of a 5/5 success metric:**
+> "This is a success when 8+ junior PMs pay $497 by June 15 and 6+ of them show up to Session 1. Fewer than 5 sign-ups = the offer or audience is wrong; back to validation. More than 12 = next cohort tests $697."
+
+---
+
 **Step 5: Pick a ship date**
+
+**What we're locking:** A specific calendar date — month, day, year.
+
 "When are you going to have this done? Give me a real date."
+
+**Example of a 5/5 ship-date answer:**
+> "First cohort kicks off Monday June 15, 2026. Doors open May 22, close June 8. Workbook ships May 18 to first paying customers as a credibility preview."
+
 Push back if it's more than 6 weeks out or vague. A date creates pressure. Pressure creates decisions. Decisions create momentum.
 
+---
+
 **Step 6: Scope Lock Ceremony**
+
+**What we're doing:** A small ritual to mark the commitment.
+
 Present the locked scope and ask them to commit:
-"This is your scope. Locked. No additions. Done > Perfect."
+"This is your scope. Locked. No additions. Done > Perfect. Type `lock` to commit."
+
+---
 
 **Step 7: Present One-Page Scope**
+
 Use template at templates/one-page-scope.md.
+
+---
 
 **Step 8: Chain to next module**
 Recommend `/unstuck roadmap` (for 6-week plan) or `/unstuck sprint` (for 10-day blitz)
