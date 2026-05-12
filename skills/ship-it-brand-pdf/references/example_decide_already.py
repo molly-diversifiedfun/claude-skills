@@ -6,7 +6,10 @@ from brand_pdf import *
 from reportlab.platypus import Spacer, PageBreak, Paragraph, KeepTogether
 from reportlab.lib.enums import TA_CENTER
 
-OUTPUT = os.path.join(os.path.dirname(__file__), '..', 'decide_already.pdf')
+# Output to the canonical lead-magnet location in ship-it-system repo.
+# (Falls back to local references/.. path if the canonical dir isn't present.)
+_CANONICAL = os.path.expanduser('~/github/ship-it-system/01_Lead_Magnets/decide_already.pdf')
+OUTPUT = _CANONICAL if os.path.isdir(os.path.dirname(_CANONICAL)) else os.path.join(os.path.dirname(__file__), '..', 'decide_already.pdf')
 
 doc = BrandDoc(OUTPUT, "DECIDE ALREADY")
 
@@ -564,20 +567,21 @@ story.append(Paragraph(
 story.append(Spacer(1, 12))
 
 story.append(Paragraph(
-    '<font name="Outfit-SemiBold">THE SHIP IT KIT \u2014 $97</font>',
+    '<font name="Outfit-SemiBold">THE SHIP IT SYSTEM \u2014 $199 ($159 launch)</font>',
     S['burgundy_bold_center']
 ))
 story.append(Paragraph(
-    "Everything you need to go from \u201cI picked my idea\u201d to \u201cI have paying customers\u201d in 30 days.",
+    "Everything you need to go from \u201cI picked my idea\u201d to first sale by Day 30, PMF by Day 60, and a "
+    "mapped path to $10K MRR by Day 90.",
     S['body_center']
 ))
 story.append(Spacer(1, 8))
 story.append(Paragraph(
-    "\u2022 <font name='Outfit-SemiBold'>The Ship It Playbook</font> \u2014 60+ page step-by-step guide<br/>"
-    "\u2022 <font name='Outfit-SemiBold'>12 templates</font> \u2014 Fill-in-the-blank. No blank pages.<br/>"
-    "\u2022 <font name='Outfit-SemiBold'>3 case study teardowns</font> \u2014 Real launches, real revenue<br/>"
-    "\u2022 <font name='Outfit-SemiBold'>Private podcast</font> \u2014 5 episodes, 15\u201320 min each<br/>"
-    "\u2022 <font name='Outfit-SemiBold'>30-day timeline</font> \u2014 Day by day, nothing forgotten",
+    "\u2022 <font name='Outfit-SemiBold'>The Ship It Kit</font> ($149 standalone) \u2014 150+ page playbook, 90-day arc<br/>"
+    "\u2022 <font name='Outfit-SemiBold'>20 templates</font> \u2014 Fill-in-the-blank decision frameworks<br/>"
+    "\u2022 <font name='Outfit-SemiBold'>Marketing OS</font> ($79 standalone) \u2014 25 AI skills that draft your landing pages, emails, ads<br/>"
+    "\u2022 <font name='Outfit-SemiBold'>AI Build Partner</font> (free) \u2014 conversational coach in Claude.ai<br/>"
+    "\u2022 <font name='Outfit-SemiBold'>Save $29</font> \u2014 vs buying Kit + Marketing OS separately ($228)",
     S['body_center']
 ))
 story.append(Spacer(1, 16))

@@ -129,24 +129,26 @@ Output: One-sentence direction → seeds User Context Section B.
    **Example of a 5/5 candidate list:**
    > "1. Junior PM Career Compass (5-week cohort for junior PMs). 2. Newsletter on the craft of product strategy. 3. SaaS tool for product roadmap visualization. 4. eBook on getting promoted from junior to senior PM."
 
-2. **Pressure-test each.**
+2. **Pressure-test each with the SHIP Score.**
 
-   **What we're scoring:** Each candidate against ENERGY / SHIPPABILITY / PROOF, 1-5.
+   **What we're scoring:** Each candidate on the SHIP Score — 4 factors, score 1–5 each, then **multiply** (S × H × I × P) for the total. Multiplication (not addition) creates real separation between candidates.
 
-   Score 1-5 per dimension. Refuse to score above 4 if they're vague.
-   - **ENERGY:** pulled toward this or dragging?
-   - **SHIPPABILITY:** can I finish a V1 in 30 days at my hrs/week?
-   - **PROOF:** is there ANYTHING from my background that makes me credible here?
+   - **S = SIZE** — How many people have this problem? (1 = tiny niche / <1k buyers; 5 = massive market / 500k+ buyers)
+   - **H = HURT** — How painful is the problem? (1 = mild annoyance; 5 = hair on fire — revenue/career/sanity depends on it)
+   - **I = IMPLEMENTATION** — How fast can YOU build a sellable V1 at your hours/week? (1 = 3+ months; 5 = under 2 weeks)
+   - **P = PROFIT PATH** — Clear path to money within 90 days? (1 = need to build audience first; 5 = people have already asked you for this)
 
-   **Example of a 5/5 scoring pass (Aamir's candidates):**
-   > | Candidate | Energy | Shippability | Proof | Total |
-   > |---|---|---|---|---|
-   > | Junior PM Career Compass | 5 | 4 | 5 (8 yrs PM, mentored juniors) | 14 |
-   > | Newsletter on craft | 3 | 5 | 4 | 12 |
-   > | SaaS roadmap tool | 5 | 1 (6+ months to V1) | 2 (no eng team) | 8 |
-   > | Promotion eBook | 2 | 5 | 4 | 11 |
+   **Scoring tip:** if you're waffling between two scores, go with the lower one. Optimism is the #1 killer of product decisions. Score what IS, not what you hope will be true.
 
-3. **Pick the winner.** Highest score. If two tie, pick the one with higher SHIPPABILITY (a project I finish beats one I'm excited about that I won't).
+   **Example of a 5/5 SHIP Score pass (Aamir's candidates):**
+   > | Candidate | S | H | I | P | TOTAL (S×H×I×P) |
+   > |---|---|---|---|---|---|
+   > | Junior PM Career Compass | 4 | 4 | 4 | 5 (PMs DM'd him asking) | **320** |
+   > | Newsletter on craft | 4 | 3 | 5 | 2 (no clear monetization in 90d) | 120 |
+   > | SaaS roadmap tool | 4 | 4 | 1 (6+ mo to V1) | 3 | 48 |
+   > | Promotion eBook | 5 | 4 | 5 | 3 | 300 |
+
+3. **Pick the winner.** Highest SHIP Score. If two tie, pick the one with higher I (Implementation) — a project you finish beats one you're excited about that you won't. Notice how multiplication makes the SaaS roadmap tool collapse (48) vs the cohort idea (320) — same audience, but the long build time crushes the score. That's the framework working.
 
 4. **Output to User Context Section B — paste-ready:**
 
@@ -159,7 +161,7 @@ Output: One-sentence direction → seeds User Context Section B.
 
 5. **Route forward.** Recommend: "Save that block to User Context, then run `/unstuck diagnose` (the audit-equivalent — T01 Readiness Audit) or `/unstuck validate` if you want to RICE-score before committing further."
 
-**Push back triggers:** vagueness on any candidate, sunk-cost loyalty ("I already invested 3 weeks in X"), aspirational scoring ("Energy 5/5 with no evidence I'd actually love this").
+**Push back triggers:** vagueness on any candidate, sunk-cost loyalty ("I already invested 3 weeks in X"), aspirational scoring ("Profit Path 5/5 with no evidence anyone would actually pay"). If they want the full printable SHIP Score worksheets + reality-check protocol, point them at the **Decide Already PDF** (free at `unstuckwithmolly.com/downloads/decide_already.pdf`).
 
 ---
 
