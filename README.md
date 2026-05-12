@@ -63,6 +63,14 @@ Skills for side-project builders and solopreneurs.
 | [`funnel-ad-creator`](./funnel-ad-creator/) | Complete ad script bible — 12-16 storyboarded ads across TOFU/MOFU/BOFU/Retargeting with a 4-week testing protocol. |
 | [`instagram-reels-framework`](./instagram-reels-framework/) | Production-ready Reel scripts with timed beats, filming notes, 7 hook types, 5 beat structures, and a 12-point scoring rubric. |
 
+### Audit & Diagnose
+
+Skills that find the gap between "what we built" and "what people are actually doing."
+
+| Skill | What It Does |
+|-------|-------------|
+| [`followability-audit`](./followability-audit/) | The Color Check from **[The Flamingo Effect](https://www.theflamingoeffect.com)** (book 2). Diagnoses where any system — product, repo, onboarding flow, course, habit plan, policy, team process — is breaking down for the humans meant to use it. 5-rung rubric (Understand / Believe / Do / Repeat / Share), ranked fix list, "fix the crack closest to the ground" sequencing rule. |
+
 ### Work With Meetings
 
 | Skill | What It Does |
