@@ -59,6 +59,7 @@ What do you need help with?
 6. **Launch** — Turn your idea into a plan in 15 minutes
 7. **Roadmap** — Build a 6-week shipping plan (10-15 min)
 8. **Full** — Run the complete pipeline: diagnose → audit → scope → roadmap (45-60 min)
+9. **Ten-Hour Week** — Set your post-launch sustainable operating mode (10-15 min, post-launch only)
 
 Or just tell me what's going on and I'll point you to the right tool.
 
@@ -77,6 +78,7 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 6, "launch", "plan", "15 minute", "quick start", "get started" | `modules/launch.md` |
 | 7, "roadmap", "6 week", "weekly plan" | `modules/roadmap.md` |
 | 8, "full", "everything", "complete", "all", "pipeline" | `modules/full-pipeline.md` |
+| 9, "ten-hour week", "10 hour week", "post-launch", "I shipped what's next", "sustainable pace", "avoid burnout", "operating mode" | `modules/ten-hour-week.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
 
 **After reading the module, follow it exactly.**
@@ -111,6 +113,7 @@ All domain knowledge in `references/`:
 | modules/launch.md | 15-Minute Launch Plan (7 questions) | 15 min |
 | modules/roadmap.md | 6-week shipping plan | 10-15 min |
 | modules/full-pipeline.md | Complete Build Partner pipeline | 45-60 min |
+| modules/ten-hour-week.md | Post-launch sustainable operating mode — 4-bucket weekly allocation + kill list + next-product decision | 10-15 min |
 </workflows_index>
 
 <chaining_map>
@@ -127,6 +130,13 @@ First session (User Context empty)
      +--> Path 3 (Halfway built — Resurrection)    --> /unstuck scope (skip diagnose+validate)
      +--> Path 4 (Audience-first)                  --> /unstuck scope (skip validate — DMs are validation)
      +--> Path 5 (Built, not launched)             --> /unstuck launch (skip diagnose+scope+sprint)
+
+Post-launch (V1 shipped, paying customers in):
+/unstuck ten-hour-week
+     |
+     +--> V2 of this product       --> /unstuck scope
+     +--> New product entirely     --> /unstuck discovery
+     +--> Validate 3 ideas first   --> /unstuck validate
 
 Already have context:
 /unstuck launch (quick start, early stage)

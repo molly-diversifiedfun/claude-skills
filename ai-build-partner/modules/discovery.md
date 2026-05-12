@@ -39,6 +39,75 @@ If they describe a situation that doesn't fit cleanly, pick the closest match an
 
 ---
 
+## Step 1.5 — Hours reality (BLOCKING, runs after routing, before any path-specific work)
+
+Every downstream artifact (V1 scope, ship date, sprint plan, roadmap) calibrates to weekly hours. Capture this once, here, before any path-specific question. Skip this and the rest of Discovery produces wishful thinking.
+
+**Output verbatim to the buyer:**
+
+> "Before we go deeper — let's lock the real hours per week you can put into this project. Every downstream decision (V1 scope, ship date, build plan) calibrates to your hours, not the other way around. Most people lie to themselves here. Don't.
+>
+> Three quick questions, then I'll route you into the path you picked."
+
+**Q1: Total weekly hours.**
+
+**What we're locking:** A single number you can honor every week for the next 30–90 days.
+
+"How many hours per week, total, will you put into this? Be honest — pretend your future self has to hit this number every week for 12 weeks."
+
+**Example of a 5/5 answer:**
+> "5 hours per week. Day job + a 6yo + a partner I like — this is the realistic ceiling without robbing my family."
+
+Push back on:
+- A range ("10–20 hours") — pick the lower number.
+- "As many as it takes" — that's avoidance, not a plan. Force a number.
+- "20+ hours" outside of unusual life circumstances (sabbatical, between jobs) — almost always launch-week energy creep. Re-baseline at 10.
+
+**Q2: Named build blocks.**
+
+**What we're locking:** 2–3 actual days/times on the calendar.
+
+"Show me the actual blocks. Days of week + time ranges. Not 'whenever I find time'."
+
+**Example of a 5/5 answer:**
+> "Tuesdays 8–10am (before family wakes), Saturdays 9am–noon (kids at swim lesson), Sundays 4–5pm (during nap). 6 hours protected, recurring on calendar with DND on."
+
+Push back if any block is vague ("Saturday morning") — pin to a time range. If they can't name even 2 blocks, the hours number from Q1 is fiction.
+
+**Q3: What gets dropped.**
+
+**What we're surfacing:** The realism of the trade. New hours have to come from somewhere.
+
+"Are you adding 5–10 hours net to your week, or replacing something? If replacing, name what."
+
+**Example of a 5/5 answer:**
+> "Replacing: weekly Apple TV binge (5 hrs saved) and the Saturday gym session moves to Sunday 6–7am instead. Family time is sacred. Day job unchanged."
+
+If they can't name what gets dropped, the plan is wishful thinking. Push: "Where do the 6 hours come from? Reality has a budget."
+
+---
+
+**Output to User Context Section B.2 — paste-ready:**
+
+```
+SECTION B.2 — Time Protection (Discovery seed):
+Total weekly hours: [X]
+Build blocks (named):
+  - [Day, time range, what makes this block possible]
+  - [Day, time range, what makes this block possible]
+  - [Day, time range, what makes this block possible]
+What gets dropped: [paste — must be specific, not "I'll find time"]
+Status: SEEDED in Discovery — run `/unstuck audit` or T02 The Time Protection Plan for the full version with calendar audit + interruption strategy
+```
+
+**BLOCKING — do not proceed to the path-specific V1 scope question until the buyer has named a real number + at least 2 build blocks + what gets dropped.** If they push back ("I'll figure that out later"), respond: "Without hours, V1 scope is fiction. Three minutes here saves a month of unrealistic planning. Indulge me."
+
+After Q1–Q3 are locked, route into the path-specific work (Path 1–5 below) — now anchored to real hours-per-week.
+
+**Calibration rule for V1 scope across all paths:** at [X] hours/week and a 30-day ship date, the buyer has roughly **[X × 4] hours of total build time**. If V1 features (each ~3 days = ~9 hours at 3 hrs/day equivalent) require more total time than [X × 4], force a scope cut. The hours are the constraint; everything else flexes.
+
+---
+
 ## Path 1 — Decide Already (~20 min)
 
 For: "I don't know what to build."
