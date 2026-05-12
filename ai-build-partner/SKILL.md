@@ -146,6 +146,13 @@ First session (User Context empty)
      +--> Path 4 (Audience-first)                  --> /unstuck scope (skip validate — DMs are validation)
      +--> Path 5 (Built, not launched)             --> /unstuck launch (skip diagnose+scope+sprint)
 
+Utility skills (fire at specific Playbook days for AI-drafts-first compression):
+/unstuck warm-list           — Pre-Day 1 audience-readiness gate (surfaces 10–15 humans)
+/unstuck outreach-batch      — Day 3-4 customer-validation outreach (10 paired live+async)
+/unstuck conversation-finder — Day 5 transcript analysis + Kill/Pivot/Go verdict
+/unstuck dm-personalizer     — Day 26 warm-launch DM batch (10–20 personalized DMs)
+/unstuck ten-hour-week       — Day 30+ post-launch sustainable operating mode
+
 Post-launch (V1 shipped, paying customers in):
 /unstuck ten-hour-week
      |
