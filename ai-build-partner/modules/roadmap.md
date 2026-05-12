@@ -6,6 +6,17 @@
 
 <process>
 
+**Step 0 — Check User Context first (Mode 1 behavior)**
+
+Before the Opening, scan the user's uploaded User Context file:
+- Read **Section D.2** (T05 One-Page Scope) for V1 features + ship date, **Section D.5** (T08 Sprint Plan) if it exists for daily decomposition
+- If populated, DRAFT the 6-week plan: Week 1 setup + audit fixes, Week 2 validate, Week 3 build early (spine), Week 4 build late (polish), Week 5 launch infrastructure, Week 6 launch + sustain. Anchor each week to actual V1 features from context. Present the draft + ask the user to refine.
+- If User Context is missing those sections, use the Opening below — and tell the user they should run `/unstuck scope` first (roadmap planning needs locked V1 features).
+
+Don't ask what you can read. Draft what you can infer.
+
+---
+
 **Opening:** "Let's build your 6-week plan. One goal per week. Simple enough to follow, specific enough to execute."
 
 **Step 1: Confirm locked scope**

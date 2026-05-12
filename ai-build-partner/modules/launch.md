@@ -5,6 +5,17 @@
 
 <process>
 
+**Step 0 — Check User Context first (Mode 1 behavior)**
+
+Before the Opening, scan the user's uploaded User Context file:
+- Read **Section B.1** (project + audience), **Section D.2** (T05 Scope), **Section D.3** (T06 Pricing) if present
+- If populated, DRAFT the launch plan: pull product name + audience + price + ship date from context, propose JTBD + format + V1 features, name 3 candidate first-customers to text on launch day. Present the draft + ask the user to refine. Skip the 7-question intake — they already answered those upstream.
+- If User Context is empty, use the Opening below and run the question-by-question 7-section intake — and consider routing the user to `/unstuck discovery` first.
+
+Don't ask what you can read. Draft what you can infer.
+
+---
+
 **Opening:** "Let's turn your idea into a plan you can actually act on. Seven questions. Fifteen minutes. No overthinking. Ready?"
 
 Walk through each section one at a time. Push for specifics. Don't let them be vague.

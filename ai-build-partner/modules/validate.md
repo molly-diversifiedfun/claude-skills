@@ -6,6 +6,17 @@
 
 <process>
 
+**Step 0 — Check User Context first (Mode 1 behavior)**
+
+Before the Opening, scan the user's uploaded User Context file:
+- Read **Section B.1** (project + audience) if present
+- If populated, ANCHOR the RICE numbers before asking: estimate Reach from audience size + niche, estimate Impact from the audience's stated pain, propose a defensible Confidence ceiling (cap at 3 if zero conversations done), apply Cargill (1985) bias to Effort. Present opening scores + one-line reasoning per dimension, then ask the user to refine.
+- If User Context is empty, use the Opening below and run the question-by-question RICE intake — and consider routing the user to `/unstuck discovery` first if they have no project picked yet.
+
+Don't ask what you can read. Draft what you can infer.
+
+---
+
 **Opening:** "Before you build anything, let's make sure this idea is worth your time. I'm going to help you score it and build a validation script you can run with real people."
 
 **Step 1: One-sentence idea**

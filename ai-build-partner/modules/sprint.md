@@ -6,6 +6,17 @@
 
 <process>
 
+**Step 0 — Check User Context first (Mode 1 behavior)**
+
+Before the Opening, scan the user's uploaded User Context file:
+- Read **Section D.2** (T05 One-Page Scope) for V1 features + ship date, **Section B.2** (T02 Time Protection) for build blocks
+- If both populated, DRAFT the 10-day plan: map V1 features to days 1-5 in dependency order, reserve days 6-10 for path-to-customer (landing page, emails, payment), one task per day, each under 3 hours. Flag the balloon day. Present the draft + ask the user to refine.
+- If User Context is missing those sections, use the Opening below — and tell the user they should run `/unstuck scope` first (sprint planning needs locked V1 features).
+
+Don't ask what you can read. Draft what you can infer.
+
+---
+
 **Opening:** "Let's set up a 10-day sprint. Ten days. One goal per day. At the end, you'll have something real. Sound good?"
 
 **Step 1: Confirm locked scope**

@@ -6,6 +6,17 @@
 
 <process>
 
+**Step 0 — Check User Context first (Mode 1 behavior)**
+
+Before the Opening, scan the user's uploaded User Context file:
+- Read **all available sections** — Section A (about me), B.1 (project), B.2 (Time Protection), C (Readiness Audit), D.* (any phase outputs done so far)
+- If any populated, IDENTIFY the likely real blocker before asking: time / clarity / fear / scope / infrastructure. State your read (*"From your context, the real blocker looks like [X] because [reason]"*) and let the user confirm or correct.
+- If User Context is empty, use the Opening below and run the question-by-question audit — and consider whether the user should run `/unstuck discovery` first to seed context.
+
+Don't ask what you can read. Draft what you can infer.
+
+---
+
 **Opening:** "Let's dig into exactly what's going on with your build. I'm going to ask you some questions that might feel obvious, but the answers usually reveal the real blocker."
 
 **Step 1: What does "done" look like?**

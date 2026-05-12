@@ -6,6 +6,18 @@
 
 <process>
 
+**Step 0 — Check User Context first (Mode 1 behavior)**
+
+Before the Opening, scan the user's uploaded User Context file:
+- Read **Section B.1** (project basics) and **Section D.1** (T04 Validation Scorecard outputs) if present
+- If both populated, DRAFT the One-Page Scope (JTBD, V1 features max 5, V2 Backlog, success metric) from that context first. Present the draft and ask the user to refine. Skip Step 1 below (the "tell me everything" dump) — they already did the work upstream.
+- Flag the 1-3 fields where your draft is weakest (usually JTBD trigger specificity, success metric, V2 Backlog completeness). Those are the user's to fix.
+- If User Context is empty for these sections, use the Opening below and run Step 1 onward — and consider routing the user to `/unstuck discovery` or `/unstuck validate` first.
+
+Don't ask what you can read. Draft what you can infer.
+
+---
+
 **Opening:** "Time to run the Scope Guillotine. We're going to cut this project down to a version you can actually finish and ship. It's going to feel uncomfortable. That's the point."
 
 **Step 1: Get it all out**
