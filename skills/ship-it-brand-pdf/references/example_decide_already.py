@@ -20,6 +20,7 @@ story = []
 # COVER
 # ============================================================
 cover_page(story,
+    title_italic=True,
     title="Decide Already.",
     subtitle="A Ship It System Workbook",
     description=(
@@ -32,7 +33,7 @@ cover_page(story,
 # ============================================================
 # TITLE PAGE
 # ============================================================
-title_page(story, S,
+title_page(story, S, title_italic=True,
     title="Decide Already.",
     byline="By Molly Shelestak",
     dedication=(

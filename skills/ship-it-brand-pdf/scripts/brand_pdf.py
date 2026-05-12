@@ -335,14 +335,19 @@ def cover_page(story, title, subtitle, description,
                author_name="Molly Shelestak",
                author_role="Build Partner for Side-Project Shippers",
                website="theshipitsystem.com", handle="@unstuckwithmolly",
-               brand_line="THE SHIP IT SYSTEM"):
+               brand_line="THE SHIP IT SYSTEM",
+               title_italic=False):
     story.append(Spacer(1, 60))
     story.append(Paragraph(
         brand_line,
         ParagraphStyle('cb', fontName='Outfit-SemiBold', fontSize=11, leading=14, textColor=GOLD, spaceAfter=20, letterSpacing=3)
     ))
+    # Italic titles use the Italic variant — matches canonical headline pattern
+    # ("text-primary italic font-light") for voice-driven, attitude-laden titles
+    # like "Decide Already." Per brand-guide.md, italic ≠ bold.
+    _title_font = 'CormorantGaramond-Italic' if title_italic else 'CormorantGaramond'
     story.append(Paragraph(title,
-        ParagraphStyle('ct', fontName='CormorantGaramond', fontSize=52, leading=58, textColor=CREAM, spaceAfter=8)))
+        ParagraphStyle('ct', fontName=_title_font, fontSize=52, leading=58, textColor=CREAM, spaceAfter=8)))
     story.append(GoldRule(width=60, height=3, color=GOLD))
     story.append(Spacer(1, 16))
     story.append(Paragraph(subtitle,
@@ -361,9 +366,14 @@ def cover_page(story, title, subtitle, description,
     story.append(PageBreak())
 
 
-def title_page(story, styles, title, byline, dedication=None, bold_statement=None, copyright_text=None):
+def title_page(story, styles, title, byline, dedication=None, bold_statement=None, copyright_text=None, title_italic=False):
     story.append(Spacer(1, 80))
-    story.append(Paragraph(title, styles['h1_center']))
+    if title_italic:
+        # Use italic variant for attitude-driven titles like "Decide Already."
+        _title_style = ParagraphStyle('h1ci', parent=styles['h1_center'], fontName='CormorantGaramond-Italic')
+        story.append(Paragraph(title, _title_style))
+    else:
+        story.append(Paragraph(title, styles['h1_center']))
     story.append(Paragraph(f'<i>{byline}</i>', styles['subtitle_italic_center']))
     story.append(CenteredGoldRule(width=60, height=3, color=GOLD))
     if dedication:
