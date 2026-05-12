@@ -108,7 +108,7 @@ Detection runs on the user's initial input. Signals: output type keywords, lengt
 ## What This Skill Does NOT Do
 
 - Replace good prompting for expert users (if you know what you want, just say it)
-- Conduct deep discovery for complex projects (that's unstuck-coach's job)
+- Conduct deep discovery for complex projects (that's ai-build-partner's job)
 - Handle multi-session projects (this is a single-interaction intake)
 - Produce the deliverable itself (it extracts context, then passes to Claude's normal generation — or routes to a specialized skill)
 
@@ -126,4 +126,4 @@ Detection runs on the user's initial input. Signals: output type keywords, lengt
 
 - **Every other skill**: ask-me-the-questions is the universal front door. It can detect when a user needs a specific skill (resume, decision, interview prep) and route accordingly.
 - **self-interview**: Different purpose. ask-me-the-questions extracts context for a deliverable. self-interview helps the user clarify their own thinking (no deliverable).
-- **unstuck-coach**: For deeper, multi-session intake on complex projects, hand off to unstuck-coach's module system.
+- **ai-build-partner**: For deeper, multi-session intake on complex projects, hand off to ai-build-partner's module system.

@@ -58,7 +58,7 @@ Skills for side-project builders and solopreneurs.
 
 | Skill | What It Does |
 |-------|-------------|
-| [`unstuck-coach`](./unstuck-coach/) | Modular coaching system for side-project shippers. Diagnoses stuck patterns, audits builds, cuts scope, validates ideas, plans sprints, and creates roadmaps. 8 modules, each produces a concrete artifact. |
+| [`ai-build-partner`](./ai-build-partner/) | The AI Build Partner from Unstuck with Molly — **Layer 1 of [The Ship It System](https://www.theshipitsystem.com), free.** Diagnoses stuck patterns, audits builds, cuts scope, validates ideas, plans sprints, and creates roadmaps. 8 modules, each produces a concrete artifact. |
 | [`build-irresistible-offer`](./build-irresistible-offer/) | Architect offers people feel stupid saying no to. Value stacking, named IP, guarantee structure, urgency mechanics. Based on the Hormozi Value Equation. |
 | [`funnel-ad-creator`](./funnel-ad-creator/) | Complete ad script bible — 12-16 storyboarded ads across TOFU/MOFU/BOFU/Retargeting with a 4-week testing protocol. |
 | [`instagram-reels-framework`](./instagram-reels-framework/) | Production-ready Reel scripts with timed beats, filming notes, 7 hook types, 5 beat structures, and a 12-point scoring rubric. |

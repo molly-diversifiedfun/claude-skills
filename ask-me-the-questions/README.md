@@ -17,7 +17,7 @@ The simplicity is the point. This is the simplest skill in the collection.
 Add this to your project instructions or paste into a conversation:
 
 ```
-Read ~/claude-code-toolkit/skills/ask-me-the-questions/SKILL.md
+Read ~/github/claude-code-toolkit/skills/ask-me-the-questions/SKILL.md
 ```
 
 Then make a vague request. Claude will interview you instead of guessing.
@@ -28,7 +28,7 @@ Reference the skill in your `CLAUDE.md`:
 
 ```markdown
 # Skills
-- When a user request is vague or underspecified, read ~/claude-code-toolkit/skills/ask-me-the-questions/SKILL.md
+- When a user request is vague or underspecified, read ~/github/claude-code-toolkit/skills/ask-me-the-questions/SKILL.md
 ```
 
 Or invoke directly:
@@ -75,4 +75,4 @@ Every other skill. This is the universal front door.
 
 When a user's request maps to a specialized skill — resume builder, decision framework, interview prep — run the intake to extract context, then hand off to that skill with a structured brief. Ask-me-the-questions doesn't produce the deliverable itself; it makes sure the deliverable is informed.
 
-Works especially well with **self-interview** (different purpose: self-interview clarifies the user's thinking, this one clarifies context for a deliverable) and **unstuck-coach** (for deeper, multi-session discovery that exceeds 5 questions).
+Works especially well with **self-interview** (different purpose: self-interview clarifies the user's thinking, this one clarifies context for a deliverable) and **ai-build-partner** (for deeper, multi-session discovery that exceeds 5 questions).

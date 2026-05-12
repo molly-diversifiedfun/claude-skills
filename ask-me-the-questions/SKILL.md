@@ -118,7 +118,7 @@ That's it. Let the work speak.
 ## What This Skill Does NOT Do
 
 - Replace good prompting for expert users who already know what they want
-- Conduct deep multi-session discovery (that's unstuck-coach territory)
+- Conduct deep multi-session discovery (that's ai-build-partner territory)
 - Produce the deliverable itself — it extracts context, then you generate normally (or route to a specialized skill)
 - Handle ongoing projects — this is single-interaction intake
 

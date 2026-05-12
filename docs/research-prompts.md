@@ -584,7 +584,7 @@ I need the question design, not the theory. Look at:
 - Design thinking interview techniques (IDEO, Stanford d.school)
 - Jobs-to-be-Done interview methodology — the "switch interview"
 - How do the best Claude skills handle intake? (Analyze the question
-  flow in: unstuck-coach, build-irresistible-offer, interview-coach-skill
+  flow in: ai-build-partner, build-irresistible-offer, interview-coach-skill
   on GitHub)
 
 For each: what's the first question, how do subsequent questions adapt,
