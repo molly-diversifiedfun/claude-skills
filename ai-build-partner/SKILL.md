@@ -61,6 +61,13 @@ What do you need help with?
 8. **Full** — Run the complete pipeline: diagnose → audit → scope → roadmap (45-60 min)
 9. **Ten-Hour Week** — Set your post-launch sustainable operating mode (10-15 min, post-launch only)
 
+**Utility skills (Mode 1 helpers for high-friction Playbook moments):**
+
+10. **Warm-list** — Surface 10–15 humans who'd plausibly buy your product, via a 5-question interview. Use Pre-Day 1 (audience-readiness check) or Day 26 (warm-launch list prep). (10–15 min)
+11. **DM-personalizer** — Draft a batch of 10–20 personalized warm-launch DMs from your User Context + warm list. Use Day 26 of the 30-day sprint. (5 min generate + 30 min edit)
+12. **Outreach-batch** — Draft 10 customer-validation outreach messages (live call + async voice memo, paired). Use Day 3-4 of the 30-day sprint. (5–10 min generate)
+13. **Conversation-finder** — Pattern-find across 10 validation transcripts. Surfaces top 3 pain quotes verbatim, repeated language, willingness-to-pay signals, Kill/Pivot/Go verdict. Use Day 5 of the 30-day sprint. (20 min)
+
 Or just tell me what's going on and I'll point you to the right tool.
 
 **Wait for response before proceeding.**
@@ -79,6 +86,10 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 7, "roadmap", "6 week", "weekly plan" | `modules/roadmap.md` |
 | 8, "full", "everything", "complete", "all", "pipeline" | `modules/full-pipeline.md` |
 | 9, "ten-hour week", "10 hour week", "post-launch", "I shipped what's next", "sustainable pace", "avoid burnout", "operating mode" | `modules/ten-hour-week.md` |
+| 10, "warm list", "10 humans", "name 10 people", "audience check", "who would buy", "warm contacts", "audience readiness" | `modules/warm-list.md` |
+| 11, "dm personalizer", "draft my DMs", "warm launch DMs", "personalize 10 DMs", "Day 26 DMs", "launch DM batch" | `modules/dm-personalizer.md` |
+| 12, "outreach batch", "validation outreach", "10 conversation outreach", "Day 3 outreach", "customer interview DMs", "validation messages" | `modules/outreach-batch.md` |
+| 13, "conversation finder", "pattern find conversations", "transcript analysis", "Day 5 verdict", "kill pivot go", "validation analysis" | `modules/conversation-finder.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
 
 **After reading the module, follow it exactly.**
@@ -114,6 +125,10 @@ All domain knowledge in `references/`:
 | modules/roadmap.md | 6-week shipping plan | 10-15 min |
 | modules/full-pipeline.md | Complete Build Partner pipeline | 45-60 min |
 | modules/ten-hour-week.md | Post-launch sustainable operating mode — 4-bucket weekly allocation + kill list + next-product decision | 10-15 min |
+| modules/warm-list.md | Surface 10–15 named humans who'd plausibly buy — 5-question interview pattern. Unblocks the audience-readiness gate. | 10-15 min |
+| modules/dm-personalizer.md | Day 26 warm-launch DM batch — draft 10–20 personalized DMs from User Context + warm list | 5 + 30 min |
+| modules/outreach-batch.md | Day 3-4 validation outreach — draft 10 paired (live + async) outreach messages | 5-10 min |
+| modules/conversation-finder.md | Day 5 transcript analysis — pattern-find verbatim pain quotes + Kill/Pivot/Go verdict | 20 min |
 </workflows_index>
 
 <chaining_map>
