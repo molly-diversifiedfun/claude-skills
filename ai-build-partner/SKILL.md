@@ -67,6 +67,7 @@ What do you need help with?
 11. **DM-personalizer** — Draft a batch of 10–20 personalized warm-launch DMs from your User Context + warm list. Use Day 26 of the 30-day sprint. (5 min generate + 30 min edit)
 12. **Outreach-batch** — Draft 10 customer-validation outreach messages (live call + async voice memo, paired). Use Day 3-4 of the 30-day sprint. (5–10 min generate)
 13. **Conversation-finder** — Pattern-find across 10 validation transcripts. Surfaces top 3 pain quotes verbatim, repeated language, willingness-to-pay signals, Kill/Pivot/Go verdict. Use Day 5 of the 30-day sprint. (20 min)
+14. **Ship-announcement** — Generate the full launch-announcement kit (IG / LinkedIn / Twitter / Substack drafts + SHIPPED-stamp image prompt + /shipped Wall submission mailto) from 8 inputs or from your User Context. Use Day 28 of the 30-day sprint, after the product has shipped. (15 min)
 
 Or just tell me what's going on and I'll point you to the right tool.
 
@@ -90,6 +91,7 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 11, "dm personalizer", "draft my DMs", "warm launch DMs", "personalize 10 DMs", "Day 26 DMs", "launch DM batch" | `modules/dm-personalizer.md` |
 | 12, "outreach batch", "validation outreach", "10 conversation outreach", "Day 3 outreach", "customer interview DMs", "validation messages" | `modules/outreach-batch.md` |
 | 13, "conversation finder", "pattern find conversations", "transcript analysis", "Day 5 verdict", "kill pivot go", "validation analysis" | `modules/conversation-finder.md` |
+| 14, "ship announcement", "ship-announcement", "launch post", "announce launch", "post my launch", "Day 28", "shipped stamp", "ship image", "launch announcement", "announcement kit" | `modules/ship-announcement.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
 
 **After reading the module, follow it exactly.**
@@ -110,6 +112,7 @@ All domain knowledge in `references/`:
 - templates/launch-plan.md
 - templates/six-week-roadmap.md
 - templates/full-report.md
+- templates/ship-announcement.md
 </reference_index>
 
 <workflows_index>
@@ -129,6 +132,7 @@ All domain knowledge in `references/`:
 | modules/dm-personalizer.md | Day 26 warm-launch DM batch — draft 10–20 personalized DMs from User Context + warm list | 5 + 30 min |
 | modules/outreach-batch.md | Day 3-4 validation outreach — draft 10 paired (live + async) outreach messages | 5-10 min |
 | modules/conversation-finder.md | Day 5 transcript analysis — pattern-find verbatim pain quotes + Kill/Pivot/Go verdict | 20 min |
+| modules/ship-announcement.md | Day 28 launch-announcement kit — generate 4 platform-tailored posts + nano-banana SHIPPED-stamp image prompt + /shipped mailto from User Context (Mode 1) or 8 questions (Mode 2) | 15 min |
 </workflows_index>
 
 <chaining_map>
@@ -151,6 +155,7 @@ Utility skills (fire at specific Playbook days for AI-drafts-first compression):
 /unstuck outreach-batch      — Day 3-4 customer-validation outreach (10 paired live+async)
 /unstuck conversation-finder — Day 5 transcript analysis + Kill/Pivot/Go verdict
 /unstuck dm-personalizer     — Day 26 warm-launch DM batch (10–20 personalized DMs)
+/unstuck ship-announcement   — Day 28 launch-announcement kit (4 platform posts + image prompt + Wall submission)
 /unstuck ten-hour-week       — Day 30+ post-launch sustainable operating mode
 
 Post-launch (V1 shipped, paying customers in):
