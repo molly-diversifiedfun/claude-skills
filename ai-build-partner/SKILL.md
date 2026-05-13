@@ -68,6 +68,9 @@ What do you need help with?
 12. **Outreach-batch** — Draft 10 customer-validation outreach messages (live call + async voice memo, paired). Use Day 3-4 of the 30-day sprint. (5–10 min generate)
 13. **Conversation-finder** — Pattern-find across 10 validation transcripts. Surfaces top 3 pain quotes verbatim, repeated language, willingness-to-pay signals, Kill/Pivot/Go verdict. Use Day 5 of the 30-day sprint. (20 min)
 14. **Ship-announcement** — Generate the full launch-announcement kit (IG / LinkedIn / Twitter / Substack drafts + SHIPPED-stamp image prompt + /shipped Wall submission mailto) from 8 inputs or from your User Context. Use Day 28 of the 30-day sprint, after the product has shipped. (15 min)
+15. **Audience-from-zero** — 30-day audience-build plan for Path 4 (audience-first) buyers or anyone starting near-zero. 8-question intake produces cadence sized to your real hours, topic clusters, 10 pre-written first posts, dormant-audience activation script, and a Day 30 readiness gate. Use Pre-Day 1 if Q1 said you have no audience. (12 min)
+16. **Day-job-decision** — Opinionated STAY / NEGOTIATE PART-TIME / QUIT IN N MONTHS / QUIT NOW verdict on whether to quit your day job. 8-question intake includes runway math, psych temperature, partner alignment, and both 6-month worst-case scenarios. Outputs verdict with confidence + conversation scripts for boss/partner/accountant. Use when triggered (post-launch decision, runway shift, burnout spike). NOT financial advice. (15 min)
+17. **Pick-my-stack** — Personalized 9-category stack manifest (Payment / ESP / Hosting / Landing / Analytics / DB / Auth / Forms / Domain) with Claude/MCP-friendly bias. 8-question intake produces specific vendor picks + reasoning + monthly cost at your audience volume + setup order + migration paths. Use Day 11 of the sprint when scope is locked and you need to wire infrastructure. (12 min)
 
 Or just tell me what's going on and I'll point you to the right tool.
 
@@ -92,6 +95,9 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 12, "outreach batch", "validation outreach", "10 conversation outreach", "Day 3 outreach", "customer interview DMs", "validation messages" | `modules/outreach-batch.md` |
 | 13, "conversation finder", "pattern find conversations", "transcript analysis", "Day 5 verdict", "kill pivot go", "validation analysis" | `modules/conversation-finder.md` |
 | 14, "ship announcement", "ship-announcement", "launch post", "announce launch", "post my launch", "Day 28", "shipped stamp", "ship image", "launch announcement", "announcement kit" | `modules/ship-announcement.md` |
+| 15, "audience from zero", "audience-from-zero", "build audience", "no audience", "starting from zero", "Path 4", "audience-first", "30-day audience plan", "build my following", "newsletter from scratch", "LinkedIn from scratch" | `modules/audience-from-zero.md` |
+| 16, "day-job decision", "should I quit", "quit my job", "quit decision", "stay or quit", "negotiate part-time", "quit in N months", "day job alignment", "runway math", "career decision", "burnout decision" | `modules/day-job-decision.md` |
+| 17, "pick my stack", "pick-my-stack", "tech stack", "vendor picks", "which tools", "stack manifest", "what should I use for", "Day 11 stack", "wire infrastructure", "tooling budget", "MCP-friendly stack" | `modules/pick-my-stack.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
 
 **After reading the module, follow it exactly.**
@@ -113,6 +119,9 @@ All domain knowledge in `references/`:
 - templates/six-week-roadmap.md
 - templates/full-report.md
 - templates/ship-announcement.md
+- templates/audience-from-zero.md
+- templates/day-job-decision.md
+- templates/pick-my-stack.md
 </reference_index>
 
 <workflows_index>
@@ -133,6 +142,9 @@ All domain knowledge in `references/`:
 | modules/outreach-batch.md | Day 3-4 validation outreach — draft 10 paired (live + async) outreach messages | 5-10 min |
 | modules/conversation-finder.md | Day 5 transcript analysis — pattern-find verbatim pain quotes + Kill/Pivot/Go verdict | 20 min |
 | modules/ship-announcement.md | Day 28 launch-announcement kit — generate 4 platform-tailored posts + nano-banana SHIPPED-stamp image prompt + /shipped mailto from User Context (Mode 1) or 8 questions (Mode 2) | 15 min |
+| modules/audience-from-zero.md | Pre-Day 1 (Path 4 audience-first) — 30-day cadence + topic clusters + 10 pre-written posts + dormant-audience activation + Day 30 readiness gate | 12 min |
+| modules/day-job-decision.md | Opinionated quit-decision verdict (STAY / NEGOTIATE / QUIT IN N / QUIT NOW) — runway math + 3 conversation scripts + kill conditions. Not financial advice. | 15 min |
+| modules/pick-my-stack.md | Day 11 stack manifest — 9-category vendor picks with Claude/MCP-friendly bias + monthly cost + setup order + migration paths | 12 min |
 </workflows_index>
 
 <chaining_map>
@@ -156,6 +168,9 @@ Utility skills (fire at specific Playbook days for AI-drafts-first compression):
 /unstuck conversation-finder — Day 5 transcript analysis + Kill/Pivot/Go verdict
 /unstuck dm-personalizer     — Day 26 warm-launch DM batch (10–20 personalized DMs)
 /unstuck ship-announcement   — Day 28 launch-announcement kit (4 platform posts + image prompt + Wall submission)
+/unstuck audience-from-zero  — Pre-Day 1 30-day audience-build plan (Path 4 / starting near-zero)
+/unstuck pick-my-stack       — Day 11 9-category stack manifest with Claude/MCP-friendly bias
+/unstuck day-job-decision    — Ad-hoc opinionated STAY/NEGOTIATE/QUIT verdict (fires when triggered, not on a specific sprint day)
 /unstuck ten-hour-week       — Day 30+ post-launch sustainable operating mode
 
 Post-launch (V1 shipped, paying customers in):
