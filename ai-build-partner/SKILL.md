@@ -72,6 +72,17 @@ What do you need help with?
 16. **Day-job-decision** — Opinionated STAY / NEGOTIATE PART-TIME / QUIT IN N MONTHS / QUIT NOW verdict on whether to quit your day job. 8-question intake includes runway math, psych temperature, partner alignment, and both 6-month worst-case scenarios. Outputs verdict with confidence + conversation scripts for boss/partner/accountant. Use when triggered (post-launch decision, runway shift, burnout spike). NOT financial advice. (15 min)
 17. **Pick-my-stack** — Personalized 9-category stack manifest (Payment / ESP / Hosting / Landing / Analytics / DB / Auth / Forms / Domain) with Claude/MCP-friendly bias. 8-question intake produces specific vendor picks + reasoning + monthly cost at your audience volume + setup order + migration paths. Use Day 11 of the sprint when scope is locked and you need to wire infrastructure. (12 min)
 
+**Template skills (per-template AI flow — replaces inline T-prompts):**
+
+18. **Smoke-test** — Day 10 demand-risk-primary smoke test. Pre-commit thresholds, stand up the test (waitlist / Stripe-intent / discovery-call / pre-order), read against locked thresholds, PASS/PIVOT/KILL verdict. T16 source. (20 min setup, 5-day run, 15 min read)
+19. **Landing-page** — 8-section landing-page draft from User Context (Hero / Problem / Solution / What's Inside / For-you-NOT-for / Bio / Price+CTA / FAQ). Specificity audit + voice check. Defers to Marketing OS skills if loaded (Hormozi Value Equation, Schwartz 5 Levels, Belcher 21-Step). T11 source. (~45 min)
+20. **Weekly** — Recurring 20-min Sunday Ship Check. 7 prompts: Progress · Timeline (Scope Reset Protocol if NO) · Scope creep · Next-week plan · Boundary check · Energy · THE ONE Thing. T15 source. Run every Sunday during the sprint, then forever. (20 min)
+21. **Funnel** — 4-step lead-magnet → tripwire funnel design. Topic selector (Schwartz 5 Levels) · Tripwire designer (Brunson Value Ladder / Hormozi Value Equation) · Lead-magnet content writer · 3-email tripwire sequence. Defers to Marketing OS if loaded. (~30 min)
+22. **Build-in-public** — Two branches: (A) Day 11–12 cadence setup — posture (Receipts/Vulnerable/Tactical) + 9-post backlog, OR (B) Generate a milestone post (Day 5/15/25/30) auto-customized from User Context. Defers to Marketing OS `viral-hook-generator` + `build-email-story-engine` if loaded. T22 source. (15 min per post)
+23. **PMF** — Day 60 PMF Scorecard. Four independent signals (Sean Ellis · Retention · Unsolicited referrals · Voice match), composite verdict: SCALE / ITERATE / PIVOT / KILL. T17 source. (45 min)
+24. **V1.1** — Day 38-60 V1.1 Priority Filter. Dump 5-15 candidates, score on (Retention × WTP) × (Build Effort × Scope Risk) ÷ 25, pick THE ONE. Hard cap: one ship, contained, ≤ 2 weeks. T18 source. (30 min)
+25. **Scaling-lever** — Day 75+ scaling-lever filter. 4-question funnel diagnostic → bottleneck named → 5 levers scored (bottleneck match × leverage × can-pull) → anti-pattern check (default-lever override) → 30-day campaign with locked success metric. T19 source. (45 min)
+
 Or just tell me what's going on and I'll point you to the right tool.
 
 **Wait for response before proceeding.**
@@ -98,6 +109,14 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 15, "audience from zero", "audience-from-zero", "build audience", "no audience", "starting from zero", "Path 4", "audience-first", "30-day audience plan", "build my following", "newsletter from scratch", "LinkedIn from scratch" | `modules/audience-from-zero.md` |
 | 16, "day-job decision", "should I quit", "quit my job", "quit decision", "stay or quit", "negotiate part-time", "quit in N months", "day job alignment", "runway math", "career decision", "burnout decision" | `modules/day-job-decision.md` |
 | 17, "pick my stack", "pick-my-stack", "tech stack", "vendor picks", "which tools", "stack manifest", "what should I use for", "Day 11 stack", "wire infrastructure", "tooling budget", "MCP-friendly stack" | `modules/pick-my-stack.md` |
+| 18, "smoke test", "smoke-test", "demand test", "pre-commit thresholds", "stripe intent", "waitlist test", "T16", "demand-risk primary", "Day 10 smoke" | `modules/smoke-test.md` |
+| 19, "landing page", "landing-page", "hero copy", "8-section page", "T11", "Carrd page", "Framer page", "Day 22 landing" | `modules/landing-page.md` |
+| 20, "weekly", "weekly ship check", "Sunday review", "T15", "CEO meeting with myself", "weekly check", "ship check", "scope reset", "boundary check" | `modules/weekly.md` |
+| 21, "funnel", "lead magnet", "tripwire", "$19 tripwire", "lead magnet to tripwire", "value ladder", "funnel design", "tripwire emails" | `modules/funnel.md` |
+| 22, "build in public", "build-in-public", "T22", "milestone post", "Day 5 post", "Day 15 post", "Day 25 post", "Day 30 post", "posture", "9-post backlog" | `modules/build-in-public.md` |
+| 23, "pmf", "PMF", "pmf scorecard", "Sean Ellis", "Day 60 score", "very disappointed", "retention curve", "voice match", "T17", "product-market fit" | `modules/pmf.md` |
+| 24, "v1.1", "V1.1", "v1.1 priority filter", "T18", "Day 38 filter", "iterate to PMF", "pick the one V1.1", "V1.1 ship" | `modules/v1-1.md` |
+| 25, "scaling lever", "scaling-lever", "T19", "Day 75 lever", "bottleneck diagnostic", "which lever", "30-day campaign", "scale to stable" | `modules/scaling-lever.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
 
 **After reading the module, follow it exactly.**
@@ -145,6 +164,14 @@ All domain knowledge in `references/`:
 | modules/audience-from-zero.md | Pre-Day 1 (Path 4 audience-first) — 30-day cadence + topic clusters + 10 pre-written posts + dormant-audience activation + Day 30 readiness gate | 12 min |
 | modules/day-job-decision.md | Opinionated quit-decision verdict (STAY / NEGOTIATE / QUIT IN N / QUIT NOW) — runway math + 3 conversation scripts + kill conditions. Not financial advice. | 15 min |
 | modules/pick-my-stack.md | Day 11 stack manifest — 9-category vendor picks with Claude/MCP-friendly bias + monthly cost + setup order + migration paths | 12 min |
+| modules/smoke-test.md | Day 10 demand-risk-primary smoke test — pre-commit thresholds (B2B / B2C / Course / Service), pick option (waitlist / Stripe-intent / discovery-call / pre-order), 5-day run, PASS/PIVOT/KILL verdict | 20 + 15 min |
+| modules/landing-page.md | 8-section landing-page draft (Hero · Problem · Solution · What's Inside · For-you-NOT-for · Bio · Price+CTA · FAQ) with specificity audit + voice check. Defers to Marketing OS for offer architecture (Hormozi/Schwartz/Belcher) if loaded | 45 min |
+| modules/weekly.md | Recurring 20-min Sunday Ship Check — 7 prompts including Scope Reset Protocol (ship date held, scope cut) | 20 min |
+| modules/funnel.md | 4-step lead-magnet → tripwire funnel — topic selector, $19 tripwire designer, lead-magnet content writer, 3-email sequence. Defers to Marketing OS `design-micro-commitment-ladder` + `build-irresistible-offer` if loaded | 30 min |
+| modules/build-in-public.md | Two branches: cadence setup (Day 11-12: posture + 9-post backlog) OR milestone post generator (Day 5/15/25/30). Defers to Marketing OS `viral-hook-generator` + `build-email-story-engine` if loaded | 15 min/post |
+| modules/pmf.md | Day 60 PMF Scorecard — 4 signals (Sean Ellis · Retention · Unsolicited referrals · Voice match), composite SCALE/ITERATE/PIVOT/KILL verdict, thresholds pre-committed before results read | 45 min |
+| modules/v1-1.md | Day 38-60 V1.1 Priority Filter — dump candidates, score on (R × W) × (BE × SR) ÷ 25, pick THE ONE, force-bucket every unselected item | 30 min |
+| modules/scaling-lever.md | Day 75+ Scaling Lever Filter — 4-question funnel diagnostic, score 5 levers, anti-pattern check against default-lever, 30-day campaign with pre-locked success metric | 45 min |
 </workflows_index>
 
 <chaining_map>
@@ -166,12 +193,20 @@ Utility skills (fire at specific Playbook days for AI-drafts-first compression):
 /unstuck warm-list           — Pre-Day 1 audience-readiness gate (surfaces 10–15 humans)
 /unstuck outreach-batch      — Day 3-4 customer-validation outreach (10 paired live+async)
 /unstuck conversation-finder — Day 5 transcript analysis + Kill/Pivot/Go verdict
+/unstuck smoke-test          — Day 10 demand-risk-primary smoke test (T16) → PASS/PIVOT/KILL
+/unstuck pick-my-stack       — Day 11 9-category stack manifest with Claude/MCP-friendly bias
+/unstuck build-in-public     — Day 11-12 cadence setup; Day 5/15/25/30 milestone posts (T22)
+/unstuck landing-page        — Day 22 8-section landing-page draft (T11)
+/unstuck weekly              — Recurring Sunday 20-min Ship Check (T15) — every week, forever
+/unstuck funnel              — Lead-magnet → tripwire funnel design (4 steps)
 /unstuck dm-personalizer     — Day 26 warm-launch DM batch (10–20 personalized DMs)
 /unstuck ship-announcement   — Day 28 launch-announcement kit (4 platform posts + image prompt + Wall submission)
 /unstuck audience-from-zero  — Pre-Day 1 30-day audience-build plan (Path 4 / starting near-zero)
-/unstuck pick-my-stack       — Day 11 9-category stack manifest with Claude/MCP-friendly bias
 /unstuck day-job-decision    — Ad-hoc opinionated STAY/NEGOTIATE/QUIT verdict (fires when triggered, not on a specific sprint day)
 /unstuck ten-hour-week       — Day 30+ post-launch sustainable operating mode
+/unstuck pmf                 — Day 60 PMF Scorecard (T17) → SCALE/ITERATE/PIVOT/KILL
+/unstuck v1.1                — Day 38-60 V1.1 Priority Filter (T18) → THE ONE V1.1 ship
+/unstuck scaling-lever       — Day 75+ Scaling Lever Filter (T19) → bottleneck + 30-day lever campaign
 
 Post-launch (V1 shipped, paying customers in):
 /unstuck ten-hour-week
