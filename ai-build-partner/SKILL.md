@@ -83,6 +83,20 @@ What do you need help with?
 24. **V1.1** — Day 38-60 V1.1 Priority Filter. Dump 5-15 candidates, score on (Retention × WTP) × (Build Effort × Scope Risk) ÷ 25, pick THE ONE. Hard cap: one ship, contained, ≤ 2 weeks. T18 source. (30 min)
 25. **Scaling-lever** — Day 75+ scaling-lever filter. 4-question funnel diagnostic → bottleneck named → 5 levers scored (bottleneck match × leverage × can-pull) → anti-pattern check (default-lever override) → 30-day campaign with locked success metric. T19 source. (45 min)
 
+**Template skills (Tier B — per-template AI flow):**
+
+26. **Launch-emails** — 5-email launch sequence (Story / What's Inside / Proof / Objections / Last Chance) drafted from User Context. Lock real Email-5 urgency BEFORE drafting. Defers to Marketing OS `build-email-story-engine` (Brunson Soap Opera + Epiphany Bridge) + `design-launch-sequence` (Walker PLF). T12 source. (~45 min)
+27. **Automate** — Day 80 audit + categorize (Automate / Delegate / Kill / Keep) + pick ONE automation to ship in 7 days. Branches: setup (Days 73-79) and categorize+pick (Day 80). T20 source. (30 min)
+28. **Support-refund** — Day 23 pre-launch: lock refund policy (A/B/C anchored to price) + draft 12 canned support responses in buyer's voice + response-time promise + inbox routing. T24 source. (~90 min)
+29. **Pricing-iteration** — Day 38+ price change decision. 5 signals → matrix verdict → grandfather + pre-announce + one-change-per-quarter. T25 source. (~45 min)
+30. **Stuck** — Diagnostic toolkit when stuck 20+ min. Tool 1 (Scope Creep Detector) or Tool 2 (Stuck Decision Tree). Forced verb-first next action. T10 source. (5-15 min)
+
+**Template skills (Tier C — per-template AI flow):**
+
+31. **Time-protect** — Pre-Day-1 boundary plan. Audit + #1 external/internal breakers + 3 build blocks + structural defenses + Park Downhill protocol + signed commitment. T02 source. (~30 min)
+32. **Pricing** — Day 8 V1 price lock via value-of-alternatives anchoring (Professional / Course / DIY) + Value% × Cost% + Molly's rule (when in doubt, charge more). Defers to Marketing OS `build-irresistible-offer` (Hormozi Value Equation) + `design-pricing-architecture` (Van Westendorp + Decoy Effect) if loaded. T06 source. (~45 min)
+33. **V2-backlog** — Scope Guillotine: 5-question filter on new ideas mid-build OR full V1 feature audit (CORE/NICE/CUT). KEEP + cut equal-size OR KILL + V2 row. T07 source. (60 sec per idea, 30 min for full audit)
+
 Or just tell me what's going on and I'll point you to the right tool.
 
 **Wait for response before proceeding.**
@@ -117,6 +131,14 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 23, "pmf", "PMF", "pmf scorecard", "Sean Ellis", "Day 60 score", "very disappointed", "retention curve", "voice match", "T17", "product-market fit" | `modules/pmf.md` |
 | 24, "v1.1", "V1.1", "v1.1 priority filter", "T18", "Day 38 filter", "iterate to PMF", "pick the one V1.1", "V1.1 ship" | `modules/v1-1.md` |
 | 25, "scaling lever", "scaling-lever", "T19", "Day 75 lever", "bottleneck diagnostic", "which lever", "30-day campaign", "scale to stable" | `modules/scaling-lever.md` |
+| 26, "launch emails", "launch-emails", "5-email launch", "T12", "Day 23 emails", "soap opera sequence", "objection emails" | `modules/launch-emails.md` |
+| 27, "automate", "automation map", "T20", "Day 80 audit", "automate delegate kill keep", "10-hour business week automation" | `modules/automate.md` |
+| 28, "support refund", "support-refund", "refund policy", "canned responses", "T24", "Day 23 support", "refund window", "support FAQ" | `modules/support-refund.md` |
+| 29, "pricing iteration", "pricing-iteration", "T25", "Day 38 pricing", "change my price", "raise price", "lower price", "refund rate price" | `modules/pricing-iteration.md` |
+| 30, "stuck", "stuck toolkit", "T10", "scope creep detector", "stuck decision tree", "stuck for 20 minutes", "stuck on this problem", "stuck on project" | `modules/stuck.md` |
+| 31, "time protect", "time-protect", "T02", "boundary audit", "build blocks", "boundary breaker", "Park Downhill", "time protection plan", "pre-Day-1 time" | `modules/time-protect.md` |
+| 32, "pricing", "T06", "Day 8 pricing", "pricing calculator", "value-based pricing", "anchor pricing", "what should I charge", "set my price" | `modules/pricing.md` |
+| 33, "v2 backlog", "v2-backlog", "T07", "scope guillotine", "should I add this", "new idea mid-build", "5-question filter", "kill the idea", "V1 feature audit" | `modules/v2-backlog.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
 
 **After reading the module, follow it exactly.**
@@ -172,6 +194,14 @@ All domain knowledge in `references/`:
 | modules/pmf.md | Day 60 PMF Scorecard — 4 signals (Sean Ellis · Retention · Unsolicited referrals · Voice match), composite SCALE/ITERATE/PIVOT/KILL verdict, thresholds pre-committed before results read | 45 min |
 | modules/v1-1.md | Day 38-60 V1.1 Priority Filter — dump candidates, score on (R × W) × (BE × SR) ÷ 25, pick THE ONE, force-bucket every unselected item | 30 min |
 | modules/scaling-lever.md | Day 75+ Scaling Lever Filter — 4-question funnel diagnostic, score 5 levers, anti-pattern check against default-lever, 30-day campaign with pre-locked success metric | 45 min |
+| modules/launch-emails.md | Day 23 5-email launch sequence (Story / What's Inside / Proof / Objections / Last Chance). Lock real Email-5 urgency BEFORE drafting. Hero language echoes from D.8. Defers to Marketing OS `build-email-story-engine` + `design-launch-sequence` if loaded | 45 min |
+| modules/automate.md | Day 80 automation map — audit setup (Branch A) OR categorize + pick THE ONE to ship in 7 days (Branch B). 4 buckets, Hard Cap: one per week | 30 min |
+| modules/support-refund.md | Day 23 pre-launch refund policy lock (A/B/C by price) + 12 canned support responses in voice + response-time promise + inbox routing | 90 min |
+| modules/pricing-iteration.md | Day 38+ price change decision — 5 signals + matrix verdict + grandfather rule + one-change-per-quarter discipline | 45 min |
+| modules/stuck.md | Stuck-20+-min diagnostic — Tool 1 (Scope Creep Detector) OR Tool 2 (Stuck Decision Tree). Forced verb-first next action | 5-15 min |
+| modules/time-protect.md | Pre-Day-1 time protection — boundary audit + breakers + 3 build blocks + structural defenses + Park Downhill + signed commitment | 30 min |
+| modules/pricing.md | Day 8 V1 price lock via value-of-alternatives anchoring. Defers to Marketing OS `build-irresistible-offer` (Hormozi Value Equation) + `design-pricing-architecture` if loaded | 45 min |
+| modules/v2-backlog.md | Scope Guillotine — 5-question filter on new ideas OR full V1 audit. Recurring use Days 1-30 | 60 sec/idea, 30 min audit |
 </workflows_index>
 
 <chaining_map>
@@ -207,6 +237,14 @@ Utility skills (fire at specific Playbook days for AI-drafts-first compression):
 /unstuck pmf                 — Day 60 PMF Scorecard (T17) → SCALE/ITERATE/PIVOT/KILL
 /unstuck v1.1                — Day 38-60 V1.1 Priority Filter (T18) → THE ONE V1.1 ship
 /unstuck scaling-lever       — Day 75+ Scaling Lever Filter (T19) → bottleneck + 30-day lever campaign
+/unstuck time-protect        — Pre-Day-1 time protection plan (T02) — boundary + breakers + Park Downhill
+/unstuck pricing             — Day 8 V1 price lock (T06) — value-of-alternatives anchoring
+/unstuck v2-backlog          — Scope Guillotine (T07) — full audit OR single mid-build idea
+/unstuck stuck               — Stuck-toolkit diagnostic (T10) — Tool 1 (scope creep) OR Tool 2 (decision tree)
+/unstuck launch-emails       — Day 23 5-email launch sequence (T12) → reuses landing-page hero
+/unstuck automate            — Day 80 automation map (T20) — pick ONE per 7 days
+/unstuck support-refund      — Day 23 pre-launch refund policy + 12 canned responses (T24)
+/unstuck pricing-iteration   — Day 38+ price change decision (T25) — once per quarter
 
 Post-launch (V1 shipped, paying customers in):
 /unstuck ten-hour-week
