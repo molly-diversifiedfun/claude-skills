@@ -6,6 +6,31 @@
 
 ---
 
+## Step 0 — Context check (recommend `/unstuck context` first if appropriate)
+
+**Before Step 1's routing question, scan the loaded User Context file (if any).**
+
+- **If User Context file is loaded AND Section A is filled** (name + hours + Stuck Pattern present) → skip Step 0, continue to Step 1.
+- **If User Context file is loaded but Section A is empty** OR **no User Context file is loaded at all** → recommend `/unstuck context` first.
+
+**Output verbatim when recommending Context:**
+
+> "Quick check before we route — I'm reading your User Context and Section A (about you) is empty. You'll get sharper Discovery answers if I have your hours/week + Stuck Pattern + outcome preference up front.
+>
+> **Two options:**
+> 1. **Fire `/unstuck context` first** (5-10 min, 12 Socratic questions across Sections A → G) — produces a paste-ready User Context block. Then come back to Discovery with the context loaded. **Recommended.**
+> 2. **Skip Context, go straight to Discovery.** Faster start, but I'll re-ask some of the same questions inside the path you pick.
+>
+> Which? (1 / 2)"
+
+If they pick **1**: tell them to fire `/unstuck context`, save the output to their User Context file, then return to `/unstuck discovery`. End the session here.
+
+If they pick **2**: proceed to Step 1 below. You will have less context to draft from; lean harder on the buyer's direct answers.
+
+If they don't have a User Context file at all (Standalone mode without uploaded context): default to **1** unless the buyer explicitly says "skip Context."
+
+---
+
 ## Step 1 — Intake (routing)
 
 Open with the entry-state question. Pick ONE — don't list all five at once unless they ask.

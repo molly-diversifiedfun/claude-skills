@@ -1,5 +1,11 @@
 # 04 — User Context Template
 
+> **🤖 Don't want to fill this by hand?** Fire **`/unstuck context`** in your AI Build Partner. 12 Socratic questions across Sections A → G, 5-10 min, produces a paste-ready block you drop in here. Recommended for first-timers — the AI will Socratic-interview you (with hint / guide me / draft it ways out on every question) and you skip the blank-page problem.
+>
+> **OR fill this template manually** — instructions below.
+
+---
+
 > **You** (the buyer) fill this file in once at setup, then update it as your project progresses. Upload it as a Project knowledge file. The Build Partner reads it to know who you are, where you are, and what's been produced so far.
 >
 > **Treat this as a living doc.** When the Build Partner hands off after a session, it will tell you what to update here and prompt you to re-upload.
