@@ -2,7 +2,7 @@
 
 ## What This Is
 
-Public free skill library for Claude Code and Claude.ai. Taster menu for the paid [solopreneur-skills](https://github.com/molly-diversifiedfun/solopreneur-skills) collection. 18 skills across thinking, writing, career, learning, shipping, and Claude Code power-user categories.
+Public free skill library for Claude Code and Claude.ai. Taster menu for the paid [solopreneur-skills](https://github.com/molly-diversifiedfun/solopreneur-skills) collection. 25 skills across thinking, writing, career, learning, shipping, audit, meetings, and Claude Code power-user categories.
 
 ## Skill Structure
 

@@ -55,7 +55,7 @@ You never need to know model names. The router handles it.
 Reference the skill directly:
 
 ```
-When I describe a problem, use the mental-models skill from ~/claude-code-toolkit/skills/mental-models/SKILL.md
+When I describe a problem, use the mental-models skill from ~/github/claude-code-toolkit/skills/mental-models/SKILL.md
 ```
 
 Or add it to your project's `.claude/settings.json` as a slash command.

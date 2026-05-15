@@ -41,14 +41,14 @@ The skill triggers automatically on resume-related requests. It will walk you th
 Reference the skill directly:
 
 ```
-claude "Read ~/claude-code-toolkit/skills/resume-rebuilder/SKILL.md and help me rebuild my resume for [target role]"
+claude "Read ~/github/claude-code-toolkit/skills/resume-rebuilder/SKILL.md and help me rebuild my resume for [target role]"
 ```
 
 Or add to your project's `CLAUDE.md`:
 
 ```markdown
 # Skills
-- When working on resumes, read ~/claude-code-toolkit/skills/resume-rebuilder/SKILL.md
+- When working on resumes, read ~/github/claude-code-toolkit/skills/resume-rebuilder/SKILL.md
 ```
 
 ### Returning Users

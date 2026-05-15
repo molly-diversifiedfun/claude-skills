@@ -29,7 +29,7 @@ Skills that fix the #1 complaint about AI: "It doesn't sound like me."
 | [`voice-extractor`](./voice-extractor/) | Feed it 3-5 writing samples, get a reusable voice profile (.md file). Sample-based extraction, not adjective-based — because research shows descriptions like "engaging and punchy" produce generic output. The profile works in any Claude conversation. |
 | [`ai-tell-killer`](./ai-tell-killer/) | The scalpel. Surgical removal of AI writing patterns — identifies specific tells with confidence ratings and fixes only those. Annotated report shows what it found before changing anything. For writers who want to preserve their voice. |
 | [`humanize-ai-writing`](./humanize-ai-writing/) | The power washer. Aggressive 7-step rewrite that strips AI fingerprints AND injects human voice — opinion, specificity, rhythm variation, Claude-specific pattern removal. Includes a 278-term tiered kill list. For when you need content de-AI'd fast. |
-| [`precision-editor`](./precision-editor/) | *Coming soon.* Pick an editing level (flag only / suggest / light edit / heavy edit) and the skill stays within bounds. Solves "I asked for a light edit and got a complete rewrite." |
+| [`precision-editor`](./precision-editor/) | Pick an editing level BEFORE Claude touches your text — flag only, suggest as comments, light copy edit, or heavy developmental. At levels 1-3 your sentences survive. Mandatory "Wanted to change but didn't" log so the model can't silently expand scope. Solves "I asked for a light edit and got a complete rewrite." |
 
 ### Build Your Career
 
@@ -38,8 +38,8 @@ Skills grounded in what recruiters and hiring managers actually say in 2026.
 | Skill | What It Does |
 |-------|-------------|
 | [`resume-rebuilder`](./resume-rebuilder/) | Evidence-bank-first resume building. Extracts your real achievements through structured interview, THEN generates the resume. No competitor does this — they all generate from job titles, which is why their output gets flagged. |
-| [`interview-coach`](./interview-coach/) | *Coming soon.* Mock interviews with real scoring, JD analysis, and salary negotiation scripts. Anti-sycophantic by design — no "Great answer!" |
-| [`career-experiment`](./career-experiment/) | *Coming soon.* Instead of "should I switch careers?", designs 3 low-stakes experiments you can run in your current role to test the hypothesis. |
+| [`interview-coach`](./interview-coach/) | Four modes: JD analysis, question prep, mock interviews scored on 5 dimensions (Substance / Structure / Relevance / Credibility / Differentiation), and salary negotiation scripts (Patio11 strategy + Voss tactics). Anti-sycophantic by design — "Great answer!" is banned; every score requires evidence. Credit to noamseg for the rubric. |
+| [`career-experiment`](./career-experiment/) | Outputs exactly 3 testable career experiments at 3 effort tiers (≤3 hrs / 5 hrs/wk × 2 wks / 10+ hrs over 2-4 wks). 14-day first-signal cap forces falsifiability. Refuses vague success signals — "see how it feels" gets rewritten to a specific observable. Never recommends quitting your job as the experiment. |
 
 ### Learn Faster
 
@@ -47,10 +47,10 @@ Skills backed by learning science, not just AI convenience.
 
 | Skill | What It Does |
 |-------|-------------|
-| [`learn-anything`](./learn-anything/) | *Coming soon.* Active recall tutor — refuses to lecture. Makes you explain back, catches misconceptions, adapts to your level. |
-| [`explain-like`](./explain-like/) | *Coming soon.* Explain any concept using analogies from YOUR domain. "Explain Kubernetes like I'm a chef who understands kitchen stations." |
-| [`research-brief`](./research-brief/) | *Coming soon.* Structured research briefs with confidence ratings per claim. Won't fabricate citations — tells you what to search to verify. |
-| [`book-distiller`](./book-distiller/) | *Coming soon.* Opinionated book analysis, not summaries. Core thesis, genuinely new ideas, what's recycled, who should skip it, and questions the book doesn't answer. |
+| [`learn-anything`](./learn-anything/) | Active recall tutor — refuses to lecture. Surfaces what you already know via diagnostic distractor questions (no Dunning-Kruger self-rating), fills gaps through questioning, confirms understanding through teach-back. 3-strike escape hatch when you really just want the answer. One 20-30 minute session per topic. |
+| [`explain-like`](./explain-like/) | Explain a concept by mapping it onto a domain you already know deeply. Built on Gentner's structure-mapping (relations, not surface). 5 levels calibrated to your prior knowledge of the *target* domain, not your age. Refuses with one of three named patterns when domains don't actually map — no forcing bad analogies. |
+| [`research-brief`](./research-brief/) | Structured brief with explicit GRADE confidence rating on every claim (High / Moderate / Low / Very Low). Never fabricates citations — emits search-handles like `Search: "[query]" — type: [source]` instead. Tags every claim by source type: trained-knowledge / inference / speculation. Direct countermeasure to the lawyer-sanctions failure mode. |
+| [`book-distiller`](./book-distiller/) | Opinionated book analysis, not a summary. 2-sentence thesis *about* the book, 5 genuinely new ideas, what's recycled (with required prior-work + year citations), who should skip it, 3 questions the book doesn't answer. Three-tier confidence routing: refuses to fake distillations on books with thin training data — asks for your notes instead. |
 
 ### Ship Your Product
 
@@ -75,7 +75,7 @@ Skills that find the gap between "what we built" and "what people are actually d
 
 | Skill | What It Does |
 |-------|-------------|
-| [`meeting-distiller`](./meeting-distiller/) | *Coming soon.* Paste a transcript, get action artifacts — not a summary. Decisions, action items with owners, open questions, and the one thing that mattered most. |
+| [`meeting-distiller`](./meeting-distiller/) | Turn a transcript into a one-page project management artifact. Section headers are PM nouns only — Decisions, Action Items, Open Questions, Disagreements, Parking Lot. Implicit decisions (nobody said "decided" but everyone moved on) get surfaced with a `[implicit — confirm]` flag. Mandatory "The One Thing" paragraph forces editorial judgment. The word "summary" is banned at the prompt level. |
 
 ### Claude Code Power User
 
