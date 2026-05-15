@@ -4,6 +4,10 @@
 ![License](https://img.shields.io/github/license/molly-diversifiedfun/claude-skills?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/molly-diversifiedfun/claude-skills?style=flat-square)
 ![Skills](https://img.shields.io/badge/skills-25-ff6b9d?style=flat-square)
+[![Changelog](https://img.shields.io/badge/changelog-latest-ff6b9d?style=flat-square)](./CHANGELOG.md)
+[![Tweet](https://img.shields.io/badge/share-on%20X-1DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=Free%20Claude%20skills%20%E2%80%94%2025%20research-backed%20skills%20for%20thinking%2C%20writing%2C%20learning%2C%20and%20shipping%3A%20https%3A%2F%2Fgithub.com%2Fmolly-diversifiedfun%2Fclaude-skills)
+
+⭐ **Star to get notified when new skills land.** New batches drop every few weeks — see [CHANGELOG](./CHANGELOG.md).
 
 Free skills I've built for Claude Code and Claude.ai. Take them. Use them. Ship something.
 
@@ -26,6 +30,16 @@ Each skill is a self-contained folder with a `SKILL.md` file that teaches Claude
 Same content. 78 words → 51 words. Zero AI-tell vocabulary. The skill ran a 7-pass audit, killed Tier 1 vocab (`leveraging`, `pivotal`, `comprehensive`, `robust`, `delve`, `foster`, `seamless`, `moreover`), restored copulas, broke the rule-of-three reflex, and varied sentence length from 3 to 17 words.
 
 **New to skills?** Start with [`humanize-ai-writing`](./humanize-ai-writing/) — universal pain, instant payoff, hard to misuse.
+
+---
+
+## Recently Shipped
+
+- **2026-05-15** — Final 8 PRD'd skills (`learn-anything`, `explain-like`, `research-brief`, `book-distiller`, `precision-editor`, `meeting-distiller`, `interview-coach`, `career-experiment`) — closes "coming soon"
+- **2026-05-14** — `followability-audit` — Color Check methodology from The Flamingo Effect
+- **2026-05-12** — `ai-build-partner` (Layer 1 of The Ship It System) + 4 marketing skills
+
+Full history in [CHANGELOG](./CHANGELOG.md).
 
 ---
 
@@ -92,7 +106,7 @@ Skills that find the gap between "what we built" and "what people are actually d
 
 | Skill | What It Does |
 |-------|-------------|
-| [`followability-audit`](./followability-audit/) | The Color Check from **[The Flamingo Effect](https://www.theflamingoeffect.com)** (book 2). Diagnoses where any system — product, repo, onboarding flow, course, habit plan, policy, team process — is breaking down for the humans meant to use it. 5-rung rubric (Understand / Believe / Do / Repeat / Share), ranked fix list, "fix the crack closest to the ground" sequencing rule. |
+| [`followability-audit`](./followability-audit/) | Point it at anything people are supposed to use — your landing page, onboarding flow, repo, course, habit tracker, internal process — and get a one-page diagnosis of where it's breaking down. Scores 5 rungs (can people understand it / believe it / do it / come back to it / share it), names the lowest-scoring crack, and gives you the smallest 48-hour fix for it. The Color Check from **[The Flamingo Effect](https://www.theflamingoeffect.com)**. |
 
 ### Work With Meetings
 
@@ -175,6 +189,12 @@ The marketing skills here are samples from **[Marketing OS](https://github.com/m
 
 ---
 
+## Built Something With These?
+
+I want to see it. Open a [Discussion](https://github.com/molly-diversifiedfun/claude-skills/discussions) and post what you shipped — what skill, what you used it for, what the output was. I'll share the best ones.
+
+Built a skill of your own that fits this collection? Open a PR — see [CONTRIBUTING.md](./CONTRIBUTING.md). The bar is "solves a real problem cleanly," not "perfect."
+
 ## License
 
-These skills are free to use, modify, and share. If you build something cool with them, I'd love to hear about it.
+MIT. Free to use, fork, modify, ship. Attribution appreciated, not required.
