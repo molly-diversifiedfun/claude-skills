@@ -1,8 +1,31 @@
 # Molly's Claude Skills
 
+![Stars](https://img.shields.io/github/stars/molly-diversifiedfun/claude-skills?style=flat-square&color=ff6b9d&label=stars)
+![License](https://img.shields.io/github/license/molly-diversifiedfun/claude-skills?style=flat-square)
+![Last commit](https://img.shields.io/github/last-commit/molly-diversifiedfun/claude-skills?style=flat-square)
+![Skills](https://img.shields.io/badge/skills-25-ff6b9d?style=flat-square)
+
 Free skills I've built for Claude Code and Claude.ai. Take them. Use them. Ship something.
 
 Each skill is a self-contained folder with a `SKILL.md` file that teaches Claude how to do something specific. Most also have reference files, templates, or examples. Every skill works in both Claude Code and Claude.ai.
+
+---
+
+## See One Work
+
+`humanize-ai-writing` on a piece of generic AI marketing copy:
+
+**Before**
+
+> In today's fast-paced landscape, leveraging AI has become absolutely pivotal for organizations seeking to unlock their full potential. Our comprehensive platform serves as a robust solution — empowering teams to delve into complex workflows and foster meaningful innovation. It's not just about efficiency — it's about transforming how work gets done. By harnessing cutting-edge technology, we deliver seamless, scalable, and intelligent outcomes, reflecting the evolving needs of modern enterprises.
+
+**After**
+
+> AI changed work. Most companies use it badly — they buy a "platform" and it turns out to be a dashboard with a chat box glued on. Ours does the thing instead of describing it. Teams stop ping-ponging between tabs. Busywork dies. Productivity goes up for that reason and not the marketing one.
+
+Same content. 78 words → 51 words. Zero AI-tell vocabulary. The skill ran a 7-pass audit, killed Tier 1 vocab (`leveraging`, `pivotal`, `comprehensive`, `robust`, `delve`, `foster`, `seamless`, `moreover`), restored copulas, broke the rule-of-three reflex, and varied sentence length from 3 to 17 words.
+
+**New to skills?** Start with [`humanize-ai-writing`](./humanize-ai-writing/) — universal pain, instant payoff, hard to misuse.
 
 ---
 
@@ -105,7 +128,13 @@ git clone https://github.com/molly-diversifiedfun/claude-skills.git
 cp -r claude-skills/voice-extractor ~/.claude/skills/voice-extractor
 ```
 
-Or reference the skill directly in a conversation — Claude reads the `SKILL.md` when you point it at the folder.
+Then in any Claude Code session, just describe what you want:
+
+```
+"Use the voice-extractor skill on these samples: [paste]"
+```
+
+Claude Code auto-discovers anything in `~/.claude/skills/` — no other wiring needed. Or skip the install and reference it inline: *"Read ~/path/to/voice-extractor/SKILL.md and use it on this."*
 
 ### Any LLM
 
