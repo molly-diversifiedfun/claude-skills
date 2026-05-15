@@ -139,6 +139,7 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 31, "time protect", "time-protect", "T02", "boundary audit", "build blocks", "boundary breaker", "Park Downhill", "time protection plan", "pre-Day-1 time" | `modules/time-protect.md` |
 | 32, "pricing", "T06", "Day 8 pricing", "pricing calculator", "value-based pricing", "anchor pricing", "what should I charge", "set my price" | `modules/pricing.md` |
 | 33, "v2 backlog", "v2-backlog", "T07", "scope guillotine", "should I add this", "new idea mid-build", "5-question filter", "kill the idea", "V1 feature audit" | `modules/v2-backlog.md` |
+| 34, "context", "user context", "fill my user context", "set up my build partner", "seed my context", "fill out user context", "intake", "onboard me", "configure my context", "User Context Section A", "user context empty" | `modules/context.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
 
 **After reading the module, follow it exactly.**
@@ -202,6 +203,7 @@ All domain knowledge in `references/`:
 | modules/time-protect.md | Pre-Day-1 time protection — boundary audit + breakers + 3 build blocks + structural defenses + Park Downhill + signed commitment | 30 min |
 | modules/pricing.md | Day 8 V1 price lock via value-of-alternatives anchoring. Defers to Marketing OS `build-irresistible-offer` (Hormozi Value Equation) + `design-pricing-architecture` if loaded | 45 min |
 | modules/v2-backlog.md | Scope Guillotine — 5-question filter on new ideas OR full V1 audit. Recurring use Days 1-30 | 60 sec/idea, 30 min audit |
+| modules/context.md | Socratic intake — 10-14 questions across User Context Sections A→G, produces paste-ready block. Use when User Context file is empty OR buyer pivoted to new project. Pre-Discovery foundation. | 5-10 min |
 </workflows_index>
 
 <chaining_map>
