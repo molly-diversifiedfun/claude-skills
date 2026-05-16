@@ -67,8 +67,9 @@ High-achievers aren't stuck because they lack talent or willpower. They're stuck
 | **One-Page Launch Plan** | Free | 1-page validation framework | Lead magnet |
 | **Momentum Method** | $9 | 6-chapter book + 21-day practice + tracker | Stuck on consistency |
 | **Ship It or Kill It in 90 Days** | $19 | 32-page phased playbook (3 × 4-week sprints) | Need a structured ship window |
-| **The Ship It Kit** | $97 | 150+ pages, 6 guides, 15 templates, AI Build Partner kit, Notion workspace duplicate | Want to ship a digital product end-to-end |
-| **Solopreneur Skills for Claude Code** | TBC | 25 specialized AI skills extending the Build Partner for marketing | Kit owners ready to market and sell |
+| **Marketing OS** | $79 | 25 AI skills for marketing and sales | Have a product, need to market it |
+| **The Ship It Kit** | $149 | Playbook + 25 templates + AI Build Partner Companion Kit + Notion workspace | Want to ship a digital product end-to-end |
+| **The Bundle (Kit + Marketing OS)** | $179 | Ship It Kit + Marketing OS together — saves $49 | Want the full build + market stack |
 
 ### Premium services (unstuckwithmolly.com)
 
