@@ -97,6 +97,10 @@ What do you need help with?
 32. **Pricing** — Day 8 V1 price lock via value-of-alternatives anchoring (Professional / Course / DIY) + Value% × Cost% + Molly's rule (when in doubt, charge more). Defers to Marketing OS `build-irresistible-offer` (Hormozi Value Equation) + `design-pricing-architecture` (Van Westendorp + Decoy Effect) if loaded. T06 source. (~45 min)
 33. **V2-backlog** — Scope Guillotine: 5-question filter on new ideas mid-build OR full V1 feature audit (CORE/NICE/CUT). KEEP + cut equal-size OR KILL + V2 row. T07 source. (60 sec per idea, 30 min for full audit)
 
+**Session utility — wrap-up:**
+
+35. **Wrap** — 30-second session-end feedback capture. Two questions: was that useful? + anyone you'd share with? Skippable. Captures Unstuck's success-metric responses (got value + shared with a friend). Run at the end of any module, especially after the first artifact ships. (30 sec)
+
 Or just tell me what's going on and I'll point you to the right tool.
 
 **Wait for response before proceeding.**
@@ -140,6 +144,7 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 32, "pricing", "T06", "Day 8 pricing", "pricing calculator", "value-based pricing", "anchor pricing", "what should I charge", "set my price" | `modules/pricing.md` |
 | 33, "v2 backlog", "v2-backlog", "T07", "scope guillotine", "should I add this", "new idea mid-build", "5-question filter", "kill the idea", "V1 feature audit" | `modules/v2-backlog.md` |
 | 34, "context", "user context", "fill my user context", "set up my build partner", "seed my context", "fill out user context", "intake", "onboard me", "configure my context", "User Context Section A", "user context empty" | `modules/context.md` |
+| 35, "wrap", "session wrap", "wrap up", "was that useful", "feedback", "rate the session", "end the session", "anyone to share with", "/unstuck wrap" | `modules/wrap.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
 
 **After reading the module, follow it exactly.**
