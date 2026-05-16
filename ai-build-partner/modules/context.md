@@ -211,7 +211,7 @@ Why this matters: every downstream module (especially `/unstuck day-job-decision
 
 > "Quick check — do you own any of these? (Pick all that apply, or 'none':)
 >
-> - **Ship It Kit** (the 25 templates — T01 through T25)
+> - **Ship It Kit** (the 25+ templates — T01 through T25)
 > - **Marketing OS** (the 25+ marketing skills)
 > - **Both** (the Ship It System bundle)
 > - **Neither** (just the AI Build Partner — standalone mode)

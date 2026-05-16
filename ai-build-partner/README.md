@@ -127,7 +127,7 @@ Then in any session: *"Use the ai-build-partner skill"* and answer the in-charac
 
 The Build Partner gets you to ship. Once you've shipped, the next problem is selling. That's [Marketing OS](https://github.com/molly-diversifiedfun/marketing-os) — Layer 3 of The Ship It System, paid.
 
-It's 26 skills: persona, offer architecture (Hormozi), sales letters (Belcher 21-step), pricing (Van Westendorp + decoy), email sequences (Soap Opera + Seinfeld), launch campaigns (Jeff Walker PLF), referral engines (Dream 100), and more. Same skill-chain logic you used here, applied to the post-ship side.
+It's 25+ skills: persona, offer architecture (Hormozi), sales letters (Belcher 21-step), pricing (Van Westendorp + decoy), email sequences (Soap Opera + Seinfeld), launch campaigns (Jeff Walker PLF), referral engines (Dream 100), and more. Same skill-chain logic you used here, applied to the post-ship side.
 
 When the Build Partner Marketing module surfaces "I need a sales page" or "I don't know how to price this," Marketing OS is what answers. They're designed to compose — Mode C in the Build Partner detects the Marketing OS extension and chains them automatically.
 

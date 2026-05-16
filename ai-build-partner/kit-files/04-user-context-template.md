@@ -22,7 +22,7 @@ Templates output to specific sections so the Build Partner can find them later. 
 
 **Two modes:**
 - **Standalone** (just the AI Build Partner kit): fill in Sections A, B.1, E, F, G. Use Section D as a freeform log of outputs.
-- **Ship It Kit Extension loaded** (you have the 25 templates): fill in everything as you complete each phase.
+- **Ship It Kit Extension loaded** (you have the 25+ templates): fill in everything as you complete each phase.
 
 ---
 
@@ -282,7 +282,7 @@ Paste each Sunday's output below. The Build Partner reads the most recent few en
 
 > Update this section when you add or remove an extension from your Project knowledge.
 
-- [ ] **Ship It Kit Extension** — playbook + 25 templates + AI prompts. Activates Phase chain (Section D becomes live).
+- [ ] **Ship It Kit Extension** — playbook + 25+ templates + AI prompts. Activates Phase chain (Section D becomes live).
 - [ ] **Marketing OS Extension** — 25 marketing-mode skills (formerly "Solopreneur Skills"). Activates marketing methodology overlay (MSP Mode C).
 - [ ] Other custom extensions (list):
 
