@@ -442,18 +442,39 @@ def make_table(data, col_widths=None, header_row=True):
 class BrandPageHandler:
     """Legacy handler for scripts using SimpleDocTemplate.
 
-    For new scripts, use BrandDoc() instead — it handles page templates
-    automatically. This class is kept for backward compatibility.
+    For new scripts, use BrandDoc() + cover_page() instead — it handles page
+    templates automatically. This class is kept for backward compatibility
+    with the original ship-it PDF builders.
     """
     def __init__(self, doc):
         self.doc = doc
         self.divider_pages = set()
+        self.cover_params = None
+
+    def set_cover(self, title, subtitle, description,
+                  brand_line="THE SHIP IT SYSTEM",
+                  author_name="Molly Shelestak",
+                  author_role="Build Partner for Side-Project Shippers",
+                  website=None, handle=None):
+        """Define cover-page text; drawn on the dark cover canvas in on_first_page."""
+        self.cover_params = {
+            "title": title,
+            "subtitle": subtitle,
+            "description": description,
+            "brand_line": brand_line,
+            "author_name": author_name,
+            "author_role": author_role,
+            "website": website or getattr(self.doc, "website", "theshipitsystem.com"),
+            "handle": handle or getattr(self.doc, "handle", "@unstuckwithmolly"),
+        }
 
     def set_divider_pages(self, pages):
         self.divider_pages = set(pages)
 
     def on_first_page(self, canvas, doc):
         draw_cover_page(canvas, doc)
+        if self.cover_params:
+            _draw_cover_text(canvas, self.cover_params)
 
     def on_later_pages(self, canvas, doc):
         page_num = canvas.getPageNumber()
@@ -461,3 +482,84 @@ class BrandPageHandler:
             draw_section_divider_page(canvas, doc)
         else:
             draw_content_page(canvas, doc)
+
+
+def _draw_cover_text(canvas, p):
+    """Render cover text overlay on the dark cover background.
+
+    Mirrors the cover_page() story-helper layout for builders that drive the
+    cover via canvas (BrandPageHandler.set_cover) rather than story flowables.
+    """
+    canvas.saveState()
+
+    # Brand line — top, gold, letterspaced caps
+    canvas.setFillColor(GOLD)
+    canvas.setFont('Outfit-SemiBold', 11)
+    canvas.drawString(MARGIN_L, PAGE_H - MARGIN_T - 40,
+                      _letterspaced(p['brand_line'], 3))
+
+    # Title — large serif, cream
+    canvas.setFillColor(CREAM)
+    canvas.setFont('CormorantGaramond', 52)
+    title_y = PAGE_H - MARGIN_T - 110
+    for line in _wrap_for_cover(canvas, p['title'], 'CormorantGaramond', 52,
+                                 PAGE_W - MARGIN_L - MARGIN_R):
+        canvas.drawString(MARGIN_L, title_y, line)
+        title_y -= 58
+
+    # Gold rule under title
+    canvas.setFillColor(GOLD)
+    canvas.rect(MARGIN_L, title_y + 18, 60, 3, fill=1, stroke=0)
+
+    # Subtitle — italic cream
+    canvas.setFillColor(CREAM)
+    canvas.setFont('CormorantGaramond-Italic', 18)
+    sub_y = title_y - 12
+    for line in _wrap_for_cover(canvas, p['subtitle'], 'CormorantGaramond-Italic', 18,
+                                 PAGE_W - MARGIN_L - MARGIN_R):
+        canvas.drawString(MARGIN_L, sub_y, line)
+        sub_y -= 24
+
+    # Description — champagne caps
+    canvas.setFillColor(CHAMPAGNE)
+    canvas.setFont('Outfit-Light', 12)
+    canvas.drawString(MARGIN_L, sub_y - 8, p['description'])
+
+    # Author block — bottom-left
+    canvas.setFillColor(ROSE_LIGHT)
+    canvas.setFont('Outfit-SemiBold', 12)
+    canvas.drawString(MARGIN_L, MARGIN_B + 50, p['author_name'])
+
+    canvas.setFillColor(CHAMPAGNE)
+    canvas.setFont('Outfit-Light', 10)
+    canvas.drawString(MARGIN_L, MARGIN_B + 34, p['author_role'])
+
+    canvas.setFillColor(MUTED_FG)
+    canvas.drawString(MARGIN_L, MARGIN_B + 18,
+                      f"{p['website']} | {p['handle']}")
+
+    canvas.restoreState()
+
+
+def _letterspaced(text, spacing):
+    """Approximate letter-spacing by inserting hair spaces (cheap, no kerning math)."""
+    sep = " " * (spacing // 2) if spacing else ""
+    return sep.join(text)
+
+
+def _wrap_for_cover(canvas, text, font, size, max_width):
+    """Naive word-wrap for cover text using canvas.stringWidth."""
+    canvas.setFont(font, size)
+    words = text.split()
+    lines, cur = [], ""
+    for w in words:
+        candidate = (cur + " " + w).strip()
+        if canvas.stringWidth(candidate, font, size) <= max_width:
+            cur = candidate
+        else:
+            if cur:
+                lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines or [text]
