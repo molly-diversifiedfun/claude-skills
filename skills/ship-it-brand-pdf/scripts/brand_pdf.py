@@ -2,6 +2,9 @@
 Unstuck with Molly — Brand PDF Module
 Matches the Ship or Kill PDF design system exactly.
 Fonts: Cormorant Garamond (headings) + Outfit (body)
+
+CANONICAL SOURCE: ~/github/skills/skills/ship-it-brand-pdf/scripts/brand_pdf.py
+This file is a sync mirror — edit canonical and re-sync, never edit here directly.
 """
 
 from reportlab.lib.pagesizes import letter
