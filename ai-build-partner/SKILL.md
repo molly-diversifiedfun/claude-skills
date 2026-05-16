@@ -125,6 +125,10 @@ What do you need help with?
 32. **Pricing** — Day 8 V1 price lock via value-of-alternatives anchoring (Professional / Course / DIY) + Value% × Cost% + Molly's rule (when in doubt, charge more). Defers to Marketing OS `build-irresistible-offer` (Hormozi Value Equation) + `design-pricing-architecture` (Van Westendorp + Decoy Effect) if loaded. T06 source. (~45 min)
 33. **V2-backlog** — Scope Guillotine: 5-question filter on new ideas mid-build OR full V1 feature audit (CORE/NICE/CUT). KEEP + cut equal-size OR KILL + V2 row. T07 source. (60 sec per idea, 30 min for full audit)
 
+**Pre-Discovery (Mode 1 — runs BEFORE any project is picked):**
+
+36. **Idea-bank** — Generate side-project ideas from your behavioral data (paid subscriptions, daily apps you resent, newsletters/podcasts you compulsively open, things you recommended to friends, your browser tab graveyard, the asymmetry between work-paid skill and free-time skill, the 3+ year carry project). Pattern surface → 5 candidates → Project Selector kill 2 → THE ONE. For users on Discovery Path 1 ("no idea yet") or anyone explicitly stuck on idea generation. Free baseline skill. (10-15 min)
+
 **Session utility — wrap-up:**
 
 35. **Wrap** — 30-second session-end feedback capture. Two questions: was that useful? + anyone you'd share with? Skippable. Captures Unstuck's success-metric responses (got value + shared with a friend). Run at the end of any module, especially after the first artifact ships. (30 sec)
@@ -137,7 +141,8 @@ Or just tell me what's going on and I'll point you to the right tool.
 <routing>
 | Response | Workflow |
 |----------|----------|
-| 0, "discovery", "where do I start", "first time", "no context", "I don't know what to build", "I have an idea", "halfway built", "abandoned project", "I have an audience", "built but didn't launch" | `modules/discovery.md` |
+| 0, "discovery", "where do I start", "first time", "no context", "I have an idea", "halfway built", "abandoned project", "I have an audience", "built but didn't launch" | `modules/discovery.md` |
+| 36, "idea-bank", "idea bank", "I don't have an idea", "I don't know what to build", "no idea yet", "I need an idea", "help me find an idea", "what should I build" | `modules/idea-bank.md` |
 | 1, "diagnose", "stuck", "what's wrong", "pattern" | `modules/diagnose.md` |
 | 2, "audit", "blocker", "what's blocking", "build audit" | `modules/audit.md` |
 | 3, "scope", "cut", "guillotine", "v1", "scope creep" | `modules/scope.md` |
@@ -237,6 +242,7 @@ All domain knowledge in `references/`:
 | modules/pricing.md | Day 8 V1 price lock via value-of-alternatives anchoring. Defers to Marketing OS `build-irresistible-offer` (Hormozi Value Equation) + `design-pricing-architecture` if loaded | 45 min |
 | modules/v2-backlog.md | Scope Guillotine — 5-question filter on new ideas OR full V1 audit. Recurring use Days 1-30 | 60 sec/idea, 30 min audit |
 | modules/context.md | Socratic intake — 10-14 questions across User Context Sections A→G, produces paste-ready block. Use when User Context file is empty OR buyer pivoted to new project. Pre-Discovery foundation. | 5-10 min |
+| modules/idea-bank.md | Generate side-project ideas from behavioral data — 7 questions across paid subs / daily apps you resent / newsletters you compulsively open / things you recommend / browser tab graveyard / work-skill vs free-time-skill / 3+ year carry. Pattern surface → 5 candidates → Project Selector kill 2 → THE ONE. For Discovery Path 1 ("no idea yet"). | 10-15 min |
 </workflows_index>
 
 <chaining_map>
@@ -248,7 +254,7 @@ First session (User Context empty)
      v
 /unstuck discovery
      |
-     +--> Path 1 (No idea — Decide Already)        --> /unstuck diagnose
+     +--> Path 1 (No idea — Decide Already)        --> /unstuck idea-bank --> /unstuck scope
      +--> Path 2 (Have idea — One Day Launch Plan) --> /unstuck diagnose or validate
      +--> Path 3 (Halfway built — Resurrection)    --> /unstuck scope (skip diagnose+validate)
      +--> Path 4 (Audience-first)                  --> /unstuck scope (skip validate — DMs are validation)

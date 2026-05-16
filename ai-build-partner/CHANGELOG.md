@@ -12,6 +12,17 @@ _Working on:_ followability audit fixes — CHANGELOG, fast-path surface, synthe
 
 ---
 
+## [2.3.0] — 2026-05-16
+
+### Added
+- **`/unstuck idea-bank`** — new module #36. Generates side-project ideas from the user's own behavioral data (paid subscriptions, daily apps they resent, newsletters/podcasts compulsively opened, things recommended to friends, browser tab graveyard, asymmetry between work-paid skill and free-time skill, the 3+ year carry project). 7-question Socratic flow → 3 pattern surface → 5 idea candidates → Project Selector kill 2 → THE ONE worth shipping. Chains into `/unstuck scope` or `/unstuck validate`. 10-15 min. Free baseline skill (works in Standalone mode).
+- Discovery Path 1 chaining updated: "no idea" now routes through `/unstuck idea-bank` first, then `/unstuck scope` (was diagnose).
+
+### Why
+Discovery is a router, not an idea generator. Path 1 ("I don't have an idea yet") landed users on a thin sub-flow that didn't actually generate ideas — it just asked them what they wanted to build. The new skill mines revealed-preference data (what the user already pays for / opens / recommends / keeps in tabs) to surface ideas already in their behavior. Higher hit rate than brainstorming from scratch because the pattern was always there — just unread.
+
+---
+
 ## [2.2.0] — 2026-05-16
 
 ### Added
