@@ -16,8 +16,10 @@ Don't read this whole README. Don't run Discovery yet. Just do this:
 
 1. Install:
    ```bash
-   cp -r ai-build-partner ~/.claude/skills/ai-build-partner
+   ./install.sh
+   # or: ./install.sh --no-telemetry  (skips the install ping)
    ```
+   The installer copies the skill to `~/.claude/skills/ai-build-partner/` and asks ONE consent question about install telemetry. See [Telemetry](#telemetry) below for exactly what gets sent.
 2. Open Claude Code. Say:
    > *"Use the ai-build-partner skill. Run the **Diagnose** module. I'll describe my situation in one paragraph and you tell me which stuck pattern I'm in."*
 
@@ -103,10 +105,30 @@ If you ship once and never come back, you got partial value. The Sunday check is
 ### In Claude Code
 
 ```bash
-cp -r ai-build-partner ~/.claude/skills/ai-build-partner
+./install.sh
 ```
 
 Then in any session: *"Use the ai-build-partner skill"* and answer the in-character check.
+
+## Telemetry
+
+The Build Partner is free. To know whether ads/channels are working, the installer can send two PostHog events. **Both are opt-out, both are minimal.**
+
+| Event | When | Payload |
+|---|---|---|
+| `ai_build_partner_installed` | Once, at install (if you say yes to the consent prompt) | install_id (UUID), email if you provide one, version, OS, UTM source |
+| `build_partner_invoked` | Once per Claude session when you use the skill | install_id, version, the string `claude-code` — no prompt content, no files, no conversation |
+| `build_partner_shipped` | When you run `/unstuck shipped` (opt-in, explicit) | install_id, version |
+
+**What's NOT sent:** anything you typed, any file contents, any project info, your conversation with the Build Partner.
+
+**Where it goes:** PostHog (us.i.posthog.com), Molly's project `theshipitsystem` (426369). Same PostHog that powers the Ship It System site.
+
+**To opt out at install:** `./install.sh --no-telemetry` (skill works identically).
+
+**To opt out after install:** `rm ~/.ai-build-partner/install_id` (kills all future pings, skill works identically).
+
+**Why it exists:** so Molly can answer "is the AI Build Partner actually getting used after install?" without bugging anyone. If install:invocation ratio is healthy, she keeps it free. If it's not, she fixes it.
 
 ## What Makes This Different
 

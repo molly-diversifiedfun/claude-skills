@@ -12,6 +12,19 @@ _Working on:_ followability audit fixes — CHANGELOG, fast-path surface, synthe
 
 ---
 
+## [2.2.0] — 2026-05-16
+
+### Added
+- **`install.sh`** — first-class installer. Copies skill to `~/.claude/skills/ai-build-partner/`, generates a local `install_id`, and (with explicit consent) sends one `ai_build_partner_installed` event to PostHog so Molly can attribute installs to ads/channels.
+- **Session-use telemetry** in SKILL.md — best-effort `build_partner_invoked` ping once per Claude session, fire-and-forget, no prompt/file/conversation content sent. Opt out anytime with `rm ~/.ai-build-partner/install_id`.
+- **Shipped event** — `build_partner_shipped` fires when user runs `/unstuck shipped`, marking the warmest retargeting audience for downstream offers.
+- **README Telemetry section** — explicit table of what's sent, where it goes, and how to opt out at every level.
+
+### Why
+To run paid ads to the free skill without going blind. Install + invocation + shipped events make the funnel measurable. The skill works identically with telemetry off.
+
+---
+
 ## [2.1.0] — 2026-05-15
 
 ### Added
