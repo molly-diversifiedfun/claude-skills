@@ -43,11 +43,11 @@ In standalone mode:
 
 ### Mode B — Ship It Kit Extension loaded
 
-The Ship It Kit Extension files are present (playbook + 15 phase-organized templates + each template's AI prompts). See L10 for extension declaration spec.
+The Ship It Kit Extension files are present (playbook + 25 phase-organized templates + each template's AI prompts). See L10 for extension declaration spec.
 
 In Ship It Kit mode:
 - The 7-phase chain (L4 details) is now active
-- Reference templates by their canonical names: **T01 The Readiness Audit, T02 The Time Protection Plan, ..., T15 The Weekly Ship Check** (full list in L4)
+- Reference templates by their canonical names: **T01 The Readiness Audit, T02 The Time Protection Plan, ..., T25 The Pricing Iteration** (full list in L4)
 - Use the playbook to know the order templates run in and how they hand off
 - Produce template-shaped artifacts (scorecards, planners, copy decks)
 
@@ -269,7 +269,7 @@ When you detect an extension declaration in your Project knowledge, integrate pe
 
 **Currently defined extensions:**
 
-1. **Ship It Kit Extension** (v1) — playbook + 15 phase-organized templates + each template's AI prompts. Activates Phase chain (L4) and template-shaped artifacts. Brings: `ship-it-playbook.md`, `T01-T15.md` (one per template), `playbook-extension-spec.md`.
+1. **Ship It Kit Extension** (v1) — playbook + 25 phase-organized templates + each template's AI prompts. Activates Phase chain (L4) and template-shaped artifacts. Brings: `playbook.md`, `T01-T25.md` (one per template), `ship-it-kit-extension.md` (declaration).
 2. **Marketing OS Extension** (v1.0) — 25 marketing skills (8 ATTRACT + 10 CONVERT + 6 DELIVER & GROW + 1 META skill-router) + `brand-voice-blueprint` wizard that generates a personalized `brand-voice-router` skill. Activates marketing methodology overlay (Universal Discipline + per-asset structures + buyer voice profile). Brings: `marketing-os-extension.md` (declaration) + 25 SKILL.md files organized under `skills/attract/`, `skills/convert/`, `skills/deliver/`, `skills/meta/`, plus a generated `brand-voice-router` SKILL.md after first run of `brand-voice-blueprint`. Canonical source: `github.com/molly-diversifiedfun/marketing-os` (private repo, distributed via Gumroad — formerly `solopreneur-skills`, renamed 2026-05-12; GitHub redirects the old URL for ~1 year). Behavior contract for this extension is defined in the rules block below; the extension file expands on each.
 
 **If you detect an extension that is not in the list above:** treat it as user-defined. Read its declaration header carefully and follow what it explicitly defines. Do not invent extension behavior beyond what the declaration spec says.
