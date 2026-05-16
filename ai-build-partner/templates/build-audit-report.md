@@ -48,6 +48,6 @@
 Run `/unstuck scope` to cut this project down to a shippable V1.
 
 ---
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=audit)*
 ```
 </template>

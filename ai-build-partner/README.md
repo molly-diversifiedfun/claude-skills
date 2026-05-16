@@ -2,7 +2,7 @@
 
 **Stop spinning on the same side project for the third year. Get a build partner who calls your scope creep, audits your build, and keeps you shipping.**
 
-Layer 1 of [The Ship It System](https://www.theshipitsystem.com), free.
+Layer 1 of [The Ship It System](https://www.theshipitsystem.com?ref=ai-build-partner&placement=readme-header-banner), free.
 
 > **What's new:** v2.1 shipped 2026-05-15 — Socratic `/unstuck context` intake + `/unstuck wrap` session-close skill. Full history in [CHANGELOG.md](./CHANGELOG.md).
 
@@ -63,7 +63,7 @@ That's a real Scope Guillotine. Every module produces an artifact like this. You
 
 ## What It Does
 
-The AI Build Partner is the [Unstuck with Molly](https://www.unstuckwithmolly.com) build-partnership methodology, packaged as a skill. It runs as 8 core modules + 13 utility skills — each one a focused conversation that ends with a concrete artifact:
+The AI Build Partner is the [Unstuck with Molly](https://www.unstuckwithmolly.com?ref=ai-build-partner&placement=readme-methodology-mention) build-partnership methodology, packaged as a skill. It runs as 8 core modules + 13 utility skills — each one a focused conversation that ends with a concrete artifact:
 
 | Module | Trigger | Artifact |
 |--------|---------|----------|

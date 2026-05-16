@@ -127,6 +127,6 @@ This skill is for clarifying your thinking, not for replacing professional advic
 
 ---
 
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=day-job-decision)*
 ```
 </template>

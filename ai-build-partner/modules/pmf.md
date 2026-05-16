@@ -173,7 +173,7 @@ VERDICT: [SCALE / ITERATE / PIVOT / KILL]
 NEXT MOVE: [paste]
 RE-SCORE DATE: Day 90 (if ITERATE) / Day 105 (if SCALE — after first lever cycle)
 
-Built with the Unstuck Method — unstuckwithmolly.com
+Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=pmf)
 ```
 
 ---

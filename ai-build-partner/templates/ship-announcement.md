@@ -102,6 +102,6 @@ Recommended: `/unstuck ten-hour-week` — set your post-launch sustainable opera
 
 ---
 
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=ship-announcement)*
 ```
 </template>

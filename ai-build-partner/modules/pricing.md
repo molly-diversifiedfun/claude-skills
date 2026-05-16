@@ -212,7 +212,7 @@ GAP (if any): [paste]
 
 NEXT PRICING REVIEW: Day 38 via /unstuck pricing-iteration
 
-Built with the Unstuck Method — unstuckwithmolly.com
+Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=pricing)
 ```
 
 ---

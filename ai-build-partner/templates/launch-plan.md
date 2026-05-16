@@ -44,6 +44,6 @@
 [Recommendation for next module based on their stage]
 
 ---
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=launch)*
 ```
 </template>

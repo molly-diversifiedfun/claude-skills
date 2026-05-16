@@ -46,6 +46,6 @@
 [Recommendation for next module with brief explanation of why]
 
 ---
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=stuck)*
 ```
 </template>

@@ -131,6 +131,6 @@ Pair with:
 
 ---
 
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=pick-my-stack)*
 ```
 </template>

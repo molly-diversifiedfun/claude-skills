@@ -58,6 +58,6 @@
 ## Ship Date: [DATE] — Non-negotiable.
 
 ---
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=roadmap)*
 ```
 </template>

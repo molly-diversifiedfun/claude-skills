@@ -56,6 +56,6 @@ Write the EXACT next action for tomorrow. Be specific.
 **File/location:** [what to open]
 
 ---
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=sprint)*
 ```
 </template>

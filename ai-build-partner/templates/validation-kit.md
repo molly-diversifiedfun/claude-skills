@@ -63,6 +63,6 @@
 - 0-3 = No signal. Kill it or pivot.
 
 ---
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=validate)*
 ```
 </template>

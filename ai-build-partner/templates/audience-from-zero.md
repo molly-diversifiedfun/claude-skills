@@ -98,6 +98,6 @@ If you're 30 days out from the launch decision and want to lock V1 details befor
 
 ---
 
-*Built with the Unstuck Method — unstuckwithmolly.com*
+*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=audience-from-zero)*
 ```
 </template>
