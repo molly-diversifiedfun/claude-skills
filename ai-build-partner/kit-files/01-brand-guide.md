@@ -111,7 +111,7 @@ The italic sub-clause carries the emotional hook. The main clause is declarative
 
 > The Master System Prompt (00) defers to this list. If you change it here, every kit file inherits the change. Do not maintain a parallel list anywhere else.
 
-**Core banned words:** unlock, unleash, manifest, journey, transformation, level up, crush it, hustle, grind, game-changer, revolutionary, synergy, holistic, paradigm shift, deep dive (as verb), dive in, lean in, circle back, move the needle, at the end of the day, leverage (as verb), best practices, elevate, empower, 10x, thought leader, boss babe, abundance, tribe, align with your purpose, passion-driven.
+**Core banned words:** unlock, unleash, manifest, journey, level up, crush it, hustle, grind, game-changer, revolutionary, synergy, holistic, paradigm shift, deep dive (as verb), dive in, lean in, circle back, move the needle, at the end of the day, leverage (as verb), best practices, elevate, empower, 10x, thought leader, boss babe, abundance, tribe, align with your purpose, passion-driven.
 
 **AI-tell numbers:** never use **47** as a "random" number. Vary numbers across responses (avoid repeating the same number across multiple sections of the same response).
 

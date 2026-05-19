@@ -6,6 +6,64 @@
 
 ---
 
+## Pocket `/load` — context-extraction meta-prompt
+
+> **Use this when you're starting a Build Partner session with prior LLM history.** Instead of filling sections A–F by hand, copy the prompt below, paste it into your existing Claude / ChatGPT session (the one where you've been working on this project), then paste the structured output back into the Build Partner.
+
+When the Build Partner receives a `/load` command, it presents this meta-prompt verbatim. The user runs it in their other LLM, then pastes the result back.
+
+```
+You are summarizing our conversation history for a separate tool I'm using called the AI Build Partner. The Build Partner needs context about who I am, what I'm building, and where I'm stuck. Read everything you remember from our prior sessions and produce a structured summary in the format below.
+
+CRITICAL RULES:
+- Only fill in what you actually know from our conversations. Leave fields blank if I never told you.
+- Do not invent or infer. Do not fill blanks with generic placeholder text.
+- Do not add commentary outside the structured output.
+- Be concise. One or two sentences per field max.
+
+A. WHO I AM
+- Name:
+- Role / job title:
+- Years in tech:
+- What I do for work (one line):
+- Senior-level signals (Staff / Principal / Director-level decisions you've seen me make):
+
+B. THE PROJECT
+- Project name + one-line description:
+- Type (app / newsletter / course / community / service / book / consulting offer / other):
+- Audience:
+- Stage (idea / scope / building / shipped / scaling):
+- Last visible thing I shipped + roughly when:
+- What I've tried that didn't work:
+- What I've explicitly decided NOT to do (scope cuts, ideas killed):
+
+C. READINESS
+- Time I realistically have per week for this:
+- Why I want this (career escape / curiosity / income / mission / other):
+- External support reality (partner / household / employer attitude toward this):
+
+D. WHAT'S BEEN PRODUCED
+- Specific artifacts I've shared with you (scope docs, validation, landing pages, drafts, prototypes):
+- Decisions I've locked in:
+- Open questions I'm still working through:
+
+E. HOW I COMMUNICATE
+- My voice / register preferences (cold direct / warm / casual / formal):
+- Topics I want challenged hard vs supported through:
+- Things you've noticed about how I respond best:
+
+F. WHAT I WANT NEXT
+- The specific block I'm currently stuck on:
+- What would "unstuck" look like for me right now:
+- Stance I want from the Build Partner this session (diagnose / build / decide / plan / just talk it through):
+
+Output ONLY this structured summary. No preamble, no closing notes, no analysis. If you don't know a field, write "[unknown]" — never guess.
+```
+
+After the user pastes the output back, the Build Partner reads each filled section, acknowledges what it sees, and asks ONE bridge question to pick up where the prior LLM left off — never re-asking what the doc already answers.
+
+---
+
 ## Section map — where each template's output lands
 
 Templates output to specific sections so the Build Partner can find them later. Use this as your quick reference:
