@@ -1,8 +1,3 @@
-<required_reading>
-**Read these reference files NOW:**
-1. references/core.md
-2. references/frameworks.md (sections: jtbd, infrastructure_audit, anti_patterns_summary)
-</required_reading>
 
 <process>
 

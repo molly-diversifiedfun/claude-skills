@@ -6,11 +6,6 @@
 
 ---
 
-<required_reading>
-**Read these reference files NOW:**
-1. references/core.md
-2. references/frameworks.md (skim for context — you reference 4 Stuck Patterns + 4 Tech Personas)
-</required_reading>
 
 ---
 

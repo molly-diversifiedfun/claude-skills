@@ -1,8 +1,3 @@
-<required_reading>
-**Read these reference files NOW:**
-1. references/core.md
-2. references/frameworks.md (sections: decomposition_method, daily_build_protocol, seventy_thirty_ai_rule)
-</required_reading>
 
 <process>
 

@@ -1,8 +1,3 @@
-<required_reading>
-**Read these reference files NOW:**
-1. references/core.md
-2. references/frameworks.md (sections: stuck_patterns, infrastructure_audit, followability_ladder)
-</required_reading>
 
 <process>
 

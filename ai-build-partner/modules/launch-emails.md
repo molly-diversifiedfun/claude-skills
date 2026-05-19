@@ -1,7 +1,3 @@
-<required_reading>
-**Read these reference files NOW:**
-1. references/core.md
-</required_reading>
 
 <process>
 

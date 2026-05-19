@@ -1,8 +1,3 @@
-<required_reading>
-**Read these reference files NOW:**
-1. references/core.md
-2. references/frameworks.md (sections: rice_scoring, ten_conversation_method)
-</required_reading>
 
 <process>
 
