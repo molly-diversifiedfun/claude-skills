@@ -231,44 +231,74 @@ Mark every criterion. If you can't decide, mark FAIL with reason "ambiguous: ...
 """
 
 
-def judge_turn(response: str, criteria: list[str], api_key: str | None = None) -> list[dict]:
-    """Call judge model, parse defensively. Returns list of {index, verdict, reason}."""
-    criteria_block = "\n".join(f"[{i}] {c}" for i, c in enumerate(criteria))
-    judge_prompt = JUDGE_PROMPT_TEMPLATE.format(
-        response=response[:8000],  # cap response length sent to judge
-        criteria_block=criteria_block,
-    )
-    raw = ""
-    for attempt in range(3):
-        try:
-            raw = anthropic_call(
-                model=JUDGE_MODEL,
-                system_prompt="You are a strict binary judge. Output ONLY valid JSON.",
-                messages=[{"role": "user", "content": judge_prompt}],
-                max_tokens=2000,
-                api_key=api_key,
-            )
-            break
-        except (error.URLError, error.HTTPError, OSError) as e:
-            if attempt == 2:
-                return [
-                    {"index": i, "verdict": "FAIL", "reason": f"judge_error: {e}"}
-                    for i in range(len(criteria))
-                ]
-            time.sleep(2 ** attempt)
-
-    # Defensive parse — try direct JSON, then strip code fences, then return all FAIL.
-    parsed: dict | None = None
+def _try_parse_judge(raw: str) -> dict | None:
+    """Try direct JSON, then strip code fences. Returns parsed dict or None."""
     for candidate in (raw, raw.strip("`\n "), _strip_codefence(raw)):
         try:
-            parsed = json.loads(candidate)
-            break
+            obj = json.loads(candidate)
+            if isinstance(obj, dict) and "verdicts" in obj:
+                return obj
         except (json.JSONDecodeError, TypeError):
             continue
+    return None
 
-    if not parsed or "verdicts" not in parsed:
+
+def judge_turn(response: str, criteria: list[str], api_key: str | None = None) -> list[dict]:
+    """Call judge model, parse defensively. Returns list of {index, verdict, reason}.
+
+    Retry policy:
+      - HTTP errors: exponential backoff, up to 3 attempts (handled in inner loop).
+      - JSON parse failures: re-prompt judge once with stricter "JSON ONLY" framing
+        before declaring FAIL. Implements always-on pattern
+        `llm-judge-needs-retry-and-defensive-parse`.
+    """
+    criteria_block = "\n".join(f"[{i}] {c}" for i, c in enumerate(criteria))
+    base_prompt = JUDGE_PROMPT_TEMPLATE.format(
+        response=response[:8000],
+        criteria_block=criteria_block,
+    )
+
+    def _call_judge(prompt: str) -> str:
+        raw_text = ""
+        for attempt in range(3):
+            try:
+                raw_text = anthropic_call(
+                    model=JUDGE_MODEL,
+                    system_prompt="You are a strict binary judge. Output ONLY valid JSON, no prose, no code fences.",
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=2000,
+                    api_key=api_key,
+                )
+                return raw_text
+            except (error.URLError, error.HTTPError, OSError) as e:
+                if attempt == 2:
+                    return f"__HTTP_ERROR__: {e}"
+                time.sleep(2 ** attempt)
+        return raw_text
+
+    raw = _call_judge(base_prompt)
+    if raw.startswith("__HTTP_ERROR__"):
         return [
-            {"index": i, "verdict": "FAIL", "reason": "judge_parse_error"}
+            {"index": i, "verdict": "FAIL", "reason": f"judge_error: {raw}"}
+            for i in range(len(criteria))
+        ]
+
+    parsed = _try_parse_judge(raw)
+    if parsed is None:
+        # ONE retry with stricter framing before declaring parse failure
+        retry_prompt = (
+            base_prompt
+            + "\n\nIMPORTANT: Return ONLY the JSON object with key 'verdicts'. "
+            + "No prose before or after. No markdown code fences. "
+            + "Start with { and end with }. Every criterion must be marked PASS or FAIL."
+        )
+        raw_retry = _call_judge(retry_prompt)
+        if not raw_retry.startswith("__HTTP_ERROR__"):
+            parsed = _try_parse_judge(raw_retry)
+
+    if not parsed:
+        return [
+            {"index": i, "verdict": "FAIL", "reason": "judge_parse_error_after_retry"}
             for i in range(len(criteria))
         ]
     return parsed["verdicts"]
