@@ -80,7 +80,7 @@ DANA_SCRIPT_PAID = [
             "Response includes **Why:** with ONE sentence.",
             "Response ends with a 📌 Save this turn block with three bullets (Verdict / Move / Open question).",
             "No banned opener tokens. Directive bold markers like **Do this:** are STRUCTURE.",
-            "Routes to a Kit command relevant to Day 28 with a V1 in 10 days (likely T08 10-Day Sprint Plan, T09 Daily Priority Filter, T22 Build-in-Public, or T15 Weekly Ship Check). Naming a T-code or Kit command is ACCEPTABLE — buyer paid for them.",
+            "Routes to a Kit-specific answer for Day 28 + V1-in-10-days: any T-code (T08 / T09 / T22 / T15) OR any Kit ceremony (Spiral Day defense, Brain Dump, 5-Question Cut Test, Sprint Hour Audit, Scope Lock, SHIP/STUB/DEFER matrix) is ACCEPTABLE. Generic 'sprint hard' advice with no Kit-specific name FAILS.",
             "Does NOT mention Marketing OS or any MOS skill by name.",
             "Does NOT use the word 'coaching' applied to Molly (brand rule: it's a Build Partnership).",
             "Does NOT pitch Momentum Method ($9) or Ship It or Kill It ($19) — both subsumed by Kit.",
