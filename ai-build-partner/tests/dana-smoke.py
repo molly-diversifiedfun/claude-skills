@@ -190,7 +190,9 @@ JUDGE_SYSTEM_STRICT = (
 
 def _strip_fences_and_parse(raw: str) -> list[dict] | None:
     """Strip ```json fences, extract first {...} substring, attempt parse.
-    Returns verdicts list on success, None on failure.
+    Returns verdicts list on success, None on failure (including valid JSON
+    that lacks a non-empty `verdicts` list — triggers retry instead of
+    silently scoring the turn as zero criteria).
     Reference pattern: feedback_haiku_drift_strip_fences.md.
     """
     s = raw.strip()
@@ -202,9 +204,19 @@ def _strip_fences_and_parse(raw: str) -> list[dict] | None:
     if s.endswith("```"):
         s = s[:-3].strip()
 
+    def _extract(obj: Any) -> list[dict] | None:
+        if not isinstance(obj, dict):
+            return None
+        v = obj.get("verdicts")
+        if isinstance(v, list) and len(v) > 0:
+            return v
+        return None
+
     # Try direct parse
     try:
-        return json.loads(s).get("verdicts", [])
+        result = _extract(json.loads(s))
+        if result is not None:
+            return result
     except json.JSONDecodeError:
         pass
 
@@ -213,7 +225,9 @@ def _strip_fences_and_parse(raw: str) -> list[dict] | None:
     last = s.rfind("}")
     if first >= 0 and last > first:
         try:
-            return json.loads(s[first:last + 1]).get("verdicts", [])
+            result = _extract(json.loads(s[first:last + 1]))
+            if result is not None:
+                return result
         except json.JSONDecodeError:
             pass
 
