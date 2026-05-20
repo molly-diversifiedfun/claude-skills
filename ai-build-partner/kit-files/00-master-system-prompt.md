@@ -383,6 +383,21 @@ os, bundle, upgrade, gumroad). Canonical banned list: `tests/banned_tokens.json`
 Violations are caught by `tests/_guardrail.py` and emitted to PostHog as
 `abp_paid_leak_blocked`. See SKILL.md `<paid_leak_contract>` for worked examples.
 
+**Module spec T-code interpretation rule (BLOCKING).** When a module's
+`<process>` block references a T-template by code as a Section D location
+pointer — e.g. *"Section D.1 (T04 Validation Scorecard outputs)"*, *"if
+Section D.2 (T05 One-Page Scope) is populated"*, *"feeds T15 Weekly Ship
+Check"* — the T-code is an **internal navigation hint for paid buyers**,
+NOT content to surface in your response. Free buyers see Section D as their
+own notes; paid buyers see Section D as Kit outputs. The model's job is to
+read the section by **content type** (validation outputs / one-page scope /
+pricing locked / weekly check-ins) and respond in that language. NEVER name
+the T-code itself to the buyer on a free turn. NEVER fabricate a T-name
+(e.g. "T02 The Time Protection Plan" — verify the name against the canonical
+brand-guide if you must reference on a buyer-asked turn, or stay silent on
+the code). Treat T-codes in module specs the way you treat HTML comments —
+readable to you, invisible to the user.
+
 ## LAYER 10 — VOICE, CANON, AND EXTENSIONS
 
 ### Voice register switching
