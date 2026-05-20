@@ -4,12 +4,18 @@
 # Greps the ABP_TELEMETRY_SENTINEL_v1 marker across all 4 SKILL.md files
 # (free ABP + 3 paid skills). Fails non-zero if any file is missing it.
 #
+# Stage 6.1 added: extract every fenced ```bash block from each SKILL.md and
+# run `bash -n` on it. Catches the `& ; }` syntax class of bug that the review
+# caught — the snippets are meant to be executed by the model in Claude.ai,
+# so a parse error means the event never fires.
+#
 # Run:
 #   bash scripts/check-event-drift.sh
 #
 # Exit codes:
-#   0 = all 4 SKILL.md files have the sentinel + shared abp-fire-event.sh present
-#   1 = at least one file missing the sentinel or helper script
+#   0 = all 4 SKILL.md files have the sentinel + helper present + every
+#       embedded ```bash snippet parses clean
+#   1 = drift detected (missing sentinel, missing helper, or unparseable snippet)
 
 set -uo pipefail
 
@@ -78,8 +84,31 @@ for h in "${HELPERS[@]}"; do
 done
 
 echo
+echo '-- Embedded fenced-bash snippet parse check (bash -n) --'
+# Extract every fenced-bash block from each SKILL.md and pipe through bash -n.
+# Snippets that reference $CMD/$DAYS/$ENTRY etc. are fine: bash -n is parse-only,
+# not runtime. It would have caught the trailing-semicolon-after-ampersand bug.
+for f in "${TARGETS[@]}"; do
+  [[ -f "$f" ]] || continue
+  snippets="$(awk '/^[[:space:]]*```bash[[:space:]]*$/{flag=1;next} /^[[:space:]]*```[[:space:]]*$/{flag=0} flag' "$f")"
+  if [[ -z "$snippets" ]]; then
+    printf '  SKIP: no fenced-bash blocks in %s\n' "$f"
+    continue
+  fi
+  if printf '%s\n' "$snippets" | bash -n 2>/tmp/abp-drift-parse.$$; then
+    snippet_count=$(awk '/^[[:space:]]*```bash[[:space:]]*$/{c++} END{print c+0}' "$f")
+    printf '  OK:   %d fenced-bash block(s) parse clean in %s\n' "$snippet_count" "$f"
+  else
+    printf '  FAIL: parse error in %s:\n' "$f"
+    sed 's/^/        /' /tmp/abp-drift-parse.$$
+    FAILED=1
+  fi
+  rm -f /tmp/abp-drift-parse.$$
+done
+
+echo
 if [[ "$FAILED" -eq 0 ]]; then
-  echo "=== PASS: sentinel + helper present in all 4 surfaces ==="
+  echo "=== PASS: sentinel + helper + embedded snippets clean across all 4 surfaces ==="
   exit 0
 else
   echo "=== FAIL: drift detected ==="

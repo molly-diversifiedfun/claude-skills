@@ -13,10 +13,14 @@
 # What gets sent (unless --no-telemetry):
 #   Event:  ai_build_partner_installed
 #   To:     PostHog (theshipitsystem project, 426369), US region
-#   Data:   install_id (UUID), email (lowercased), version, OS, utm_source, utm_campaign
+#   Data:   install_id (UUID), version, OS, arch, surface, synthetic, utm_source, utm_campaign
 #   Why:    so Molly can see which ads/channels drive installs, and measure how
 #           many installs actually get used (no per-keystroke tracking — just
 #           install + invocation events).
+#
+# Email handling: email is captured locally (only) for synthetic-traffic derivation
+# (Anthropic/Unstuck team filtering). It is written to ~/.ai-build-partner/email
+# and NEVER sent to PostHog. distinct_id is always install_id. Spec §5.
 
 set -euo pipefail
 
@@ -65,7 +69,9 @@ Quick consent check before install:
   Send a one-time install event to PostHog so Molly can see how ads → installs
   perform? You'll get the skill either way.
 
-  What gets sent: install_id (random UUID), your email, version, OS, UTM tags.
+  What gets sent: install_id (random UUID), version, OS, arch, UTM tags.
+  Email stays local: used only to flag internal (Anthropic/Unstuck) traffic.
+                     Your email NEVER leaves this machine.
   Where: PostHog (us.i.posthog.com), Molly's account only.
   Frequency: once at install + once per Claude session when you USE the skill
              (the per-session ping asks for Bash permission separately, you can
@@ -118,9 +124,11 @@ if [[ "$TELEMETRY" == "yes" ]] && command -v curl >/dev/null 2>&1; then
   OS_NAME="$(uname -s)"
   ARCH="$(uname -m)"
   TIMESTAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-  DISTINCT_ID="${EMAIL_LC:-$INSTALL_ID}"
+  # distinct_id is ALWAYS install_id — email never leaves the machine (spec §5).
+  DISTINCT_ID="$INSTALL_ID"
 
-  # Synthetic = internal traffic (Anthropic or Unstuck team)
+  # Synthetic = internal traffic (Anthropic or Unstuck team). Derived locally
+  # from the email file, never sent.
   if printf '%s' "$EMAIL_LC" | grep -qE '@(anthropic\.com|unstuckwithmolly\.com)$'; then
     SYNTHETIC="true"
   else
@@ -134,7 +142,6 @@ if [[ "$TELEMETRY" == "yes" ]] && command -v curl >/dev/null 2>&1; then
   "distinct_id": "$DISTINCT_ID",
   "properties": {
     "install_id": "$INSTALL_ID",
-    "email": "$EMAIL_LC",
     "version": "$VERSION",
     "os": "$OS_NAME",
     "arch": "$ARCH",
@@ -143,7 +150,6 @@ if [[ "$TELEMETRY" == "yes" ]] && command -v curl >/dev/null 2>&1; then
     "utm_source": "$UTM_SOURCE",
     "utm_campaign": "$UTM_CAMPAIGN",
     "\$set": {
-      "email": "$EMAIL_LC",
       "ai_build_partner_version": "$VERSION",
       "ai_build_partner_installed_at": "$TIMESTAMP"
     },
@@ -164,27 +170,6 @@ JSON
     printf '  install ping sent\n'
   else
     printf '  install ping failed (offline?) — skill still works\n'
-  fi
-
-  if [[ -n "$EMAIL_LC" ]]; then
-    IDENTIFY_PAYLOAD=$(cat <<JSON
-{
-  "api_key": "$POSTHOG_KEY",
-  "event": "\$identify",
-  "distinct_id": "$EMAIL_LC",
-  "properties": {
-    "\$anon_distinct_id": "$INSTALL_ID",
-    "\$set": {
-      "email": "$EMAIL_LC"
-    }
-  },
-  "timestamp": "$TIMESTAMP"
-}
-JSON
-)
-    curl -fsS -m 5 -X POST "$POSTHOG_HOST/i/v0/e/" \
-      -H "Content-Type: application/json" \
-      -d "$IDENTIFY_PAYLOAD" >/dev/null 2>&1 || true
   fi
 fi
 

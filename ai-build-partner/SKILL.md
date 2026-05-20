@@ -81,32 +81,35 @@ The 8 v1 events and their triggers:
    ```bash
    SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh build_partner_invoked '' >/dev/null 2>&1 &
    ```
-2. **`session_started`** — fire alongside `build_partner_invoked`. Include `entry_context` enum (`fresh | resumed | post-paid-install`). Default `fresh` unless you can detect a `last_session_at` newer than 0 days:
+2. **`session_resumed` precheck → `session_started` → conditional `session_resumed`.** ORDER MATTERS: `session_started` writes `last_session_at = NOW` as a side-effect, so the days-since-last computation MUST run BEFORE it. Run these three lines in this exact order on the first turn of every new conversation:
    ```bash
-   SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh session_started '"entry_context":"fresh"' >/dev/null 2>&1 &
+   # Step 1: compute days-since-last BEFORE session_started overwrites last_session_at.
+   # `source` (NOT `bash`) — sourcing exposes abp_days_since_last without firing any event.
+   source ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh ; DAYS=$(abp_days_since_last)
+
+   # Step 2: fire session_started. entry_context flips to "resumed" if DAYS >= 1.
+   ENTRY=$([ "$DAYS" -ge 1 ] && echo "resumed" || echo "fresh") ; \
+     SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh session_started "\"entry_context\":\"$ENTRY\"" >/dev/null 2>&1 &
+
+   # Step 3: if DAYS >= 1, also fire session_resumed with the computed gap.
+   [ "$DAYS" -ge 1 ] && SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh session_resumed "\"days_since_last\":$DAYS" >/dev/null 2>&1 &
    ```
-3. **`session_resumed`** — fire if `~/.ai-build-partner/last_session_at` exists AND is ≥24h old. Run AFTER `session_started`. Include `days_since_last` int:
-   ```bash
-   DAYS=$(bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh && \
-     source ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh && abp_days_since_last) ; \
-   [[ "$DAYS" -ge 1 ]] && SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh session_resumed "\"days_since_last\":$DAYS" >/dev/null 2>&1 &
-   ```
-4. **`project_first_response`** — fire after the Project-first check returns. Include `outcome` enum (`accepted` = user said "go" or confirmed Project setup, `declined` = user refused, `skipped` = user message bypassed the prompt):
+3. **`project_first_response`** — fire after the Project-first check returns. Include `outcome` enum (`accepted` = user said "go" or confirmed Project setup, `declined` = user refused, `skipped` = user message bypassed the prompt):
    ```bash
    SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh project_first_response '"outcome":"accepted","turn_index":2' >/dev/null 2>&1 &
    ```
-5. **`command_fired`** — fire when routing a `/unstuck <command>` (including T-aliases and momentum). Include `command` slug:
+4. **`command_fired`** — fire when routing a `/unstuck <command>` (including T-aliases and momentum). Include `command` slug:
    ```bash
    SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh command_fired '"command":"scope"' >/dev/null 2>&1 &
    ```
-6. **`command_completed`** — fire at the artifact moment (immediately after outputting a Save-This block tied to a command). Include `command` slug + `artifact_kind` enum (`scope | sprint | roadmap | audit | other`):
+5. **`command_completed`** — fire at the artifact moment (immediately after outputting a Save-This block tied to a command). Include `command` slug + `artifact_kind` enum (`scope | sprint | roadmap | audit | other`):
    ```bash
    SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh command_completed '"command":"scope","artifact_kind":"scope"' >/dev/null 2>&1 &
    ```
-7. **`save_block_fired`** — fire ONCE per command per session, immediately after outputting a `📌 **Save this turn**` block. Dedup by tracking a session-local marker file `/tmp/abp-save-$$-<command>` before firing. Include nullable `command`:
+6. **`save_block_fired`** — fire ONCE per command per session, immediately after outputting a `📌 **Save this turn**` block. Dedup with a marker file under `~/.ai-build-partner/save-marks/` keyed by command (cross-shell-safe — `/tmp/$$` doesn't work because Claude.ai spawns a fresh `bash -c` per tool call). Include nullable `command`:
    ```bash
-   MARK="/tmp/abp-save-$$-${CMD:-none}" ; [[ -f "$MARK" ]] || { touch "$MARK" ; \
-     SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh save_block_fired "\"command\":\"${CMD:-null}\"" >/dev/null 2>&1 & ; }
+   mkdir -p ~/.ai-build-partner/save-marks ; MARK="$HOME/.ai-build-partner/save-marks/${CMD:-none}" ; [[ -f "$MARK" ]] || { touch "$MARK" ; \
+     SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh save_block_fired "\"command\":\"${CMD:-null}\"" >/dev/null 2>&1 & }
    ```
 
 `command_abandoned` is NOT fired from this skill — it's derived server-side in PostHog by joining `command_fired` against the absence of `command_completed` within the same `session_id`.
