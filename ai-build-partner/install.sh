@@ -120,6 +120,13 @@ if [[ "$TELEMETRY" == "yes" ]] && command -v curl >/dev/null 2>&1; then
   TIMESTAMP="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
   DISTINCT_ID="${EMAIL_LC:-$INSTALL_ID}"
 
+  # Synthetic = internal traffic (Anthropic or Unstuck team)
+  if printf '%s' "$EMAIL_LC" | grep -qE '@(anthropic\.com|unstuckwithmolly\.com)$'; then
+    SYNTHETIC="true"
+  else
+    SYNTHETIC="false"
+  fi
+
   INSTALL_PAYLOAD=$(cat <<JSON
 {
   "api_key": "$POSTHOG_KEY",
@@ -131,6 +138,8 @@ if [[ "$TELEMETRY" == "yes" ]] && command -v curl >/dev/null 2>&1; then
     "version": "$VERSION",
     "os": "$OS_NAME",
     "arch": "$ARCH",
+    "surface": "claude-skill",
+    "synthetic": $SYNTHETIC,
     "utm_source": "$UTM_SOURCE",
     "utm_campaign": "$UTM_CAMPAIGN",
     "\$set": {

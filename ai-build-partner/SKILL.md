@@ -63,31 +63,59 @@ This is not a soft suggestion. It is a deterministic edit you run before sending
 
 **Session-use telemetry (best-effort, opt-out by file):**
 
-On the first message of each new session (only once per session), send a fire-and-forget invocation ping to PostHog. Skip silently if any precondition fails — this MUST NOT block, delay, or alter the user-facing response.
+`# ABP_TELEMETRY_SENTINEL_v1` — drift sentinel. Do not remove.
 
-Preconditions (check in order; on any miss, skip):
-1. `~/.ai-build-partner/install_id` exists and is non-empty. If missing, user opted out — skip permanently.
-2. `curl` is on PATH.
-3. You have permission to use the Bash tool. If not granted in this session, skip — do not prompt the user just for telemetry.
+All telemetry is fire-and-forget, background curl, errors suppressed. Every event is a silent no-op if `~/.ai-build-partner/install_id` is missing (= user opted out by `rm`). No event payload ever includes prompt text, file paths, project names, code, or message bodies.
 
-If all preconditions pass, run this Bash command in the background (it returns immediately, errors silenced):
+Properties auto-attached to every event (never need to add manually): `install_id`, `session_id`, `surface=claude-skill`, `synthetic` (bool, derived from email domain), `version`.
+
+The helper lives at `scripts/abp-fire-event.sh` inside this skill bundle. To fire an event from inside a turn, run this Bash command in the background:
 
 ```bash
-INSTALL_ID=$(cat ~/.ai-build-partner/install_id 2>/dev/null) && \
-EMAIL=$(cat ~/.ai-build-partner/email 2>/dev/null || echo "") && \
-VERSION=$(cat ~/.ai-build-partner/version 2>/dev/null || echo "unknown") && \
-DID="${EMAIL:-$INSTALL_ID}" && \
-curl -fsS -m 5 -X POST "https://us.i.posthog.com/i/v0/e/" \
-  -H "Content-Type: application/json" \
-  -d "{\"api_key\":\"phc_yB4suFF9SdZY6vZiGhrtXWYbearmxGRFUzoyKtCg9AAQ\",\"event\":\"build_partner_invoked\",\"distinct_id\":\"$DID\",\"properties\":{\"install_id\":\"$INSTALL_ID\",\"version\":\"$VERSION\",\"surface\":\"claude-code\"}}" \
-  >/dev/null 2>&1 &
+SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh <event_name> '<extra_json_props>' >/dev/null 2>&1 &
 ```
 
-What this sends: install_id, version, the literal string `claude-code` as the surface. No prompt content. No project files. No conversation. Just "this install ran today."
+The 8 v1 events and their triggers:
 
-If the user asks "are you tracking me?" — answer honestly. The skill sends two PostHog events: `ai_build_partner_installed` (once, at install) and `build_partner_invoked` (once per session). To opt out permanently: `rm ~/.ai-build-partner/install_id`. The skill works identically without telemetry.
+1. **`build_partner_invoked`** — fire on the FIRST model turn of every new conversation (once per session_id):
+   ```bash
+   SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh build_partner_invoked '' >/dev/null 2>&1 &
+   ```
+2. **`session_started`** — fire alongside `build_partner_invoked`. Include `entry_context` enum (`fresh | resumed | post-paid-install`). Default `fresh` unless you can detect a `last_session_at` newer than 0 days:
+   ```bash
+   SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh session_started '"entry_context":"fresh"' >/dev/null 2>&1 &
+   ```
+3. **`session_resumed`** — fire if `~/.ai-build-partner/last_session_at` exists AND is ≥24h old. Run AFTER `session_started`. Include `days_since_last` int:
+   ```bash
+   DAYS=$(bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh && \
+     source ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh && abp_days_since_last) ; \
+   [[ "$DAYS" -ge 1 ]] && SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh session_resumed "\"days_since_last\":$DAYS" >/dev/null 2>&1 &
+   ```
+4. **`project_first_response`** — fire after the Project-first check returns. Include `outcome` enum (`accepted` = user said "go" or confirmed Project setup, `declined` = user refused, `skipped` = user message bypassed the prompt):
+   ```bash
+   SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh project_first_response '"outcome":"accepted","turn_index":2' >/dev/null 2>&1 &
+   ```
+5. **`command_fired`** — fire when routing a `/unstuck <command>` (including T-aliases and momentum). Include `command` slug:
+   ```bash
+   SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh command_fired '"command":"scope"' >/dev/null 2>&1 &
+   ```
+6. **`command_completed`** — fire at the artifact moment (immediately after outputting a Save-This block tied to a command). Include `command` slug + `artifact_kind` enum (`scope | sprint | roadmap | audit | other`):
+   ```bash
+   SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh command_completed '"command":"scope","artifact_kind":"scope"' >/dev/null 2>&1 &
+   ```
+7. **`save_block_fired`** — fire ONCE per command per session, immediately after outputting a `📌 **Save this turn**` block. Dedup by tracking a session-local marker file `/tmp/abp-save-$$-<command>` before firing. Include nullable `command`:
+   ```bash
+   MARK="/tmp/abp-save-$$-${CMD:-none}" ; [[ -f "$MARK" ]] || { touch "$MARK" ; \
+     SURFACE=claude-skill bash ~/.claude/skills/ai-build-partner/scripts/abp-fire-event.sh save_block_fired "\"command\":\"${CMD:-null}\"" >/dev/null 2>&1 & ; }
+   ```
 
-When the user runs `/unstuck shipped` (or otherwise confirms they've shipped), additionally send a `build_partner_shipped` event with the same payload shape. Same opt-out applies.
+`command_abandoned` is NOT fired from this skill — it's derived server-side in PostHog by joining `command_fired` against the absence of `command_completed` within the same `session_id`.
+
+What this all sends per event: `install_id`, `session_id`, `surface=claude-skill`, `synthetic`, `version` + the event-specific enums above. No prompt content. No project files. No conversation. Just structural occurrence signals.
+
+If the user asks "are you tracking me?" — answer honestly. The skill sends 8 PostHog event types (install + 7 in-conversation): all silent, all opt-outable by deleting `~/.ai-build-partner/install_id`. The skill works identically without telemetry. Internal emails (`@anthropic.com`, `@unstuckwithmolly.com`) are auto-flagged `synthetic: true` and filtered from prod dashboards.
+
+When the user runs `/unstuck shipped` (or otherwise confirms they've shipped), additionally send a `build_partner_shipped` event with the same payload shape. (v2 event — fires only if the `/shipped` command exists in the current skill version.)
 
 **Core rules that apply to every module:**
 
