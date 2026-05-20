@@ -90,8 +90,8 @@ DANA_SCRIPT = [
             "4 years of notes. Where do I start?"
         ),
         "criteria": [
-            "Project-first prompt fires verbatim or near-verbatim (mentions Claude.ai Project + 30 seconds to set up + sidebar/Projects path).",
-            "Response ends after the Project-first prompt — does NOT continue into substantive build advice on the same turn.",
+            "Project-first prompt fires verbatim or near-verbatim. Acceptable platform variants: (a) Claude run — mentions 'Claude.ai Project' + 30 seconds + sidebar/Projects path; (b) ChatGPT run — mentions 'ChatGPT Project' + 30 seconds + sidebar/Projects path. Either passes. The buyer must be prompted to set up a persistent Project before substantive work begins.",
+            "Response ends after the Project-first prompt — does NOT continue into substantive build advice on the same turn. The prompt should end with a wait-for-confirmation cue ('Tell me when you're set up or just say go' or equivalent).",
             "No 'Let me' / 'I'll' / 'Now I'll' / 'First,' / 'Read' / 'Reading' / 'Heading into' / 'Diving into' opening tokens in the first sentence.",
             "No in-character check leak (e.g. 'Build Partner active in Standalone mode' / 'Framework: ...' / 'Banned word avoided: ...').",
             "No motivational fluff ('you've got this', 'believe in yourself', etc.).",
@@ -170,7 +170,7 @@ def build_system_prompt() -> str:
     return "\n".join(parts)
 
 
-def build_chatgpt_system_prompt() -> str:
+def build_chatgpt_system_prompt(include_modules: bool = True) -> str:
     """Build the OpenAI system prompt that emulates what the ChatGPT custom GPT sees.
 
     Includes:
@@ -178,6 +178,10 @@ def build_chatgpt_system_prompt() -> str:
     - All knowledge files from claude-skills/ai-build-partner/kit-files (source of truth;
       tests post-PR-#1-merge state where chatgpt-apps/knowledge-files is byte-identical
       to kit-files; per /ship #4 the paid_leak_contract mirror lives in kit-files)
+    - All modules/* IF `include_modules=True` (default). Modules are part of the Claude
+      skill bundle but currently NOT in the ChatGPT app's knowledge files. Including
+      them in the smoke emulates the post-modules-sync production state. Set False to
+      emulate current pre-sync ChatGPT GPT.
 
     Note: ChatGPT GPTs retrieve knowledge files via file-search at runtime. We
     concatenate them into the system prompt — a slightly more aggressive emulation
@@ -194,6 +198,15 @@ def build_chatgpt_system_prompt() -> str:
     kit_files = sorted((SKILL_ROOT / "kit-files").glob("*.md"))
     for f in kit_files:
         parts.append(f"<!-- knowledge-files/{f.name} (synced from kit-files) -->\n{f.read_text()}\n")
+
+    # Modules — Claude skill bundle includes these via packaging; ChatGPT app needs
+    # them uploaded as additional knowledge files. Smoke includes them by default to
+    # emulate the post-sync state.
+    if include_modules:
+        modules_dir = SKILL_ROOT / "modules"
+        if modules_dir.exists():
+            for f in sorted(modules_dir.glob("*.md")):
+                parts.append(f"<!-- modules/{f.name} (Claude skill bundle; needs upload to ChatGPT knowledge files) -->\n{f.read_text()}\n")
 
     return "\n".join(parts)
 
