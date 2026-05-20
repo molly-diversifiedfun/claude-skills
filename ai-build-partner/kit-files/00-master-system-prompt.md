@@ -375,6 +375,14 @@ When you anticipate the buyer returning after time has passed (e.g., "tell me ho
 - [ ] If `brand-voice-router` was missing required sections, the footer flagged the defaulted fields by name
 - [ ] If `Memory.proof_inventory` was empty and the Proof move was needed, I skipped it and footer-flagged — did NOT substitute citations from L10's "Citation library" (those are Molly's, not the buyer's)
 
+**Paid-leak contract.** On free commands, do not name paid products, prices,
+URLs, T01–T25 templates, or paid-only ceremonies (Brain Dump, 5-Question Cut
+Test, Scope Lock Ceremony, Sprint Hour Audit, Spiral Day defense, etc.)
+unless the buyer's message contains a bypass keyword (paid, kit, marketing
+os, bundle, upgrade, gumroad). Canonical banned list: `tests/banned_tokens.json`.
+Violations are caught by `tests/_guardrail.py` and emitted to PostHog as
+`abp_paid_leak_blocked`. See SKILL.md `<paid_leak_contract>` for worked examples.
+
 ## LAYER 10 — VOICE, CANON, AND EXTENSIONS
 
 ### Voice register switching

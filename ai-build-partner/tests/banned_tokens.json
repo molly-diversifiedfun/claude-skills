@@ -1,0 +1,83 @@
+{
+  "$schema_version": "1.0",
+  "last_validated": "2026-05-20",
+  "source": "~/github/theshipitsystem/src/data/products.ts (mirror these — products.ts is canonical)",
+
+  "products": [
+    "Ship It Kit",
+    "The Ship It Kit",
+    "Marketing OS",
+    "Ship It System Bundle",
+    "The Ship It System Bundle",
+    "The Ship It System",
+    "Momentum Method",
+    "The Momentum Method",
+    "Ship It or Kill It"
+  ],
+
+  "prices": [
+    "$149",
+    "$79",
+    "$179",
+    "$19",
+    "$9",
+    "$75",
+    "$40",
+    "$89"
+  ],
+
+  "urls": [
+    "shipitwithmolly.gumroad.com/l/ship-it-kit",
+    "shipitwithmolly.gumroad.com/l/marketing-os",
+    "shipitwithmolly.gumroad.com/l/bundle",
+    "shipitwithmolly.gumroad.com/l/momentum-method",
+    "shipitwithmolly.gumroad.com/l/ship-it-or-kill-it",
+    "gumroad.com/l/"
+  ],
+
+  "templates": [
+    "T01", "T02", "T03", "T04", "T05", "T06", "T07", "T08", "T09", "T10",
+    "T11", "T12", "T13", "T14", "T15", "T16", "T17", "T18", "T19", "T20",
+    "T21", "T22", "T23", "T24", "T25"
+  ],
+
+  "ceremonies": [
+    "Brain Dump",
+    "5-Question Cut Test",
+    "Scope Lock Ceremony",
+    "Sprint Hour Audit",
+    "Spiral Day defense",
+    "SHIP/STUB/DEFER matrix",
+    "Sean Ellis 40% interview",
+    "Andreessen 4-pillar diagnosis",
+    "Kill/Pivot/Double Down verdict",
+    "Hormozi value-stack math",
+    "Sean Ellis",
+    "Hormozi"
+  ],
+
+  "discount_codes": [
+    "LAUNCH50",
+    "FIRSTSALE"
+  ],
+
+  "bypass_keywords": [
+    "paid",
+    "kit",
+    "marketing os",
+    "bundle",
+    "upgrade",
+    "gumroad",
+    "$149",
+    "$79",
+    "$179",
+    "ship it kit",
+    "momentum method",
+    "ship it system",
+    "ship it or kill",
+    "ship-it-kit",
+    "marketing-os",
+    "what's in",
+    "what is in"
+  ]
+}

@@ -108,9 +108,66 @@ The baseline lives at `tests/baseline.json` and is checked in. Update it when:
 
 Don't update the baseline to hide regressions. If a current run fails against baseline, fix the skill first, then update the baseline.
 
-## Files
+## Paid-leak guardrail
 
-- `dana-smoke.py` — the runner
+Free-vs-paid output guardrail. The third pillar of the paid-separation contract
+(after architectural file-separation and the `<paid_skill_detection>` prompt
+rules). Catches Sonnet 4.6 stochastic leaks like the 2026-05-19 turn-5 bug —
+the model pitching `$149 Ship It Kit` + Gumroad URL + Brain Dump / 5-Question
+Cut Test on a free `/unstuck scope` command.
+
+### What it does
+
+1. **`tests/_guardrail.py`** — pure-regex scanner. `check_paid_leak(user, response)`
+   returns `PASS` / `BLOCK` / `BYPASS`. BYPASS fires when the user's own message
+   contains a paid keyword (`paid`, `kit`, `marketing os`, `bundle`, `upgrade`,
+   `gumroad`, etc.) — buyer asked, paid mentions legitimate.
+2. **`tests/banned_tokens.json`** — canonical list of banned products / prices /
+   URLs / T01–T25 templates / paid-only ceremonies + bypass keywords. Mirror of
+   `theshipitsystem/src/data/products.ts`. Single source of truth; SKILL.md
+   `<paid_leak_contract>` prose references this file.
+3. **`tests/test_guardrail.py`** — 11 deterministic fixtures including the
+   verbatim Sonnet 4.6 turn-5 leak. No API calls. Run in CI on every push:
+
+```bash
+python3 tests/test_guardrail.py   # exits 0 on pass, 1 on fail
+```
+
+4. **Dana smoke cross-turn criterion** — `run_model()` calls `check_paid_leak`
+   on EVERY turn's response. BLOCK = synthetic FAIL verdict + PostHog
+   `abp_paid_leak_blocked` event. BYPASS / PASS = pass verdict. Defensive: any
+   exception in `check_paid_leak` surfaces a `GUARDRAIL_RUN_ERROR` FAIL — never
+   silent zero.
+
+### PostHog event: `abp_paid_leak_blocked`
+
+Emitted by `_guardrail.emit_block_event()` when a free command's response leaks
+a paid mention. Privacy contract (spec §5): NO buyer message text, NO assistant
+response text, NO email, NO raw install_id. `distinct_id` is the SHA-256 hash
+of install_id. Payload fields:
+
+- `install_id` (hashed), `session_id`, `surface` (`claude-skill` | `dana-smoke`),
+  `synthetic`, `version`, `model`, `command`, `matched_tokens` (list),
+  `matched_token_count` (int), `turn_index` (int), `response_length` (int)
+
+The `surface` field distinguishes synthetic (Dana smoke) blocks from real-buyer
+blocks once a live runtime wrapper exists (out of scope for this ship).
+
+### When to update `banned_tokens.json`
+
+- Price changes in `theshipitsystem/src/data/products.ts` (LAUNCH50 expires
+  June 30, 2026 — discount codes can stay)
+- New paid product / paid-only ceremony / paid URL
+- New T-template alias
+
+After any update: re-run `test_guardrail.py` + re-seal `dana-smoke.py --baseline`.
+
+### Files
+
+- `_guardrail.py` — guardrail module (regex + PostHog emit)
+- `banned_tokens.json` — canonical banned-token list
+- `test_guardrail.py` — deterministic unit tests (11 fixtures, no API)
+- `dana-smoke.py` — runner with cross-turn `paid_leak_check` criterion injected
 - `baseline.json` — saved baseline (commit this)
 - `results/dana-smoke-<timestamp>.json` — per-run results (gitignored)
 - `README.md` — this file

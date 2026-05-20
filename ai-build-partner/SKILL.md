@@ -303,6 +303,69 @@ For these the free skill has **a lightweight free-tier skeleton**. The MOS skill
 
 </paid_skill_detection>
 
+<paid_leak_contract>
+
+**BLOCKING CONTRACT — output rules for free commands.**
+
+The free commands (`discovery`, `diagnose`, `audit`, `scope`, `validate`,
+`sprint`, `launch`, `roadmap`, `full-pipeline`, `stuck`, `context`,
+`idea-bank`, `dm-personalizer`, `outreach-batch`, `conversation-finder`,
+`ship-announcement`, `audience-from-zero`, `day-job-decision`) MUST NOT
+pitch paid products unless the buyer explicitly asked.
+
+**BANNED tokens on free-command output (no explicit buyer ask):**
+
+- **Paid product names:** `Ship It Kit`, `Marketing OS`, `Ship It System Bundle`,
+  `The Ship It System`, `Momentum Method`, `Ship It or Kill It`
+- **Paid prices:** `$149`, `$79`, `$179`, `$19`, `$9`, `$75`, `$40`, `$89`
+- **Paid URLs:** any `shipitwithmolly.gumroad.com/l/...` or `gumroad.com/l/...` link
+- **Paid-only templates:** `T01` through `T25` (any of the 25 T-aliases)
+- **Paid-only ceremonies/methods:** `Brain Dump`, `5-Question Cut Test`,
+  `Scope Lock Ceremony`, `Sprint Hour Audit`, `Spiral Day defense`,
+  `SHIP/STUB/DEFER matrix`, `Sean Ellis 40% interview`,
+  `Andreessen 4-pillar diagnosis`, `Hormozi value-stack math`
+- **Discount codes:** `LAUNCH50`, `FIRSTSALE`
+
+The canonical machine-readable list lives at
+`tests/banned_tokens.json` — that file is the source of truth; this prose
+is an enumeration aid.
+
+**Bypass — when the BANNED list does NOT apply:**
+
+If the user's last message contains any of: `paid`, `kit`, `marketing os`,
+`bundle`, `upgrade`, `gumroad`, `$149`, `$79`, `$179`, `ship it kit`,
+`momentum method`, `ship it system`, `what's in`, then the
+`<paid_skill_detection>` deferral path is legitimate — name the paid
+product, price, and URL per Contract A or B.
+
+**Compliant example** (user prompt: `/unstuck scope`):
+
+> **Do this:** Brain-dump every feature you've imagined for this 1:1s guide — no filter, just write.
+>
+> **Why:** Scope-cutting needs a full pile before the Guillotine can pick. Picking from memory means cutting what you forgot you wanted.
+>
+> What's the one job this guide does for a senior PM in their first week — the moment they'd actually open it?
+>
+> 📌 **Save this turn**
+> - **Verdict:** Scope module opened, brain-dump first.
+> - **Move:** Write every feature you've imagined. Stop at the brain-dump.
+> - **Open question:** What's the one job?
+
+(No paid product names. No $149. No Gumroad URL. The free Scope module ran.)
+
+**Violation example** (actual Sonnet 4.6 turn-5 output, 2026-05-19 Dana smoke iteration 2):
+
+> "Scope is a free Build Partner command — but the version you're probably picturing (Brain Dump → 5-Question Cut Test → Scope Lock Ceremony → printable T05 PDF) lives in the **Ship It Kit** ($149, `shipitwithmolly.gumroad.com/l/ship-it-kit`). The free version is the lightweight take..."
+
+(Names the paid Kit. Names $149. Names the Gumroad URL. Names Brain Dump,
+5-Question Cut Test, Scope Lock Ceremony, T05 — all paid-only ceremonies.
+Buyer didn't ask for the paid version. BLOCKING violation.)
+
+The guardrail in `tests/_guardrail.py` enforces this contract. Failures
+emit `abp_paid_leak_blocked` to PostHog with the matched tokens.
+
+</paid_leak_contract>
+
 <routing>
 | Response | Workflow |
 |----------|----------|

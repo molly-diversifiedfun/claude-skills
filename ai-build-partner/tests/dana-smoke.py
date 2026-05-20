@@ -34,6 +34,10 @@ from pathlib import Path
 from typing import Any
 from urllib import request, error
 
+# Allow importing _guardrail when running from any cwd.
+sys.path.insert(0, str(Path(__file__).parent))
+from _guardrail import check_paid_leak, emit_block_event, hash_install_id  # noqa: E402
+
 API_URL = "https://api.anthropic.com/v1/messages"
 DEFAULT_MODELS = ["claude-opus-4-7", "claude-sonnet-4-6"]
 JUDGE_MODEL = "claude-sonnet-4-6"
@@ -298,6 +302,71 @@ def run_model(model: str, system_prompt: str) -> dict:
 
         print(f"    [{elapsed:.1f}s, {len(response)} chars] Judging…")
         verdicts = judge_response(spec["user"], response, spec["criteria"])
+
+        # ── Cross-turn paid-leak guardrail ─────────────────────────────────
+        # Runs on EVERY turn (1-5). Pure regex — no extra API call.
+        # Defensive parsing per llm-judge-needs-retry-and-defensive-parse.md:
+        # any exception surfaces a synthetic FAIL with GUARDRAIL_RUN_ERROR
+        # so we never silently pass.
+        try:
+            guardrail_result = check_paid_leak(
+                user_message=spec["user"],
+                assistant_response=response,
+                command=spec.get("command"),
+            )
+            if guardrail_result.verdict == "BLOCK":
+                verdicts.append({
+                    "criterion": (
+                        "paid_leak_check (cross-turn): free command response must NOT "
+                        "contain paid product names, prices, URLs, T-templates, or "
+                        "paid-only ceremonies unless user message contains a bypass keyword."
+                    ),
+                    "verdict": "FAIL",
+                    "reason": (
+                        f"Guardrail BLOCK: matched tokens "
+                        f"{list(guardrail_result.matched_tokens)}. "
+                        f"See tests/_guardrail.py."
+                    ),
+                })
+                # Fire PostHog telemetry. session_hash empty → emit_block_event
+                # hashes local install_id as fallback (no-op if no install_id).
+                try:
+                    emit_block_event(
+                        result=guardrail_result,
+                        model=model,
+                        command=spec.get("command"),
+                        turn_index=spec["turn"],
+                        session_hash="",  # let emit_block_event hash local install_id
+                        surface="dana-smoke",
+                    )
+                except Exception:
+                    pass  # telemetry must never break the test
+            elif guardrail_result.verdict == "BYPASS":
+                verdicts.append({
+                    "criterion": "paid_leak_check (cross-turn)",
+                    "verdict": "PASS",
+                    "reason": (
+                        f"BYPASS: buyer asked ({guardrail_result.bypass_reason}). "
+                        "Paid mentions legitimate."
+                    ),
+                })
+            else:
+                verdicts.append({
+                    "criterion": "paid_leak_check (cross-turn)",
+                    "verdict": "PASS",
+                    "reason": "No paid tokens detected.",
+                })
+        except Exception as guard_err:
+            # Defensive: never let a guardrail bug silently pass the run.
+            verdicts.append({
+                "criterion": "GUARDRAIL_RUN_ERROR",
+                "verdict": "FAIL",
+                "reason": (
+                    f"check_paid_leak raised: {type(guard_err).__name__}: "
+                    f"{str(guard_err)[:150]}"
+                ),
+            })
+
         passes = sum(1 for v in verdicts if v.get("verdict") == "PASS")
         fails = sum(1 for v in verdicts if v.get("verdict") == "FAIL")
         print(f"    {passes}✓ {fails}✗ / {len(spec['criteria'])} criteria")
