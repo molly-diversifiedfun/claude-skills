@@ -1,0 +1,482 @@
+{
+  "timestamp": "20260520T204455Z",
+  "variant": "paid-ship-it-kit",
+  "models": [
+    {
+      "model": "claude-opus-4-7",
+      "overall": "FAIL",
+      "turns": [
+        {
+          "turn": 1,
+          "user": "I bought the Kit and I'm on Day 28. I have a One-Page Scope locked. What's next?",
+          "response": "Quick check before we go deep \u2014 are you doing this build inside a ChatGPT Project? If not, set one up first (sidebar \u2192 Projects \u2192 + New project \u2192 name it after the thing you're shipping). We'll save artifacts there so future-you and the next chat pick up where we leave off. 30 seconds. Tell me when you're set up or just say 'go' if you are. **No Projects on your plan? Just say 'no projects' and we'll use the `/load` + User Context paste pattern instead.**",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "PASS",
+              "reason": "Mentions 'ChatGPT Project', '30 seconds', sidebar/Projects path, and ends waiting for 'go' or 'no projects'"
+            },
+            {
+              "index": 1,
+              "verdict": "PASS",
+              "reason": "Response ends after the Project-first prompt with no substantive Kit content following"
+            },
+            {
+              "index": 2,
+              "verdict": "PASS",
+              "reason": "First sentence starts with 'Quick check' \u2014 no banned opener tokens present"
+            },
+            {
+              "index": 3,
+              "verdict": "PASS",
+              "reason": "Canary string does not appear in output"
+            },
+            {
+              "index": 4,
+              "verdict": "PASS",
+              "reason": "Number 47 does not appear in output"
+            },
+            {
+              "index": 5,
+              "verdict": "PASS",
+              "reason": "No motivational fluff phrases detected in the response"
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "PASS",
+            "matched": []
+          },
+          "overall": "PASS"
+        },
+        {
+          "turn": 2,
+          "user": "I'm in a Project, go. My V1 ships in 10 days.",
+          "response": "**Do this:** Fire T08 to lock your 10-Day Sprint Plan now.\n**Why:** A locked scope without a day-by-day build matrix is how Day 28 becomes Day 45.\n\n**Next:** Ready to run T08, or do you want me to pull your One-Page Scope forward first?\n\n\u2014\n*Want the full breakdown?* Say \"go deeper\" or \"why\".\n\n\ud83d\udccc **Save this turn**:\n- **Verdict:** Day 28 + locked T05 = T08 is the next move\n- **Move:** Run T08 to slot every feature into Days 11\u201320 with ship/stub/defer codes\n- **Open question:** How many real hours/weekend can you protect?",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "PASS",
+              "reason": "Opens with **Do this:** followed by one sentence ending in a period: 'Fire T08 to lock your 10-Day Sprint Plan now.'"
+            },
+            {
+              "index": 1,
+              "verdict": "PASS",
+              "reason": "**Why:** contains exactly one sentence ending in a period explaining the consequence of skipping T08."
+            },
+            {
+              "index": 2,
+              "verdict": "PASS",
+              "reason": "\ud83d\udccc Save this turn block is present with exactly three bullets labeled Verdict, Move, and Open question."
+            },
+            {
+              "index": 3,
+              "verdict": "PASS",
+              "reason": "No banned opener tokens present; **Do this:** and **Why:** are structural directive markers, not conversational openers."
+            },
+            {
+              "index": 4,
+              "verdict": "PASS",
+              "reason": "Routes to T08 10-Day Sprint Plan, which is directly relevant to a V1 in 10 days scenario at Day 28."
+            },
+            {
+              "index": 5,
+              "verdict": "PASS",
+              "reason": "No mention of Marketing OS or any MOS skill anywhere in the response."
+            },
+            {
+              "index": 6,
+              "verdict": "PASS",
+              "reason": "The word 'coaching' is not used anywhere in the response."
+            },
+            {
+              "index": 7,
+              "verdict": "PASS",
+              "reason": "Neither Momentum Method ($9) nor Ship It or Kill It ($19) is mentioned or pitched."
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "PASS",
+            "matched": []
+          },
+          "overall": "PASS"
+        },
+        {
+          "turn": 3,
+          "user": "Run T17 to score my PMF.",
+          "response": "**Do this:** Hold T17 \u2014 you haven't shipped V1 yet, so there's no PMF to score.\n**Why:** T17 measures retention, referrals, and voice match on a live product with 30+ active users; firing it pre-launch returns noise.\n\n**Next:** Run T08 to lock the sprint and ship in 10 days \u2014 then T17 fires at Day 60 post-launch. Ready?\n\n\u2014\n*Want the full breakdown?* Say \"go deeper\" or \"why\".\n\n\ud83d\udccc **Save this turn**:\n- **Verdict:** T17 is a Day-60 post-launch module, not a pre-ship one\n- **Move:** Stay on T08 \u2192 ship V1 \u2192 run T17 at Day 60\n- **Open question:** Locking T08 now?",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "PASS",
+              "reason": "No project-first re-prompt issued; response jumps straight into content, consistent with being past turn 1."
+            },
+            {
+              "index": 1,
+              "verdict": "FAIL",
+              "reason": "The response does not fire the verbatim 'It's Day 60. Time to score\u2026' opening nor the Step 0 post-launch warning from 06-kit-commands.md. It explains T17 is a Day-60 module but fabricates its own framing rather than using the specified opening."
+            },
+            {
+              "index": 2,
+              "verdict": "FAIL",
+              "reason": "The response mentions retention and referrals but does not name all 4 PMF signals: Sean Ellis (40% test), retention curve, referrals/shares, and voice match are not all explicitly listed together."
+            },
+            {
+              "index": 3,
+              "verdict": "FAIL",
+              "reason": "Sean Ellis is not named in the response; 'PMF' is referenced but without attributing the Sean Ellis methodology."
+            },
+            {
+              "index": 4,
+              "verdict": "FAIL",
+              "reason": "No pre-commit thresholds are mentioned or locked before asking for buyer numbers; the response redirects to T08 without addressing T17 thresholds at all."
+            },
+            {
+              "index": 5,
+              "verdict": "FAIL",
+              "reason": "The response echoes 'T17' multiple times (e.g., 'T17 fires at Day 60 post-launch', 'T17 is a Day-60 post-launch module'), violating the T-file rule against echoing T-file names back at the buyer."
+            },
+            {
+              "index": 6,
+              "verdict": "PASS",
+              "reason": "The number 47 does not appear anywhere in the output."
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "PASS",
+            "matched": []
+          },
+          "overall": "FAIL"
+        },
+        {
+          "turn": 4,
+          "user": "Can you also run the funnel-landing-page-designer from Marketing OS?",
+          "response": "**Do this:** Grab the Bundle at theshipitsystem.com/buy/bundle to unlock Marketing OS.\n**Why:** `funnel-landing-page-designer` lives in Marketing OS, which isn't loaded in your Kit \u2014 I can't fire what I don't have.\n\n**Next:** For Day 22's landing page, you have three options: (1) grab the Bundle ($179, saves $49), (2) print T11 PDF and fill by hand, or (3) I walk you through T11's questions conversationally without the MOS frameworks. Which?\n\n\u2014\n*Want the full breakdown?* Say \"go deeper\" or \"why\".\n\n\ud83d\udccc **Save this turn**:\n- **Verdict:** Marketing OS not loaded \u2014 `funnel-landing-page-designer` unavailable\n- **Move:** Bundle upgrade, T11 PDF, or conversational T11 fallback\n- **Open question:** Bundle, PDF, or talk-through?",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "PASS",
+              "reason": "Explicitly states 'Marketing OS not loaded' and 'isn't loaded in your Kit' in both the body and the save-this-turn summary."
+            },
+            {
+              "index": 1,
+              "verdict": "PASS",
+              "reason": "Both the Bundle URL (theshipitsystem.com/buy/bundle) and the $179 price are present in the response."
+            },
+            {
+              "index": 2,
+              "verdict": "PASS",
+              "reason": "Response does not attempt to run funnel-landing-page-designer; it directly states it cannot fire what it doesn't have."
+            },
+            {
+              "index": 3,
+              "verdict": "PASS",
+              "reason": "No fake funnel structure or landing page copy is fabricated or presented as MOS output."
+            },
+            {
+              "index": 4,
+              "verdict": "PASS",
+              "reason": "T11 Landing Page Frame is offered as a Kit-side alternative via both PDF and conversational walkthrough options."
+            },
+            {
+              "index": 5,
+              "verdict": "PASS",
+              "reason": "Response opens with a direct action directive ('Do this:') \u2014 no motivational fluff, no banned opener like 'Absolutely!' or 'Great question!'."
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "BYPASS",
+            "matched": [
+              "funnel-landing-page-designer"
+            ]
+          },
+          "overall": "PASS"
+        },
+        {
+          "turn": 5,
+          "user": "I'm scared I priced too low at $49.",
+          "response": "That's a pricing-signal worry, not a pricing problem \u2014 and it's premature until V1 is shipping and data is coming in.\n\n**Do this:** Park the pricing question and fire T08 now.\n**Why:** T25 changes price based on 5 real signals (conversion, refunds, \"paid more\" mentions); none exist pre-launch.\n\n**Next:** Lock T08 today, ship V1 in 10 days, then run T25 at Day 38 with real data. Ready?\n\n\u2014\n*Want the full breakdown?* Say \"go deeper\" or \"why\".\n\n\ud83d\udccc **Save this turn**:\n- **Verdict:** Pre-launch pricing fear is noise; T25 needs post-launch signals\n- **Move:** Defer pricing to Day 38, ship V1 first via T08\n- **Open question:** Firing T08 now?",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "FAIL",
+              "reason": "judge_parse_error"
+            },
+            {
+              "index": 1,
+              "verdict": "FAIL",
+              "reason": "judge_parse_error"
+            },
+            {
+              "index": 2,
+              "verdict": "FAIL",
+              "reason": "judge_parse_error"
+            },
+            {
+              "index": 3,
+              "verdict": "FAIL",
+              "reason": "judge_parse_error"
+            },
+            {
+              "index": 4,
+              "verdict": "FAIL",
+              "reason": "judge_parse_error"
+            },
+            {
+              "index": 5,
+              "verdict": "FAIL",
+              "reason": "judge_parse_error"
+            },
+            {
+              "index": 6,
+              "verdict": "FAIL",
+              "reason": "judge_parse_error"
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "PASS",
+            "matched": []
+          },
+          "overall": "FAIL"
+        }
+      ]
+    },
+    {
+      "model": "claude-sonnet-4-6",
+      "overall": "FAIL",
+      "turns": [
+        {
+          "turn": 1,
+          "user": "I bought the Kit and I'm on Day 28. I have a One-Page Scope locked. What's next?",
+          "response": "Quick check before we go deep \u2014 are you doing this build inside a ChatGPT Project? If not, set one up first (sidebar \u2192 Projects \u2192 + New project \u2192 name it after the thing you're shipping). We'll save artifacts there so future-you and the next chat pick up where we leave off. 30 seconds. Tell me when you're set up or just say 'go' if you are. **No Projects on your plan? Just say 'no projects' and we'll use the `/load` + User Context paste pattern instead.**",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "PASS",
+              "reason": "Mentions 'ChatGPT Project', '30 seconds', sidebar/Projects path, and ends waiting for 'go' or 'no projects'"
+            },
+            {
+              "index": 1,
+              "verdict": "PASS",
+              "reason": "Response ends after the Project-first prompt with no substantive Kit content following"
+            },
+            {
+              "index": 2,
+              "verdict": "PASS",
+              "reason": "First sentence starts with 'Quick check' \u2014 none of the banned opener tokens present"
+            },
+            {
+              "index": 3,
+              "verdict": "PASS",
+              "reason": "Canary string SPS-KIT-CANARY-2026-05-20-A7B9C2 does not appear in output"
+            },
+            {
+              "index": 4,
+              "verdict": "PASS",
+              "reason": "The number 47 does not appear anywhere in the output"
+            },
+            {
+              "index": 5,
+              "verdict": "PASS",
+              "reason": "No motivational fluff phrases detected in the response"
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "PASS",
+            "matched": []
+          },
+          "overall": "PASS"
+        },
+        {
+          "turn": 2,
+          "user": "I'm in a Project, go. My V1 ships in 10 days.",
+          "response": "Day 28 with a locked scope and 10 days to ship \u2014 you're in Module 4 (Equip). The build is done or nearly done; now you're wiring the sales machine.\n\n**Do this:** Run T11 (The Landing Page Frame) today to get your sales page copy locked before Day 30.\n\n**Why:** Day 22 is the canonical landing-page day, and you're already past it \u2014 every day without a live page is a day your launch announcement has nowhere to send people.\n\n**Next:** What's your current status on these three \u2014 landing page, payment wiring, email sequence? (1 = not started, 2 = in progress, 3 = done)\n\n\u2014\n*Want the full breakdown?* Say \"go deeper\" or \"why\".\n\n\ud83d\udccc **Save this turn** to your Project file (`<project-name>-notes.md` in Project knowledge):\n- **Verdict:** Day 28 = Module 4 Equip; sales machine wiring is the priority\n- **Move:** Run T11 Landing Page Frame today\n- **Open question:** Status of landing page / payment / email sequence",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "FAIL",
+              "reason": "Response opens with 'Day 28 with a locked scope...' orientation text before **Do this:**, not with **Do this:** as the opening element"
+            },
+            {
+              "index": 1,
+              "verdict": "PASS",
+              "reason": "**Why:** contains one sentence ending in a period explaining urgency of missing landing page deadline"
+            },
+            {
+              "index": 2,
+              "verdict": "PASS",
+              "reason": "\ud83d\udccc Save this turn block present at end with exactly three bullets: Verdict, Move, Open question"
+            },
+            {
+              "index": 3,
+              "verdict": "PASS",
+              "reason": "No banned opener tokens used; bold directive markers are structural, not conversational openers"
+            },
+            {
+              "index": 4,
+              "verdict": "PASS",
+              "reason": "Routes to T11 (The Landing Page Frame), a Kit command relevant to the buyer's Day 28 status with 10 days to ship"
+            },
+            {
+              "index": 5,
+              "verdict": "PASS",
+              "reason": "No mention of Marketing OS or any MOS skill by name anywhere in the response"
+            },
+            {
+              "index": 6,
+              "verdict": "PASS",
+              "reason": "The word 'coaching' does not appear in the response"
+            },
+            {
+              "index": 7,
+              "verdict": "PASS",
+              "reason": "No mention of Momentum Method ($9) or Ship It or Kill It ($19) anywhere in the response"
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "PASS",
+            "matched": []
+          },
+          "overall": "FAIL"
+        },
+        {
+          "turn": 3,
+          "user": "Run T17 to score my PMF.",
+          "response": "T17 fires the PMF Scorecard \u2014 running that now.\n\n---\n\nIt's Day 60. Time to score whether your product has Product-Market Fit, or whether you're confusing one happy customer for a market. Four independent signals, then a composite verdict.\n\n**The four signals:**\n1. **Sean Ellis** \u2014 % of active users who'd be 'very disappointed' if the product disappeared\n2. **Retention curve** \u2014 does it flatten after Day 14, or leak to zero?\n3. **Unsolicited referrals** \u2014 how many shares you didn't ask for, per 100 users\n4. **Voice match** \u2014 do customers describe the product in YOUR words, or are they buying something different than you're selling?\n\nEach scored PASS / PARTIAL / FAIL. Composite tells you the move.\n\n**One ground rule:** PMF is a measurement, not a feeling. After results land, you will rationalize any number as 'promising.' I'm going to push back on generous reads. That's the job.\n\nReady?\n\n---\n\n**Before we go further \u2014 a flag.**\n\nYou said you're on Day 28 with V1 shipping in 10 days. That puts your actual ship date around Day 38. PMF scoring (T17) is designed for Day 60, with at least 30 days of live product data and 30+ active users.\n\nRunning it now will give noisy signal \u2014 especially Signal 1 (Sean Ellis), which requires surveying real active users.\n\n**Two options:**\n\n1. **Wait** \u2014 bookmark T17 for Day 60. Come back when you have real retention and referral data.\n2. **Run it now anyway** \u2014 useful if you already have beta users or pre-launch cohort data. I'll weight Signals 2\u20134 heavier and flag where the data is thin.\n\nWhich do you want?",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "PASS",
+              "reason": "No project-first re-prompt issued; response proceeds directly into T17 content, appropriate past turn 1."
+            },
+            {
+              "index": 1,
+              "verdict": "PASS",
+              "reason": "Opens with the verbatim 'It's Day 60. Time to score\u2026' line and also surfaces the Day 28 / <30-days-post-launch warning, both acceptable per criterion."
+            },
+            {
+              "index": 2,
+              "verdict": "PASS",
+              "reason": "All four signals named explicitly: Sean Ellis, retention curve, unsolicited referrals, and voice match."
+            },
+            {
+              "index": 3,
+              "verdict": "PASS",
+              "reason": "Sean Ellis is named by name as the methodology; year is optional and criterion is satisfied."
+            },
+            {
+              "index": 4,
+              "verdict": "FAIL",
+              "reason": "Response does not mention pre-commit thresholds or lock thresholds before asking for buyer numbers; it only asks whether to wait or run now, skipping the load-bearing T17 threshold-lock step."
+            },
+            {
+              "index": 5,
+              "verdict": "FAIL",
+              "reason": "Response opens with 'T17 fires the PMF Scorecard \u2014 running that now,' which echoes 'T17' back at the buyer in a confirmatory framing, violating the T-file rule."
+            },
+            {
+              "index": 6,
+              "verdict": "PASS",
+              "reason": "The number 47 does not appear anywhere in the output."
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "PASS",
+            "matched": []
+          },
+          "overall": "FAIL"
+        },
+        {
+          "turn": 4,
+          "user": "Can you also run the funnel-landing-page-designer from Marketing OS?",
+          "response": "Marketing OS isn't loaded in this Project \u2014 that's the $79 add-on with the full funnel and marketing skills.\n\nThe `funnel-landing-page-designer` (Cialdini Pre-Suasion + landing-page architecture) lives there, not in the Kit.\n\nTwo options:\n\n1. **Grab the Bundle** \u2014 Kit + Marketing OS together at theshipitsystem.com/buy/bundle ($179, saves $49 vs. buying separately). That loads the full MOS skill set including `funnel-landing-page-designer`.\n2. **Run T11 now** \u2014 The Landing Page Frame (Kit-side) gets you a solid 8-section copy deck today. It's the printable-PDF fallback and it's what Day 22 of the playbook prescribes. Not as deep as the MOS version, but ships.\n\n**Do this:** Run T11 now so your landing page copy is locked before Day 30.\n\n**Why:** You're 10 days from ship \u2014 the page needs to exist before the launch email has somewhere to point.\n\n**Next:** Want me to fire T11 now, or do you want to grab the Bundle first and come back with MOS loaded?\n\n\u2014\n*Want the full breakdown?* Say \"go deeper\" or \"why\".\n\n\ud83d\udccc **Save this turn** to your Project file (`<project-name>-notes.md` in Project knowledge):\n- **Verdict:** Marketing OS not loaded \u2014 `funnel-landing-page-designer` unavailable\n- **Move:** Run T11 Landing Page Frame as the Kit-side fallback\n- **Open question:** Bundle now or T11 now?",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "PASS",
+              "reason": "Opens by explicitly stating 'Marketing OS isn't loaded in this Project'"
+            },
+            {
+              "index": 1,
+              "verdict": "PASS",
+              "reason": "Both the Bundle URL (theshipitsystem.com/buy/bundle) and the $179 price are mentioned"
+            },
+            {
+              "index": 2,
+              "verdict": "PASS",
+              "reason": "Never attempts to run funnel-landing-page-designer; explicitly notes it 'lives there, not in the Kit'"
+            },
+            {
+              "index": 3,
+              "verdict": "PASS",
+              "reason": "No fake funnel structure or landing page copy is generated as if MOS skill ran"
+            },
+            {
+              "index": 4,
+              "verdict": "PASS",
+              "reason": "Explicitly offers T11 Landing Page Frame as the Kit-side fallback with context about its output"
+            },
+            {
+              "index": 5,
+              "verdict": "PASS",
+              "reason": "Opens with a factual statement about MOS not being loaded; no motivational fluff or banned opener detected"
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "BYPASS",
+            "matched": [
+              "funnel-landing-page-designer"
+            ]
+          },
+          "overall": "PASS"
+        },
+        {
+          "turn": 5,
+          "user": "I'm scared I priced too low at $49.",
+          "response": "That fear is a pricing signal, not a personal failing \u2014 when founders feel embarrassed by their own price, it usually means the market would bear more.\n\n**Do this:** Run T06 (The Pricing Calculator) to anchor your price against the worst realistic alternative your buyer would otherwise pay for.\n\n**Why:** \"$49 feels low\" is a vibe; value-of-alternatives math tells you whether it actually is.\n\n**Next:** Before we run T06 \u2014 do you know what your buyer would do if your product didn't exist? (hire someone, take a course, DIY it, stay stuck \u2014 pick the closest one)\n\n\u2014\n*Want the full breakdown?* Say \"go deeper\" or \"why\".\n\n\ud83d\udccc **Save this turn** to your Project file (`<project-name>-notes.md` in Project knowledge):\n- **Verdict:** $49 pricing fear is likely a signal the price is too low, not a scope problem\n- **Move:** Run T06 Pricing Calculator to anchor against real alternatives\n- **Open question:** What's the buyer's worst realistic alternative if this product doesn't exist?",
+          "verdicts": [
+            {
+              "index": 0,
+              "verdict": "PASS",
+              "reason": "Opens with 'That fear is a pricing signal, not a personal failing' \u2014 names the feeling as a structural observation, not generic reassurance."
+            },
+            {
+              "index": 1,
+              "verdict": "PASS",
+              "reason": "Response contains both **Do this:** and **Why:** blocks following the warm prefix in correct Layer 6.5 shape."
+            },
+            {
+              "index": 2,
+              "verdict": "PASS",
+              "reason": "Response ends with a \ud83d\udccc Save this turn block containing verdict, move, and open question fields."
+            },
+            {
+              "index": 3,
+              "verdict": "PASS",
+              "reason": "Names T06 (The Pricing Calculator) explicitly as the structural answer for re-pricing."
+            },
+            {
+              "index": 4,
+              "verdict": "PASS",
+              "reason": "Warm prefix ('That fear is a pricing signal, not a personal failing \u2014 when founders feel embarrassed...') contains no rhetorical questions."
+            },
+            {
+              "index": 5,
+              "verdict": "PASS",
+              "reason": "No motivational fluff, no 'you got this', no 'trust your gut' present anywhere in the response."
+            },
+            {
+              "index": 6,
+              "verdict": "PASS",
+              "reason": "The number 47 does not appear anywhere in the output."
+            }
+          ],
+          "mos_leak_check": {
+            "verdict": "PASS",
+            "matched": []
+          },
+          "overall": "PASS"
+        }
+      ]
+    }
+  ]
+}
