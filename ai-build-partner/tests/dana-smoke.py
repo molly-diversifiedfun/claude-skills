@@ -2,19 +2,34 @@
 """
 Dana smoke test — voice regression detector for the free AI Build Partner skill.
 
-Runs a fixed 5-message conversation against TWO models in parallel:
-- claude-opus-4-7  (1M context flagship; expected default for paid buyers)
-- claude-sonnet-4-6 (cheaper / tighter; expected for most free buyers)
+Runs a fixed 5-message conversation against multiple models across BOTH
+providers in parallel:
 
-After each model turn, a judge call (Claude Sonnet 4.6) evaluates the
-response against a per-turn rubric. Output is JSON with per-model
-pass/fail per criterion, plus a divergence report (where one model passes
-and the other fails).
+Claude (claude-skills/ai-build-partner — Claude.ai skill):
+  - claude-opus-4-7   (1M context flagship)
+  - claude-sonnet-4-6 (cheaper / tighter)
+
+OpenAI (ship-it-system/chatgpt-apps/free-ai-build-partner — ChatGPT custom GPT):
+  - gpt-5-chat-latest (model ChatGPT product currently runs on)
+  - gpt-4o            (older fallback some buyers may still be on)
+
+Each model receives its provider's appropriate system prompt:
+  - Claude models → SKILL.md + kit-files/* + references/*
+  - OpenAI models → chatgpt-apps/free-ai-build-partner/instructions-bootloader.md
+                    + the synced knowledge files (claude-skills/ai-build-partner/kit-files/*)
+                    — this tests the post-PR-#1-merge state (the source of truth)
+
+After each model turn, a judge call (Claude Sonnet 4.6 — kept constant across
+providers for verdict consistency) evaluates the response against a per-turn
+rubric. The cross-turn paid_leak_check guardrail runs after every turn.
 
 Usage:
   export ANTHROPIC_API_KEY=sk-ant-...
-  python3 dana-smoke.py                                # both models, full run
+  export OPENAI_API_KEY=sk-...
+  python3 dana-smoke.py                                # all 4 models
   python3 dana-smoke.py --model claude-sonnet-4-6      # one model
+  python3 dana-smoke.py --model gpt-5-chat-latest      # OpenAI alone
+  python3 dana-smoke.py --provider openai              # both OpenAI models
   python3 dana-smoke.py --baseline                     # save as new baseline
   python3 dana-smoke.py --compare-baseline             # diff vs saved baseline
 
@@ -38,12 +53,30 @@ from urllib import request, error
 sys.path.insert(0, str(Path(__file__).parent))
 from _guardrail import check_paid_leak, emit_block_event, hash_install_id  # noqa: E402
 
-API_URL = "https://api.anthropic.com/v1/messages"
-DEFAULT_MODELS = ["claude-opus-4-7", "claude-sonnet-4-6"]
-JUDGE_MODEL = "claude-sonnet-4-6"
+ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
+OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
+
+CLAUDE_MODELS = ["claude-opus-4-7", "claude-sonnet-4-6"]
+OPENAI_MODELS = ["gpt-5-chat-latest", "gpt-4o"]
+DEFAULT_MODELS = CLAUDE_MODELS + OPENAI_MODELS
+
+JUDGE_MODEL = "claude-sonnet-4-6"  # judge stays Claude across providers for verdict consistency
+
 TESTS_DIR = Path(__file__).parent
 SKILL_ROOT = TESTS_DIR.parent
 RESULTS_DIR = TESTS_DIR / "results"
+
+# ChatGPT app location (the GPT's actual deployed surface)
+CHATGPT_APP_ROOT = Path.home() / "github" / "ship-it-system" / "chatgpt-apps" / "free-ai-build-partner"
+
+
+def model_provider(model: str) -> str:
+    """Return 'anthropic' or 'openai' for a given model id."""
+    if model.startswith("claude"):
+        return "anthropic"
+    if model.startswith("gpt") or model.startswith("o1") or model.startswith("o3"):
+        return "openai"
+    raise ValueError(f"Unknown provider for model: {model}")
 
 # ─── The 5-turn Dana script ────────────────────────────────────────────────
 # Each turn has the user message + a list of binary pass/fail criteria.
@@ -137,6 +170,39 @@ def build_system_prompt() -> str:
     return "\n".join(parts)
 
 
+def build_chatgpt_system_prompt() -> str:
+    """Build the OpenAI system prompt that emulates what the ChatGPT custom GPT sees.
+
+    Includes:
+    - instructions-bootloader.md from chatgpt-apps (the GPT's 'Instructions' field)
+    - All knowledge files from claude-skills/ai-build-partner/kit-files (source of truth;
+      tests post-PR-#1-merge state where chatgpt-apps/knowledge-files is byte-identical
+      to kit-files; per /ship #4 the paid_leak_contract mirror lives in kit-files)
+
+    Note: ChatGPT GPTs retrieve knowledge files via file-search at runtime. We
+    concatenate them into the system prompt — a slightly more aggressive emulation
+    than file-search retrieval, but a fair test of whether the content holds.
+    """
+    parts = []
+
+    bootloader = CHATGPT_APP_ROOT / "instructions-bootloader.md"
+    if not bootloader.exists():
+        raise SystemExit(f"ChatGPT bootloader not found: {bootloader}")
+    parts.append(f"<!-- instructions-bootloader.md (the GPT's Instructions field) -->\n{bootloader.read_text()}\n")
+
+    # Source-of-truth knowledge files (post-merge state per PR #1)
+    kit_files = sorted((SKILL_ROOT / "kit-files").glob("*.md"))
+    for f in kit_files:
+        parts.append(f"<!-- knowledge-files/{f.name} (synced from kit-files) -->\n{f.read_text()}\n")
+
+    return "\n".join(parts)
+
+
+def system_prompt_for_model(model: str) -> str:
+    """Return the appropriate system prompt for a given model based on its provider."""
+    return build_system_prompt() if model_provider(model) == "anthropic" else build_chatgpt_system_prompt()
+
+
 # ─── API call ───────────────────────────────────────────────────────────────
 
 def call_anthropic(model: str, system: str, messages: list[dict], max_tokens: int = 2048) -> str:
@@ -152,7 +218,7 @@ def call_anthropic(model: str, system: str, messages: list[dict], max_tokens: in
         "messages": messages,
     }
     req = request.Request(
-        API_URL,
+        ANTHROPIC_API_URL,
         data=json.dumps(payload).encode("utf-8"),
         headers={
             "Content-Type": "application/json",
@@ -162,7 +228,7 @@ def call_anthropic(model: str, system: str, messages: list[dict], max_tokens: in
         method="POST",
     )
     try:
-        with request.urlopen(req, timeout=90) as resp:
+        with request.urlopen(req, timeout=120) as resp:
             body = json.loads(resp.read().decode("utf-8"))
     except error.HTTPError as e:
         err_body = e.read().decode("utf-8", errors="replace")
@@ -173,6 +239,66 @@ def call_anthropic(model: str, system: str, messages: list[dict], max_tokens: in
     if "content" not in body or not body["content"]:
         raise SystemExit(f"Anthropic API returned no content: {json.dumps(body)[:500]}")
     return "".join(block.get("text", "") for block in body["content"] if block.get("type") == "text")
+
+
+def call_openai(model: str, system: str, messages: list[dict], max_tokens: int = 2048) -> str:
+    """Call OpenAI Chat Completions API. Returns assistant text.
+
+    Maps the Anthropic-style (separate `system`, list of `{role, content}`) to
+    OpenAI's Chat Completions format (single `messages` list with a leading
+    system message). Uses `max_completion_tokens` for gpt-5/o-series models which
+    don't support `max_tokens`.
+    """
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise SystemExit("OPENAI_API_KEY not set in env. Export it before running.")
+
+    oai_messages = [{"role": "system", "content": system}] + messages
+
+    payload: dict[str, Any] = {
+        "model": model,
+        "messages": oai_messages,
+    }
+    # gpt-5 / o-series use max_completion_tokens; gpt-4o uses max_tokens.
+    if model.startswith("gpt-5") or model.startswith("o1") or model.startswith("o3"):
+        payload["max_completion_tokens"] = max_tokens
+    else:
+        payload["max_tokens"] = max_tokens
+
+    req = request.Request(
+        OPENAI_API_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        },
+        method="POST",
+    )
+    try:
+        with request.urlopen(req, timeout=120) as resp:
+            body = json.loads(resp.read().decode("utf-8"))
+    except error.HTTPError as e:
+        err_body = e.read().decode("utf-8", errors="replace")
+        raise SystemExit(f"OpenAI API HTTP {e.code}: {err_body}")
+    except error.URLError as e:
+        raise SystemExit(f"OpenAI API network error: {e.reason}")
+
+    if "choices" not in body or not body["choices"]:
+        raise SystemExit(f"OpenAI API returned no choices: {json.dumps(body)[:500]}")
+    msg = body["choices"][0].get("message", {})
+    text = msg.get("content") or ""
+    if not text:
+        # Defensive: surface the raw shape so we don't silently treat an empty
+        # response as a passing turn.
+        raise SystemExit(f"OpenAI API returned empty content for {model}: {json.dumps(body)[:500]}")
+    return text
+
+
+def call_model(model: str, system: str, messages: list[dict], max_tokens: int = 2048) -> str:
+    """Dispatch to the right provider based on model id."""
+    if model_provider(model) == "anthropic":
+        return call_anthropic(model, system, messages, max_tokens)
+    return call_openai(model, system, messages, max_tokens)
 
 
 # ─── Judge ──────────────────────────────────────────────────────────────────
@@ -289,14 +415,15 @@ def judge_response(user_msg: str, assistant_response: str, criteria: list[str]) 
 
 def run_model(model: str, system_prompt: str) -> dict:
     """Run the full 5-turn Dana script against one model. Return structured result."""
-    print(f"\n{'='*60}\n  Model: {model}\n{'='*60}")
+    provider = model_provider(model)
+    print(f"\n{'='*60}\n  Model: {model}  (provider: {provider})\n{'='*60}")
     messages = []
     turns = []
     for spec in DANA_SCRIPT:
         print(f"\n--- Turn {spec['turn']}: Dana says '{spec['user'][:60]}{'…' if len(spec['user'])>60 else ''}'")
         messages.append({"role": "user", "content": spec["user"]})
         t0 = time.time()
-        response = call_anthropic(model=model, system=system_prompt, messages=messages)
+        response = call_model(model=model, system=system_prompt, messages=messages)
         elapsed = time.time() - t0
         messages.append({"role": "assistant", "content": response})
 
@@ -392,6 +519,7 @@ def run_model(model: str, system_prompt: str) -> dict:
     total_fail = sum(t["fails"] for t in turns)
     return {
         "model": model,
+        "provider": provider,
         "turns": turns,
         "total_pass": total_pass,
         "total_fail": total_fail,
@@ -426,24 +554,39 @@ def divergence(results: list[dict]) -> list[dict]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--model", action="append", help="Model to test (repeat for multiple). Defaults to both.")
+    ap.add_argument("--model", action="append", help="Model to test (repeat for multiple). Defaults to all 4 (2 Claude + 2 OpenAI).")
+    ap.add_argument("--provider", choices=["anthropic", "openai", "both"], default="both",
+                    help="Run only models from one provider. Default: both.")
     ap.add_argument("--baseline", action="store_true", help="Save this run as the new baseline.")
     ap.add_argument("--compare-baseline", action="store_true", help="Diff this run vs the saved baseline.")
     args = ap.parse_args()
 
-    models = args.model or DEFAULT_MODELS
-    system_prompt = build_system_prompt()
-    print(f"System prompt size: {len(system_prompt):,} chars")
+    if args.model:
+        models = args.model
+    elif args.provider == "anthropic":
+        models = CLAUDE_MODELS
+    elif args.provider == "openai":
+        models = OPENAI_MODELS
+    else:
+        models = DEFAULT_MODELS
+
+    claude_sp_size = len(build_system_prompt()) if any(model_provider(m) == "anthropic" for m in models) else 0
+    openai_sp_size = len(build_chatgpt_system_prompt()) if any(model_provider(m) == "openai" for m in models) else 0
+    if claude_sp_size:
+        print(f"Claude system prompt size:  {claude_sp_size:,} chars")
+    if openai_sp_size:
+        print(f"OpenAI system prompt size:  {openai_sp_size:,} chars  (bootloader + kit-files synced)")
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
-    results = [run_model(m, system_prompt) for m in models]
+    results = [run_model(m, system_prompt_for_model(m)) for m in models]
 
     div = divergence(results)
     report = {
         "timestamp": timestamp,
-        "system_prompt_size": len(system_prompt),
+        "claude_system_prompt_size": claude_sp_size,
+        "openai_system_prompt_size": openai_sp_size,
         "models": models,
         "results": results,
         "divergence": div,

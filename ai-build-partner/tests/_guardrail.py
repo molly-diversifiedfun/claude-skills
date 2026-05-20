@@ -38,7 +38,8 @@ ABP_DIR = Path.home() / ".ai-build-partner"
 TOKENS_PATH = Path(__file__).parent / "banned_tokens.json"
 
 # Categories that benefit from \b word boundaries (alphanumeric tokens).
-_BOUNDARY_CATEGORIES = ("products", "templates", "ceremonies", "discount_codes")
+# `ctas` added 2026-05-20 after 4-model cross-provider Dana smoke surfaced "Full Ship It System:" pitches on ChatGPT.
+_BOUNDARY_CATEGORIES = ("products", "templates", "ceremonies", "discount_codes", "ctas")
 # Categories where \b is unreliable (URLs with `.` / `/`, prices starting with `$`).
 # We still use \b on prices because `\b$149` matches the boundary between non-word `$`
 # and word `1` — validated by `leak_just_price` fixture.
