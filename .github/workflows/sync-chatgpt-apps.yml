@@ -1,0 +1,93 @@
+name: Sync AI Build Partner GPT knowledge-files to ship-it-system
+
+# Fires when canonical AI Build Partner kit-files or modules change on main.
+# Regenerates the ChatGPT knowledge-file mirrors in ship-it-system/chatgpt-apps/
+# and opens a PR with the updated files.
+#
+# Local equivalent: python3 scripts/sync-gpt-knowledge-files.py
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ai-build-partner/kit-files/**'
+      - 'ai-build-partner/modules/**'
+      - 'scripts/sync-gpt-knowledge-files.py'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout claude-skills
+        uses: actions/checkout@v4
+        with:
+          path: claude-skills
+
+      - name: Checkout ship-it-system
+        uses: actions/checkout@v4
+        with:
+          repository: molly-diversifiedfun/ship-it-system
+          token: ${{ secrets.SHIP_IT_SYSTEM_PAT }}
+          path: ship-it-system
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run sync
+        env:
+          SHIP_IT_SYSTEM_PATH: ${{ github.workspace }}/ship-it-system
+        run: |
+          python3 claude-skills/scripts/sync-gpt-knowledge-files.py
+
+      - name: Create or update PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          path: ship-it-system
+          token: ${{ secrets.SHIP_IT_SYSTEM_PAT }}
+          commit-message: "feat(chatgpt-apps): sync knowledge-files from claude-skills"
+          branch: chatgpt-apps-kit-sync
+          delete-branch: true
+          title: "Sync AI Build Partner kit → chatgpt-apps/ knowledge-files"
+          body: |
+            Auto-synced from claude-skills commit ${{ github.sha }}.
+
+            ## Files updated
+
+            **Free GPT** (`chatgpt-apps/free-ai-build-partner/knowledge-files/`):
+            - `00-master-system-prompt.md`
+            - `01-brand-guide.md`
+            - `02-voice-dna.md`
+            - `03-audience-personas.md`
+            - `04-user-context-template.md`
+            - `05-modules.md` (21 modules consolidated)
+
+            **Paid GPT** (`chatgpt-apps/paid-ship-it-system/knowledge-files/`):
+            - `00-master-system-prompt.md`
+            - `01-brand-guide.md`
+            - `02-voice-dna.md`
+            - `03-audience-personas.md`
+            - `04-user-context-template.md`
+
+            ## Manual re-upload required
+
+            Files updated in the repo. To sync to the live GPTs:
+
+            1. Open each GPT in the ChatGPT builder
+            2. Knowledge section → remove changed file(s)
+            3. Upload new version from `chatgpt-apps/<gpt>/knowledge-files/`
+            4. Save → Update
+            5. Run smoke tests
+            6. Bump `chatgpt-apps/<gpt>/CHANGELOG.md` with re-upload date
+
+            ## Re-upload SLA
+
+            - **Same-day** if change touches `00-master-system-prompt.md`, `01-brand-guide.md`, or `02-voice-dna.md`
+            - **Weekly batch** for changes to `03-audience-personas.md` or `04-user-context-template.md`
+
+            **Source commit:** ${{ github.sha }}
+          add-paths: |
+            chatgpt-apps/free-ai-build-partner/knowledge-files/
+            chatgpt-apps/paid-ship-it-system/knowledge-files/

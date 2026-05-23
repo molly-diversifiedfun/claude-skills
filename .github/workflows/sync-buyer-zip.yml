@@ -1,0 +1,62 @@
+name: Sync AI Build Partner buyer zip to unstuckwithmolly
+
+# Fires when canonical AI Build Partner content changes on main. Repackages the
+# buyer zip and opens a PR against the unstuckwithmolly repo with the new artifact.
+#
+# Local equivalent: bash scripts/package-ai-build-partner-kit.sh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ai-build-partner/kit-files/**'
+      - 'ai-build-partner/modules/**'
+      - 'ai-build-partner/references/**'
+      - 'ai-build-partner/templates/**'
+      - 'ai-build-partner/exports/**'
+      - 'ai-build-partner/SKILL.md'
+      - 'scripts/package-ai-build-partner-kit.sh'
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout claude-skills
+        uses: actions/checkout@v4
+        with:
+          path: claude-skills
+
+      - name: Checkout unstuckwithmolly
+        uses: actions/checkout@v4
+        with:
+          repository: molly-diversifiedfun/unstuckwithmolly
+          token: ${{ secrets.UNSTUCK_REPO_PAT }}
+          path: unstuckwithmolly
+
+      - name: Run packager
+        env:
+          UNSTUCK_PATH: ${{ github.workspace }}/unstuckwithmolly
+        run: |
+          bash claude-skills/scripts/package-ai-build-partner-kit.sh
+
+      - name: Create or update PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          path: unstuckwithmolly
+          token: ${{ secrets.UNSTUCK_REPO_PAT }}
+          commit-message: "feat: sync AI Build Partner buyer zip from claude-skills"
+          branch: ai-build-partner-zip-sync
+          delete-branch: true
+          title: "Sync AI Build Partner buyer zip"
+          body: |
+            Auto-synced from claude-skills commit ${{ github.sha }}.
+
+            **Updates:** `public/portal/ai-build-partner-kit.zip` (buyer download artifact).
+
+            **Source:** https://github.com/molly-diversifiedfun/claude-skills/commit/${{ github.sha }}
+
+            Once merged, Vercel deploys and the kit is live at:
+            https://www.unstuckwithmolly.com/portal/ai-build-partner-kit.zip
+          add-paths: |
+            public/portal/ai-build-partner-kit.zip
