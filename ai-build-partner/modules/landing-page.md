@@ -1,9 +1,13 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-This skill drafts the 8-section landing page customized to the buyer's project. Day 22 of Module 4 (Equip), after price is locked (T06) and product is built (T08). Before the Opening, scan the user's uploaded User Context file:
+This skill drafts the 8-section landing page customized to the buyer's project. Day 22 of Module 4 (Equip), after price is locked (T06) and product is built (T08). Before the Opening, read `.unstuck/context.md`:
 
 - **Section B** (project + audience + JTBD): Hero formula needs all three
 - **Section D.1** (T04 Validation Scorecard): pain quotes — use verbatim where possible in Problem section
@@ -26,6 +30,8 @@ If Marketing OS is NOT loaded, run the 8-section frame below using free-tier ref
 Tell the buyer up front which mode you're running.
 
 Don't ask what you can read. Draft what you can infer.
+
+→ Next: **Step 1** — specificity audit on the V1 outcome.
 
 ---
 
@@ -63,6 +69,8 @@ If the outcome is vague, force specificity:
 
 If Marketing OS is loaded: fire `map-awareness-to-messaging` (Schwartz 5 Levels of Awareness) to calibrate the outcome to the audience's actual awareness level. Most-aware audiences need product/price framing; least-aware audiences need problem framing first.
 
+→ Next: **Step 2** — draft the Hero section (headline + subhead + CTA).
+
 ---
 
 **Step 2 — Section 1: Hero**
@@ -86,6 +94,8 @@ Generate 2 variants. Each must:
 
 Output the two variants. Ask the buyer to pick or rewrite. Lock the Hero before moving on — every other section anchors to it.
 
+→ Next: **Step 3** — Problem section (make them feel seen in their own words).
+
 ---
 
 **Step 3 — Section 2: Problem**
@@ -104,6 +114,8 @@ If User Context D.1 has zero pain quotes, ask the buyer for 2-3 verbatim phrases
 
 Cialdini (1984): social proof works because people use others' reactions as decision shortcuts. Embedding real customer language in the Problem section IS social proof, before any testimonials appear.
 
+→ Next: **Step 4** — Solution section (introducing the product).
+
 ---
 
 **Step 4 — Section 3: Solution**
@@ -115,6 +127,8 @@ One sentence. The "promise" reuses Hero language verbatim (Sugarman slippery-sli
 **Example:** "Introducing the Junior PM Career Compass — the 5-week cohort + workbook that hands you a real discovery loop, run on your actual job, in 35 days."
 
 If the Solution sentence doesn't reuse Hero language: rewrite. Hero → Solution is the load-bearing handoff. If they don't echo, the page reads disjointed.
+
+→ Next: **Step 5** — What's Inside (features mapped to benefits).
 
 ---
 
@@ -134,6 +148,8 @@ Pull V1 features from User Context D.2. For each feature (max 7), generate a ben
 | ... | ... | ... |
 
 Stress-test: if any benefit reads like a vague claim ("better strategic thinking"), rewrite with a specific outcome ("a one-page strategy memo your manager forwards to her director").
+
+→ Next: **Step 6** — Who it's for / NOT for (the honest both-sides section).
 
 ---
 
@@ -159,6 +175,8 @@ Push back on weak "NOT for you" lines:
 
 Refuse to ship the section until the ✗ lines are as specific as the ✓ lines.
 
+→ Next: **Step 7** — Creator bio (credibility-anchored, not aspirational).
+
 ---
 
 **Step 7 — Section 6: Creator bio**
@@ -172,6 +190,8 @@ Pull from User Context Section A (creator credentials, career timeline). If empt
 > "Two lines: what's the credential you actually have (years doing X, role at Y, results shipped), and what are you doing now? No fluff."
 
 Banned: "I'm passionate about helping people unleash their potential." Replace with "I spent 8 years as a Senior PM at observability SaaS companies. Now I teach junior PMs the strategy practice my managers expected me to know on day one."
+
+→ Next: **Step 8** — Price + recap CTA with guarantee.
 
 ---
 
@@ -193,6 +213,8 @@ Format:
 Pull price from User Context D.3. Pull top 3 benefits from Step 5 table (not all 7 — recap is shorter than the original).
 
 Guarantee recommendation: if Marketing OS is loaded, fire `build-irresistible-offer` to design the guarantee (Hormozi: a strong guarantee multiplies offer value). Otherwise, default to: "30-day no-questions-asked refund. If it didn't work, get your money back."
+
+→ Next: **Step 9** — FAQ (5 real objections, no strawmen).
 
 ---
 
@@ -216,6 +238,8 @@ Common real objections by product type:
 
 Each answer ≤ 60 words. Direct. No deflecting.
 
+→ Next: **Step 10** — copy best-practice checklist before shipping.
+
 ---
 
 **Step 10 — Copy best-practice checklist (BEFORE shipping)**
@@ -234,9 +258,13 @@ Run the buyer through the checklist:
 
 If any check fails → fix before shipping.
 
+→ Next: **Step 11** — save the landing page artifact.
+
 ---
 
 **Step 11 — Output the Landing Page artifact**
+
+Save the artifact to `.unstuck/landing-page-YYYY-MM-DD.md` via the Write tool.
 
 ```
 SECTION D.8 — T11 The Landing Page Frame
@@ -284,14 +312,42 @@ NOT-FOR-YOU-AUDIT PASSES: [Yes/No]
 Built with the Unstuck Method — unstuckwithmolly.com
 ```
 
+→ Next: **Step 12** — update context with landing page status.
+
 ---
 
-**Step 12 — Chain to next module**
+**Step 12 — Update context**
 
-- "Landing page drafted. Three moves next:
-> 1. **`/unstuck launch-emails`** — write the 5-email sequence that reuses Hero language verbatim (T12)
-> 2. **Build the page** — paste copy into Carrd / Framer / Webflow / etc. Don't let design rewrite copy.
-> 3. **Add live-tester DM ask** — 3 humans from your warm list review the page before public launch. They flag the vague claim you missed."
+Read `.unstuck/context.md`. Append to Section D:
+
+```
+D.8 — Landing Page Copy
+Status: drafted
+Artifact: .unstuck/landing-page-YYYY-MM-DD.md
+Hero headline: [paste locked headline]
+Specificity audit: passed
+Copy checklist: passed
+```
+
+Save the updated context via the Write tool.
+
+→ Next: **Step 13** — exit to Launch Emails module.
+
+---
+
+**Step 13 — Exit**
+
+Output verbatim:
+
+> **Module complete: Landing Page**
+> Artifact saved: `.unstuck/landing-page-YYYY-MM-DD.md`
+> Context updated: `.unstuck/context.md` Section D.8
+>
+> **What to do now:** Paste copy into Carrd / Framer / Webflow / etc. Don't let design rewrite copy. Ask 3 warm-list humans to review the page before public launch.
+>
+> **Next module:** `/unstuck launch-emails` — page copy drafted, write the 5-email sequence that reuses Hero language.
+> **When to run it:** Same session or within 2 days.
+↩ Come back to `/unstuck landing-page` when: redesigning the page or launching a new product.
 
 </process>
 
@@ -307,6 +363,7 @@ This module is complete when:
 - [ ] Price + recap echoes top 3 benefits + guarantee included
 - [ ] FAQ has 5 real objections, zero strawmen
 - [ ] Copy best-practice checklist passed
-- [ ] Section D.8 paste block delivered
-- [ ] Next-module recommendation given (`/unstuck launch-emails`)
+- [ ] Artifact saved to `.unstuck/landing-page-YYYY-MM-DD.md`
+- [ ] `.unstuck/context.md` updated with D.8 landing page status
+- [ ] Exit block delivered with next-module recommendation (`/unstuck launch-emails`)
 </success_criteria>

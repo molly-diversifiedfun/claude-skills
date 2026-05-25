@@ -1,9 +1,14 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+2. references/frameworks.md (sections: rice_scoring, ten_conversation_method)
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, scan `.unstuck/context.md`:
 - Read **Section B.1** (project + audience + pain/product hypothesis), **Section D.0** (outreach batch + responses tracker if present)
 - If the buyer has been tracking conversation transcripts elsewhere (Notion, Google Doc, voice memo folder), ask once for paste-in or link.
 
@@ -38,6 +43,8 @@ Expect 7–10 blocks separated by `---` (or some delimiter). If less than 5 resp
 
 > "You have [N] responses. Below 5 = the sample is too small for a confident Kill/Pivot/Go call. Recommend either (1) extend Day 3-4 by 48 hours and chase 3 more responses, or (2) run pattern analysis on what you have and note 'low-confidence' on the verdict."
 
+→ Next: **Step 2** — pattern analysis (extract signals across all transcripts)
+
 ---
 
 **Step 2 — Pattern analysis (4 dimensions)**
@@ -49,6 +56,8 @@ For each transcript, internally extract:
 - Disqualifiers (the pain isn't real for them; they don't have budget; the audience is different)
 
 Then cross-reference patterns ACROSS transcripts.
+
+→ Next: **Step 3** — output the verdict + evidence (Kill / Pivot / Go)
 
 ---
 
@@ -133,9 +142,11 @@ Risks flagged:
 - Audience may be slightly narrower than your hypothesis (B2B SaaS specifically, not all PMs)
 ```
 
+→ Next: **Step 4** — save the artifact
+
 ---
 
-**Step 4 — Save analysis to User Context Section D.1**
+**Step 4 — Save the artifact**
 
 ```
 SECTION D.1 — Validation Conversation Analysis
@@ -168,13 +179,29 @@ Risks flagged:
 
 This block feeds directly into Module 2's One-Page Scope (T05) on Day 6.
 
+**Save the artifact:** Use the Write tool to save the completed artifact to `.unstuck/conversation-finder-<date>.md`.
+
+→ Next: **Step 5** — update context
+
 ---
 
-**Step 5 — Chain to next**
+**Step 5 — Update context**
 
-- **GO:** "Proceed to Module 2 / Day 6. Open `/unstuck scope` — your One-Page Scope draft will reference the refined audience + verbatim language from this analysis."
-- **PIVOT:** "Hold on Module 2. Rewrite your hypothesis using the [pivot direction] surfaced above. Re-validate with 3–5 more conversations targeting that hypothesis. Then back here."
-- **KILL:** "Hard call but the right one. Open `/unstuck discovery` Path 1 (Decide Already) and surface the next candidate. Your validation skill stays sharp; just point it at a project with a better signal."
+Write the validation analysis to `.unstuck/context.md` Section D.1 (updated validation evidence — pattern analysis + Kill/Pivot/Go verdict). If Section D.1 already exists from a prior run, replace it with the new analysis.
+
+→ Next: **Step 6** — exit
+
+---
+
+**Step 6 — Exit**
+
+| If your verdict was... | Next module | Why | Run it when |
+|---|---|---|---|
+| GO | `/unstuck scope` | Problem is real, people will pay — cut to V1 | Same session |
+| PIVOT | `/unstuck scope` | Interest exists but in a different direction — re-scope | Same session |
+| KILL | `/unstuck idea-bank` or `/unstuck discovery` | No signal — move on to the next idea | After writing the kill memo |
+
+↩ Come back to `/unstuck conversation-finder` when: after another round of 5+ conversations.
 
 </process>
 
@@ -185,6 +212,7 @@ This module is complete when:
 - [ ] Repeated language patterns identified across conversations
 - [ ] Willingness-to-pay distribution scored
 - [ ] Kill / Pivot / Go verdict delivered with evidence
-- [ ] Section D.1 paste block produced (feeds Module 2 Day 6)
-- [ ] Day 6 next-module recommendation given (or pivot/kill alternative)
+- [ ] Artifact saved to `.unstuck/conversation-finder-<date>.md`
+- [ ] Context updated — Section D.1 written to `.unstuck/context.md`
+- [ ] Exit with verdict-appropriate next module
 </success_criteria>

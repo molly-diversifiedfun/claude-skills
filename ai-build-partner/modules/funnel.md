@@ -1,9 +1,13 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-This skill designs the lead-magnet → tripwire funnel that sits in front of the core product. Before the Opening, scan the user's uploaded User Context file:
+This skill designs the lead-magnet → tripwire funnel that sits in front of the core product. Before the Opening, scan `.unstuck/context.md`:
 
 - **Section B** (project + audience): you need a locked core product, a target audience, and a price.
 - **Section D.1** (T04 Validation Scorecard): pain quotes, themes, RICE verdict. Use verbatim pain language in lead-magnet headlines.
@@ -53,6 +57,8 @@ Tell the buyer up front which mode you're running:
 
 If the buyer invokes hint / guide me / draft it on any step, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
 
+→ Next: **Step 1** — pick a lead-magnet topic that bridges to the core product.
+
 ---
 
 **Step 1 — Lead Magnet Topic Selector**
@@ -92,6 +98,8 @@ Present the 3 candidates. Ask:
 
 Lock the pick. Add it to the artifact bucket.
 
+→ Next: **Step 2** — design the $19 tripwire product.
+
 ---
 
 **Step 2 — Tripwire Product Designer**
@@ -127,6 +135,8 @@ Present the tripwire. Ask:
 
 Lock the tripwire. Add to the artifact bucket.
 
+→ Next: **Step 3** — draft the actual lead-magnet content.
+
 ---
 
 **Step 3 — Lead Magnet Content Writer**
@@ -156,6 +166,8 @@ After the draft, ask:
 > "Voice check: read section 1 and the closing bridge. Does it sound like you, or does it sound like a generic lead magnet? Flag specific sentences that feel off and I'll regenerate just those — don't redo the whole thing."
 
 Spot-fix loop until the buyer says ship.
+
+→ Next: **Step 4** — write the 3-email tripwire sequence.
 
 ---
 
@@ -208,6 +220,8 @@ After the draft, ask:
 
 Spot-fix loop.
 
+→ Next: **Step 5** — assemble the complete funnel artifact.
+
 ---
 
 **Step 5 — Output the Funnel Artifact**
@@ -252,11 +266,33 @@ SHIP CHECKLIST
 Built with the Unstuck Method — unstuckwithmolly.com
 ```
 
+Save the completed artifact to `.unstuck/funnel-<YYYY-MM-DD>.md` using the Write tool.
+
+→ Next: **Step 6** — update context with the funnel design.
+
 ---
 
-**Step 6 — Chain to next module**
+**Step 6: Update context**
 
-- "Funnel is designed. Build order: lead magnet first (~2 hrs), tripwire second (~4 hrs), email sequence third (~1 hr to write into your ESP). Total ship time ~7 hrs across 2 working days. Once it's live, run `/unstuck weekly` next Sunday to check the opt-in → tripwire conversion rate. If you don't have a landing page for the lead magnet opt-in yet, run `/unstuck landing-page` next — the funnel needs a front door."
+Read `.unstuck/context.md`, then update:
+- **[D.12]:** Funnel design — lead-magnet topic, tripwire product, lead-magnet content summary, email sequence summary (4 steps locked).
+Save the updated file.
+
+→ Next: **Step 7** — exit with build instructions and next-module recommendation.
+
+---
+
+**Step 7 — Exit**
+
+**After completing this module:**
+
+**Build the funnel.** Design is locked — topic, tripwire, lead magnet content, and email sequence are drafted. Build and connect the pieces. Run `/unstuck weekly` on Sunday to track progress.
+
+- Build order: lead magnet first (~2 hrs), tripwire second (~4 hrs), email sequence third (~1 hr to write into your ESP). Total ship time ~7 hrs across 2 working days.
+- Once it's live, run `/unstuck weekly` next Sunday to check the opt-in → tripwire conversion rate.
+- If you don't have a landing page for the lead magnet opt-in yet, run `/unstuck landing-page` next — the funnel needs a front door.
+
+↩ Come back to `/unstuck funnel` when: you want to add or redesign a lead-magnet → tripwire funnel.
 
 </process>
 
@@ -268,5 +304,7 @@ This module is complete when:
 - [ ] 3-email tripwire sequence drafted (≤ 220 words each, one CTA each)
 - [ ] Voice check passed on lead-magnet content + Email 2
 - [ ] Section D — Funnel Design paste block delivered with ship checklist
+- [ ] Artifact saved to `.unstuck/funnel-<YYYY-MM-DD>.md`
+- [ ] Context updated — D.12 written in `.unstuck/context.md`
 - [ ] Next-module recommendation given (`/unstuck weekly` or `/unstuck landing-page`)
 </success_criteria>

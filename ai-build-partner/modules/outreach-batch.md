@@ -1,9 +1,13 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, scan `.unstuck/context.md`:
 - Read **Section B.1** (project + audience), **Section D.1** (warm list if it exists)
 - If Section D.1 has 10+ named humans with context, DRAFT the 10 outreach messages directly. Different shape from Day 26 DMs — this is asking for a 15–20 min validation conversation, NOT pitching a launch.
 - If Section D.1 is empty, ask the buyer for the 10 names + one line of context each before drafting.
@@ -34,6 +38,8 @@ Pull from User Context. Confirm with the buyer:
 If anything's missing, ask once:
 
 > "Quick check — pulling from your Section D.1 warm list: [N] humans. Pain hypothesis: '[X]'. Product hypothesis: '[Y]'. Looking right? Confirm or correct."
+
+→ Next: **Step 2** — draft paired outreach messages for all 10 humans
 
 ---
 
@@ -93,6 +99,8 @@ For each person, generate TWO versions:
 >
 > No deadline pressure — but if you can in the next week, that helps me decide what to build."
 
+→ Next: **Step 3** — present all 10 paired drafts with format recommendations
+
 ---
 
 **Step 3 — Present the batch + format mapping**
@@ -118,30 +126,46 @@ After the batch, ask:
 
 > "Recommended pacing: send 5 today, 5 tomorrow. Track who responds with what format. Aim for 7+ responses (live or async) by Day 4. Want me to also draft your follow-up nudge for non-responders (Day 4 morning)?"
 
+→ Next: **Step 4** — save the outreach batch artifact
+
 ---
 
-**Step 4 — Save outreach batch + tracker to User Context Section D.0 (Pre-validation)**
+**Step 4 — Save artifact**
+
+Save the completed outreach batch (all 10 paired drafts + response tracker table) to `.unstuck/outreach-batch-YYYY-MM-DD.md` using the Write tool. Use today's date. Include the tracker table:
 
 ```
-SECTION D.0 — Day 3-4 Validation Outreach Batch
-Locked: [Date]
-Source: /unstuck outreach-batch
-
 Outreach plan: 10 humans, target 7+ responses by Day 4
 Format mix: [X live calls, Y async]
 
 | # | Name | Channel | Format sent | Sent date | Response | Notes |
 |---|---|---|---|---|---|---|
-| 1 | Aamir | Twitter DM | Async | Day 3 | ⏳ pending | Will follow up Day 4 |
-| 2 | Priya | Email | Async | Day 3 | ⏳ pending | Engaged on newsletter — likely yes |
+| 1 | Aamir | Twitter DM | Async | Day 3 | pending | Will follow up Day 4 |
+| 2 | Priya | Email | Async | Day 3 | pending | Engaged on newsletter — likely yes |
 | ... | ... | ... | ... | ... | ... | ... |
 ```
 
+→ Next: **Step 5** — update context
+
 ---
 
-**Step 5 — Chain to next**
+**Step 5 — Update context**
 
-- "Day 3-4 sent. By end of Day 4, you should have 7+ responses (live transcripts or async answers). Day 5 → run `/unstuck conversation-finder` to surface patterns across all responses. That skill will give you the Kill/Pivot/Go verdict in 20 minutes instead of 90."
+Append a summary to `.unstuck/context.md` under **Section D.5** (Outreach Batch):
+- Number of humans contacted
+- Format mix (live vs async)
+- Target response count + deadline
+- Date locked
+
+---
+
+**Step 6 — What's next**
+
+> **Next up:** run the conversations, then `/unstuck conversation-finder` to surface patterns across all responses. That skill gives you the Kill/Pivot/Go verdict in 20 minutes instead of 90.
+>
+> **Run it:** Day 5, after you have 5+ conversation responses (live or async).
+>
+↩ Come back to `/unstuck outreach-batch` when: you need more validation conversations for a new idea or pivot.
 
 </process>
 
@@ -150,7 +174,8 @@ This module is complete when:
 - [ ] 10 humans confirmed from Section D.1 (or surfaced via warm-list)
 - [ ] 10 paired drafts produced (Format A + Format B per person)
 - [ ] Format recommendation per person (live vs async)
-- [ ] Section D.0 paste block delivered with response tracker
+- [ ] Artifact saved to `.unstuck/outreach-batch-YYYY-MM-DD.md`
+- [ ] Context updated in `.unstuck/context.md` Section D.5
 - [ ] Day 4 follow-up nudge offered
-- [ ] Day 5 next-module recommendation given
+- [ ] Next module recommended
 </success_criteria>

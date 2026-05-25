@@ -1,9 +1,13 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-This skill drafts the 5-email launch sequence (T12) from User Context. Day 23 of Module 4 (Equip), after the landing page is drafted (T11). Before the Opening, scan:
+This skill drafts the 5-email launch sequence (T12) from User Context. Day 23 of Module 4 (Equip), after the landing page is drafted (T11). Before the Opening, read `.unstuck/context.md`:
 
 - **Section B** (audience + transformation promise)
 - **Section D.1** (validation pain quotes — verbatim where possible)
@@ -11,7 +15,9 @@ This skill drafts the 5-email launch sequence (T12) from User Context. Day 23 of
 - **Section D.8** (landing-page hero language — emails reuse hero verbatim)
 - **Section A** (voice / register)
 
-If Section D.8 is empty, route to `/unstuck landing-page` first. Emails that don't echo landing-page hero language read disjointed.
+Then read the most recent `.unstuck/landing-page-*.md` artifact for the locked Hero language, feature-benefit table, and FAQ objections.
+
+If Section D.8 is empty and no landing-page artifact exists, route to `/unstuck landing-page` first. Emails that don't echo landing-page hero language read disjointed.
 
 **Marketing OS detection (load-bearing).** If Marketing OS is loaded, this skill DEFERS to:
 
@@ -24,6 +30,8 @@ If MOS is NOT loaded, run with: Cialdini (1984) on social proof + real scarcity,
 Tell the buyer up front which mode you're running.
 
 Don't ask what you can read. Pull hero language + price + ship date before asking.
+
+→ Next: **Step 1** — lock the urgency mechanism for Email 5.
 
 ---
 
@@ -61,6 +69,8 @@ If buyer picks something that isn't actually true, push back:
 
 Lock the mechanism. Everything downstream anchors to it.
 
+→ Next: **Step 2** — draft Email 1 (the story that starts the sequence).
+
 ---
 
 **Step 2 — Email 1: The Story (Day 1)**
@@ -83,6 +93,8 @@ Draft Email 1 (≤ 280 words):
 - Bridge: "That's when I realized…"
 - One-sentence product introduction
 - SOFT CTA (no hard sell — give them a way to learn more)
+
+→ Next: **Step 3** — draft Email 2 (features mapped to benefits).
 
 ---
 
@@ -111,6 +123,8 @@ Today, what's actually inside.
 
 ≤ 250 words. ONE CTA.
 
+→ Next: **Step 4** — draft Email 3 (the proof / credibility).
+
 ---
 
 **Step 4 — Email 3: The Proof (Day 4)**
@@ -132,6 +146,8 @@ Don't fake them. Ever. Use the substitute structure:
 Update Email 3 to real customer stories after your first 3 customer wins land.
 
 Either path: ≤ 230 words, ONE CTA, no fabricated quotes.
+
+→ Next: **Step 5** — draft Email 4 (handle objections before they kill the sale).
 
 ---
 
@@ -163,6 +179,8 @@ Three objections max. ≤ 250 words. ONE CTA.
 
 Goldsmith (2015) objection-sequencing: lead with the easiest objection to dismantle, end with the hardest. Builds momentum before the harder ask.
 
+→ Next: **Step 6** — draft Email 5 (last chance + afternoon reminder).
+
 ---
 
 **Step 6 — Email 5: Last Chance (Day 7) + afternoon reminder**
@@ -192,6 +210,8 @@ Push back if the buyer wants to send a 6th email:
 
 > "Day 7 was the last. The whole point of 'this is the last email' is that it's true. If you send a 6th, you teach the list that your urgency isn't real, and Email 5 of your *next* launch lands flat."
 
+→ Next: **Step 7** — word count + CTA discipline audit.
+
 ---
 
 **Step 7 — Word count + CTA discipline audit (before shipping)**
@@ -208,9 +228,13 @@ Run the checklist on all 5 emails:
 
 If any fails → fix before shipping.
 
+→ Next: **Step 8** — save the 5-email artifact.
+
 ---
 
 **Step 8 — Output the 5-Email artifact**
+
+Save the artifact to `.unstuck/launch-emails-YYYY-MM-DD.md` via the Write tool.
 
 ```
 SECTION D.9 — T12 The 5-Email Launch
@@ -254,11 +278,41 @@ LOADED INTO: [Kit / MailerLite / Beehiiv / ConvertKit — T13 pick]
 Built with the Unstuck Method — unstuckwithmolly.com
 ```
 
+→ Next: **Step 9** — update context with email sequence status.
+
 ---
 
-**Step 9 — Chain to next module**
+**Step 9 — Update context**
 
-- "Sequence loaded. Day 26 → run `/unstuck dm-personalizer` for the warm-launch DM batch (10–20 personalized DMs to your warm list — these convert at 5-10x the email open rate). Day 28 → `/unstuck ship-announcement` for the public launch kit (4 platform posts + SHIPPED-stamp image)."
+Read `.unstuck/context.md`. Append to Section D:
+
+```
+D.9 — 5-Email Launch Sequence
+Status: drafted
+Artifact: .unstuck/launch-emails-YYYY-MM-DD.md
+Urgency mechanism: [paste from Step 1]
+Send schedule: Day 1 / 2 / 4 / 6 / 7 (+PM reminder)
+```
+
+Save the updated context via the Write tool.
+
+→ Next: **Step 10** — exit to Support and Refund module.
+
+---
+
+**Step 10 — Exit**
+
+Output verbatim:
+
+> **Module complete: Launch Emails**
+> Artifact saved: `.unstuck/launch-emails-YYYY-MM-DD.md`
+> Context updated: `.unstuck/context.md` Section D.9
+>
+> **What to do now:** Load emails into your ESP (MailerLite / Beehiiv / ConvertKit). Set the send schedule.
+>
+> **Next module:** `/unstuck support-refund` — emails queued, lock refund policy before they send.
+> **When to run it:** Before launch day.
+↩ Come back to `/unstuck launch-emails` when: rewriting for a new launch.
 
 </process>
 
@@ -272,6 +326,7 @@ This module is complete when:
 - [ ] Email 5 urgency = the real Step 1 mechanism
 - [ ] Hero language from D.8 echoes in Email 1 bridge + Email 2 intro
 - [ ] Word-count + CTA-discipline + banned-word audit passed
-- [ ] Section D.9 paste block delivered
-- [ ] Next-module recommendation given (`/unstuck dm-personalizer`)
+- [ ] Artifact saved to `.unstuck/launch-emails-YYYY-MM-DD.md`
+- [ ] `.unstuck/context.md` updated with D.9 email sequence status
+- [ ] Exit block delivered with next-module recommendation (`/unstuck support-refund`)
 </success_criteria>

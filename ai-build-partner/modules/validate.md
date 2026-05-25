@@ -1,14 +1,21 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+2. references/frameworks.md (sections: rice_scoring, ten_conversation_method)
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
-- Read **Section B.1** (project + audience) if present
+Before the Opening, read `.unstuck/context.md`:
+- Check **Section C** (project basics) if present
 - If populated, ANCHOR the RICE numbers before asking: estimate Reach from audience size + niche, estimate Impact from the audience's stated pain, propose a defensible Confidence ceiling (cap at 3 if zero conversations done), apply Cargill (1985) bias to Effort. Present opening scores + one-line reasoning per dimension, then ask the user to refine.
-- If User Context is empty, use the Opening below and run the question-by-question RICE intake — and consider routing the user to `/unstuck discovery` first if they have no project picked yet.
+- If context is empty, use the Opening below and run the question-by-question RICE intake — and consider routing the user to `/unstuck discovery` first if they have no project picked yet.
 
 Don't ask what you can read. Draft what you can infer.
+
+→ Next: **Opening** — set up the validation frame.
 
 ---
 
@@ -25,6 +32,8 @@ Don't ask what you can read. Draft what you can infer.
 
 If the buyer invokes hint / guide me / draft it on any question, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
 
+→ Next: **Step 1** — get the idea in one sentence.
+
 ---
 
 **Step 1: One-sentence idea**
@@ -37,6 +46,8 @@ If the buyer invokes hint / guide me / draft it on any question, fire the corres
 > "A 5-week paid cohort + workbook that teaches junior PMs how to do real product strategy work instead of grooming JIRA tickets."
 
 Push back if it has jargon ("synergize," "leverage") or is too abstract ("a platform for thought leadership").
+
+→ Next: **Step 2** — score the idea with RICE.
 
 ---
 
@@ -68,6 +79,8 @@ Present the verdict:
 - **50-150:** "There's something here, but you need more evidence. Let's build a validation script."
 - **Above 150:** "Strong signal. Let's validate it and then scope it."
 
+→ Next: **Step 3** — build the 10-Conversation Script (if RICE > 50). If RICE < 50, skip to Step 6.
+
 ---
 
 **Step 3: Build the 10-Conversation Script (if RICE > 50)**
@@ -80,6 +93,8 @@ Customize the 5 Core Questions from `<ten_conversation_method>` for their specif
 > ❌ Clinical: "What is your current pain point regarding product strategy execution?"
 > ✅ Natural: "Walk me through a Tuesday afternoon. What's actually happening? Where does it go off the rails?"
 
+→ Next: **Step 4** — identify who to talk to.
+
 ---
 
 **Step 4: Define who to talk to**
@@ -91,6 +106,8 @@ Customize the 5 Core Questions from `<ten_conversation_method>` for their specif
 **Example of a 5/5 sourcing answer:**
 > "1. Aamir (my own network, observability SaaS). 2-3. Two PMs from Lenny's Slack who DM'd me last month. 4-7. Four PMs from r/ProductManagement who post about backlog grooming. 8-10. Three more from my LinkedIn connections, 1-3 years in PM at SaaS."
 
+→ Next: **Step 5** — set signal thresholds.
+
 ---
 
 **Step 5: Set signal thresholds**
@@ -99,19 +116,36 @@ Customize the 5 Core Questions from `<ten_conversation_method>` for their specif
 
 Explain: 8+/10 = build it. 4-7 = refine. 3 or fewer = kill or pivot.
 
+→ Next: **Step 6** — generate and save the Validation Kit artifact.
+
 ---
 
-**Step 6: Present Validation Kit**
+**Step 6: Save the Validation Kit**
 
 Use template at templates/validation-kit.md.
+Save the completed artifact to `.unstuck/validate-<YYYY-MM-DD>.md` using the Write tool.
+
+→ Next: **Step 7** — update your project context.
 
 ---
 
-**Step 7: Chain to next module**
+**Step 7: Update context**
 
-- If RICE > 150: recommend `/unstuck scope`
-- If RICE 50-150: "Run the 10 conversations first, then come back for `/unstuck scope`"
-- If RICE < 50: "Kill it. What else are you considering?"
+Read `.unstuck/context.md`, then update:
+- **D.1:** Validation evidence — RICE score (R×I×C/E = [number]), conversations planned ([count]), verdict ([build/refine/kill])
+Save the updated file.
+
+---
+
+**After completing this module:**
+
+| If your RICE score was... | Next module | Why | Run it when |
+|---|---|---|---|
+| **Above 150** | `/unstuck scope` | Strong signal — cut the idea to a shippable V1 before building | Same session or within 24 hours |
+| **50-150** | Run the 10 conversations first, then `/unstuck scope` | You need more evidence before committing build time | After 5+ customer conversations |
+| **Below 50** | `/unstuck idea-bank` or kill it | Not worth your time in current form | Now — don't build on a bad signal |
+
+↩ Come back to `/unstuck validate` when: you pivot your idea OR want to validate a V2 direction.
 
 </process>
 
@@ -122,6 +156,7 @@ This module is complete when:
 - [ ] Verdict delivered clearly
 - [ ] 10-Conversation Script customized (if RICE > 50)
 - [ ] Target audience and sourcing identified
-- [ ] Validation Kit artifact delivered
-- [ ] Next step recommended
+- [ ] Validation Kit artifact saved to `.unstuck/validate-<date>.md`
+- [ ] Context updated (D.1)
+- [ ] Next step recommended per RICE bracket
 </success_criteria>

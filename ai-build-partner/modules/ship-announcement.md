@@ -1,14 +1,20 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, read `.unstuck/context.md`:
 - Read **Section B.1** (product + audience), **Section B.2** (persona), **Section D.1** (JTBD), **Section D.2** (Scope), **Section D.6** (Launch Plan) if present
 - If Sections B and D.6 are populated, **draft the full announcement bundle from context** — pull product name + one-line + persona + link + ship date + Kit-template attribution from context, generate all 4 platform variants + the nano-banana prompt + the /shipped mailto, and present the draft for refinement. Ask ONLY for the vulnerable beat (Q7) and the platform selection (Q8) — those are too personal / situational to infer.
 - If User Context is empty, run the full 8-question intake below.
 
 Don't ask what you can read. Draft what you can infer.
+
+→ Next: **Section 1** — collect product name (or skip to draft if context populated).
 
 ---
 
@@ -42,6 +48,8 @@ Then draft the bundle and present it. Skip Q1-Q6 (already in context). Ask Q7 + 
 
 Push back if they give a tagline instead of the name. Name first.
 
+→ Next: **Section 2** — one-line description a 12-year-old could understand.
+
 ---
 
 **Section 2: One-line description (Q2)**
@@ -58,6 +66,8 @@ Push back on:
 - "We help [audience] [outcome] via [technology]" (corporate jargon — drop "we help," drop "via")
 - "It's like X but for Y" (acceptable if X is universally known; otherwise be specific)
 
+→ Next: **Section 3** — who it's for (one specific human).
+
 ---
 
 **Section 3: Who it's for (Q3)**
@@ -70,6 +80,8 @@ Push back on:
 > "Vanessa, 31, illustrator three years freelance. She's been telling herself she'll build a portfolio site 'this weekend' for nine months. Has Squarespace tabs open. Last Tuesday she said 'I'd pay someone to just decide for me' in a Discord group."
 
 The 5/5 includes: name, role, specific behavior, the exact-moment-of-stuck. Push back if any slot is missing.
+
+→ Next: **Section 4** — the problem it solves, in their words.
 
 ---
 
@@ -84,6 +96,8 @@ The 5/5 includes: name, role, specific behavior, the exact-moment-of-stuck. Push
 
 Push back if it sounds like a brochure. Ask: "Would the persona actually say this out loud?"
 
+→ Next: **Section 5** — the landing page URL.
+
 ---
 
 **Section 5: The link (Q5)**
@@ -97,6 +111,8 @@ Push back if it sounds like a brochure. Ask: "Would the persona actually say thi
 
 Push back if they give a Notion link or a personal LinkedIn — the announcement should drive to a public product surface.
 
+→ Next: **Section 6** — ship date (specific calendar date).
+
 ---
 
 **Section 6: Ship date (Q6)**
@@ -109,6 +125,8 @@ Push back if they give a Notion link or a personal LinkedIn — the announcement
 > "Tuesday May 13, 2026. Live since 9am Pacific."
 
 Used in the SHIPPED stamp graphic + the /shipped mailto. Don't accept 'today' or 'this week' — pick a date.
+
+→ Next: **Section 7** — one vulnerable beat (the bit that makes the post real).
 
 ---
 
@@ -137,6 +155,8 @@ If they say "I don't have one":
 
 **Skip note:** Q7 is optional. If user types `skip`, mark it and move on. Don't gatekeep.
 
+→ Next: **Section 8** — which platforms to generate for.
+
 ---
 
 **Section 8: Which platforms (Q8)**
@@ -149,6 +169,8 @@ If they say "I don't have one":
 > "LinkedIn and Substack. I'm dormant on IG and don't tweet."
 
 Default to all 4 if they say "all" or don't answer specifically.
+
+→ Next: **Draft the bundle** — generate all platform variants + image prompt + mailto.
 
 ---
 
@@ -247,11 +269,43 @@ Emit both the mailto URL (one-click) and the plain-text body (in case the URL is
 
 **Present the artifact**
 
-Use template at `templates/ship-announcement.md`. Hand the buyer the locked bundle in paste-ready form. Save instruction: paste into User Context Section D.7.
+Use template at `templates/ship-announcement.md`. Hand the buyer the locked bundle in paste-ready form. Save the artifact to `.unstuck/ship-announcement-YYYY-MM-DD.md` via the Write tool.
 
-**Chain to next module**
+→ Next: **Update context** — record the announcement kit in context.
 
-- Recommend `/unstuck ten-hour-week` — set sustainable post-launch operating mode before momentum gets weird. Day 30 of the sprint.
+---
+
+**Update context**
+
+Read `.unstuck/context.md`. Append to Section D:
+
+```
+D.7 — Ship Announcement Kit
+Status: drafted
+Artifact: .unstuck/ship-announcement-YYYY-MM-DD.md
+Platforms: [list from Q8]
+Ship date: [Q6]
+```
+
+Save the updated context via the Write tool.
+
+→ Next: **Exit** — hand off to Ten-Hour Week module.
+
+---
+
+**Exit**
+
+Output verbatim:
+
+> **Module complete: Ship Announcement**
+> Artifact saved: `.unstuck/ship-announcement-YYYY-MM-DD.md`
+> Context updated: `.unstuck/context.md` Section D.7
+>
+> **What to do now:** Post the announcement on your selected platforms. Track engagement.
+>
+> **Next module:** `/unstuck ten-hour-week` — you shipped, set sustainable operating mode.
+> **When to run it:** The week after launch.
+↩ Come back to `/unstuck ship-announcement` when: launching a new product.
 
 </process>
 
@@ -265,8 +319,9 @@ This module is complete when:
 - [ ] Token substitution complete in image prompt: PRODUCT NAME, PRODUCT TYPE, SHIP DATE all filled
 - [ ] /shipped mailto URL emitted with pre-filled body
 - [ ] Plain-text body included as fallback
-- [ ] Artifact saved to User Context Section D.7
-- [ ] Next module recommended (`/unstuck ten-hour-week`)
+- [ ] Artifact saved to `.unstuck/ship-announcement-YYYY-MM-DD.md`
+- [ ] `.unstuck/context.md` updated with D.7 announcement kit status
+- [ ] Exit block delivered with next-module recommendation (`/unstuck ten-hour-week`)
 </success_criteria>
 
 <anti_patterns>

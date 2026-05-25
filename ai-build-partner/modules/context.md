@@ -1,18 +1,23 @@
 # Module: Context — Socratic intake that fills User Context Sections A→G
 
-> **Use this when:** the buyer wants to seed (or refresh) their User Context file without manually filling a template. You ask 10–14 Socratic questions across the 7 sections and produce a paste-ready User Context block they drop into their setup file.
+> **Use this when:** the buyer wants to seed (or refresh) their `.unstuck/context.md` without manually filling a template. You ask 10–14 Socratic questions across the 7 sections and produce a paste-ready User Context block they drop into their setup file.
 >
 > **This is the AI-first alternative to filling `04-user-context-template.md` by hand.**
 
 ---
 
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+2. references/frameworks.md (skim for context — you reference 4 Stuck Patterns + 4 Tech Personas)
+</required_reading>
 
 ---
 
 ## When to use vs. skip
 
 **Use Context when:**
-- First session and User Context file is empty
+- First session and `.unstuck/context.md` is empty
 - Buyer says "fill out my User Context" / "set up my Build Partner" / "I haven't filled in the User Context yet"
 - Buyer pivoted to a new project and needs to refresh Sections A + B
 - Pre-Discovery situation: buyer wants to seed BEFORE picking an entry path
@@ -28,7 +33,9 @@
 
 <process>
 
-**Step 0 — Open with the ground rules.**
+**Step 0 — Create `.unstuck/` directory + open with the ground rules.**
+
+If the `.unstuck/` directory doesn't exist, create it now. This is where all Unstuck artifacts live.
 
 Output verbatim:
 
@@ -44,6 +51,8 @@ Output verbatim:
 If they say "no" or "skip to project" — confirm they want to skip Section A (some buyers want to start at the project and come back for context). Otherwise proceed.
 
 If at any point they invoke `hint` / `guide me` / `draft it`, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
+
+→ Next: **Section A** — 5 questions about you (name, hours, blocks, runway, pattern).
 
 ---
 
@@ -102,6 +111,8 @@ If single / no partner → "single, no partner conversation needed." Move on.
 
 Why this matters: `/unstuck diagnose` chains off this. Knowing the pattern up-front speeds future sessions.
 
+→ Next: **Section B** — 3 questions about your project (or skip if no project yet).
+
 ---
 
 ## SECTION B — The Project (3 questions, conditional)
@@ -137,6 +148,8 @@ This is the load-bearing question. Without it, the buyer drifts at Day 13. With 
 
 If they can't answer → recommend `/unstuck discovery` (Polyglot path) before continuing.
 
+→ Next: **Sections C + D** — auto-fill sections (no questions, quick skip).
+
 ---
 
 ## SECTION C — Friction Inventory (skipped — fills via M0 Days -6 → -4)
@@ -152,6 +165,8 @@ If they can't answer → recommend `/unstuck discovery` (Polyglot path) before c
 > "Section D fills automatically as you complete each T-template through Modules 1-5. I'll mark it empty for now."
 
 (No questions here.)
+
+→ Next: **Section E** — 2 questions about how you want me to communicate.
 
 ---
 
@@ -181,6 +196,8 @@ Why this matters: the wrong calibration here makes every other module either too
 >
 > Pick one."
 
+→ Next: **Section F** — 1 question about what success actually looks like to you.
+
 ---
 
 ## SECTION F — What You Want from This Build Partnership (1 question)
@@ -198,6 +215,8 @@ Why this matters: the wrong calibration here makes every other module either too
 
 Why this matters: every downstream module (especially `/unstuck day-job-decision` and `/unstuck ten-hour-week`) calibrates differently depending on whether the outcome is Receipts (small ship beats big plan) vs. Optionality (the math has to add up to quit-able MRR).
 
+→ Next: **Section G** — Quick check on which tools you already own.
+
 ---
 
 ## SECTION G — Extensions Loaded (1 question, fast)
@@ -213,11 +232,13 @@ Why this matters: every downstream module (especially `/unstuck day-job-decision
 >
 > This tells me what skills to defer to and what to handle directly."
 
+→ Next: **Synthesize** — compile your answers into the context file.
+
 ---
 
-## Step N — Synthesize + paste-ready block
+## Step N — Synthesize + save to `.unstuck/context.md`
 
-Once all questions answered (or skipped with marks), output a paste-ready User Context block in this exact format. Buyer copies → pastes into their `user-context.md` or Notion User Context page → uploads to the Claude Project.
+Once all questions answered (or skipped with marks), output the context block in this exact format and save it to `.unstuck/context.md`.
 
 ```markdown
 # My User Context (locked via /unstuck context — [today's date])
@@ -267,29 +288,30 @@ Once all questions answered (or skipped with marks), output a paste-ready User C
 - [from Q12]
 ```
 
+Save the compiled context block to `.unstuck/context.md`. This IS the artifact for this module.
+
+→ Next: **Route** — based on your stage, here's where to go.
+
 ---
 
-## Step N+1 — Hand off to the right next module
+## Step N+1 — Route to the right next module
 
 Read what you filled. Recommend the right next move (don't ask "what's next" — TELL them):
 
-| State after Context | Recommended next |
-|---|---|
-| Section B empty (no project yet) | Run **`/unstuck discovery`** — picks your entry path (Empty Slate / Polyglot / Resurrector / Audience-First / Drawer) |
-| Section B filled, no validation yet | Run **`/unstuck validate`** — Day 2 RICE scoring + Day 3-4 prep |
-| Section B filled + validation done | Run **`/unstuck scope`** — lock V1 in one page |
-| Section B filled + already mid-build | Run **`/unstuck audit`** — diagnose current sprint state |
-| Project shipped + thinking about next | Run **`/unstuck ten-hour-week`** — post-launch operating mode + product #2 decision |
+| Based on your stage... | Next module | Why |
+|---|---|---|
+| No idea yet | `/unstuck idea-bank` | Surface candidates from your behavior |
+| Have an idea, not validated | `/unstuck validate` | Check if real humans would pay |
+| Validated, need to scope | `/unstuck scope` | Cut to a shippable V1 |
+| Scoped, ready to build | `/unstuck sprint` | Plan the day-by-day execution |
+| Built, need to launch | `/unstuck launch` | Make it buyable |
+| Launched, need to grow | `/unstuck pmf` | Check if it's working |
 
-Output verbatim:
+**Exit:**
 
-> "Locked. Paste the block above into your User Context file (or Notion page). Now: your next move is **`/unstuck [recommendation]`** because [one-sentence reason from the table above]. Fire that next."
+> "Locked. Your context is saved to `.unstuck/context.md`. Your next move is **`/unstuck [recommendation]`** because [one-sentence reason from the table above]. Fire that next."
 
----
-
-## Output deliverable
-
-Save this artifact to: User Context Sections A, B, E, F, G (the sections this skill writes to). C + D fill via downstream work.
+↩ Come back to `/unstuck context` when: you pivot to a new project OR your situation changed significantly (new job, new runway, new audience).
 
 **Brand attribution at the end:**
 
@@ -323,3 +345,12 @@ Save this artifact to: User Context Sections A, B, E, F, G (the sections this sk
 If the buyer needs any of the above, finish Context first (5-10 min), then chain to the right module.
 
 Built with the Unstuck Method — unstuckwithmolly.com
+
+<success_criteria>
+This module is complete when:
+- [ ] `.unstuck/` directory created if it didn't exist
+- [ ] Sections A, B (if applicable), E, F, G filled via Socratic interview
+- [ ] Context block saved to `.unstuck/context.md`
+- [ ] Stage detected and routed to the correct next module via branching table
+- [ ] Exit delivered with comeback guidance
+</success_criteria>

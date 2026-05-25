@@ -1,13 +1,17 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-This skill is a diagnostic, not a discussion. The buyer has been stuck for 20+ minutes — they need a decision in 5-15 min, not a conversation. Before the Opening, scan:
+This skill is a diagnostic, not a discussion. The buyer has been stuck for 20+ minutes — they need a decision in 5-15 min, not a conversation. Before the Opening, read `.unstuck/context.md`:
 
-- **Section D.2** (T05 One-Page Scope) — the V1 outcome that scope-creep checks against
-- **Section D.5** (T08 Sprint Plan) — what was supposed to ship this week
-- **Section A** (voice) — match register
+- **Section E.1** (V1 features) — the locked scope that scope-creep checks against
+- **Section F.2** (sprint plan) — what was supposed to ship this week
+- **Section A.6** (voice) — match register
 
 Two tools live inside this skill. Pick ONE based on symptom:
 
@@ -16,7 +20,9 @@ Two tools live inside this skill. Pick ONE based on symptom:
 
 If the buyer's first description sounds like both ("everything feels stuck, plus this one thing won't work"), default to Tool 1 first — scope creep is usually upstream.
 
-Don't ask what you can read. Pull V1 outcome from D.2 before asking what's stuck.
+Don't ask what you can read. Pull V1 features from E.1 before asking what's stuck.
+
+→ Next: **Opening** — present the two tools and let them pick.
 
 ---
 
@@ -31,6 +37,8 @@ Don't ask what you can read. Pull V1 outcome from D.2 before asking what's stuck
 >
 > **One ground rule:** this is a diagnostic, not a discussion. Short answers, no batching. End with one decision + one next action. Verb first."
 
+→ Next: **Tool 1** or **Tool 2** based on their answer.
+
 ---
 
 ## Tool 1 — Scope Creep Detector
@@ -40,7 +48,7 @@ Don't ask what you can read. Pull V1 outcome from D.2 before asking what's stuck
 Ask, one at a time, NO batching:
 
 > "Right now, today — check every one that's true:
-> 1. I've added a feature that wasn't in my Product Scope (T05 One-Page Scope)
+> 1. I've added a feature that wasn't in my V1 scope (check `.unstuck/scope-*.md`)
 > 2. I'm redesigning something that already works
 > 3. I've said 'while I'm at it…' in the last 48 hours
 > 4. My ship date has moved and I haven't formally re-scoped
@@ -48,12 +56,20 @@ Ask, one at a time, NO batching:
 
 Count the checks.
 
+→ Next: **Step T1.2** — read the score.
+
+---
+
 **Step T1.2 — Read the score**
 
 - 🟢 **0 checks — Clean.** "Keep building. The friction isn't scope. Run Tool 2 instead — there's a specific problem stuck."
 - 🟡 **1 check — Yellow flag.** "Write down what changed and why. If the reason isn't 'a customer told me this matters,' revert it. Specifically — what changed?"
-- 🟠 **2 checks — Orange flag.** "Stop building for 15 min. Re-read T05 One-Page Scope. Remove anything that wasn't on it."
-- 🔴 **3+ checks — Red flag. Full stop.** "Go back to T05. Re-read your V1 features. Cut everything that isn't on that list. Everything you cut goes to V2 Backlog. Don't move forward until the scope matches T05."
+- 🟠 **2 checks — Orange flag.** "Stop building for 15 min. Re-read your scope doc (most recent `.unstuck/scope-*.md`). Remove anything that wasn't on it."
+- 🔴 **3+ checks — Red flag. Full stop.** "Go back to your scope doc. Re-read your V1 features. Cut everything that isn't on that list. Everything you cut goes to V2 Backlog. Don't move forward until the scope matches."
+
+→ Next: **Step T1.3** — log what changed.
+
+---
 
 **Step T1.3 — Log what changed**
 
@@ -66,25 +82,31 @@ If buyer says "I'll decide later" → push back:
 
 > "'Decide later' is how scope creep wins. The cost of deferring is rebuilding around it for another 3 days, then having to cut it anyway. Verdict now: KEEP it (and cut something else of equal size) / REVERT it (delete now) / V2 (move to backlog, stop building it today)."
 
-**Step T1.4 — Output decision**
+→ Next: **Step T1.4** — save the diagnostic and get back to building.
+
+---
+
+**Step T1.4 — Save and exit**
+
+Save the diagnostic to `.unstuck/stuck-<YYYY-MM-DD>.md` using the Write tool:
 
 ```
-SECTION D.7 — T10 Stuck Toolkit (entry)
-Tool used: Tool 1 — Scope Creep Detector
-Date: [paste]
+# Stuck Toolkit — Scope Creep Detector
+Date: [today]
 
 Sniff-test score: ___ / 5 (color: 🟢/🟡/🟠/🔴)
 
 What changed (logged):
-- [paste each item + verdict]
+- [each item + verdict]
 
 Next action (verb-first, 1 sentence): [paste]
-Source: /unstuck stuck
 
 Built with the Unstuck Method — unstuckwithmolly.com
 ```
 
-Then chain: "Back to building. Next time scope feels bigger, run Tool 1 again — it should take 2 minutes once you know the pattern. If it's a specific problem next time (not whole-project bloat), use Tool 2."
+**→ Back to building.** Next time scope feels bigger, run Tool 1 again — it should take 2 minutes once you know the pattern. If it's a specific problem next time (not whole-project bloat), use Tool 2.
+
+↩ Come back to `/unstuck stuck` when: you've been stuck for 20+ minutes on anything — scope creep OR a single problem.
 
 ---
 
@@ -102,18 +124,26 @@ If the buyer can't define it in one sentence → that's the diagnosis:
 
 Wait for the one-sentence problem before moving on.
 
+→ Next: **Step T2.2** — check if the simplest solution works.
+
+---
+
 **Step T2.2 — Have you tried the simplest possible solution?**
 
 > "The simplest possible version. The dumb version you'd be embarrassed to show someone. Have you tried that?"
 
 **If YES + worked:** "Ship it. Move on. Stop optimizing. Next action: [verb-first]."
 
-**If YES + didn't work:** "Go to Step T2.3."
+**If YES + didn't work:** Go to Step T2.3.
 
 **If NO:**
 > "Try the dumb version first. The version that handles only the happy path, no edge cases, hardcoded values where needed. Build that. 30-min time-box. If it works, you're done. If it doesn't, you'll know exactly what's actually broken — and that's a smaller problem than 'the whole thing.'"
 
 Lock the 30-min time-box. Pause the session. Return when done.
+
+→ Next: **Step T2.3** — diagnose whether it's a skill gap or decision gap.
+
+---
 
 **Step T2.3 — Is this a skill gap or a decision gap?**
 
@@ -141,18 +171,27 @@ If the buyer keeps debating → push:
 
 > "You've been debating for [N] minutes. The decision IS the next action. Pick the reversible one. We move on."
 
+→ Next: **Step T2.4** — if still stuck, walk away.
+
+---
+
 **Step T2.4 — Still stuck after Step T2.3?**
 
 > 🚶 "Walk away. Literally. Outside for 10 minutes. Your brain solves problems better when it's not staring at them. Set a reminder to come back in 1 hour."
 >
 > "If you're still stuck after the walk + 1 hour: post in your accountability community OR DM your build partner. The pattern is: solo for 20 min → tool for 15 min → walk for 10 min → ask another human. Each step is shorter than the last because the more stuck you are, the more outside-input matters."
 
-**Step T2.5 — Output decision**
+→ Next: **Step T2.5** — save the diagnostic and get back to building.
+
+---
+
+**Step T2.5 — Save and exit**
+
+Save the diagnostic to `.unstuck/stuck-<YYYY-MM-DD>.md` using the Write tool:
 
 ```
-SECTION D.7 — T10 Stuck Toolkit (entry)
-Tool used: Tool 2 — Stuck Decision Tree
-Date: [paste]
+# Stuck Toolkit — Decision Tree
+Date: [today]
 
 Problem (one sentence): [paste]
 Tried simplest version? [yes / no — applied 30-min time-box]
@@ -162,12 +201,13 @@ Option chosen: [paste]
 
 What I decided: [paste]
 Next action (verb-first, 1 sentence): [paste]
-Source: /unstuck stuck
 
 Built with the Unstuck Method — unstuckwithmolly.com
 ```
 
-Chain: "Back to building. If you're stuck again on the same kind of problem within 48 hrs, that's a Skill-gap pattern — book the Fiverr / longer tutorial / paired session. Same problem 3x = invest in the skill, don't keep wrestling."
+**→ Back to building.** If you're stuck again on the same kind of problem within 48 hrs, that's a Skill-gap pattern — book the Fiverr / longer tutorial / paired session. Same problem 3x = invest in the skill, don't keep wrestling.
+
+↩ Come back to `/unstuck stuck` when: you've been stuck for 20+ minutes — don't wait longer.
 
 ---
 
@@ -193,6 +233,6 @@ This module is complete when:
 - [ ] For Tool 2: simplest-version step run with 30-min time-box
 - [ ] For Tool 2: gap diagnosed (skill vs. decision) and ONE option picked
 - [ ] Output is a decision + verb-first next action — NOT a discussion
-- [ ] Section D.7 log entry delivered
+- [ ] Diagnostic saved to `.unstuck/stuck-<date>.md`
 - [ ] Pattern flag raised if same problem appeared 3x in 7 days
 </success_criteria>

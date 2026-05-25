@@ -1,9 +1,13 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, scan `.unstuck/context.md`:
 - Read **Section A** (about you — day job, runway notes, family situation if present), **Section D.6** (Launch Plan — current side-project metrics), and any prior D.8 if this isn't the first time the buyer ran this skill
 - If Section A is populated with day-job + runway data, infer Q2, Q4 from context. Always ASK Q1 (trigger), Q3 (current side MRR — changes monthly), Q5 (psych temp — changes daily), Q6 (partner status), Q7-Q8 (worst-case scenarios) directly.
 - If User Context is empty, run the full 8-question intake.
@@ -48,6 +52,8 @@ Don't ask what you can read. Draft what you can infer. But this skill's outputs 
 
 Push back if they pick "all of them." This is a forcing function — name the ONE most-true trigger. The others get noted.
 
+→ Next: **Section 2** — runway (how many months saved?)
+
 ---
 
 **Section 2: Runway (Q2)**
@@ -60,6 +66,8 @@ Push back if they pick "all of them." This is a forcing function — name the ON
 > "9 months at current burn ($8,500/mo). 14 months if I cut to lean budget ($5,500/mo — drop kid's swimming, cancel two subscriptions, no eating out, partner negotiates lower rent). I'd plan against the 9, not the 14."
 
 Push back if they only give the lean number. Cutting to lean while quitting is a 2-variable change — high risk. Plan against real burn.
+
+→ Next: **Section 3** — side-project monthly net (real take-home)
 
 ---
 
@@ -74,6 +82,8 @@ Push back if they only give the lean number. Cutting to lean while quitting is a
 
 Push back if they quote gross revenue. Gross is fantasy money. Net is the spendable number.
 
+→ Next: **Section 4** — day-job monthly net (real comp value)
+
 ---
 
 **Section 4: Day-job monthly net (Q4)**
@@ -86,6 +96,8 @@ Push back if they quote gross revenue. Gross is fantasy money. Net is the spenda
 > "$11,200 take-home + ~$1,400 unvested RSUs/month + ~$800 healthcare value (the COBRA equivalent) + ~$600 401k match. Real comp value: ~$14,000/month."
 
 Push back on a take-home-only answer if they have unvested equity or healthcare. Quitting is leaving real money on the table.
+
+→ Next: **Section 5** — psych temperature (how burnt out, right now)
 
 ---
 
@@ -100,6 +112,8 @@ Push back on a take-home-only answer if they have unvested equity or healthcare.
 
 Push back on a number-without-context. The number means nothing without the behavioral signal. If they say 8 without naming what 8 looks like, ask: "What does an 8 day look like for you?"
 
+→ Next: **Section 6** — partner / family alignment
+
 ---
 
 **Section 6: Partner / family alignment (Q6)**
@@ -112,6 +126,8 @@ Push back on a number-without-context. The number means nothing without the beha
 > "MIXED. Partner is happy I'm building, anxious about losing the income. We agreed 6 months ago that $5K MRR + 12 months runway would be the trigger. I'm at $4.1K + 9 months. Below both thresholds."
 
 Push back if they answer "they support whatever I want." That's avoidance, not alignment. Partners always have an opinion. If they don't know what their partner thinks, that's information.
+
+→ Next: **Section 7** — 6-month worst case if you QUIT
 
 ---
 
@@ -126,6 +142,8 @@ Push back if they answer "they support whatever I want." That's avoidance, not a
 
 Push back on "I'd be fine." That's not a worst-case, that's optimism. Make them name a specific scenario.
 
+→ Next: **Section 8** — 6-month worst case if you DON'T quit
+
 ---
 
 **Section 8: 6-month worst case if you DON'T quit (Q8)**
@@ -138,6 +156,8 @@ Push back on "I'd be fine." That's not a worst-case, that's optimism. Make them 
 > "Burnout hits 10. I do mediocre work at the day job AND the side project. Day-job performance review goes from 'exceeds' to 'meets' to PIP territory. Side project growth stalls because I have no creative energy left. Partner stress hits 9. We start having the 'is this sustainable' conversation weekly. I keep the income but lose the marriage / mental health / next-level work."
 
 Push back on "things are fine, I'd just be tired." That's not a worst-case. Make them imagine the trajectory if nothing changes for 6 months.
+
+→ Next: **Draft the verdict** — all 8 inputs collected, now work the math + call
 
 ---
 
@@ -209,19 +229,32 @@ At current side-project growth rate of [calculated from history]:
 [Variable — always present — this is opinionated, not financial advice]
 ```
 
+→ Next: **Present the artifact** — save the verdict + scripts
+
 ---
 
 **Present the artifact**
 
-Use template at `templates/day-job-decision.md`. Save to User Context Section D.8.
+Use template at `templates/day-job-decision.md`.
 
-**Chain to next module**
+**Save the artifact:** Use the Write tool to save the completed artifact to `.unstuck/day-job-decision-<date>.md`.
 
-Verdict-dependent:
-- **STAY** → `/unstuck ten-hour-week` (lock the operating mode so the next 90 days produce a different number)
-- **NEGOTIATE PART-TIME** → no immediate chain; come back in 14 days with manager's response
-- **QUIT IN N MONTHS** → set the date in User Context Section A.4 ("target quit date"). Run `/unstuck scope` for what the post-quit V2 looks like.
-- **QUIT NOW** → `/unstuck scope` immediately; you're about to have 40+ hrs/week back
+This is a STANDALONE verdict module. It does NOT write to `.unstuck/context.md` (personal financial/career decision — kept separate).
+
+→ Next: **Exit**
+
+---
+
+**Exit**
+
+| If your verdict was... | Next action | Why |
+|---|---|---|
+| STAY | Keep building your side project. The day job funds it. | No change needed |
+| NEGOTIATE PART-TIME | Have the conversation with your boss (script is in the artifact). | Test the middle path |
+| QUIT IN N MONTHS | Set the countdown. Keep shipping. Re-run this module at the halfway point. | The deadline creates clarity |
+| QUIT NOW | Execute the plan (scripts for boss/partner/accountant are in the artifact). | You've decided — move |
+
+↩ Come back to `/unstuck day-job-decision` when: runway shift, burnout spike, or post-launch re-evaluation.
 
 </process>
 
@@ -234,8 +267,8 @@ This module is complete when:
 - [ ] 3 conversation scripts generated (boss + partner + accountant)
 - [ ] Kill conditions explicit (3-5 quantifiable triggers for re-running)
 - [ ] Disclaimer present (not financial advice)
-- [ ] Artifact saved to User Context Section D.8
-- [ ] Chain to next module fired per verdict branch
+- [ ] Artifact saved to `.unstuck/day-job-decision-<date>.md`
+- [ ] Exit with verdict-appropriate next action
 </success_criteria>
 
 <anti_patterns>

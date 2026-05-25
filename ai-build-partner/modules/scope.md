@@ -1,15 +1,22 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+2. references/frameworks.md (sections: scope_creep_detector, jtbd, decomposition_method)
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
-- Read **Section B.1** (project basics) and **Section D.1** (T04 Validation Scorecard outputs) if present
+Before the Opening, read `.unstuck/context.md`:
+- Check **Section B.1** (current stage) and **Section D.1** (validation evidence) if present
 - If both populated, DRAFT the One-Page Scope (JTBD, V1 features max 5, V2 Backlog, success metric) from that context first. Present the draft and ask the user to refine. Skip Step 1 below (the "tell me everything" dump) — they already did the work upstream.
 - Flag the 1-3 fields where your draft is weakest (usually JTBD trigger specificity, success metric, V2 Backlog completeness). Those are the user's to fix.
-- If User Context is empty for these sections, use the Opening below and run Step 1 onward — and consider routing the user to `/unstuck discovery` or `/unstuck validate` first.
+- If context is empty for these sections, use the Opening below and run Step 1 onward — and consider routing the user to `/unstuck discovery` or `/unstuck validate` first.
 
 Don't ask what you can read. Draft what you can infer.
+
+→ Next: **Opening** — present the Scope Guillotine ground rules.
 
 ---
 
@@ -26,6 +33,8 @@ Don't ask what you can read. Draft what you can infer.
 
 If the buyer invokes hint / guide me / draft it on any question, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
 
+→ Next: **Step 1** — get the full feature dump out of their head.
+
 ---
 
 **Step 1: Get it all out**
@@ -38,6 +47,8 @@ If the buyer invokes hint / guide me / draft it on any question, fire the corres
 > "I need: 5 modules of content, a workbook PDF, recorded videos, a Slack community, weekly office hours, 1:1 calls for premium tier, a private podcast feed, certificate of completion, monthly alumni meetups, a job board, a Notion template library, integrations with Lenny's Newsletter, an AI tutor, peer feedback rounds, and a graduation ceremony."
 
 Let them dump. Don't judge. Just capture. Now we cut.
+
+→ Next: **Step 2** — run the 5-Question Cut Test on every item.
 
 ---
 
@@ -68,6 +79,8 @@ If #4 is YES — definitely a "later" item.
 
 Be direct but warm: "That's a great idea — but it's a 'later' feature. We're cutting it for now."
 
+→ Next: **Step 3** — lock to exactly 3-5 V1 features.
+
 ---
 
 **Step 3: Lock it down**
@@ -84,6 +97,8 @@ Force exactly 3-5 features maximum. Push back kindly if they resist:
 > 4. Stripe payment + Calendar invites only — no LMS
 > 5. End-of-cohort 1:1 with Aamir (the founder) — capped at 10 customers
 
+→ Next: **Step 4** — define the ONE success metric.
+
 ---
 
 **Step 4: Define success**
@@ -94,6 +109,8 @@ Force exactly 3-5 features maximum. Push back kindly if they resist:
 
 **Example of a 5/5 success metric:**
 > "This is a success when 8+ junior PMs pay $497 by June 15 and 6+ of them show up to Session 1. Fewer than 5 sign-ups = the offer or audience is wrong; back to validation. More than 12 = next cohort tests $697."
+
+→ Next: **Step 5** — pick a specific ship date.
 
 ---
 
@@ -108,6 +125,8 @@ Force exactly 3-5 features maximum. Push back kindly if they resist:
 
 Push back if it's more than 6 weeks out or vague. A date creates pressure. Pressure creates decisions. Decisions create momentum.
 
+→ Next: **Step 6** — the Scope Lock Ceremony.
+
 ---
 
 **Step 6: Scope Lock Ceremony**
@@ -117,16 +136,37 @@ Push back if it's more than 6 weeks out or vague. A date creates pressure. Press
 Present the locked scope and ask them to commit:
 "This is your scope. Locked. No additions. Done > Perfect. Type `lock` to commit."
 
+→ Next: **Step 7** — generate and save the One-Page Scope artifact.
+
 ---
 
-**Step 7: Present One-Page Scope**
+**Step 7: Save the One-Page Scope**
 
 Use template at templates/one-page-scope.md.
+Save the completed artifact to `.unstuck/scope-<YYYY-MM-DD>.md` using the Write tool.
+
+→ Next: **Step 8** — update your project context.
 
 ---
 
-**Step 8: Chain to next module**
-Recommend `/unstuck roadmap` (for 6-week plan) or `/unstuck sprint` (for 10-day blitz)
+**Step 8: Update context**
+
+Read `.unstuck/context.md`, then update:
+- **E.1:** V1 features list (the 3-5 that survived the cut)
+- **E.2:** V2 backlog (everything that got cut, with reasons)
+- **E.3:** Success metric (the one sentence from Step 4)
+- **E.4:** Ship date (the specific date from Step 5)
+Save the updated file.
+
+---
+
+**After completing this module:**
+
+**→ Pricing (`/unstuck pricing`)**
+Scope is locked. Set the price BEFORE you build — it changes what you build (a $9 product ≠ a $149 product).
+Run it: same session as Scope, or within 24 hours.
+
+↩ Come back to `/unstuck scope` when: you catch yourself adding features that weren't in the scope doc.
 
 </process>
 
@@ -137,6 +177,7 @@ This module is complete when:
 - [ ] Scope locked to 3-5 features
 - [ ] Success metric defined
 - [ ] Ship date set (specific date, max 6 weeks out)
-- [ ] One-Page Scope artifact delivered
-- [ ] Next module recommended
+- [ ] One-Page Scope artifact saved to `.unstuck/scope-<date>.md`
+- [ ] Context updated (E.1, E.2, E.3, E.4)
+- [ ] Next module recommended (pricing)
 </success_criteria>

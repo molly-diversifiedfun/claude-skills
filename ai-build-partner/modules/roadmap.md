@@ -1,12 +1,17 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+2. references/frameworks.md (sections: six_week_structure, decomposition_method)
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, scan `.unstuck/context.md`:
 - Read **Section D.2** (T05 One-Page Scope) for V1 features + ship date, **Section D.5** (T08 Sprint Plan) if it exists for daily decomposition
 - If populated, DRAFT the 6-week plan: Week 1 setup + audit fixes, Week 2 validate, Week 3 build early (spine), Week 4 build late (polish), Week 5 launch infrastructure, Week 6 launch + sustain. Anchor each week to actual V1 features from context. Present the draft + ask the user to refine.
-- If User Context is missing those sections, use the Opening below — and tell the user they should run `/unstuck scope` first (roadmap planning needs locked V1 features).
+- If `.unstuck/context.md` is missing those sections, use the Opening below — and tell the user they should run `/unstuck scope` first (roadmap planning needs locked V1 features).
 
 Don't ask what you can read. Draft what you can infer.
 
@@ -33,6 +38,8 @@ If the buyer invokes hint / guide me / draft it on any question, fire the corres
 - If yes: proceed
 - If no: "Let's lock that first. Run `/unstuck scope` and come back."
 
+→ Next: **Step 2** — lock specific build days + times
+
 ---
 
 **Step 2: Identify available build time**
@@ -46,6 +53,8 @@ If the buyer invokes hint / guide me / draft it on any question, fire the corres
 
 - Minimum: 3 sessions per week, 90 minutes each
 - Push back if they're vague or overcommitting
+
+→ Next: **Step 3** — assign one win per week across 6 weeks
 
 ---
 
@@ -105,6 +114,8 @@ Using `<six_week_structure>`, assign one clear win per week:
 
 For each week, ask: "What's the ONE thing that makes this week a win?" Not five things. One.
 
+→ Next: **Step 4** — install a real accountability check-in
+
 ---
 
 **Step 4: Accountability**
@@ -118,17 +129,43 @@ For each week, ask: "What's the ONE thing that makes this week a win?" Not five 
 
 Options: friend, partner, coach, public commitment, accountability group. Something real.
 
+→ Next: **Step 5** — generate the 6-Week Roadmap artifact
+
 ---
 
 **Step 5: Present 6-Week Roadmap**
 
 Use template at templates/six-week-roadmap.md.
 
+→ Next: **Step 6** — save the artifact
+
 ---
 
-**Step 6: Chain to next module**
+**Step 6: Save artifact**
 
-Recommend `/unstuck sprint` to execute week by week.
+Save the completed 6-Week Roadmap to `.unstuck/roadmap-YYYY-MM-DD.md` using the Write tool. Use today's date.
+
+→ Next: **Step 7** — update context
+
+---
+
+**Step 7: Update context**
+
+Append a summary to `.unstuck/context.md` under **Section F.4** (6-Week Roadmap):
+- Ship date
+- Weekly win summaries (one line per week)
+- Accountability plan
+- Date locked
+
+---
+
+**Step 8: What's next**
+
+> **Next up: Sprint** — your roadmap gives the 6-week shape; `/unstuck sprint` gives you the day-by-day execution plan for Week 1.
+>
+> **Run it:** same session or Sunday before Week 1 starts.
+>
+↩ Come back to `/unstuck roadmap` when: end of each 6-week cycle to plan the next one.
 
 </process>
 
@@ -141,5 +178,7 @@ This module is complete when:
 - [ ] Accountability plan set
 - [ ] Ship date confirmed
 - [ ] 6-Week Roadmap artifact delivered
+- [ ] Artifact saved to `.unstuck/roadmap-YYYY-MM-DD.md`
+- [ ] Context updated in `.unstuck/context.md` Section F.4
 - [ ] Next module recommended
 </success_criteria>

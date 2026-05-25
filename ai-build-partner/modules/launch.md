@@ -1,12 +1,16 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, scan `.unstuck/context.md`:
 - Read **Section B.1** (project + audience), **Section D.2** (T05 Scope), **Section D.3** (T06 Pricing) if present
 - If populated, DRAFT the launch plan: pull product name + audience + price + ship date from context, propose JTBD + format + V1 features, name 3 candidate first-customers to text on launch day. Present the draft + ask the user to refine. Skip the 7-question intake — they already answered those upstream.
-- If User Context is empty, use the Opening below and run the question-by-question 7-section intake — and consider routing the user to `/unstuck discovery` first.
+- If `.unstuck/context.md` is empty, use the Opening below and run the question-by-question 7-section intake — and consider routing the user to `/unstuck discovery` first.
 
 Don't ask what you can read. Draft what you can infer.
 
@@ -38,6 +42,8 @@ Walk through each section one at a time. Push for specifics. Don't let them be v
 
 Push back if it's jargon-filled or too abstract. Keep simplifying until it's clear. Stuck? Say "hint" and I'll show two more worked examples (course, app, newsletter).
 
+→ Next: **Section 2** — define your specific customer persona
+
 ---
 
 **Section 2: Who It's For**
@@ -50,6 +56,8 @@ Push back if it's jargon-filled or too abstract. Keep simplifying until it's cle
 > "Aamir, 26, PM at a B2B observability SaaS, 18 months in. Tuesday afternoon backlog grooming is the moment he thinks 'I didn't sign up for this' — he wants to do strategy work, not adjust story points. Reads Lenny's Newsletter on his commute."
 
 The 5/5 answer has: name, age, role, company type, behavioral specifics, and the exact-moment-of-pain. Push back if any of those slots are missing.
+
+→ Next: **Section 3** — define the transformation, not the feature list
 
 ---
 
@@ -64,6 +72,8 @@ The 5/5 answer has: name, age, role, company type, behavioral specifics, and the
 
 People don't buy features. They buy outcomes. Push back if they give you a list of modules / lessons / templates — those are HOW, not WHAT.
 
+→ Next: **Section 4** — cut to the smallest shippable version
+
 ---
 
 **Section 4: MVP Scope**
@@ -76,6 +86,8 @@ People don't buy features. They buy outcomes. Push back if they give you a list 
 > "5 weekly live sessions (90 min each) + a 40-page workbook + a private Slack — no LMS, no recorded course library, no 1:1 calls. If 8 people pay $497 each, V1 is validated."
 
 Push ruthlessly. If it takes more than 4 weeks to build, it's too big. Push back: "What can you cut and still have something people would pay for?"
+
+→ Next: **Section 5** — three concrete tasks for this week
 
 ---
 
@@ -95,6 +107,8 @@ Push ruthlessly. If it takes more than 4 weeks to build, it's too big. Push back
 - "Work on the cohort" (no specifics)
 - "Set up tools" (passive — what tools, when?)
 
+→ Next: **Section 6** — pick a specific launch date
+
 ---
 
 **Section 6: Launch Date**
@@ -107,6 +121,8 @@ Push ruthlessly. If it takes more than 4 weeks to build, it's too big. Push back
 > "First cohort kicks off Monday June 15, 2026. Landing page goes live Friday May 22. Doors close Sunday June 8."
 
 The date creates pressure. Pressure creates decisions. Decisions create momentum. Push back hard on "I'm not sure yet" — pick a date now, you can adjust later.
+
+→ Next: **Section 7** — define one measurable success signal
 
 ---
 
@@ -121,16 +137,46 @@ The date creates pressure. Pressure creates decisions. Decisions create momentum
 
 Help them pick ONE measurable metric. Push back on multiples ("I want X and Y and Z") — what's the ONE thing that decides if V1 worked?
 
+→ Next: **Present** — generate the Launch Plan artifact
+
 ---
 
 **Present the Launch Plan**
 
 Use template at templates/launch-plan.md. Hand the buyer the locked plan in paste-ready form for User Context Section D.6.
 
-**Chain to next module**
+→ Next: **Save** — persist the artifact
 
-- If they're early stage (no validation): recommend `/unstuck validate`
-- If they're ready to build: recommend `/unstuck scope`
+---
+
+**Save artifact**
+
+Save the completed Launch Plan to `.unstuck/launch-YYYY-MM-DD.md` using the Write tool. Use today's date.
+
+→ Next: **Update context**
+
+---
+
+**Update context**
+
+Append a summary to `.unstuck/context.md` under **Section D.6** (Launch Plan):
+- Product name + one-line description
+- Target persona
+- MVP scope summary
+- Launch date
+- Success metric
+- Date locked
+
+---
+
+**What's next**
+
+> **BRANCHING EXIT — pick the path that fits:**
+>
+> - **Early stage (no validation yet):** run `/unstuck validate` — you need real conversations before building.
+> - **Ready to build (validation done):** run `/unstuck scope` — lock your V1 features and ship date.
+>
+↩ Come back to `/unstuck launch` when: your launch plan is stale or you're launching a new product.
 
 </process>
 
@@ -142,5 +188,7 @@ This module is complete when:
 - [ ] Launch date is a specific calendar date
 - [ ] Success metric is measurable
 - [ ] Launch Plan artifact delivered
+- [ ] Artifact saved to `.unstuck/launch-YYYY-MM-DD.md`
+- [ ] Context updated in `.unstuck/context.md` Section D.6
 - [ ] Next module recommended
 </success_criteria>

@@ -8,14 +8,14 @@
 
 ## Step 0 — Context check (recommend `/unstuck context` first if appropriate)
 
-**Before Step 1's routing question, scan the loaded User Context file (if any).**
+**Before Step 1's routing question, scan `.unstuck/context.md` (if it exists).**
 
-- **If User Context file is loaded AND Section A is filled** (name + hours + Stuck Pattern present) → skip Step 0, continue to Step 1.
-- **If User Context file is loaded but Section A is empty** OR **no User Context file is loaded at all** → recommend `/unstuck context` first.
+- **If `.unstuck/context.md` exists AND Section A is filled** (name + hours + Stuck Pattern present) → skip Step 0, continue to Step 1.
+- **If `.unstuck/context.md` exists but Section A is empty** OR **no `.unstuck/context.md` exists at all** → recommend `/unstuck context` first.
 
 **Output verbatim when recommending Context:**
 
-> "Quick check before we route — I'm reading your User Context and Section A (about you) is empty. You'll get sharper Discovery answers if I have your hours/week + Stuck Pattern + outcome preference up front.
+> "Quick check before we route — I'm reading your `.unstuck/context.md` and Section A (about you) is empty. You'll get sharper Discovery answers if I have your hours/week + Stuck Pattern + outcome preference up front.
 >
 > **Two options:**
 > 1. **Fire `/unstuck context` first** (5-10 min, 12 Socratic questions across Sections A → G) — produces a paste-ready User Context block. Then come back to Discovery with the context loaded. **Recommended.**
@@ -23,11 +23,11 @@
 >
 > Which? (1 / 2)"
 
-If they pick **1**: tell them to fire `/unstuck context`, save the output to their User Context file, then return to `/unstuck discovery`. End the session here.
+If they pick **1**: tell them to fire `/unstuck context`, save the output to `.unstuck/context.md`, then return to `/unstuck discovery`. End the session here.
 
 If they pick **2**: proceed to Step 1 below. You will have less context to draft from; lean harder on the buyer's direct answers.
 
-If they don't have a User Context file at all (Standalone mode without uploaded context): default to **1** unless the buyer explicitly says "skip Context."
+If `.unstuck/context.md` doesn't exist at all (Standalone mode without context): default to **1** unless the buyer explicitly says "skip Context."
 
 ---
 
@@ -61,6 +61,8 @@ If they describe a situation that doesn't fit cleanly, pick the closest match an
 - "I have ideas but they all feel meh" → Path 1 (Decide Already)
 
 **For all paths below:** if the buyer invokes hint / guide me / draft it on any question, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
+
+→ Next: **Step 1.5** — lock hours/week before any path-specific work
 
 ---
 
@@ -129,6 +131,8 @@ Status: SEEDED in Discovery — run `/unstuck audit` or T02 The Time Protection 
 
 After Q1–Q3 are locked, route into the path-specific work (Path 1–5 below) — now anchored to real hours-per-week.
 
+→ Next: **Path 1–5** — the path matching their intake answer from Step 1
+
 **Calibration rule for V1 scope across all paths:** at [X] hours/week and a 30-day ship date, the buyer has roughly **[X × 4] hours of total build time**. If V1 features (each ~3 days = ~9 hours at 3 hrs/day equivalent) require more total time than [X × 4], force a scope cut. The hours are the constraint; everything else flexes.
 
 ---
@@ -175,6 +179,8 @@ Output: One-sentence direction → seeds User Context Section B.
 
 3. **Pick the winner.** Highest SHIP Score. If two tie, pick the one with higher I (Implementation) — a project you finish beats one you're excited about that you won't. Notice how multiplication makes the SaaS roadmap tool collapse (48) vs the cohort idea (320) — same audience, but the long build time crushes the score. That's the framework working.
 
+   → Next: **Path 1, step 4** — output the User Context block
+
 4. **Output to User Context Section B — paste-ready:**
 
    **Example of a 5/5 paste block (Aamir):**
@@ -184,7 +190,7 @@ Output: One-sentence direction → seeds User Context Section B.
    WHY THIS ONE OVER THE OTHERS: Highest Energy + Proof scores, Shippability 4/5 (cohort is teachable in 30 days; SaaS tool would take 6+ months).
    ```
 
-5. **Route forward.** Recommend: "Save that block to User Context, then run `/unstuck diagnose` (the audit-equivalent — T01 Readiness Audit) or `/unstuck validate` if you want to RICE-score before committing further."
+5. **Route forward.** → covered by the Closing section at the end of this module.
 
 **Push back triggers:** vagueness on any candidate, sunk-cost loyalty ("I already invested 3 weeks in X"), aspirational scoring ("Profit Path 5/5 with no evidence anyone would actually pay"). If they want the full printable SHIP Score worksheets + reality-check protocol, point them at the **Decide Already PDF** (free at `unstuckwithmolly.com/downloads/decide_already.pdf`).
 
@@ -209,6 +215,8 @@ Output: Full V1 scope locked → seeds User Context Sections B + D.
    **Example of a vague answer to push back on:**
    > "A platform to help people with money."
 
+   → Next: **Path 2, step 2** — lock the audience
+
 2. **The audience.**
 
    **What we're locking:** Demographic + psychographic. Specific enough to picture one person.
@@ -217,6 +225,8 @@ Output: Full V1 scope locked → seeds User Context Sections B + D.
 
    **Example of a 5/5 answer:**
    > "Junior PMs, 1-3 years in, at B2B SaaS companies, $90-130K salary, who feel underused doing JIRA grooming and want to do strategy work. The persona: Aamir, 26, observability SaaS, reads Lenny's, hates Tuesday backlog grooming."
+
+   → Next: **Path 2, step 3** — pick the format
 
 3. **The format.**
 
@@ -227,6 +237,8 @@ Output: Full V1 scope locked → seeds User Context Sections B + D.
    **Example of a 5/5 answer:**
    > "Live cohort (5 weeks, 90-min Tuesday sessions) + workbook PDF. NOT a recorded course library — that's V2. Live first because I get real signal + can adjust."
 
+   → Next: **Path 2, step 4** — anchor the price
+
 4. **The price.**
 
    **What we're anchoring:** A rough number — $17 / $27 / $47 / $97 / $197+.
@@ -236,6 +248,8 @@ Output: Full V1 scope locked → seeds User Context Sections B + D.
    **Example of a 5/5 answer:**
    > "$497 per seat for first cohort (price-test). Premium PM training in this niche sells $1,500-3,000 (Reforge, Lenny's). I'm intentionally undercutting V1 to make first-cohort risk lower for buyers."
 
+   → Next: **Path 2, step 5** — lock the ship date
+
 5. **The ship date.**
 
    **What we're locking:** A specific Friday 30 days from today.
@@ -244,6 +258,8 @@ Output: Full V1 scope locked → seeds User Context Sections B + D.
 
    **Example of a 5/5 answer:**
    > "Doors close Friday June 13, 2026. Cohort kicks off Monday June 16. Workbook ships Monday June 9 to first 8 buyers as credibility preview."
+
+   → Next: **Path 2, step 6** — cap V1 scope
 
 6. **The V1 scope.**
 
@@ -258,6 +274,8 @@ Output: Full V1 scope locked → seeds User Context Sections B + D.
 
    Apply Cargill (1985): the honest estimate is gut × 2.
 
+   → Next: **Path 2, step 7** — name the first customer
+
 7. **The first customer.**
 
    **What we're naming:** ONE specific human who'll get a personal text on launch day.
@@ -266,6 +284,8 @@ Output: Full V1 scope locked → seeds User Context Sections B + D.
 
    **Example of a 5/5 answer:**
    > "Priya Sharma, junior PM at Datadog, met her at PM Summit 2025, said 'tell me when you build this'. Will text her June 9 at 10am ET with the workbook + pre-sale offer."
+
+   → Next: **Path 2, step 8** — output the artifact
 
 8. **Output to User Context — paste-ready (two blocks):**
 
@@ -286,7 +306,7 @@ Output: Full V1 scope locked → seeds User Context Sections B + D.
    Success metric: 8+ paying customers by June 13, 6+ show to Session 1
    ```
 
-9. **Route forward.** Recommend: "Save both blocks to User Context, then run `/unstuck diagnose` to audit your readiness, OR skip to `/unstuck validate` if you want to RICE-score before committing."
+9. **Route forward.** → covered by the Closing section at the end of this module.
 
 **Push back triggers:** vague answers on any question, scope creep on V1 features, fake-urgency on ship date.
 
@@ -308,6 +328,8 @@ Output: Re-scoped V1 from current state → seeds User Context Sections B + D + 
    **Example of a 5/5 answer:**
    > "Indie-Engineer Compass — a Notion-based career planning template for senior engineers thinking about going indie. Built about 60% in 2025, abandoned September."
 
+   → Next: **Path 3, step 2** — check recency
+
 2. **When did you last touch it?**
 
    **What we're checking:** Recency. >12 months = is this guilt or genuine project?
@@ -316,6 +338,8 @@ Output: Re-scoped V1 from current state → seeds User Context Sections B + D + 
    > "Last commit: September 14, 2025. Eight months ago. Looked at the doc twice since."
 
    If >12 months, push back: is this still your project, or just guilt? Sometimes the right move is to formally kill it.
+
+   → Next: **Path 3, step 3** — diagnose why you stopped
 
 3. **Why did you stop?**
 
@@ -330,12 +354,16 @@ Output: Re-scoped V1 from current state → seeds User Context Sections B + D + 
    **Example of a 5/5 honest answer:**
    > "Scope ballooned. Started as 'one Notion template', became 'template + course + community + AI tutor'. Got overwhelmed, stopped. Underlying idea is still good — just too big."
 
+   → Next: **Path 3, step 4** — inventory what exists
+
 4. **What's currently done?**
 
    **What we're inventorying:** Every concrete thing that exists. Specific.
 
    **Example of a 5/5 inventory:**
    > "Notion template built (5 pages, 80% formatted). Landing page wireframe in Figma (not built). 30-min interview videos with 3 indie engineers (raw, unedited). Stripe account opened, no products. Email list of 47 (from my newsletter)."
+
+   → Next: **Path 3, step 5** — re-scope V1 from current state
 
 5. **What's V1 from where it IS now?**
 
@@ -347,6 +375,8 @@ Output: Re-scoped V1 from current state → seeds User Context Sections B + D + 
    > 3. ONE landing page (Carrd, not Figma — pick what's faster).
    > 4. Email the 47 newsletter subs with the launch.
    > CUT FROM ORIGINAL: course, community, AI tutor, interview videos — all V2.
+
+   → Next: **Path 3, step 6** — lock the new ship date
 
 6. **New ship date.** 30 days from today, on a Friday.
 
@@ -374,7 +404,7 @@ Output: Re-scoped V1 from current state → seeds User Context Sections B + D + 
 
 8. **Avoidance check.** Tell them straight: "Are you resurrecting because the project is genuinely good, or because you feel guilty about abandoning it? If guilt, the right move is to formally kill it and run Decide Already instead. Sunk cost is not a reason."
 
-9. **Route forward.** "Save both blocks, then SKIP T01-T03 — you already have a project. Go to `/unstuck scope` to lock the resurrected V1, then `/unstuck sprint` to map the remaining work."
+9. **Route forward.** → covered by the Closing section at the end of this module.
 
 **Push back triggers:** guilt-driven resurrection, "I'll redo X while I'm at it" (scope creep on a resurrection is doom).
 
@@ -400,6 +430,8 @@ Output: Product anchored to existing audience → seeds User Context Sections B 
    **Example of a 5/5 audience description:**
    > "Newsletter: 4,200 subs, 38% open rate (~1,600 active readers). Started Jan 2024, growing ~80/week last 90 days. Currently making $1,500/mo from sponsorships, $0 from products."
 
+   → Next: **Path 4, step 2** — mine verbatim DMs/replies
+
 2. **What do they ask you for?**
 
    **What we're mining:** Verbatim DMs / replies / comments. These quotes ARE the product.
@@ -407,12 +439,16 @@ Output: Product anchored to existing audience → seeds User Context Sections B 
    **Example of a 5/5 quote inventory:**
    > "Last 60 days I got 14 DMs asking 'do you have a course on getting from senior to staff PM?' and 9 replies asking 'where can I learn this framework you used in last week's post?' Same theme: senior→staff career framework."
 
+   → Next: **Path 4, step 3** — anchor pricing to competitors
+
 3. **What do they pay others to solve?**
 
    **What we're anchoring:** Pricing reference. Who else are they buying from?
 
    **Example of a 5/5:**
    > "They buy Lenny's Reforge programs ($1,800-2,800), Pragmatic Engineer career guides ($150-300), and Will Larson's Staff Engineer book ($35). The Reforge price is the anchor for a serious cohort."
+
+   → Next: **Path 4, step 4** — surface your unfair advantage
 
 4. **My unfair advantage.**
 
@@ -425,6 +461,8 @@ Output: Product anchored to existing audience → seeds User Context Sections B 
 
    If they can't name an advantage, the audience is BORROWED (they like them but won't pay) — different play needed.
 
+   → Next: **Path 4, step 5** — pick format + promise + price
+
 5. **Product-from-audience pick.**
 
    **What we're choosing:** Format + promise + price, anchored to Q2 + Q3 + Q4.
@@ -436,6 +474,8 @@ Output: Product anchored to existing audience → seeds User Context Sections B 
    **Example of a 5/5 pick:**
    > "Format: 5-week cohort (live). Promise: 'Get the senior→staff promo within 12 months using the public-PM-portfolio framework.' Price: $1,200 (between Reforge and the eBook, anchored at 'serious but cheaper than incumbents')."
 
+   → Next: **Path 4, step 6** — name the first 10 customers
+
 6. **First 10 customers.**
 
    **What we're naming:** 10 named humans from the audience already in DMs/comments.
@@ -446,6 +486,8 @@ Output: Product anchored to existing audience → seeds User Context Sections B 
    > "1. Priya (DM'd 3 weeks ago). 2. Marcus (commented on last 4 posts). 3. Jen (asked about staff prep in May). 4-7. The four people who DM'd 'do you have a course'. 8-10. My three closest newsletter friends, all senior PMs at SaaS, all moved roles in 2025."
 
    If can't name 10, the pick is wrong — go back to Q2 and re-read DMs.
+
+   → Next: **Path 4, step 7** — lock the ship date
 
 7. **Ship date.** 30 days from today, on a Friday.
 
@@ -468,7 +510,7 @@ Output: Product anchored to existing audience → seeds User Context Sections B 
    Success metric: 10 paying customers from existing list by June 13
    ```
 
-9. **Route forward.** "Save both blocks, SKIP `/unstuck validate` — your DMs are validation. Go to `/unstuck scope` to lock V1, then `/unstuck launch` to plan the launch sequence (uses your audience's exact language from Q2)."
+9. **Route forward.** → covered by the Closing section at the end of this module.
 
 **Push back triggers:** borrowed audience (engaged but never bought anything), wishful-thinking on the first-10 list, product NOT anchored to actual DM quotes.
 
@@ -490,9 +532,13 @@ Output: 14-day launch plan → seeds User Context Sections B + D (read-only — 
    **Example of a 5/5 answer:**
    > "Junior PM Toolkit — a 60-page workbook PDF + 20 Notion templates for junior PMs starting at SaaS. Lives on Google Drive (Drive + Stripe link, never publicized)."
 
+   → Next: **Path 5, step 2** — check staleness
+
 2. **When did you finish it?**
 
    **What we're checking:** Staleness. >6 months = does it need a refresh?
+
+   → Next: **Path 5, step 3** — diagnose the launch block
 
 3. **Why haven't you launched?**
 
@@ -510,9 +556,13 @@ Output: 14-day launch plan → seeds User Context Sections B + D (read-only — 
    **Example of a 5/5 honest answer:**
    > "Primary: fear. I've had it done for 5 months. Stripe is live, Carrd is live, I have an email list of 800. I'm just terrified of pressing the 'announce' button because of the rejection signal if nobody buys."
 
+   → Next: **Path 5, step 4** — lock the launch date
+
 4. **Launch date.**
 
    **What we're locking:** A specific Friday 14 days from today (shorter than the 30-day default because product exists).
+
+   → Next: **Path 5, step 5** — name the first 5 customers
 
 5. **Who are you launching to?**
 
@@ -551,7 +601,7 @@ Output: 14-day launch plan → seeds User Context Sections B + D (read-only — 
 
 8. **Avoidance check.** "Is the product genuinely done, or are you telling yourself it's done to skip the hard parts? If 'done-ish with caveats,' run Resurrection instead — finish V1 properly before launching."
 
-9. **Route forward.** "Save both blocks, SKIP `/unstuck diagnose` through `/unstuck sprint` entirely (no build phase). Go to `/unstuck launch` for the email sequence and landing page work."
+9. **Route forward.** → covered by the Closing section at the end of this module.
 
 **Push back triggers:** perfectionism disguised as "not quite ready," fake done-ness, no named first 5.
 
@@ -559,13 +609,44 @@ Output: 14-day launch plan → seeds User Context Sections B + D (read-only — 
 
 ## Closing — Every Path Ends With This
 
-Whichever path ran, end the conversation with:
+Whichever path ran, end the conversation with these steps in order:
 
-1. **Confirm the User Context blocks they need to save** (paste-ready format above)
-2. **The exact next module** they should run (`/unstuck diagnose` / `/unstuck scope` / `/unstuck launch` etc.)
-3. **One sentence on what they're committing to** — read it back to them in their own words
+### Step A — Save the artifact
 
-> Example: "OK Aamir — you're shipping Junior PM Career Compass to junior PMs at B2B SaaS on a 30-day clock. Save Section B + D to your User Context, re-upload to your Project, then run `/unstuck diagnose` to audit your readiness. Built with the Unstuck Method — unstuckwithmolly.com"
+Save the full Discovery output (all User Context blocks produced by the path) to `.unstuck/discovery-<YYYY-MM-DD>.md` using the Write tool. Include: the path taken, all Section B/D blocks, hours reality from Step 1.5, and the recommended next module.
+
+### Step B — Update context
+
+Append or merge the new Section B + D blocks into `.unstuck/context.md`. If the file doesn't exist yet, create it with the blocks produced by this path.
+
+### Step C — Confirm + route
+
+1. **Read back one sentence** of what they're committing to — in their own words.
+2. **Route forward** using the table below.
+
+> Example: "OK Aamir — you're shipping Junior PM Career Compass to junior PMs at B2B SaaS on a 30-day clock. Discovery artifact saved to `.unstuck/discovery-2026-05-25.md` and context updated. Built with the Unstuck Method — unstuckwithmolly.com"
+
+### Exit routing
+
+| Based on your path... | Next module | Why | Run it when |
+|---|---|---|---|
+| Path 1 (no idea) | `/unstuck idea-bank` | Surface candidates from your real behavior | Now |
+| Path 2 (has idea, not validated) | `/unstuck validate` | Check if anyone besides you would pay for it | Now |
+| Path 3 (halfway built) | `/unstuck scope` or `/unstuck sprint` | Cut to V1 or plan the remaining work | Now |
+| Path 4 (audience, no product) | `/unstuck audience-from-zero` | Build audience first, then scope a product for them | Now |
+| Path 5 (built, never launched) | `/unstuck launch` | You have a product — make it buyable | Now |
+
+↩ Come back to `/unstuck discovery` when: you pivot to a new project or your stage changes fundamentally.
+
+<success_criteria>
+This module is complete when:
+- [ ] Path-specific questions answered (all required steps for the matched path)
+- [ ] Hours reality locked (Step 1.5 — number + build blocks + what gets dropped)
+- [ ] User Context blocks produced (Section B minimum, Section D if applicable)
+- [ ] Artifact saved to `.unstuck/discovery-<date>.md` via Write tool
+- [ ] `.unstuck/context.md` updated with new Section B + D blocks
+- [ ] Next module recommended via exit routing table
+</success_criteria>
 
 ---
 

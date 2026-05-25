@@ -1,12 +1,17 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+2. references/frameworks.md (sections: jtbd, infrastructure_audit, anti_patterns_summary)
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, scan `.unstuck/context.md`:
 - Read **all available sections** — Section A (about me), B.1 (project), B.2 (Time Protection), C (Readiness Audit), D.* (any phase outputs done so far)
 - If any populated, IDENTIFY the likely real blocker before asking: time / clarity / fear / scope / infrastructure. State your read (*"From your context, the real blocker looks like [X] because [reason]"*) and let the user confirm or correct.
-- If User Context is empty, use the Opening below and run the question-by-question audit — and consider whether the user should run `/unstuck discovery` first to seed context.
+- If `.unstuck/context.md` is empty or missing, use the Opening below and run the question-by-question audit — and consider whether the user should run `/unstuck discovery` first to seed context.
 
 Don't ask what you can read. Draft what you can infer.
 
@@ -38,6 +43,8 @@ If the buyer invokes hint / guide me / draft it on any question, fire the corres
 
 The 5/5 answer is in present-tense, has a specific user moment, and ends with a measurable signal of success.
 
+→ Next: **Step 2** — write the JTBD statement
+
 ---
 
 **Step 2: Who is this for?**
@@ -49,6 +56,8 @@ The 5/5 answer is in present-tense, has a specific user moment, and ends with a 
 **Example of a 5/5 answer:**
 > "When I'm 18 months into a junior PM role and still spending most days doing JIRA grooming, I want to learn how to do real product strategy work, so I can present my own roadmap to my EM and stop being treated as the team's admin."
 
+→ Next: **Step 3** — inventory existing assets
+
 ---
 
 **Step 3: What have you already built?**
@@ -59,6 +68,8 @@ The 5/5 answer is in present-tense, has a specific user moment, and ends with a 
 
 **Example of a 5/5 answer:**
 > "I have: a 1-pager pitch doc, a draft outline for Module 1, a list of 8 junior PMs who said they'd be interested, a Stripe payment link, and a $0 Carrd landing page that's been live for 3 weeks. Zero customers yet."
+
+→ Next: **Step 4** — identify the real blocker
 
 ---
 
@@ -73,6 +84,8 @@ The 5/5 answer is in present-tense, has a specific user moment, and ends with a 
 
 The 5/5 diagnosis names the false diagnosis they came in with AND the structural one.
 
+→ Next: **Step 5** — surface the infrastructure mismatch
+
 ---
 
 **Step 5: Infrastructure Mismatch check**
@@ -85,6 +98,8 @@ Compare their work systems vs. project systems:
 
 **Example of a 5/5 surfacing:**
 > "At work: standups, JIRA, OKRs, an EM who pings you if you miss a sprint commitment. On this project: zero standups, no JIRA, the only deadline is what you set, and nobody's checking. The gap IS the infrastructure mismatch — you're trying to run on willpower a project that needs scaffolding."
+
+→ Next: **Step 6** — audit build boundaries
 
 ---
 
@@ -99,16 +114,42 @@ Compare their work systems vs. project systems:
 **Example of a 5/5 boundary state:**
 > "Tuesday 8-10am and Saturday 10-12 are blocked on calendar — that's 4 hours a week, protected. Phone goes in a drawer at start. Slack closed. The only interruption is the dog, who I've stopped feeling bad about."
 
+→ Next: **Step 7** — present the Build Audit Report artifact
+
 ---
 
 **Step 7: Present Build Audit Report**
 
 Use template at templates/build-audit-report.md.
 
+→ Next: **Step 8** — save the artifact
+
 ---
 
-**Step 8: Chain to next module**
-Recommend `/unstuck scope`
+**Step 8: Save the artifact**
+
+Save the completed Build Audit Report to `.unstuck/audit-<YYYY-MM-DD>.md` using the Write tool.
+
+→ Next: **Step 9** — update context
+
+---
+
+**Step 9: Update context**
+
+Append or merge the audit findings into `.unstuck/context.md`:
+- Section D.3 — Blocker analysis + JTBD statement + Infrastructure mismatch
+
+→ Next: **Step 10** — route to the next module
+
+---
+
+**Step 10: Route forward**
+
+Blockers identified — now cut to a V1 that avoids them.
+
+**Next module:** `/unstuck scope` — run it same session.
+
+↩ Come back to `/unstuck audit` when: a new blocker appears that was not in the original audit.
 
 </process>
 
@@ -118,5 +159,7 @@ This module is complete when:
 - [ ] Real blocker identified (not surface-level)
 - [ ] Infrastructure mismatch documented
 - [ ] Build Audit Report artifact delivered
-- [ ] Next module recommended
+- [ ] Artifact saved to `.unstuck/audit-<date>.md` via Write tool
+- [ ] `.unstuck/context.md` updated with Section D.3
+- [ ] Next module recommended (Scope)
 </success_criteria>

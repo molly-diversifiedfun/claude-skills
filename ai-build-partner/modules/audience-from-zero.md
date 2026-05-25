@@ -1,12 +1,16 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, scan `.unstuck/context.md`:
 - Read **Section B.1** (project + audience), **Section B.2** (persona), **Section D.0** if present (prior audience plan)
 - If Sections B are populated, infer Q2 (domain), Q3 (persona), Q4 (angle) from context. Ask Q1 (starting point), Q5 (time), Q6 (platform), Q7 (proof goal), Q8 (dormant audience) directly — these are state, not derivable.
-- If User Context is empty, run the full 8-question intake.
+- If `.unstuck/context.md` is empty, run the full 8-question intake.
 
 Don't ask what you can read. Draft what you can infer.
 
@@ -40,6 +44,8 @@ Don't ask what you can read. Draft what you can infer.
 
 The 5/5 says the real number AND the engagement state. A buyer who says "I have 1,200 LinkedIn" without admitting it's dormant is going to set Q7 too high. Push back on a single-number answer without context.
 
+→ Next: **Section 2** — define the topic you'd build the audience around
+
 ---
 
 **Section 2: Domain / topic (Q2)**
@@ -52,6 +58,8 @@ The 5/5 says the real number AND the engagement state. A buyer who says "I have 
 > "Side-project shippers — senior tech employees with stalled side projects, the gap between how they help their team and how they treat their own work."
 
 Push back if it sounds like a brochure ("personal development thought leadership"). Real topics are specific enough that a 12-year-old can picture the human being helped.
+
+→ Next: **Section 3** — describe one specific human you're talking to
 
 ---
 
@@ -66,6 +74,8 @@ Push back if it sounds like a brochure ("personal development thought leadership
 
 The 5/5 has: name, age, role, company type, behavioral specifics, the exact-moment-of-stuck. Push back if any slot is missing.
 
+→ Next: **Section 4** — position yourself vs. existing voices
+
 ---
 
 **Section 4: Unique angle (Q4)**
@@ -79,6 +89,8 @@ The 5/5 has: name, age, role, company type, behavioral specifics, the exact-mome
 
 Push back on "I have a unique perspective." That's a non-answer. Specifics: who else is in the lane, where they ARE talking, where the gap is.
 
+→ Next: **Section 5** — lock your real available hours
+
 ---
 
 **Section 5: Time per week (Q5)**
@@ -91,6 +103,8 @@ Push back on "I have a unique perspective." That's a non-answer. Specifics: who 
 > "5 hours, broken into Tues 60min, Thurs 60min, Sat 3hrs. That's the realistic envelope around my day job and parenting Saturday morning."
 
 Push back on 10 hours from a buyer with a full-time job + family. 10 hrs/week of writing is a part-time second job. Realistic for most senior employees is 3-5 hrs.
+
+→ Next: **Section 6** — pick ONE primary platform
 
 ---
 
@@ -112,6 +126,8 @@ Push back on "all of them at once." That's how people burn out at week 3. One pr
 - Instagram → consumer / lifestyle / creator product, visual-first
 - YouTube → educational, evergreen, willing to do video reps
 
+→ Next: **Section 7** — set your 30-day proof goal
+
 ---
 
 **Section 7: 30-day proof goal (Q7)**
@@ -127,6 +143,8 @@ Push back if they pick a vanity number ("1,000 followers") with no engagement si
 
 **The hard truth:** if Q1 was near-zero and Q5 is 3 hrs/week, Q7 of "1,000 followers in 30 days" is fantasy. The skill will sanity-check this in the output.
 
+→ Next: **Section 8** — surface any dormant audience to reactivate
+
 ---
 
 **Section 8: Dormant audience anywhere? (Q8)**
@@ -139,6 +157,8 @@ Push back if they pick a vanity number ("1,000 followers") with no engagement si
 > "LinkedIn: 1,200 1st-degree, mostly former coworkers from my Heap years, very high relevance to the audience. Twitter: 84 dormant, low relevance. A Discord I built in 2022, ~30 active members but it's a different topic. So real asset: LinkedIn 1st-degree."
 
 Push back on "no, I'm starting from zero." Almost everyone has dormant audience somewhere. Even 80 LinkedIn connections is enough to seed a reactivation post that gets 200 net-new in 30 days.
+
+→ Next: **Draft the bundle** — generate the full 30-day plan artifact
 
 ---
 
@@ -225,11 +245,37 @@ Output a clear branch:
 
 Use template at `templates/audience-from-zero.md`. Hand the buyer the locked plan, paste-ready to save in User Context Section D.0 (a new section we're claiming for Path 4 audience builders — sits before D.1 JTBD because audience-readiness is upstream of validation).
 
-**Chain to next module**
+→ Next: **Save** — persist the artifact
 
-Per existing discovery routing for Path 4: this skill's output is the audience-readiness gate. Next:
-- If Day 30 hits → `/unstuck scope` (audience-first path skips /unstuck validate; DMs from your audience become validation)
-- If Day 30 doesn't hit → re-run this skill at Day 45 with the post-mortem data
+---
+
+**Save artifact**
+
+Save the completed 30-Day Audience Plan to `.unstuck/audience-from-zero-YYYY-MM-DD.md` using the Write tool. Use today's date.
+
+→ Next: **Update context**
+
+---
+
+**Update context**
+
+Append a summary to `.unstuck/context.md` under **Section D.13** (30-Day Audience Plan):
+- Primary platform + cadence
+- Topic clusters (list)
+- 30-day proof goal (Q7 number)
+- Dormant audience assets
+- Day 30 readiness gate thresholds
+- Date locked
+
+---
+
+**What's next**
+
+> **Next up: Scope** — audience-first path (Path 4) skips `/unstuck validate`; DMs from your audience become validation. Run `/unstuck scope` after Day 30 readiness gate says GO.
+>
+> **Run it:** after Day 30, when the readiness gate fires GO LAUNCH.
+>
+↩ Come back to `/unstuck audience-from-zero` when: starting a new project with zero audience, or if Day 30 fires REASSESS.
 
 </process>
 
@@ -242,8 +288,9 @@ This module is complete when:
 - [ ] Scope sanity check ran (refused Q7 fantasy where applicable)
 - [ ] Dormant-audience activation script generated for whatever Q8 named
 - [ ] Day 30 readiness gate explicit (GO / EXTEND-15 / REASSESS)
-- [ ] Artifact saved to User Context Section D.0
-- [ ] Chain to `/unstuck scope` (Path 4 audience-first, skip validate)
+- [ ] Artifact saved to `.unstuck/audience-from-zero-YYYY-MM-DD.md`
+- [ ] Context updated in `.unstuck/context.md` Section D.13
+- [ ] Next module recommended
 </success_criteria>
 
 <anti_patterns>

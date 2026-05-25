@@ -1,12 +1,16 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+</required_reading>
 
 <process>
 
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
-Before the Opening, scan the user's uploaded User Context file:
+Before the Opening, scan `.unstuck/context.md`:
 - Read **Section A** (who they are, skills, role) and **Section B.2** (weekly hours)
-- If User Context is empty, run the full 8-question intake.
-- If User Context is populated, infer skills + role from context. Ask Q1-Q7 directly — they're behavioral data (revealed preferences), not derivable from a context file.
+- If `.unstuck/context.md` is empty or missing, run the full 8-question intake.
+- If `.unstuck/context.md` is populated, infer skills + role from context. Ask Q1-Q7 directly — they're behavioral data (revealed preferences), not derivable from a context file.
 
 Don't ask what you can read. Don't generate ideas without the behavioral data — they'll be generic.
 
@@ -42,6 +46,8 @@ Don't ask what you can read. Don't generate ideas without the behavioral data �
 
 The 5/5 names the products AND includes the duplicates (Linear personal when work pays, Copilot personal when work has Enterprise). Those duplicates are the loudest signal — you're paying twice because the work version doesn't scratch the personal itch.
 
+→ Next: **Section 2** — apps you open daily and resent
+
 ---
 
 **Section 2: Apps you open daily and resent (Q2)**
@@ -54,6 +60,8 @@ The 5/5 names the products AND includes the duplicates (Linear personal when wor
 > "Slack for personal stuff — every group I'm in is in a different workspace and switching is brutal. Apple Notes for everything that isn't worth putting in Notion — it's actively bad but Notion is too heavy for grocery lists. LinkedIn — disgusts me but I have to be there for work referrals."
 
 Push back if they only name one thing. Three minimum. The cluster reveals patterns.
+
+→ Next: **Section 3** — compulsive content consumption
 
 ---
 
@@ -68,6 +76,8 @@ Push back if they only name one thing. Three minimum. The cluster reveals patter
 
 Notice the self-pattern-surface in the 5/5 answer. Push the user to name the pattern themselves after listing the three.
 
+→ Next: **Section 4** — recent recommendations to friends
+
 ---
 
 **Section 4: What you've recommended to friends in the last 30 days (Q4)**
@@ -80,6 +90,8 @@ Notice the self-pattern-surface in the 5/5 answer. Push the user to name the pat
 > "I told two PMs at work about Read.cv this month — Twitter for grown professionals. Recommended Granola to three engineering friends — meeting notes that don't suck. And I made my partner sign up for 'Anne Helen Petersen' Substack after reading her piece on millennial burnout."
 
 Recommendations cluster around problems you've personally solved (or seen others solve elegantly). Each recommendation = a category where you have informed opinions = a category where you could build.
+
+→ Next: **Section 5** — the browser tab graveyard
 
 ---
 
@@ -94,6 +106,8 @@ Recommendations cluster around problems you've personally solved (or seen others
 
 The pattern in the 5/5: this person is curious about how pricing + framing + niche-finding work. They might build a tool for pricing strategy, or a newsletter about niche-finding, or a course on building SaaS for a single vertical.
 
+→ Next: **Section 6** — paid skill vs. unpaid skill
+
 ---
 
 **Section 6: Skill-domain that pays you at work vs. skill-domain you'd use without being paid (Q6)**
@@ -107,6 +121,8 @@ The pattern in the 5/5: this person is curious about how pricing + framing + nic
 
 The 5/5 reveals the latent project — combining the rare hobby skill (pattern-recognition writing) with the professional adjacency (developer tools). Almost always the latent project lives at this intersection.
 
+→ Next: **Section 7** — the 3+ year carry
+
 ---
 
 **Section 7: The one project you've been carrying around for 3+ years (Q7)**
@@ -119,6 +135,8 @@ The 5/5 reveals the latent project — combining the rare hobby skill (pattern-r
 > "A newsletter for senior tech IC's about the math of side-project economics — how much time it actually costs to ship something, what the realistic outcomes are, when to quit your job vs. when not to. I've thought about it monthly for four years. Never written a word."
 
 If the user lists a 3+ year carry — that idea is almost always the one. The behavior pattern (refusing to die) is itself the signal. Project Selector logic still applies (see Section 9), but the carry-idea automatically gets one of the 5 candidate slots.
+
+→ Next: **Section 8** — surface the patterns
 
 ---
 
@@ -137,6 +155,8 @@ Stop. Synthesize. Output verbatim:
 Wait for the user's pick. Then output:
 
 > "Locked: Pattern [X]. Generating five candidate ideas in this pattern, scoped to your skills + hours."
+
+→ Next: **Section 9** — generate 5 candidate ideas
 
 ---
 
@@ -157,6 +177,8 @@ Output format for each idea:
 > **Why YOU:** [the specific pattern from their answers that uniquely positions them]
 > **What V1 looks like in 10 days:** [concrete deliverable]
 > **First sale realistic in:** [number of weeks, honest]
+
+→ Next: **Section 10** — kill pass (5 down to 1)
 
 ---
 
@@ -182,6 +204,8 @@ Then output:
 > Not which one is most likely to make money. Not which one is the smartest business. Which one would you regret not building. That's your project."
 
 Wait for pick.
+
+→ Next: **Section 11** — output and save the artifact
 
 ---
 
@@ -213,20 +237,45 @@ Wait for pick.
 - **First sale realistic in:** [N weeks]
 - **The carry-idea question:** [If this was the 3+ year carry from Q7, note it — that pattern matters]
 
-## Next move
-Run `/unstuck scope` to cut this down to a shippable V1 — what survives, what dies, the ship date.
-Or run `/unstuck validate` if you're not yet sure anyone wants it.
-
 ---
 
 Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=idea-bank)
 ```
 
+**Save instruction:** Save the artifact above to `.unstuck/idea-bank-<YYYY-MM-DD>.md` using the Write tool.
+
+→ Next: **Section 12** — update context
+
 ---
+
+**Section 12: Update context**
+
+Append or merge the chosen idea into `.unstuck/context.md`:
+- Section A.3 — Skills (from Q6 synthesis)
+- Section C.1 — Project name (THE ONE)
+- Section C.2 — One-liner (what it is + who it's for)
+
+→ Next: **Section 13** — route to the next module
+
+---
+
+**Section 13: Route forward**
 
 **Closing line (verbatim):**
 
-> "That's your idea. The pattern was already in your behavior — we just made it readable. Next: `/unstuck scope` to cut it down to a 10-day V1, or `/unstuck validate` if you want to talk to 3 humans before committing the time. Your call."
+> "That's your idea. The pattern was already in your behavior — we just made it readable."
+
+Then route using the table below:
+
+| Based on your confidence... | Next module | Why | Run it when |
+|---|---|---|---|
+| High (the idea is obvious) | `/unstuck scope` | Cut to a shippable V1 | Same session |
+| Medium (feels right, want a gut-check) | `/unstuck validate` | Talk to 5 humans in 48 hours | Now |
+| Low (might be wishful thinking) | `/unstuck smoke-test` | Test demand before committing build time | Now |
+
+If the user says "I don't know which next step," default to `/unstuck validate` — cheapest insurance.
+
+↩ Come back to `/unstuck idea-bank` when: starting a new project and need to pick an idea.
 
 </process>
 
@@ -240,14 +289,13 @@ Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmoll
 
 </failure_modes>
 
-<chain_to_next>
-
-After running `idea-bank`, the natural next step depends on the user's confidence in the chosen idea:
-
-- **High confidence (the idea is obvious, they're ready to ship):** `/unstuck scope` to cut V1
-- **Medium confidence (idea feels right, want a quick gut-check):** `/unstuck validate` (5-message-script outreach to 5 humans in 48 hours)
-- **Low confidence (idea feels right but might be wishful thinking):** `/unstuck smoke-test` (Day 10 demand-risk test before committing build time)
-
-If the user says "I don't know which next step," default to `/unstuck validate` — cheapest insurance.
-
-</chain_to_next>
+<success_criteria>
+This module is complete when:
+- [ ] 7 behavioral signals collected (Q1-Q7, passes allowed)
+- [ ] 3 patterns surfaced and 1 locked
+- [ ] 5 candidate ideas generated, killed to 1
+- [ ] Idea Bank artifact delivered
+- [ ] Artifact saved to `.unstuck/idea-bank-<date>.md` via Write tool
+- [ ] `.unstuck/context.md` updated with Sections A.3 + C.1 + C.2
+- [ ] Next module recommended via exit routing table
+</success_criteria>
