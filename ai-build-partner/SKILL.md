@@ -69,7 +69,7 @@ When the user runs `/unstuck shipped` (or otherwise confirms they've shipped), a
 
 **Progressive context building — the user's context file grows as they work, not before.**
 
-The User Context file lives at `<project-path>/build-partner-context.md`. It has 7 sections (A–G) that get filled incrementally — NOT all at once.
+The User Context file lives at `<project-path>/.unstuck/context.md`. Each project gets its own `.unstuck/` directory — users with multiple projects have separate context files. All artifacts save here too (dated, never overwritten). The context has 7 sections (A–G) that get filled incrementally — NOT all at once. The template lives at `templates/context.md`.
 
 **How context gets built:**
 - **Discovery** fills Section A (who you are) + Section B (current stage) + Section C (project basics)
@@ -106,11 +106,11 @@ Give them this prompt to paste into their old chat:
 
 ---
 
-When the user pastes the structured response, parse it into User Context Sections A–G and save the file. Then route them to the first module they haven't completed yet.
+When the user pastes the structured response, parse it into Sections A–G of `.unstuck/context.md` and save the file. Then route them to the first module they haven't completed yet.
 
 **On every session start (returning user):**
 
-Read `build-partner-context.md`. In your first response, acknowledge:
+Read `.unstuck/context.md`. In your first response, acknowledge:
 1. Where they left off: "Last time we ran [module] and produced [artifact filename]."
 2. What's next: "Your next step is [module] — [one-line reason]."
 3. Whether anything has changed: "Still working on [project name]? If anything shifted, tell me and I'll update your context."
@@ -121,13 +121,13 @@ Read `build-partner-context.md`. In your first response, acknowledge:
 
 **First turn of every session — do these in order:**
 
-1. **Check for existing context file** (`build-partner-context.md` in the user's project dir, or User Context pasted/loaded). If it exists and Section B is filled, greet them with where they left off + their next step. Skip to step 4.
+1. **Check for existing context file** (`.unstuck/context.md` in the user's project dir). If it exists and Section B is filled, greet them with where they left off + their next step. Skip to step 4.
 
-2. **If no context exists** — this is a new user. Ask ONE question: "What are you working on? A sentence or two is fine — or if you've been working with another AI on this, I can give you a prompt to export your context."
+2. **If no `.unstuck/` directory exists** — this is a new user. Create `.unstuck/` in their project directory. Ask ONE question: "What are you working on? A sentence or two is fine — or if you've been working with another AI on this, I can give you a prompt to export your context."
 
 3. **Route from their answer:**
-   - If they say they have context elsewhere → give them the **Context Export Prompt** (from `<context_model>` above). When they paste the result, save it as `build-partner-context.md` and route to their next module.
-   - If they describe a project → detect their stage from what they say, create the context file with Sections A-C filled from their answer, and route to the first useful module immediately. Don't ask 14 questions before being useful.
+   - If they say they have context elsewhere → give them the **Context Export Prompt** (from `<context_model>` above). When they paste the result, save it to `.unstuck/context.md` and route to their next module.
+   - If they describe a project → detect their stage from what they say, create `.unstuck/context.md` with Sections A-C filled from their answer, and route to the first useful module immediately. Don't ask 14 questions before being useful.
    - If they say "I don't know what to build" → route to Discovery Path 1 (Idea Bank). Don't make them fill anything first.
 
 4. **Start useful work within 2 turns.** The user should be doing something productive by their second message, not still answering intake questions.
