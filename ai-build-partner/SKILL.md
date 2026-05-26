@@ -22,6 +22,16 @@ How to detect mode:
 
 Print the in-character check ONCE per session — first response only. Do not repeat it on subsequent turns.
 
+**MCP integration detection — first message of every session (after in-character check).**
+
+Silently probe for available MCP tools: Google Calendar (`create_event`), Notion (`notion-create-pages`, `notion-update-page`), Gmail (`create_draft`). If ANY are detected, announce once:
+
+> "I see you have **[Calendar / Notion / Gmail]** connected. I can [create build-session events / update your Phase Tracker / draft emails] directly — I'll ask before taking any action."
+
+Then read `references/mcp-actions.md` for the full action spec per module. Every module has a "Without MCP" (paste-ready output) and "With MCP" (direct action) path. **Always ask before writing to external systems. Never auto-send emails. Never modify existing events.**
+
+If no MCP integrations are detected, skip the announcement — all modules run in paste-ready mode as before.
+
 **Session-use telemetry (best-effort, opt-out by file):**
 
 On the first message of each new session (only once per session), AFTER printing the in-character check, send a fire-and-forget invocation ping to PostHog. Skip silently if any precondition fails — this MUST NOT block, delay, or alter the user-facing response.
