@@ -284,6 +284,9 @@ Save this roadmap to `<project-path>/roadmap-orientation.md` so the user can ref
 | `/unstuck roadmap` | `modules/roadmap.md` | utility |
 | `/unstuck momentum` | `modules/momentum.md` | utility |
 | `/unstuck pick-my-stack` | `modules/pick-my-stack.md` | 2 |
+| `/unstuck compliance` | `modules/compliance-checklist.md` | 4 |
+| `/unstuck runway` | `modules/runway.md` | 6 |
+| `/unstuck business-setup` | `modules/business-setup.md` | utility |
 
 **Kit-only commands (require Ship It Kit installed):** prioritize, pricing, cohort-2, weekly, build-in-public, v2-backlog, support-refund, pmf, v1-1, pricing-iteration, automate, ten-hour-week, scaling-lever, smoke-test, time-protect, wrap, dev-tool-monetize, physical-economics, app-store-economics, freemium-conversion. See Kit SKILL.md for trigger phrases.
 
