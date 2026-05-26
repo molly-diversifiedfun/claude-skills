@@ -232,6 +232,18 @@ Hand the buyer a clean paste-ready block for `.unstuck/context.md` **Section M �
 
 **Context update:** Read `.unstuck/context.md`, append/update Section M with the Momentum Method plan, then Write the updated file back.
 
+<mcp_actions>
+**With Google Calendar MCP detected:**
+- OFFER: "Want me to create a daily 15-min calendar event for your micro-commitment?"
+- If yes → `create_event` for each of the 21 days (minus buffer days):
+  - Title: "⚡ [micro-action] — 15 min"
+  - Time: anchored to their stated habit time from Step 2
+  - Recurrence: daily for 21 days (skip buffer days — create individual events, not a recurring series)
+  - Description: "Anchor: After [habit]. Action: [micro-action]. Done signal: [signal]. NEVER MISS TWICE."
+  - Reminder: 15 min before
+**Without Google Calendar MCP:** the 21-day tracker in the artifact IS the tracking mechanism (default path above)
+</mcp_actions>
+
 → Next: **Step 8** — Exit and route
 
 ---

@@ -290,6 +290,14 @@ Once all questions answered (or skipped with marks), output the context block in
 
 Save the compiled context block to `.unstuck/context.md`. This IS the artifact for this module.
 
+<mcp_actions>
+**With Notion MCP detected:**
+- OFFER: "Want me to write this directly to your User Context page in Notion?"
+- If yes → `notion-update-page` on the User Context page with the generated sections (A through G)
+- Saves the buyer the copy-paste-upload step — context lands in their Notion workspace ready to reference
+**Without Notion MCP:** paste-ready output saved to `.unstuck/context.md` (the default path above)
+</mcp_actions>
+
 → Next: **Route** — based on your stage, here's where to go.
 
 ---

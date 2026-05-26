@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipping Cards — The Unstuck Collection</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Patrick+Hand&family=Outfit:wght@400;600&display=swap');
+
+  :root {
+    --cream: #f9f6f0;
+    --pale-pink: #fbe9e7;
+    --pink: #f5d5d0;
+    --mauve: #c9a0a0;
+    --burgundy: #763c47;
+    --charcoal: #251f1c;
+    --gold: #b8922e;
+    --ink: #2a2420;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Patrick Hand', cursive;
+    background: var(--pale-pink);
+    color: var(--ink);
+    padding: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 3rem;
+    color: var(--burgundy);
+    text-align: center;
+    margin-bottom: 0.1rem;
+    transform: rotate(-1.5deg);
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--mauve);
+    margin-bottom: 0.3rem;
+  }
+
+  .tagline {
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 0.95rem;
+    color: var(--burgundy);
+    margin-bottom: 2rem;
+    opacity: 0.7;
+  }
+
+  .tier-label {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
+    color: var(--burgundy);
+    margin-bottom: 0.3rem;
+    padding-left: 0.5rem;
+    transform: rotate(-0.5deg);
+  }
+
+  .tier-desc {
+    font-size: 0.95rem;
+    color: var(--mauve);
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+    justify-content: center;
+  }
+
+  .card {
+    width: 210px;
+    background: white;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.15s;
+    box-shadow: 4px 4px 0 var(--pink);
+  }
+
+  .card:hover {
+    transform: rotate(-2deg) scale(1.04);
+    box-shadow: 6px 6px 0 var(--mauve);
+  }
+
+  .card-art {
+    height: 200px;
+    background: var(--pale-pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-art svg {
+    width: 180px;
+    height: 180px;
+  }
+
+  .rarity {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 0.6rem;
+    padding: 2px 7px;
+    border-radius: 3px;
+    border: 2px solid var(--ink);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .r-common { background: #d4edda; }
+  .r-uncommon { background: #fff3cd; }
+  .r-rare { background: #d6c5f0; }
+  .r-legendary { background: var(--gold); color: white; }
+  .r-secret { background: var(--ink); color: var(--pink); }
+
+  .card-body {
+    padding: 0.7rem 0.8rem 0.9rem;
+    background: white;
+  }
+
+  .card-name {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.05rem;
+    color: var(--burgundy);
+    margin-bottom: 0.15rem;
+  }
+
+  .card-when {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.35rem;
+  }
+
+  .card-flavor {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  .journey {
+    background: white;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    box-shadow: 4px 4px 0 var(--pink);
+  }
+
+  .journey h2 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.4rem;
+    color: var(--burgundy);
+    margin-bottom: 1rem;
+    transform: rotate(-0.5deg);
+  }
+
+  .j-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 2px dashed var(--pink);
+    font-size: 0.95rem;
+  }
+  .j-row:last-child { border-bottom: none; }
+  .j-week { font-family: 'Outfit', sans-serif; font-weight: 600; min-width: 60px; color: var(--burgundy); font-size: 0.8rem; }
+  .j-card { font-family: 'Permanent Marker', cursive; min-width: 120px; font-size: 0.9rem; }
+  .j-joke { color: var(--mauve); font-size: 0.85rem; }
+
+  .footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    color: var(--mauve);
+  }
+  .footer a { color: var(--burgundy); }
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .stat-bubble {
+    background: white;
+    border: 3px solid var(--ink);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 3px 0 var(--pink);
+  }
+  .stat-num { font-family: 'Permanent Marker', cursive; font-size: 1.6rem; color: var(--burgundy); line-height: 1; }
+  .stat-lbl { font-size: 0.55rem; font-family: 'Outfit', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; color: var(--mauve); }
+
+  .evo-dots {
+    display: flex;
+    gap: 3px;
+    margin-top: 0.3rem;
+    align-items: center;
+  }
+  .evo-dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--ink); background: var(--cream); }
+  .evo-dot.lit { background: var(--gold); }
+  .evo-arrow { font-size: 0.7rem; color: var(--mauve); }
+</style>
+</head>
+<body>
+
+<h1>SHIPPING CARDS</h1>
+<p class="subtitle">the unstuck collection</p>
+<p class="tagline">ship more. collect cards. roast scope creep.</p>
+
+<div class="stats">
+  <div class="stat-bubble"><span class="stat-num">16</span><span class="stat-lbl">cards</span></div>
+  <div class="stat-bubble"><span class="stat-num">5</span><span class="stat-lbl">phase</span></div>
+  <div class="stat-bubble"><span class="stat-num">3</span><span class="stat-lbl">kill</span></div>
+  <div class="stat-bubble"><span class="stat-num">4</span><span class="stat-lbl">streak</span></div>
+  <div class="stat-bubble"><span class="stat-num">4</span><span class="stat-lbl">secret</span></div>
+</div>
+
+<!-- ═══ PHASE CARDS ═══ -->
+<div class="tier-label">PHASE CARDS</div>
+<div class="tier-desc">earned once each. you can't buy these. you have to ship for them.</div>
+<div class="card-row">
+
+  <div class="card">
+    <span class="rarity r-common">Common</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- stick figure with giant megaphone -->
+        <circle cx="70" cy="60" r="14" fill="none" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="74" x2="70" y2="120" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="120" x2="55" y2="155" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="120" x2="85" y2="155" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="90" x2="90" y2="70" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- megaphone bigger than figure -->
+        <path d="M 90 60 L 170 30 L 170 90 Z" fill="#f5d5d0" stroke="#2a2420" stroke-width="2.5" stroke-linejoin="round"/>
+        <ellipse cx="170" cy="60" rx="8" ry="32" fill="none" stroke="#2a2420" stroke-width="2"/>
+        <!-- sound waves -->
+        <path d="M 175 45 Q 185 40 175 35" fill="none" stroke="#c9a0a0" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 178 55 Q 192 48 178 38" fill="none" stroke="#c9a0a0" stroke-width="2" stroke-linecap="round"/>
+        <!-- speech: I'M BUILDING A THING -->
+        <text x="105" y="130" font-family="'Permanent Marker', cursive" font-size="9" fill="#763c47" transform="rotate(-5 105 130)">I'M BUILDING</text>
+        <text x="115" y="143" font-family="'Permanent Marker', cursive" font-size="9" fill="#763c47" transform="rotate(-5 115 143)">A THING!</text>
+        <!-- excited squiggles -->
+        <path d="M 50 50 Q 45 45 50 40" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <path d="M 55 42 Q 50 37 55 32" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE DECLARER</div>
+      <div class="card-when">Phase 1 &middot; Say It</div>
+      <div class="card-flavor">"Saying it out loud is 10x scarier than thinking it in the shower. You did the scary version."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-common">Common</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- stick figure holding wobbly prototype -->
+        <circle cx="80" cy="55" r="14" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="69" x2="80" y2="120" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="120" x2="65" y2="160" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="120" x2="95" y2="160" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- arms holding up the thing -->
+        <line x1="80" y1="85" x2="110" y2="70" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="85" x2="120" y2="80" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- the janky prototype (wobbly box with duct tape) -->
+        <rect x="105" y="45" width="45" height="40" rx="3" fill="white" stroke="#2a2420" stroke-width="2.5" transform="rotate(5 127 65)"/>
+        <line x1="110" y1="60" x2="148" y2="63" stroke="#c9a0a0" stroke-width="4" opacity="0.6"/>
+        <line x1="112" y1="70" x2="145" y2="73" stroke="#c9a0a0" stroke-width="4" opacity="0.6"/>
+        <!-- wobbly antenna -->
+        <path d="M 130 43 Q 128 25 140 20" fill="none" stroke="#2a2420" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="140" cy="18" r="3" fill="#f5d5d0" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- smile on the figure -->
+        <path d="M 74 58 Q 80 65 86 58" fill="none" stroke="#2a2420" stroke-width="2" stroke-linecap="round"/>
+        <!-- label -->
+        <text x="60" y="180" font-family="'Permanent Marker', cursive" font-size="10" fill="#763c47" transform="rotate(-3 60 180)">it works (mostly)</text>
+        <!-- sparkle of pride -->
+        <path d="M 155 35 l 3 -8 l 3 8 l -8 -3 l 8 -3" fill="none" stroke="#b8922e" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE TOYMAKER</div>
+      <div class="card-when">Phase 2 &middot; Build the Toy</div>
+      <div class="card-flavor">"It has duct tape and one wobbly leg. It's the most beautiful thing you've ever built."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-uncommon">Uncommon</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- figure with enormous ears -->
+        <circle cx="100" cy="70" r="16" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- comically large ears -->
+        <ellipse cx="72" cy="65" rx="20" ry="28" fill="#fbe9e7" stroke="#2a2420" stroke-width="2" transform="rotate(-15 72 65)"/>
+        <ellipse cx="128" cy="65" rx="20" ry="28" fill="#fbe9e7" stroke="#2a2420" stroke-width="2" transform="rotate(15 128 65)"/>
+        <!-- body -->
+        <line x1="100" y1="86" x2="100" y2="130" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="130" x2="85" y2="165" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="130" x2="115" y2="165" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="100" x2="75" y2="115" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="100" x2="125" y2="115" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- 10 speech bubbles scattered around -->
+        <ellipse cx="40" cy="35" rx="15" ry="10" fill="white" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="33" y="38" font-size="7" fill="#c9a0a0">wow</text>
+        <ellipse cx="160" cy="30" rx="18" ry="10" fill="white" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="148" y="33" font-size="7" fill="#c9a0a0">need it</text>
+        <ellipse cx="35" cy="100" rx="16" ry="9" fill="white" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="26" y="103" font-size="6" fill="#c9a0a0">shut up</text>
+        <ellipse cx="170" cy="95" rx="17" ry="9" fill="white" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="156" y="98" font-size="6" fill="#c9a0a0">take my $</text>
+        <ellipse cx="50" cy="145" rx="14" ry="8" fill="white" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="43" y="148" font-size="6" fill="#c9a0a0">more!</text>
+        <ellipse cx="155" cy="140" rx="13" ry="8" fill="white" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="148" y="143" font-size="6" fill="#c9a0a0">yes</text>
+        <!-- smile -->
+        <path d="M 94 74 Q 100 80 106 74" fill="none" stroke="#2a2420" stroke-width="2" stroke-linecap="round"/>
+        <!-- overwhelmed sweat drop -->
+        <ellipse cx="115" cy="55" rx="3" ry="5" fill="#c9a0a0" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE LISTENER</div>
+      <div class="card-when">Phase 3 &middot; Get 10</div>
+      <div class="card-flavor">"10 real humans looked at your thing. Some of them even said words. That's more market research than most startups do."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-rare">Rare</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- figure holding dollar bill above head like a trophy -->
+        <circle cx="100" cy="90" r="14" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="104" x2="100" y2="145" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="145" x2="85" y2="178" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="145" x2="115" y2="178" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- arms UP holding the bill -->
+        <line x1="100" y1="115" x2="80" y2="65" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="115" x2="120" y2="65" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- the glorious dollar bill -->
+        <rect x="70" y="30" width="60" height="35" rx="3" fill="#d4edda" stroke="#2a2420" stroke-width="2.5"/>
+        <text x="93" y="53" font-family="'Permanent Marker', cursive" font-size="18" fill="#2d6a4f" text-anchor="middle">$1</text>
+        <!-- exactly 1 piece of confetti -->
+        <rect x="140" y="60" width="6" height="6" fill="#b8922e" transform="rotate(30 143 63)"/>
+        <!-- huge grin -->
+        <path d="M 92 94 Q 100 104 108 94" fill="none" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- tears of joy -->
+        <ellipse cx="92" cy="85" rx="2" ry="3" fill="#c9a0a0" opacity="0.5"/>
+        <ellipse cx="108" cy="85" rx="2" ry="3" fill="#c9a0a0" opacity="0.5"/>
+        <!-- annotation arrow -->
+        <text x="140" y="47" font-family="'Patrick Hand', cursive" font-size="9" fill="#763c47" transform="rotate(10 150 47)">actual money</text>
+        <path d="M 140 50 L 133 52" fill="none" stroke="#763c47" stroke-width="1" marker-end="none"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE MERCHANT</div>
+      <div class="card-when">First Sale &middot; $1+</div>
+      <div class="card-flavor">"One dollar. One customer. One piece of confetti. This is what all the frameworks were for."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-rare">Rare</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- figure slamming GIANT stamp -->
+        <circle cx="65" cy="80" r="14" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="65" y1="94" x2="65" y2="140" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="65" y1="140" x2="50" y2="175" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="65" y1="140" x2="80" y2="175" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- arms reaching up to stamp handle -->
+        <line x1="65" y1="110" x2="110" y2="70" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="65" y1="110" x2="120" y2="80" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- THE GIANT STAMP -->
+        <rect x="95" y="55" width="70" height="25" rx="3" fill="#763c47" stroke="#2a2420" stroke-width="2.5"/>
+        <rect x="118" y="40" width="24" height="20" rx="2" fill="#5e4b8a" stroke="#2a2420" stroke-width="2"/>
+        <!-- SHIPPED text (stamped) -->
+        <text x="130" y="115" font-family="'Permanent Marker', cursive" font-size="22" fill="#763c47" text-anchor="middle" transform="rotate(-8 130 115)" opacity="0.8">SHIPPED</text>
+        <!-- ink splatter -->
+        <circle cx="155" cy="100" r="4" fill="#f5d5d0" opacity="0.7"/>
+        <circle cx="105" cy="125" r="3" fill="#f5d5d0" opacity="0.7"/>
+        <circle cx="160" cy="120" r="5" fill="#f5d5d0" opacity="0.5"/>
+        <circle cx="95" cy="108" r="3" fill="#f5d5d0" opacity="0.6"/>
+        <!-- tiny product underneath -->
+        <rect x="120" y="130" width="20" height="15" rx="2" fill="white" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- impact lines -->
+        <line x1="100" y1="90" x2="92" y2="95" stroke="#c9a0a0" stroke-width="1.5"/>
+        <line x1="162" y1="88" x2="170" y2="93" stroke="#c9a0a0" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE SHIPPER</div>
+      <div class="card-when">Launch Complete</div>
+      <div class="card-flavor">"The stamp is 3x bigger than the product. That's the correct ratio of ceremony to output."</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ KILL CARDS ═══ -->
+<div class="tier-label">KILL CARDS</div>
+<div class="tier-desc">your collection grows with each kill. murdering features is a love language.</div>
+<div class="card-row">
+
+  <div class="card">
+    <span class="rarity r-common">Common</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- tiny ornate guillotine -->
+        <rect x="80" y="40" width="6" height="120" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <rect x="114" y="40" width="6" height="120" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <rect x="78" y="38" width="44" height="6" rx="2" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- blade -->
+        <path d="M 82 75 L 118 75 L 100 90 Z" fill="#c9a0a0" stroke="#2a2420" stroke-width="2"/>
+        <!-- the feature scroll on the block -->
+        <rect x="85" y="140" width="30" height="25" rx="3" fill="white" stroke="#2a2420" stroke-width="2"/>
+        <text x="100" y="155" font-family="'Patrick Hand', cursive" font-size="7" fill="#763c47" text-anchor="middle">dark</text>
+        <text x="100" y="163" font-family="'Patrick Hand', cursive" font-size="7" fill="#763c47" text-anchor="middle">mode</text>
+        <!-- operator figure (small, casual) -->
+        <circle cx="145" cy="100" r="10" fill="none" stroke="#2a2420" stroke-width="2"/>
+        <line x1="145" y1="110" x2="145" y2="140" stroke="#2a2420" stroke-width="2"/>
+        <line x1="145" y1="140" x2="138" y2="160" stroke="#2a2420" stroke-width="2"/>
+        <line x1="145" y1="140" x2="152" y2="160" stroke="#2a2420" stroke-width="2"/>
+        <line x1="145" y1="120" x2="122" y2="76" stroke="#2a2420" stroke-width="2"/>
+        <!-- rope -->
+        <path d="M 122 72 Q 130 45 133 40" fill="none" stroke="#2a2420" stroke-width="1.5" stroke-dasharray="3 2"/>
+        <!-- shrug smile -->
+        <path d="M 141 103 Q 145 108 149 103" fill="none" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- annotation -->
+        <text x="30" y="170" font-family="'Patrick Hand', cursive" font-size="8" fill="#c9a0a0" transform="rotate(-5 30 170)">it had to go</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE GUILLOTINE</div>
+      <div class="card-when">First Feature Kill</div>
+      <div class="card-flavor">"The feature died so the product could live. Moment of silence. OK moment's over, ship the thing."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-uncommon">Uncommon</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- bouncer at velvet rope -->
+        <!-- big bouncer figure -->
+        <circle cx="100" cy="55" r="16" fill="none" stroke="#2a2420" stroke-width="3"/>
+        <rect x="82" y="71" width="36" height="50" rx="5" fill="none" stroke="#2a2420" stroke-width="3"/>
+        <line x1="100" y1="121" x2="88" y2="165" stroke="#2a2420" stroke-width="3"/>
+        <line x1="100" y1="121" x2="112" y2="165" stroke="#2a2420" stroke-width="3"/>
+        <!-- sunglasses -->
+        <rect x="88" y="48" width="10" height="7" rx="2" fill="#2a2420"/>
+        <rect x="102" y="48" width="10" height="7" rx="2" fill="#2a2420"/>
+        <line x1="98" y1="51" x2="102" y2="51" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- HAND UP -->
+        <line x1="118" y1="80" x2="145" y2="65" stroke="#2a2420" stroke-width="3"/>
+        <path d="M 145 58 L 145 72 L 152 72 L 152 58 Z" fill="none" stroke="#2a2420" stroke-width="2"/>
+        <!-- velvet rope -->
+        <line x1="58" y1="130" x2="142" y2="130" stroke="#763c47" stroke-width="4" stroke-linecap="round"/>
+        <rect x="55" y="120" width="6" height="50" rx="2" fill="#b8922e" stroke="#2a2420" stroke-width="1.5"/>
+        <rect x="139" y="120" width="6" height="50" rx="2" fill="#b8922e" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- tiny features in line behind rope -->
+        <circle cx="45" cy="145" r="6" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <circle cx="30" cy="148" r="5" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <circle cx="18" cy="150" r="4" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <!-- sign -->
+        <text x="148" y="100" font-family="'Permanent Marker', cursive" font-size="8" fill="#763c47" transform="rotate(5 155 100)">NOT ON</text>
+        <text x="148" y="112" font-family="'Permanent Marker', cursive" font-size="8" fill="#763c47" transform="rotate(5 155 112)">THE LIST</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE BOUNCER</div>
+      <div class="card-when">Scope Creep Caught</div>
+      <div class="card-flavor">"You're not on the list. I don't care who invited you. Back of the V2 line."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-rare">Rare</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- peaceful graveyard tender -->
+        <circle cx="60" cy="65" r="12" fill="none" stroke="#2a2420" stroke-width="2"/>
+        <line x1="60" y1="77" x2="60" y2="115" stroke="#2a2420" stroke-width="2"/>
+        <line x1="60" y1="115" x2="50" y2="145" stroke="#2a2420" stroke-width="2"/>
+        <line x1="60" y1="115" x2="70" y2="145" stroke="#2a2420" stroke-width="2"/>
+        <!-- watering can -->
+        <line x1="60" y1="90" x2="80" y2="80" stroke="#2a2420" stroke-width="2"/>
+        <ellipse cx="85" cy="78" rx="8" ry="5" fill="#c9a0a0" stroke="#2a2420" stroke-width="1.5"/>
+        <line x1="90" y1="75" x2="95" y2="70" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- water drops -->
+        <ellipse cx="93" cy="80" rx="1.5" ry="3" fill="#c9a0a0" opacity="0.6"/>
+        <ellipse cx="96" cy="85" rx="1.5" ry="3" fill="#c9a0a0" opacity="0.6"/>
+        <!-- headstones -->
+        <path d="M 100 100 L 100 145 L 125 145 L 125 100 Q 112 88 100 100" fill="white" stroke="#2a2420" stroke-width="2"/>
+        <text x="112" y="120" font-size="6" font-family="'Patrick Hand', cursive" text-anchor="middle" fill="#763c47">premium</text>
+        <text x="112" y="130" font-size="6" font-family="'Patrick Hand', cursive" text-anchor="middle" fill="#763c47">tier</text>
+        <path d="M 135 105 L 135 145 L 155 145 L 155 105 Q 145 96 135 105" fill="white" stroke="#2a2420" stroke-width="2"/>
+        <text x="145" y="125" font-size="5.5" font-family="'Patrick Hand', cursive" text-anchor="middle" fill="#763c47">AI chat</text>
+        <path d="M 160 108 L 160 145 L 178 145 L 178 108 Q 169 100 160 108" fill="white" stroke="#2a2420" stroke-width="2"/>
+        <text x="169" y="128" font-size="5" font-family="'Patrick Hand', cursive" text-anchor="middle" fill="#763c47">v3</text>
+        <!-- flowers -->
+        <circle cx="105" cy="96" r="4" fill="#f5d5d0" stroke="#c9a0a0" stroke-width="1"/>
+        <circle cx="140" cy="100" r="3" fill="#f5d5d0" stroke="#c9a0a0" stroke-width="1"/>
+        <!-- peaceful smile -->
+        <path d="M 56 68 Q 60 73 64 68" fill="none" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- ground line -->
+        <line x1="20" y1="145" x2="185" y2="145" stroke="#c9a0a0" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <!-- annotation -->
+        <text x="25" y="175" font-family="'Patrick Hand', cursive" font-size="8" fill="#c9a0a0">they're in a better place (V2)</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE MORTICIAN</div>
+      <div class="card-when">5+ Cumulative Kills</div>
+      <div class="card-flavor">"Five headstones. Flowers on each one. You're not just shipping — you're curating what deserves to live."</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ STREAK CARDS ═══ -->
+<div class="tier-label">STREAK CARDS</div>
+<div class="tier-desc">same character evolves. consistency unlocks the next form. like pok&eacute;mon but for adults with day jobs.</div>
+<div class="card-row">
+
+  <div class="card">
+    <span class="rarity r-common">Common</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- tiny wobbly flame with one eye open -->
+        <path d="M 100 160 Q 80 120 85 100 Q 90 80 100 70 Q 110 80 115 100 Q 120 120 100 160" fill="#f5d5d0" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- one eye open, one squinting -->
+        <circle cx="94" cy="115" r="3" fill="#2a2420"/>
+        <line x1="104" y1="113" x2="110" y2="116" stroke="#2a2420" stroke-width="2"/>
+        <!-- wobbly mouth -->
+        <path d="M 93 125 Q 98 128 103 125" fill="none" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- wobble lines -->
+        <path d="M 78 95 Q 75 90 78 85" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <path d="M 122 95 Q 125 90 122 85" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="100" y="185" font-family="'Permanent Marker', cursive" font-size="10" fill="#763c47" text-anchor="middle">3 weeks</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE SPARK</div>
+      <div class="card-when">3-Week Streak</div>
+      <div class="card-flavor">"Barely alive. One eye open. But showing up. That's the whole game at this stage."</div>
+      <div class="evo-dots"><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot"></span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-uncommon">Uncommon</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- confident campfire -->
+        <path d="M 100 160 Q 68 110 78 80 Q 88 55 100 45 Q 112 55 122 80 Q 132 110 100 160" fill="#f5d5d0" stroke="#2a2420" stroke-width="2.5"/>
+        <path d="M 100 160 Q 82 125 88 100 Q 94 80 100 72 Q 106 80 112 100 Q 118 125 100 160" fill="#fbe9e7" stroke="none"/>
+        <!-- confident eyes -->
+        <circle cx="92" cy="105" r="3.5" fill="#2a2420"/>
+        <circle cx="108" cy="105" r="3.5" fill="#2a2420"/>
+        <!-- confident smirk -->
+        <path d="M 92 118 Q 100 126 108 118" fill="none" stroke="#2a2420" stroke-width="2" stroke-linecap="round"/>
+        <!-- logs -->
+        <ellipse cx="80" cy="163" rx="25" ry="7" fill="#c9a0a0" stroke="#2a2420" stroke-width="2" transform="rotate(-10 80 163)"/>
+        <ellipse cx="120" cy="163" rx="25" ry="7" fill="#c9a0a0" stroke="#2a2420" stroke-width="2" transform="rotate(10 120 163)"/>
+        <!-- marshmallow on stick -->
+        <line x1="145" y1="140" x2="130" y2="100" stroke="#2a2420" stroke-width="2"/>
+        <rect x="124" y="92" width="12" height="14" rx="4" fill="white" stroke="#2a2420" stroke-width="1.5"/>
+        <text x="100" y="190" font-family="'Permanent Marker', cursive" font-size="10" fill="#763c47" text-anchor="middle">7 weeks</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE FLAME</div>
+      <div class="card-when">7-Week Streak</div>
+      <div class="card-flavor">"Most people quit at 3. There's a marshmallow toasting on your consistency. Help yourself."</div>
+      <div class="evo-dots"><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot"></span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-rare">Rare</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- roaring bonfire with sunglasses -->
+        <path d="M 100 165 Q 55 100 68 65 Q 80 35 100 20 Q 120 35 132 65 Q 145 100 100 165" fill="#f5d5d0" stroke="#2a2420" stroke-width="2.5"/>
+        <path d="M 100 165 Q 72 110 82 75 Q 90 50 100 40 Q 110 50 118 75 Q 128 110 100 165" fill="#fbe9e7" stroke="none"/>
+        <!-- sunglasses (cool) -->
+        <rect x="82" y="82" width="14" height="10" rx="3" fill="#2a2420"/>
+        <rect x="104" y="82" width="14" height="10" rx="3" fill="#2a2420"/>
+        <line x1="96" y1="87" x2="104" y2="87" stroke="#2a2420" stroke-width="2"/>
+        <!-- cool smirk -->
+        <path d="M 90 100 Q 100 110 110 100" fill="none" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- tiny figures warming hands -->
+        <circle cx="40" cy="145" r="6" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <line x1="40" y1="151" x2="40" y2="168" stroke="#c9a0a0" stroke-width="1.5"/>
+        <line x1="40" y1="156" x2="55" y2="148" stroke="#c9a0a0" stroke-width="1.5"/>
+        <circle cx="160" cy="145" r="6" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <line x1="160" y1="151" x2="160" y2="168" stroke="#c9a0a0" stroke-width="1.5"/>
+        <line x1="160" y1="156" x2="145" y2="148" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="100" y="190" font-family="'Permanent Marker', cursive" font-size="10" fill="#763c47" text-anchor="middle">14 weeks</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE BONFIRE</div>
+      <div class="card-when">14-Week Streak</div>
+      <div class="card-flavor">"Other people are warming their hands on your consistency. You've become the campfire."</div>
+      <div class="evo-dots"><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot"></span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-legendary">Legendary</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- INFERNO on a throne with crown -->
+        <path d="M 100 170 Q 40 90 55 45 Q 70 10 100 0 Q 130 10 145 45 Q 160 90 100 170" fill="#f5d5d0" stroke="#2a2420" stroke-width="2.5"/>
+        <path d="M 100 170 Q 60 100 70 60 Q 82 30 100 18 Q 118 30 130 60 Q 140 100 100 170" fill="#fbe9e7" stroke="none"/>
+        <!-- crown -->
+        <path d="M 78 55 L 82 35 L 90 48 L 100 30 L 110 48 L 118 35 L 122 55" fill="#b8922e" stroke="#2a2420" stroke-width="2" stroke-linejoin="round"/>
+        <!-- regal eyes -->
+        <circle cx="90" cy="80" r="4" fill="#2a2420"/>
+        <circle cx="110" cy="80" r="4" fill="#2a2420"/>
+        <!-- power smirk -->
+        <path d="M 88 96 Q 100 108 112 96" fill="none" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- throne armrests -->
+        <path d="M 50 120 Q 45 110 50 100 L 55 100 L 55 130" fill="none" stroke="#b8922e" stroke-width="3"/>
+        <path d="M 150 120 Q 155 110 150 100 L 145 100 L 145 130" fill="none" stroke="#b8922e" stroke-width="3"/>
+        <!-- absurdly dramatic text -->
+        <text x="100" y="190" font-family="'Permanent Marker', cursive" font-size="11" fill="#763c47" text-anchor="middle">21 WEEKS</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE INFERNO</div>
+      <div class="card-when">21-Week Streak</div>
+      <div class="card-flavor">"Absurdly dramatic for a weekly check-in. You've earned the throne. The crown stays."</div>
+      <div class="evo-dots"><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot lit"></span><span class="evo-arrow">&#8594;</span><span class="evo-dot lit"></span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ SECRET CARDS ═══ -->
+<div class="tier-label">SECRET CARDS</div>
+<div class="tier-desc">easter eggs. you won't know they exist until you trigger one. (we're not telling you how.)</div>
+<div class="card-row">
+
+  <div class="card">
+    <span class="rarity r-secret">Secret</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- shadowy figure in trenchcoat -->
+        <ellipse cx="100" cy="50" rx="14" ry="10" fill="#2a2420" stroke="#2a2420" stroke-width="2"/>
+        <path d="M 78 55 L 75 150 L 125 150 L 122 55" fill="#3a3430" stroke="#2a2420" stroke-width="2"/>
+        <!-- collar up -->
+        <path d="M 82 58 L 78 45 L 88 55" fill="#3a3430" stroke="#2a2420" stroke-width="1.5"/>
+        <path d="M 118 58 L 122 45 L 112 55" fill="#3a3430" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- suspicious eyes under hat -->
+        <circle cx="93" cy="52" r="2.5" fill="#f5d5d0"/>
+        <circle cx="107" cy="52" r="2.5" fill="#f5d5d0"/>
+        <circle cx="93" cy="53" r="1.5" fill="#2a2420"/>
+        <circle cx="107" cy="53" r="1.5" fill="#2a2420"/>
+        <!-- label on trenchcoat: "just a small feature" -->
+        <text x="100" y="105" font-family="'Patrick Hand', cursive" font-size="7" fill="#c9a0a0" text-anchor="middle">"just a</text>
+        <text x="100" y="115" font-family="'Patrick Hand', cursive" font-size="7" fill="#c9a0a0" text-anchor="middle">small feature"</text>
+        <!-- bouncer hand from offscreen -->
+        <path d="M 165 80 L 140 85 L 140 95 L 165 90 Z" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <text x="140" y="75" font-family="'Permanent Marker', cursive" font-size="8" fill="#763c47">nope</text>
+        <!-- sneaky footsteps -->
+        <ellipse cx="90" cy="160" rx="6" ry="3" fill="#c9a0a0" opacity="0.4"/>
+        <ellipse cx="110" cy="165" rx="6" ry="3" fill="#c9a0a0" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE CREEP</div>
+      <div class="card-when">??? &middot; Easter Egg</div>
+      <div class="card-flavor">"Every project has one. The feature that shows up in a trenchcoat whispering 'I'll be quick.'"</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-secret">Secret</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- figure at fork in road -->
+        <circle cx="100" cy="75" r="12" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="87" x2="100" y2="120" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="120" x2="90" y2="145" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="120" x2="110" y2="145" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="100" x2="82" y2="108" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="100" x2="118" y2="108" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- left path (grey/safe) -->
+        <path d="M 70 155 Q 40 165 20 180" fill="none" stroke="#999" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+        <text x="25" y="175" font-family="'Permanent Marker', cursive" font-size="11" fill="#999">SAFE</text>
+        <!-- right path (pink/ship) -->
+        <path d="M 130 155 Q 160 165 180 180" fill="none" stroke="#f5d5d0" stroke-width="8" stroke-linecap="round"/>
+        <text x="150" y="175" font-family="'Permanent Marker', cursive" font-size="11" fill="#763c47">SHIP</text>
+        <!-- figure mid-step (leaning right) -->
+        <circle cx="100" cy="70" r="2" fill="#2a2420"/>
+        <circle cx="95" cy="70" r="2" fill="#2a2420"/>
+        <!-- thought bubble -->
+        <circle cx="120" cy="55" r="3" fill="white" stroke="#c9a0a0" stroke-width="1"/>
+        <circle cx="126" cy="48" r="4" fill="white" stroke="#c9a0a0" stroke-width="1"/>
+        <ellipse cx="137" cy="38" rx="14" ry="10" fill="white" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="137" y="41" font-family="'Patrick Hand', cursive" font-size="7" fill="#763c47" text-anchor="middle">hmm</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE CROSSROADS</div>
+      <div class="card-when">??? &middot; Easter Egg</div>
+      <div class="card-flavor">"Both paths are real. One pays more. The other lets you sleep. Only you know which is which."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-secret">Secret</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- character clawing out of grave -->
+        <!-- grave -->
+        <path d="M 70 115 L 70 165 L 130 165 L 130 115 Q 100 100 70 115" fill="white" stroke="#2a2420" stroke-width="2.5"/>
+        <text x="100" y="135" font-family="'Patrick Hand', cursive" font-size="8" fill="#763c47" text-anchor="middle">my SaaS</text>
+        <text x="100" y="147" font-family="'Patrick Hand', cursive" font-size="8" fill="#763c47" text-anchor="middle">idea</text>
+        <text x="100" y="160" font-family="'Patrick Hand', cursive" font-size="6" fill="#c9a0a0" text-anchor="middle">R.I.P.</text>
+        <!-- arms reaching out -->
+        <line x1="85" y1="105" x2="80" y2="70" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="115" y1="105" x2="120" y2="70" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- hands with fingers -->
+        <path d="M 76 70 L 78 60 M 80 70 L 80 58 M 83 70 L 84 62" fill="none" stroke="#2a2420" stroke-width="1.5"/>
+        <path d="M 116 70 L 116 58 M 120 70 L 120 60 M 123 70 L 122 62" fill="none" stroke="#2a2420" stroke-width="1.5"/>
+        <!-- head poking out -->
+        <circle cx="100" cy="95" r="12" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- determined eyes -->
+        <circle cx="96" cy="92" r="2.5" fill="#2a2420"/>
+        <circle cx="104" cy="92" r="2.5" fill="#2a2420"/>
+        <!-- determined mouth -->
+        <line x1="95" y1="100" x2="105" y2="100" stroke="#2a2420" stroke-width="2"/>
+        <!-- flowers growing from head -->
+        <circle cx="92" cy="78" r="4" fill="#f5d5d0" stroke="#c9a0a0" stroke-width="1"/>
+        <circle cx="100" cy="75" r="3" fill="#f5d5d0" stroke="#c9a0a0" stroke-width="1"/>
+        <circle cx="108" cy="78" r="4" fill="#f5d5d0" stroke="#c9a0a0" stroke-width="1"/>
+        <line x1="92" y1="82" x2="92" y2="86" stroke="#2d6a4f" stroke-width="1"/>
+        <line x1="100" y1="78" x2="100" y2="84" stroke="#2d6a4f" stroke-width="1"/>
+        <line x1="108" y1="82" x2="108" y2="86" stroke="#2d6a4f" stroke-width="1"/>
+        <!-- dirt particles -->
+        <circle cx="75" cy="110" r="2" fill="#c9a0a0" opacity="0.5"/>
+        <circle cx="128" cy="108" r="2.5" fill="#c9a0a0" opacity="0.5"/>
+        <!-- ground -->
+        <line x1="30" y1="165" x2="170" y2="165" stroke="#c9a0a0" stroke-width="1.5" stroke-dasharray="5 3"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE ZOMBIE</div>
+      <div class="card-when">??? &middot; Easter Egg</div>
+      <div class="card-flavor">"Some ideas refuse to stay buried. Whether that's persistence or denial is the question you should probably answer."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="rarity r-legendary">Legendary</span>
+    <div class="card-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- figure on mountain peak, arms raised -->
+        <!-- mountain -->
+        <path d="M 10 190 L 100 40 L 190 190 Z" fill="#fbe9e7" stroke="#2a2420" stroke-width="2"/>
+        <path d="M 50 190 L 100 80 L 150 190 Z" fill="#f5d5d0" stroke="none"/>
+        <!-- figure at peak -->
+        <circle cx="100" cy="38" r="10" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- arms RAISED -->
+        <line x1="100" y1="48" x2="100" y2="75" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="55" x2="78" y2="35" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="55" x2="122" y2="35" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="75" x2="90" y2="95" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="100" y1="75" x2="110" y2="95" stroke="#2a2420" stroke-width="2.5"/>
+        <!-- stars around the peak -->
+        <path d="M 65 25 l 2 -6 l 2 6 l -6 -2 l 6 -2" fill="#b8922e" stroke="none"/>
+        <path d="M 135 25 l 2 -6 l 2 6 l -6 -2 l 6 -2" fill="#b8922e" stroke="none"/>
+        <path d="M 100 10 l 2.5 -7 l 2.5 7 l -7 -2.5 l 7 -2.5" fill="#b8922e" stroke="none"/>
+        <path d="M 55 45 l 1.5 -4 l 1.5 4 l -4 -1.5 l 4 -1.5" fill="#b8922e" stroke="none"/>
+        <path d="M 145 45 l 1.5 -4 l 1.5 4 l -4 -1.5 l 4 -1.5" fill="#b8922e" stroke="none"/>
+        <!-- the personalized label -->
+        <rect x="45" y="140" width="110" height="30" rx="4" fill="white" stroke="#b8922e" stroke-width="2"/>
+        <text x="100" y="155" font-family="'Permanent Marker', cursive" font-size="9" fill="#763c47" text-anchor="middle">[YOUR PROJECT]</text>
+        <text x="100" y="166" font-family="'Patrick Hand', cursive" font-size="7" fill="#c9a0a0" text-anchor="middle">shipped [DATE]</text>
+      </svg>
+    </div>
+    <div class="card-body">
+      <div class="card-name">THE LEGEND</div>
+      <div class="card-when">Full Pipeline + PMF &check;</div>
+      <div class="card-flavor">"The rarest card. The only one with your name on it. You didn't just ship — you built something people keep paying for."</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ JOURNEY TIMELINE ═══ -->
+<div class="journey">
+  <h2>WHEN CARDS DROP</h2>
+  <div class="j-row"><span class="j-week">Week 1</span><span class="j-card">&#x1F4E3; The Declarer</span><span class="j-joke">screamed into the void. the void nodded.</span></div>
+  <div class="j-row"><span class="j-week">Week 1</span><span class="j-card">&#x1F527; The Toymaker</span><span class="j-joke">it has duct tape and dreams.</span></div>
+  <div class="j-row"><span class="j-week">Week 2</span><span class="j-card">&#x1F442; The Listener</span><span class="j-joke">10 people had opinions. some were even useful.</span></div>
+  <div class="j-row"><span class="j-week">Week 2</span><span class="j-card">&#x2694;&#xFE0F; The Guillotine</span><span class="j-joke">first blood. the feature had it coming.</span></div>
+  <div class="j-row"><span class="j-week">Week 3</span><span class="j-card">&#x1F56F;&#xFE0F; The Spark</span><span class="j-joke">barely alive. still counts.</span></div>
+  <div class="j-row"><span class="j-week">Week 3-4</span><span class="j-card">&#x1F6AB; The Bouncer</span><span class="j-joke">scope creep tried. scope creep failed.</span></div>
+  <div class="j-row"><span class="j-week">Week 5</span><span class="j-card">&#x1F4B5; The Merchant</span><span class="j-joke">actual money. from a stranger. for YOUR thing.</span></div>
+  <div class="j-row"><span class="j-week">Week 5</span><span class="j-card">&#x1F4E6; The Shipper</span><span class="j-joke">the stamp is bigger than the product. correct ratio.</span></div>
+  <div class="j-row"><span class="j-week">Week 7</span><span class="j-card">&#x1F525; The Flame</span><span class="j-joke">marshmallows available. help yourself.</span></div>
+  <div class="j-row"><span class="j-week">Week 8+</span><span class="j-card">&#x1FAA6; The Mortician</span><span class="j-joke">5 headstones. flowers on each. professional.</span></div>
+  <div class="j-row"><span class="j-week">Week 14</span><span class="j-card">&#x1F3D5;&#xFE0F; The Bonfire</span><span class="j-joke">other people are warming their hands on you now.</span></div>
+  <div class="j-row"><span class="j-week">Week 21</span><span class="j-card">&#x1F451; The Inferno</span><span class="j-joke">absurdly dramatic for a weekly check-in. you earned it.</span></div>
+  <div class="j-row"><span class="j-week">???</span><span class="j-card">&#x2B50; The Legend</span><span class="j-joke">the only card with your name on it.</span></div>
+</div>
+
+<div class="footer">
+  <strong>Shipping Cards</strong> &mdash; part of the <a href="https://unstuckwithmolly.com">Unstuck Method</a><br>
+  cards generated in soft-pink-sketch style via nano-banana at milestone moments.<br>
+  <em>ship more. collect cards. roast scope creep.</em>
+</div>
+
+</body>
+</html>

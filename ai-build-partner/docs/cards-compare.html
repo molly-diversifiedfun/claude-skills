@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipping Cards — SVG vs v1 vs MEME Comparison</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Patrick+Hand&family=Outfit:wght@400;600&display=swap');
+  :root { --cream: #f9f6f0; --pale-pink: #fbe9e7; --pink: #f5d5d0; --burgundy: #763c47; --ink: #2a2420; --mauve: #c9a0a0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Patrick Hand', cursive; background: var(--pale-pink); color: var(--ink); padding: 2rem; max-width: 1400px; margin: 0 auto; }
+  h1 { font-family: 'Permanent Marker', cursive; font-size: 2.5rem; color: var(--burgundy); text-align: center; margin-bottom: 0.3rem; }
+  .subtitle { text-align: center; color: var(--mauve); margin-bottom: 2rem; font-size: 1.1rem; }
+
+  .compare-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+  }
+
+  .compare-side {
+    flex: 1;
+    text-align: center;
+  }
+
+  .compare-label {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 0.9rem;
+    color: var(--mauve);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .card-name-header {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.8rem;
+    color: var(--burgundy);
+    text-align: center;
+    margin-bottom: 1rem;
+    transform: rotate(-1deg);
+  }
+
+  .card-svg {
+    background: white;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 0.5rem;
+    box-shadow: 4px 4px 0 var(--pink);
+    display: inline-block;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .card-svg svg { width: 100%; height: auto; }
+
+  .card-gen {
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 4px 4px 0 var(--pink);
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .card-gen.winner {
+    border-color: var(--burgundy);
+    box-shadow: 6px 6px 0 var(--burgundy);
+  }
+
+  .winner-badge {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 0.75rem;
+    color: var(--burgundy);
+    margin-top: 0.3rem;
+    letter-spacing: 1px;
+  }
+
+  .card-gen img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .flavor {
+    font-style: italic;
+    color: var(--mauve);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .verdict {
+    background: white;
+    border: 3px solid var(--ink);
+    border-radius: 14px;
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    box-shadow: 4px 4px 0 var(--pink);
+  }
+  .verdict h2 { font-family: 'Permanent Marker', cursive; color: var(--burgundy); margin-bottom: 0.8rem; }
+  .verdict p { font-size: 1rem; line-height: 1.6; margin-bottom: 0.5rem; }
+
+  .divider {
+    border: none;
+    border-top: 3px dashed var(--pink);
+    margin: 2rem 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>SVG vs PRETTY vs MEME</h1>
+<p class="subtitle">inline svg (left) &middot; v1 generated (middle) &middot; v2 meme energy (right). same style lock, ascending chaos.</p>
+
+<!-- THE DECLARER -->
+<div class="card-name-header">THE DECLARER</div>
+<div class="compare-row">
+  <div class="compare-side">
+    <div class="compare-label">Inline SVG</div>
+    <div class="card-svg">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="70" cy="60" r="14" fill="none" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="74" x2="70" y2="120" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="120" x2="55" y2="155" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="120" x2="85" y2="155" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="70" y1="90" x2="90" y2="70" stroke="#2a2420" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 90 60 L 170 30 L 170 90 Z" fill="#f5d5d0" stroke="#2a2420" stroke-width="2.5" stroke-linejoin="round"/>
+        <ellipse cx="170" cy="60" rx="8" ry="32" fill="none" stroke="#2a2420" stroke-width="2"/>
+        <path d="M 175 45 Q 185 40 175 35" fill="none" stroke="#c9a0a0" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 178 55 Q 192 48 178 38" fill="none" stroke="#c9a0a0" stroke-width="2" stroke-linecap="round"/>
+        <text x="105" y="130" font-family="'Permanent Marker', cursive" font-size="9" fill="#763c47" transform="rotate(-5 105 130)">I'M BUILDING</text>
+        <text x="115" y="143" font-family="'Permanent Marker', cursive" font-size="9" fill="#763c47" transform="rotate(-5 115 143)">A THING!</text>
+      </svg>
+    </div>
+    <div class="flavor">"Saying it out loud is 10x scarier than thinking it in the shower."</div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v1 &middot; Pretty</div>
+    <div class="card-gen"><img src="cards/the-declarer.png" alt="The Declarer - v1"></div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v2 &middot; Meme</div>
+    <div class="card-gen winner"><img src="cards/the-declarer-v2.png" alt="The Declarer - v2 meme"></div>
+    <div class="winner-badge">&#9733; WINNER</div>
+    <div class="flavor">"said it out loud. to a cat. still counts."</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- THE TOYMAKER -->
+<div class="card-name-header">THE TOYMAKER</div>
+<div class="compare-row">
+  <div class="compare-side">
+    <div class="compare-label">Inline SVG</div>
+    <div class="card-svg">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="80" cy="55" r="14" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="69" x2="80" y2="120" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="120" x2="65" y2="160" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="120" x2="95" y2="160" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="85" x2="110" y2="70" stroke="#2a2420" stroke-width="2.5"/>
+        <line x1="80" y1="85" x2="120" y2="80" stroke="#2a2420" stroke-width="2.5"/>
+        <rect x="105" y="45" width="45" height="40" rx="3" fill="white" stroke="#2a2420" stroke-width="2.5" transform="rotate(5 127 65)"/>
+        <line x1="110" y1="60" x2="148" y2="63" stroke="#c9a0a0" stroke-width="4" opacity="0.6"/>
+        <line x1="112" y1="70" x2="145" y2="73" stroke="#c9a0a0" stroke-width="4" opacity="0.6"/>
+        <path d="M 130 43 Q 128 25 140 20" fill="none" stroke="#2a2420" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="140" cy="18" r="3" fill="#f5d5d0" stroke="#2a2420" stroke-width="1.5"/>
+        <path d="M 74 58 Q 80 65 86 58" fill="none" stroke="#2a2420" stroke-width="2" stroke-linecap="round"/>
+        <text x="60" y="180" font-family="'Permanent Marker', cursive" font-size="10" fill="#763c47" transform="rotate(-3 60 180)">it works (mostly)</text>
+      </svg>
+    </div>
+    <div class="flavor">"It has duct tape and one wobbly leg. It's the most beautiful thing you've ever built."</div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v1 &middot; Pretty</div>
+    <div class="card-gen"><img src="cards/the-toymaker.png" alt="The Toymaker - v1"></div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v2 &middot; Meme</div>
+    <div class="card-gen winner"><img src="cards/the-toymaker-v2.png" alt="The Toymaker - v2 meme"></div>
+    <div class="winner-badge">&#9733; WINNER</div>
+    <div class="flavor">"this is fine" + "load-bearing" duct tape. v0.0.1 on fire.</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- THE BOUNCER -->
+<div class="card-name-header">THE BOUNCER</div>
+<div class="compare-row">
+  <div class="compare-side">
+    <div class="compare-label">Inline SVG</div>
+    <div class="card-svg">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="55" r="16" fill="none" stroke="#2a2420" stroke-width="3"/>
+        <rect x="82" y="71" width="36" height="50" rx="5" fill="none" stroke="#2a2420" stroke-width="3"/>
+        <line x1="100" y1="121" x2="88" y2="165" stroke="#2a2420" stroke-width="3"/>
+        <line x1="100" y1="121" x2="112" y2="165" stroke="#2a2420" stroke-width="3"/>
+        <rect x="88" y="48" width="10" height="7" rx="2" fill="#2a2420"/>
+        <rect x="102" y="48" width="10" height="7" rx="2" fill="#2a2420"/>
+        <line x1="98" y1="51" x2="102" y2="51" stroke="#2a2420" stroke-width="1.5"/>
+        <line x1="118" y1="80" x2="145" y2="65" stroke="#2a2420" stroke-width="3"/>
+        <path d="M 145 58 L 145 72 L 152 72 L 152 58 Z" fill="none" stroke="#2a2420" stroke-width="2"/>
+        <line x1="58" y1="130" x2="142" y2="130" stroke="#763c47" stroke-width="4" stroke-linecap="round"/>
+        <rect x="55" y="120" width="6" height="50" rx="2" fill="#b8922e" stroke="#2a2420" stroke-width="1.5"/>
+        <rect x="139" y="120" width="6" height="50" rx="2" fill="#b8922e" stroke="#2a2420" stroke-width="1.5"/>
+        <circle cx="45" cy="145" r="6" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <circle cx="30" cy="148" r="5" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <circle cx="18" cy="150" r="4" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="148" y="100" font-family="'Permanent Marker', cursive" font-size="8" fill="#763c47" transform="rotate(5 155 100)">NOT ON</text>
+        <text x="148" y="112" font-family="'Permanent Marker', cursive" font-size="8" fill="#763c47" transform="rotate(5 155 112)">THE LIST</text>
+      </svg>
+    </div>
+    <div class="flavor">"You're not on the list. I don't care who invited you."</div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v1 &middot; Pretty</div>
+    <div class="card-gen"><img src="cards/the-bouncer.png" alt="The Bouncer - v1"></div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v2 &middot; Meme</div>
+    <div class="card-gen winner"><img src="cards/the-bouncer-v2.png" alt="The Bouncer - v2 meme"></div>
+    <div class="winner-badge">&#9733; WINNER</div>
+    <div class="flavor">"I am definitely in scope" / "you are a pivot wearing a feature costume" / "sir this is a V1"</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- THE SPARK -->
+<div class="card-name-header">THE SPARK</div>
+<div class="compare-row">
+  <div class="compare-side">
+    <div class="compare-label">Inline SVG</div>
+    <div class="card-svg">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 100 160 Q 80 120 85 100 Q 90 80 100 70 Q 110 80 115 100 Q 120 120 100 160" fill="#f5d5d0" stroke="#2a2420" stroke-width="2.5"/>
+        <circle cx="94" cy="115" r="3" fill="#2a2420"/>
+        <line x1="104" y1="113" x2="110" y2="116" stroke="#2a2420" stroke-width="2"/>
+        <path d="M 93 125 Q 98 128 103 125" fill="none" stroke="#2a2420" stroke-width="1.5"/>
+        <path d="M 78 95 Q 75 90 78 85" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <path d="M 122 95 Q 125 90 122 85" fill="none" stroke="#c9a0a0" stroke-width="1.5"/>
+        <text x="100" y="185" font-family="'Permanent Marker', cursive" font-size="10" fill="#763c47" text-anchor="middle">3 weeks</text>
+      </svg>
+    </div>
+    <div class="flavor">"Barely alive. One eye open. But showing up."</div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v1 &middot; Pretty</div>
+    <div class="card-gen"><img src="cards/the-spark.png" alt="The Spark - v1"></div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v2 &middot; Meme</div>
+    <div class="card-gen winner"><img src="cards/the-spark-v2.png" alt="The Spark - v2 meme"></div>
+    <div class="winner-badge">&#9733; WINNER</div>
+    <div class="flavor">"opened the doc. that's the rep." Netflix + blanket. horizontal progress is still progress.</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- THE CREEP -->
+<div class="card-name-header">THE CREEP</div>
+<div class="compare-row">
+  <div class="compare-side">
+    <div class="compare-label">Inline SVG</div>
+    <div class="card-svg">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="50" rx="14" ry="10" fill="#2a2420"/>
+        <path d="M 78 55 L 75 150 L 125 150 L 122 55" fill="#3a3430" stroke="#2a2420" stroke-width="2"/>
+        <path d="M 82 58 L 78 45 L 88 55" fill="#3a3430" stroke="#2a2420" stroke-width="1.5"/>
+        <path d="M 118 58 L 122 45 L 112 55" fill="#3a3430" stroke="#2a2420" stroke-width="1.5"/>
+        <circle cx="93" cy="52" r="2.5" fill="#f5d5d0"/>
+        <circle cx="107" cy="52" r="2.5" fill="#f5d5d0"/>
+        <circle cx="93" cy="53" r="1.5" fill="#2a2420"/>
+        <circle cx="107" cy="53" r="1.5" fill="#2a2420"/>
+        <text x="100" y="105" font-family="'Patrick Hand', cursive" font-size="7" fill="#c9a0a0" text-anchor="middle">"just a</text>
+        <text x="100" y="115" font-family="'Patrick Hand', cursive" font-size="7" fill="#c9a0a0" text-anchor="middle">small feature"</text>
+        <path d="M 165 80 L 140 85 L 140 95 L 165 90 Z" fill="none" stroke="#2a2420" stroke-width="2.5"/>
+        <text x="140" y="75" font-family="'Permanent Marker', cursive" font-size="8" fill="#763c47">nope</text>
+        <ellipse cx="90" cy="160" rx="6" ry="3" fill="#c9a0a0" opacity="0.4"/>
+        <ellipse cx="110" cy="165" rx="6" ry="3" fill="#c9a0a0" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="flavor">"Every project has one. The feature in a trenchcoat whispering 'I'll be quick.'"</div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v1 &middot; Pretty</div>
+    <div class="card-gen"><img src="cards/the-creep.png" alt="The Creep - v1"></div>
+  </div>
+  <div class="compare-side">
+    <div class="compare-label">v2 &middot; Meme</div>
+    <div class="card-gen winner"><img src="cards/the-creep-v2.png" alt="The Creep - v2 meme"></div>
+    <div class="winner-badge">&#9733; WINNER</div>
+    <div class="flavor">"we are one feature. we swear." three sprints in a trenchcoat.</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="verdict">
+  <h2>THE VERDICT</h2>
+  <p><strong>SVGs:</strong> fast, inline, zero API cost. but no soul. placeholder energy.</p>
+  <p><strong>v1 Generated:</strong> pretty, on-brand, professional. your mom would frame these. but would you screenshot them?</p>
+  <p><strong>v2 Meme:</strong> the ones people actually send to friends. "three sprints in a trenchcoat" is the kind of line that gets screenshotted. the cat in the empty room. the flame on the couch watching netflix. THIS is the energy.</p>
+  <p><strong>Recommendation:</strong> v2 meme prompts locked as the canonical card generation style. v1 is too safe. the whole point of Unstuck is "smart friend two drinks in" — the cards should match.</p>
+</div>
+
+</body>
+</html>

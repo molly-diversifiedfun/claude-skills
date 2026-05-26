@@ -1,87 +1,139 @@
 <required_reading>
 **Read these reference files NOW:**
 1. references/core.md
-2. references/frameworks.md (all sections)
+2. references/frameworks.md
 </required_reading>
 
 <process>
 
-Run the complete Build Partner pipeline in sequence. Each phase flows naturally into the next.
+**This module runs the complete v2 pipeline: Say It → Build the Toy → Get 10 → (paywall) → Iterate & Price → Sell → Sustain.**
 
-**Phase 1: Intake**
+Use this when the user says "run the full thing" or "take me through the whole process" or "I want the complete pipeline."
 
-**Output verbatim to the buyer:**
+**Important:** This is an ORCHESTRATOR. It calls the individual modules in sequence. Each module runs its full process, produces its artifact, and updates context. This module manages the transitions between them.
 
-> "Hey — I'm Molly's Build Partner. I help people figure out what to build next and actually ship it.
+---
+
+**Phase 1 — Say It (Day 1-2, FREE)**
+
+Run in order:
+1. `/unstuck idea-bank` — ONLY if they don't have an idea. Skip if they do.
+2. `/unstuck one-liner` — Lock "I'm building [X] for [Y] so they can [Z]."
+3. `/unstuck hypothesis` — Form assumptions to test. NOT a gate.
+
+**Transition + Phase Stamp:** "Phase 1 locked. You said it out loud. Most people never get past 'I have an idea.'" Drop **🃏 The Declarer** card (read `references/fun.md`). Then: "Now build the toy — the fastest thing you can show someone."
+
+---
+
+**Phase 2 — Build the Toy (Week 1, FREE)**
+
+Run:
+4. `/unstuck toy` — Detect product type, define the toy, pick stack (if applicable), lock build timeline.
+
+**Transition + Phase Stamp:** "Phase 2 complete. A toy exists. 90% of side projects die before someone builds anything." Drop **🃏 The Toymaker** card (read `references/fun.md`). Then: "Go build it. Come back when it exists — even if it's ugly, unfinished, or embarrassing."
+
+**PAUSE HERE.** The user needs to actually BUILD the toy (5-10 hours, ~1 week). Don't proceed until they've built something. On their next session, ask: "Did you build the toy? Show me / describe what exists."
+
+---
+
+**Phase 3 — Get 10 (Week 2, FREE)**
+
+Run in order:
+5. `/unstuck outreach` — Routes to warm-list, cold-discovery, or both. Drafts messages. Sets timeline.
+
+**PAUSE HERE.** The user needs to actually SEND messages and COLLECT responses (5-7 days). Don't proceed until they have results. On their next session, ask: "How did outreach go? Walk me through the responses."
+
+6. `/unstuck gate` — Score the signal. GO / ITERATE / KILL.
+
+**If GO:** Transition to Phase 4.
+**If ITERATE:** Re-run outreach with the iteration option they chose. Then re-run gate. Max 2 iterations.
+**If KILL:** Back to Phase 1 with a new idea.
+
+---
+
+**PAYWALL TRANSITION (between Phase 3 and Phase 4)**
+
+> "You passed the gate — [N] people showed real signal for what you built. This is where the free Build Partner hands off to the Ship It Kit.
 >
-> **One ground rule before we start:** for any diagnostic question across the pipeline, if you don't know how to answer, you have three ways out:
-> - Type **`hint`** — another worked example from a different buyer
-> - Type **`guide me`** — I'll Socratic-interview you to your answer (3-5 sub-questions, then I synthesize)
-> - Type **`draft it`** — paste whatever rough version you have; I'll polish and you edit
+> The Kit covers Phases 4-6: iterating on feedback, pricing, building V1, launching, selling, and sustaining. Available at unstuckwithmolly.com.
 >
-> So — what are you working on?"
+> **Three options:**
+> - **$9 Momentum Method** — just the sprint discipline to keep building
+> - **$19 Ship It or Kill It in 90 Days** — the full 90-day framework with kill gates
+> - **$149 Ship It Kit** — the complete build partner through launch + sustain
+>
+> Or: you can DIY Phases 4-6 using what you've learned. The modules below run in the Kit."
 
-If the buyer invokes hint / guide me / draft it on any question, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
+---
 
-Gather:
-1. What's the project or idea? Get specifics.
-2. What's their name?
-3. Where are they at with it? (just an idea, halfway built, launched but struggling, can't pick one)
-4. What do they do for their day job?
-5. What would make this conversation worth their time today?
+**Phase 4 — Iterate & Price (Week 3-4, KIT)**
 
-Adapt based on what you hear:
-- Excited and moving → skip diagnosis, help them focus
-- Overwhelmed → help them narrow
-- Stuck → dig into blockers
-- Exploring → help them evaluate and pick
+Run in order:
+7. `/unstuck prioritize` — Score feedback, lock V1 scope.
+8. `/unstuck pricing` — Set price based on real signal.
 
-Summarize in 3-4 bullets: "Alright [name], here's what I'm seeing..."
+Then the user BUILDS V1 (2-3 weeks). Running during build:
+- `/unstuck weekly` — Sunday check-ins
+- `/unstuck build-in-public` — Keep warm list warm
+- `/unstuck v2-backlog` — Catch scope creep
+- `/unstuck stuck` — On-demand when blocked
+- `/unstuck landing-page` — Build during week 1 of V1 build (forces value articulation)
+- `/unstuck pick-my-stack` — If stack decision was deferred from Phase 2
 
-→ Next: **Phase 2** — Diagnose your stuck pattern + infrastructure gaps.
+**PAUSE HERE.** V1 build takes 2-3 weeks. Check in weekly via `/unstuck weekly`.
 
-**Phase 2: Diagnose**
-Follow modules/diagnose.md process (Infrastructure Audit + Stuck Pattern + Followability Gap).
-Present the Stuck Pattern Report.
+---
 
-→ Next: **Phase 3** — Audit what you've actually built vs. what you think you've built.
+**Phase 5 — Sell (Week 5, KIT)**
 
-**Phase 3: Build Audit**
-Follow modules/audit.md process (JTBD + Blockers + Infrastructure Mismatch).
-Present the Build Audit Report.
+Run in order:
+9. `/unstuck launch-emails` — 5-email sequence to warm list
+10. `/unstuck dm-personalizer` — Personal messages to Phase 3 contacts
+11. `/unstuck launch-day` — Launch day operations: pre-launch checklist, hour-by-hour timeline, DM tiering, response playbook, silence protocol, 48-hour assessment
+12. `/unstuck ship-announcement` — Public launch (fires during launch-day timeline at T+2)
 
-→ Next: **Phase 4** — Cut V1 scope to what actually ships in the time you have.
+**PAUSE HERE.** Wait 48 hours. Run the 48-hour assessment (launch-day Step 7) before proceeding.
 
-**Phase 4: Scope Guillotine**
-Follow modules/scope.md process (Feature dump + Cut Test + Lock + Ship date).
-Present the One-Page Scope.
+13. `/unstuck cohort-2` — Expand beyond warm list (only after 48-hour signal is positive)
 
-→ Next: **Phase 5** — Build the 6-week roadmap from your scoped V1.
+**Phase 5 expansion (Marketing OS $79):**
+- `/unstuck landing-page` (deep version) — Full conversion copy
+- `/unstuck funnel` — Lead magnet + tripwire + nurture
+- `/unstuck audience-from-zero` — If warm list is too small
 
-**Phase 5: Roadmap**
-Follow modules/roadmap.md process (6-week plan + accountability).
-Present the 6-Week Roadmap.
+---
 
-→ Next: **Phase 6** — Compile the Full Build Partner Report.
+**Phase 6 — Sustain (Week 6+, KIT)**
 
-**Phase 6: Complete Report**
-Compile everything into the Full Build Partner Report using template at templates/full-report.md.
+Run at Day 30:
+13. `/unstuck pmf` — 4-signal scorecard. SCALE / ITERATE / PIVOT / KILL.
 
-Save artifact to: `.unstuck/full-pipeline-<date>.md` (compile all phase outputs into a single report).
+Based on PMF verdict:
+- **SCALE:** `/unstuck scaling-lever` → `/unstuck automate` → `/unstuck ten-hour-week`
+- **ITERATE:** `/unstuck v1-1` → rebuild → re-run PMF at Day 60
+- **PIVOT:** Back to Phase 1 with learnings
+- **KILL:** Kill memo → Phase 1
 
-**Exit:**
+---
 
-> "**Start building.** Everything you need is in this report and the individual artifacts in `.unstuck/`. Your first action is Week 1, Day 1 of the roadmap. Run `/unstuck weekly` every Sunday."
+**Stuck-type interventions (fire during any phase):**
 
-↩ Come back to `/unstuck full-pipeline` when: starting fresh on a completely new project.
+| Signal | Intervention | Module |
+|---|---|---|
+| "I've been building for 3+ months" | Skip toy-builder, go to outreach with existing work | Phase 3 |
+| "I've killed 3+ ideas" | Serial-kill protocol — lower thresholds, force iterations | Kill gate |
+| "It's 80% done but not ready" | Perfectionism — ship one piece NOW | Phase 3 |
+| "I keep rebuilding" | Over-engineering — show what exists, stop polishing | Phase 3 |
+| "Who am I to charge?" | Imposter syndrome — toy = one free delivery. Action before confidence. | Phase 2 |
+| "I can't decide between options" | Analysis paralysis — build, don't decide. Data > deliberation. | Phase 2 |
 
 </process>
 
 <success_criteria>
-This pipeline is complete when:
-- [ ] All 5 phases completed in sequence with step connectors between each
-- [ ] All individual module artifacts produced and saved to `.unstuck/`
-- [ ] Full Build Partner Report compiled and saved to `.unstuck/full-pipeline-<date>.md`
-- [ ] User has a clear first action: Week 1, Day 1 of the roadmap
-- [ ] Exit delivered with `/unstuck weekly` next-step
+This module is complete when:
+- [ ] User has progressed through all applicable phases
+- [ ] Each phase produced its artifacts
+- [ ] Context file is fully populated (Sections A through G)
+- [ ] Revenue generated (or clear kill decision made)
+- [ ] Phase 6 PMF scored (if they reached launch)
 </success_criteria>

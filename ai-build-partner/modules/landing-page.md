@@ -266,6 +266,16 @@ If any check fails → fix before shipping.
 
 Save the artifact to `.unstuck/landing-page-YYYY-MM-DD.md` via the Write tool.
 
+<mcp_actions>
+**With Notion MCP detected:**
+- OFFER: "Want me to create a Notion page with your landing page copy, structured by section?"
+- If yes → `notion-create-pages` under the buyer's workspace:
+  - Title: "[Product name] — Landing Page Copy"
+  - Content: 8 sections as H2 headers (Hero / Problem / Solution / What's Inside / Who It's For / Creator Bio / Price + CTA / FAQ) with the drafted copy under each
+- The Notion page becomes the buyer's reference when building in Carrd / Framer / Webflow
+**Without Notion MCP:** paste-ready artifact saved to `.unstuck/landing-page-YYYY-MM-DD.md` (default path below)
+</mcp_actions>
+
 ```
 SECTION D.8 — T11 The Landing Page Frame
 Locked: [Date]

@@ -131,6 +131,18 @@ If the buyer flags a specific DM:
 
 **Step 5 — Save the DM batch artifact**
 
+<mcp_actions>
+**With Gmail MCP detected:**
+- OFFER: "Want me to create Gmail drafts for the email-channel DMs? You review and hit send."
+- If yes → `create_draft` for each DM where Channel = Email:
+  - To: [email from warm list]
+  - Subject: [personalized — pull from Hook line, e.g. "Re: the spec writing thing"]
+  - Body: [the drafted DM from Step 2]
+- **NEVER auto-send.** Always drafts. The buyer reviews and sends.
+- For DM-channel messages (Twitter DM, LinkedIn): skip Gmail draft, keep in artifact only
+**Without Gmail MCP:** paste-ready DMs in the artifact (default path below)
+</mcp_actions>
+
 After the buyer confirms the batch is ready, save the artifact to `.unstuck/dm-personalizer-YYYY-MM-DD.md` via the Write tool.
 
 ```
@@ -179,10 +191,10 @@ Output verbatim:
 > Artifact saved: `.unstuck/dm-personalizer-YYYY-MM-DD.md`
 > Context updated: `.unstuck/context.md` Section D.11
 >
-> **What to do now:** Send the first batch (5 DMs) today. Track responses in Section D.6.
+> **What to do now:** DMs are drafted and ready. Don't send yet — launch-day ops will tier them and set the timeline.
 >
-> **Next module:** `/unstuck ship-announcement` — DMs are out, now blast the 4-platform announcement.
-> **When to run it:** Launch day.
+> **Next module:** `/unstuck launch-day` — hour-by-hour launch ops: pre-launch checklist, DM tiering, response playbook, silence protocol.
+> **When to run it:** The night before or morning of launch day.
 ↩ Come back to `/unstuck dm-personalizer` when: launching a new product and need fresh personalized DMs.
 
 </process>

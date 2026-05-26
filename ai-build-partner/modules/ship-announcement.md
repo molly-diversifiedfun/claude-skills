@@ -271,6 +271,23 @@ Emit both the mailto URL (one-click) and the plain-text body (in case the URL is
 
 Use template at `templates/ship-announcement.md`. Hand the buyer the locked bundle in paste-ready form. Save the artifact to `.unstuck/ship-announcement-YYYY-MM-DD.md` via the Write tool.
 
+<mcp_actions>
+**With Gmail MCP detected:**
+- OFFER: "Want me to draft an email to your warm list with the announcement?"
+- If yes → `create_draft`:
+  - To: [leave blank or use warm-list email if known — buyer adds recipients]
+  - Subject: "[Product name] is live — [one-line hook from Q7 or Q4]"
+  - Body: the Substack/newsletter version adapted to email format (600-900 words, story-led)
+- **NEVER auto-send.** Always drafts. The buyer adds recipients, reviews, and sends.
+**Without Gmail MCP:** paste-ready announcement bundle in the artifact (default path above)
+</mcp_actions>
+
+**Celebration: The Shipper card + SHIPPED Receipt.**
+
+Drop **🃏 The Shipper** card (read `references/fun.md` for generation). Then generate the SHIPPED Receipt artifact per the template in `references/fun.md` — save to `.unstuck/shipped-receipt-YYYY-MM-DD.md`. This is the shareable journey summary: idea date, ship date, kill count, graveyard, cards collected, best roast survived. Update Section H with shipped date and cards.
+
+If the buyer completed the full pipeline AND PMF is positive, also drop **🃏 The Legend** card — the rarest card, the only one with their project name hand-lettered on it.
+
 → Next: **Update context** — record the announcement kit in context.
 
 ---

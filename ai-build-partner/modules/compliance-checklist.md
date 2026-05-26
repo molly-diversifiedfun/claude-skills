@@ -171,6 +171,16 @@ Built with the Unstuck Method — unstuckwithmolly.com
 
 Save to `.unstuck/compliance-checklist-YYYY-MM-DD.md`.
 
+<mcp_actions>
+**With Notion MCP detected:**
+- OFFER: "Want me to create Privacy Policy and Terms of Service pages in your Notion workspace?"
+- If yes → `notion-create-pages` — two pages:
+  - Page 1: "[Product name] — Privacy Policy" with the generated privacy policy content
+  - Page 2: "[Product name] — Terms of Service" with the generated terms content
+- Also offer: "Want me to add the compliance checklist as a Notion page too?" → third page with the checklist as toggleable checkboxes
+**Without Notion MCP:** paste-ready templates in the artifact (default path above)
+</mcp_actions>
+
 ---
 
 **Step 6 — Exit and route**
