@@ -48,25 +48,45 @@ Collectible character cards in the Unstuck soft-pink-sketch style. Generated via
 | The Zombie | User resurrects a killed project | Character clawing out of a tiny grave with the project name. Flowers growing from their head. Other graves in background with RIP labels of other killed features. Subtitle: "some ideas refuse to stay dead. is that persistence or denial?" |
 | The Legend | Full pipeline complete + PMF positive | Character on a tiny mountain peak, arms raised. Clouds below. Stars above. Hand-lettered: "[PROJECT NAME] — shipped [DATE]." Annotation: "the only card with your name on it." This IS the rarest card. Subtitle: "you built a business, not just a project." |
 
-### Card Generation
+### Card Delivery (multi-surface)
 
-When a card triggers, announce it, then generate:
+When a card triggers, THREE things happen in order:
+
+**1. Text announcement (ALWAYS — every surface):**
 
 ```
-🃏 New card: **[Card Name]**.
-[One-line earned fact — specific to their journey, not generic.]
-Generating your card now.
+🃏 New card: **[Card Name]**
+
+"[Flavor text from the subtitle in the roster — the funny line.]"
+
+[One-line earned fact specific to their journey.]
+
+→ See your card: unstuckwithmolly.com/cards/[card-slug].png
+→ Say "show me my cards" to see your collection.
 ```
 
-**Nano-banana prompt template (all cards follow this):**
+This text moment IS the card drop. It works in Claude.ai, Claude Code, ChatGPT, everywhere. The flavor text is the part people screenshot.
 
+**2. Hosted image link (ALWAYS):**
+
+Pre-generated card images live at `unstuckwithmolly.com/cards/[card-slug].png`. Include the link in every card announcement. The buyer clicks → sees the card → screenshots → shares. Images are the v2 meme-energy versions generated from the scene descriptions above.
+
+Card slugs: `the-declarer`, `the-toymaker`, `the-listener`, `the-merchant`, `the-shipper`, `the-guillotine`, `the-bouncer`, `the-mortician`, `the-spark`, `the-flame`, `the-bonfire`, `the-inferno`, `the-creep`, `the-crossroads`, `the-zombie`, `the-legend`.
+
+**3. Live generation (BONUS — when nano-banana/gemini available):**
+
+If the buyer has gemini CLI installed (detectable: check if `gemini` is on PATH), ALSO generate a personalized version with their project name baked into the subtitle. Save to `.unstuck/cards/[card-slug]-YYYY-MM-DD.png`.
+
+Nano-banana prompt template:
 ```bash
-gemini --yolo "/generate 'Hand-drawn xkcd-style sketch with soft pink and mauve watercolor washes on a pale-pink background. Square 1:1 card composition with rounded corners. [SCENE DESCRIPTION FROM ROSTER]. Hand-lettered title at top: [CARD NAME]. Hand-lettered subtitle at bottom: [ONE-LINE EARNED FACT]. Loose ink line work, selective soft pink wash, charming and whimsical. Card border in light mauve.' --styles=sketch,watercolor"
+gemini --yolo "/generate 'Hand-drawn xkcd-style sketch with soft pink and mauve watercolor washes on pale-pink background. Square 1:1 card. [SCENE DESCRIPTION FROM ROSTER — substitute buyer's project name where relevant]. Loose ink, xkcd humor.' --styles=sketch,watercolor"
 ```
 
-Save to `.unstuck/cards/[card-slug]-YYYY-MM-DD.png`. Log in context.md Section H.
+The Legend card is ALWAYS live-generated (it has the buyer's project name + ship date). If gemini isn't available, output the prompt for manual generation.
 
-If nano-banana/gemini isn't available: output the prompt so the buyer can paste into any image generator. The card still gets logged.
+**4. Log to Scoreboard (ALWAYS):**
+
+Update `.unstuck/context.md` Section H: add card name to "Cards collected," remove from "Cards remaining."
 
 ---
 
