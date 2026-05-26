@@ -244,6 +244,8 @@ Hand the buyer a clean paste-ready block for `.unstuck/context.md` **Section M �
 **Without Google Calendar MCP:** the 21-day tracker in the artifact IS the tracking mechanism (default path above)
 </mcp_actions>
 
+**Streak + card tracking:** Update `.unstuck/context.md` Section H — set shipping streak to 1 (the 21-day plan IS week 1). On each return session where the buyer reports doing reps, increment the streak. When streak hits 3 → drop **🃏 The Spark** card. 7 → **🃏 The Flame**. 14 → **🃏 The Bonfire**. 21 → **🃏 The Inferno**. Read `references/fun.md` for card generation.
+
 → Next: **Step 8** — Exit and route
 
 ---

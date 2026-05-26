@@ -1,0 +1,188 @@
+<required_reading>
+**Read these reference files NOW:**
+1. references/core.md
+2. references/frameworks.md (sections: seventy_thirty_ai_rule)
+</required_reading>
+
+<process>
+
+**Step 0 — Check User Context first (Mode 1 behavior)**
+
+Before the Opening, read `.unstuck/context.md`:
+- Check **Section C.3** (one-liner) — REQUIRED. If missing, route to `/unstuck one-liner`.
+- Check **Section A.4** (hours/week) — if missing, ask Q1 from the hours-reality block below before proceeding.
+- Check **Section D.1** (hypothesis) — useful but not required. If present, reference the assumptions to test.
+- **Stuck-type detection:** If the user says they've been building for 3+ months, they don't need this module — they need to SHOW what they have. Before routing, write to context: `E.1: Toy definition — subset of existing [duration] build (user describes what exists).` Then route: "You already have a toy — it's a subset of what you built. Skip to `/unstuck outreach` and show it to 10 people."
+- **Perfectionism detection:** If they say something like "it's 80% done but not ready" — intervene: "Your toy isn't the finished thing. It's the smallest piece someone can react to. Ship one chapter / one feature / one session. The toy is how you learn what to finish."
+
+Don't ask what you can read. Draft what you can infer.
+
+→ Next: **Opening** — frame the toy.
+
+---
+
+**Opening (output verbatim to the buyer):**
+
+> "Time to build something real. Not a product. Not a prototype. A **toy** — the smallest tangible thing someone can react to.
+>
+> The rules:
+> 1. You have **one week** (5-10 hours at your pace).
+> 2. It has to be something you can **show someone** and they can interact with it.
+> 3. It does NOT need to be finished, polished, or complete. It needs to exist.
+>
+> What's the fastest thing you could put in front of someone and ask 'what do you think?'"
+
+→ Next: **Step 1** — detect product type and define the toy.
+
+---
+
+**Step 1: Detect product type**
+
+**What we're identifying:** The shape of the product — this determines what "toy" means.
+
+Read their one-liner (C.3) and ask if needed: "What form does this take? Is this an app, a course, a community, a service, a newsletter, a physical product, or something else?"
+
+**Product type → Toy definition → Stack timing:**
+
+| Product type | Toy = | Pick-stack timing |
+|---|---|---|
+| **Software / SaaS** | Working prototype with ONE feature | Now (Phase 2) |
+| **Content / Course** | First module + landing page + waitlist | Now (Phase 2) |
+| **Community / Membership** | One live event (Zoom roundtable, workshop, AMA) | Deferred to Phase 4 |
+| **Service / Consulting** | Offer page + one free delivery | Deferred to Phase 4 |
+| **Dev tool / CLI** | Working tool that does the ONE thing + GitHub README | Now (Phase 2) |
+| **Newsletter** | 3 issues + subscriber page (or: resurface existing issues) | Now (Phase 2) |
+| **Physical product** | One sample/prototype + photos + interest form | Now (Phase 2) |
+| **Cohort course** | One live workshop (standalone, not the full program) | Deferred to Phase 4 |
+| **Mobile app** | TestFlight / beta with ONE flow working | Now (Phase 2) |
+| **Ebook / Guide** | One chapter as a free PDF + download page | Now (Phase 2) |
+
+Present the match and confirm: "Based on your one-liner, this sounds like a [type] product. Your toy would be: [definition]. Does that fit?"
+
+**If they already have something built:** "You said you've been building for [X months]. What exists right now? Describe it." Then determine if any subset IS the toy. If yes: "Your toy already exists — it's [subset]. Don't build more. Show THIS to 10 people."
+
+→ Next: **Step 2** — define the specific toy.
+
+---
+
+**Step 2: Define the toy — specific and concrete**
+
+**What we're producing:** A one-paragraph toy definition with exactly what to build.
+
+"Let's get specific. In one week with [X hours], what EXACTLY will you build?"
+
+Help them scope ruthlessly. The toy must be:
+- **Showable** — someone can look at it, use it, or experience it
+- **Reactable** — they can form an opinion ("this is useful" or "meh")
+- **Buildable in one week** — if it can't be built in their available hours, cut more
+
+**Example of a 5/5 toy definition (course product):**
+> "Notion template with Module 1: 'The One-Pager Framework.' Includes the 5-part template (Context → Problem → Proposal → Metrics → Ask) + one filled-in example from a real project (anonymized). Plus a 15-minute Loom walking through how to fill it out. Carrd landing page with email capture: 'Free spec-writing framework for PMs.'"
+
+**Example of a 5/5 toy definition (community product):**
+> "One 60-minute Zoom roundtable. Topic: 'The research insight your PM ignored — and what you did about it.' Cap at 8 people. Google Form for RSVP. LinkedIn post to recruit."
+
+**Example of a 5/5 toy definition (dev tool):**
+> "Go binary: `dotsync`. Syncs .zshrc and .gitconfig between 2 machines via a git repo. 300 lines. Published on GitHub with MIT license and a README with a demo GIF."
+
+Push back on:
+- "I'll build the full thing" → "No. One feature. One module. One session. The toy is small on purpose."
+- "But it won't be good enough" → "It's a toy. Toys aren't finished products. They're things people play with and react to."
+- Anything that takes >10 hours → "Cut it. What's the one piece someone could react to?"
+
+→ Next: **Step 3** — pick the stack (if applicable).
+
+---
+
+**Step 3: Pick the stack (conditional)**
+
+**For software / content / dev-tool / newsletter / ebook / physical / mobile:** Pick stack NOW.
+
+"What tools will you use to build this? Fastest, not best. What can you ship with in a week?"
+
+**Guiding principles:**
+- Tools they already know beat tools that are "better"
+- Free tiers beat paid subscriptions for a toy
+- One tool per function (don't compare 5 landing page builders — pick one and go)
+
+**Example of a 5/5 stack pick (course):**
+> "Notion (free, already know it) + Loom (free, 5 min setup) + Carrd ($19/yr, one-page site builder). Total cost: $19. Total setup time: 30 min."
+
+**For community / service / cohort:** Skip pick-stack. Output:
+> "You don't need a platform for the toy — just Zoom (which you have) and a Google Form. We'll pick the real stack in Phase 4 when you build V1. For now: zero setup, zero cost."
+
+→ Next: **Step 4** — set the build timeline.
+
+---
+
+**Step 4: Set the build timeline**
+
+**What we're locking:** Specific days/times this week when they'll build the toy.
+
+"Look at your calendar. Which days this week can you work on this? I need specific days + time slots. Minimum 3 sessions."
+
+**Example of a 5/5 build timeline:**
+> "Tuesday 8-10am (before family wakes), Thursday 8-10am (same), Saturday 9am-noon (kids at swim). Total: 7 hours across 3 sessions. Toy done by Saturday night."
+
+If they can't name 3 sessions: "Without protected time, this won't happen. Name the slots or we're just planning — not building."
+
+→ Next: **Step 5** — lock Day 1 action.
+
+---
+
+**Step 5: Lock Day 1 action**
+
+**What we're making concrete:** The exact first thing they'll do in their first build session.
+
+"What's the exact thing you'll do in your first session? Not 'start building' — the file you'll open, the thing you'll create, and what 'done' looks like for that session."
+
+**Example of a 5/5 Day 1 action:**
+> "Tuesday 8am: Open Notion. Create the Module 1 page. Write the 5-part framework (Context → Problem → Proposal → Metrics → Ask) with explanations of each section. Done = framework page complete, ready for the worked example Wednesday."
+
+→ Next: **Step 6** — save and route forward.
+
+---
+
+**Step 6: Save artifact + update context**
+
+Save to `.unstuck/toy-<YYYY-MM-DD>.md` using the Write tool. Include:
+- Product type detected
+- Toy definition (the specific one-paragraph description)
+- Stack pick (or "deferred to Phase 4")
+- Build timeline (days + hours)
+- Day 1 action
+
+Update `.unstuck/context.md`:
+- **C.3:** Update format if not already set (from product type)
+- **E.1:** Toy definition (replaces old V1 features — the toy IS the V1 scope for now)
+- **E.2:** Stack (if picked now; or "deferred")
+- **F.2:** Build timeline (the 3+ sessions)
+
+---
+
+**Phase 2 complete — drop 🃏 The Toymaker card** (read `references/fun.md` for card generation + announcement). A toy exists. Most side projects die before this point.
+
+**After completing this module:**
+
+| If your toy... | Next module | Why | When |
+|---|---|---|---|
+| Is a thing you show to named people | `/unstuck outreach` | Find 10 people, show the toy, collect signal | After the toy is built (end of week 1) |
+| Is a thing you post publicly | `/unstuck outreach` | Same — but outreach includes cold discovery for public-post toys | After the toy is built |
+| Already exists (over-builder) | `/unstuck outreach` | Skip building — show what you have NOW | Today |
+
+↩ Come back to `/unstuck toy` when: you pivot and need to redefine the smallest showable thing.
+
+</process>
+
+<success_criteria>
+This module is complete when:
+- [ ] Product type detected
+- [ ] Toy defined in one specific paragraph
+- [ ] Stack picked (or deferred for community/service/cohort)
+- [ ] Build timeline locked (3+ specific sessions)
+- [ ] Day 1 action set (file to open, thing to create, done criteria)
+- [ ] Over-builder / perfectionism detection ran (if applicable)
+- [ ] Artifact saved to `.unstuck/toy-<date>.md`
+- [ ] Context updated (E.1, E.2, F.2)
+- [ ] Next module recommended (outreach)
+</success_criteria>

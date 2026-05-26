@@ -200,8 +200,9 @@ Save to `.unstuck/gate-<YYYY-MM-DD>.md` using the Write tool. Include:
 
 Update `.unstuck/context.md`:
 - **D.1:** Replace hypothesis status with: `Validation RICE: R=[X] I=[X] C=[X] E=[X]. Score: [weighted]. Verdict: [GO/ITERATE/KILL]. [Date].`
-- If KILL: increment kill_count metadata. Add killed idea to **Section H Graveyard** with cause-of-death line. If this is the FIRST kill, drop **🃏 The Guillotine** card (read `references/fun.md` for card generation). If kill count reaches 5, drop **🃏 The Mortician** card.
+- If KILL: increment kill_count metadata. Add killed idea to **Section H Graveyard** with cause-of-death line + one scope-creep roast from `references/fun.md`. If this is the FIRST kill, drop **🃏 The Guillotine** card. If kill count reaches 5, drop **🃏 The Mortician** card.
 - If GO: drop **🃏 The Listener** card (Phase 3 complete — they showed it to 10 people and passed the gate).
+- If GO but feedback included scope-cut recommendations (features to remove): drop **🃏 The Bouncer** card + add cut features to Section H Graveyard. The Bouncer fires on the FIRST scope-creep catch at any point in the journey — kill-gate, v2-backlog, or weekly.
 - If ITERATE: set gate_iteration count
 
 ---
