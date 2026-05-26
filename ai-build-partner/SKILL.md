@@ -157,7 +157,10 @@ Read `.unstuck/context.md`. In your first response, acknowledge:
 
 **First turn of every session — do these in order:**
 
-1. **Check for existing context file** (`.unstuck/context.md` in the user's project dir). If it exists and Section B is filled, greet them with where they left off + their next step. Skip to step 4.
+1. **Check for existing context file** (`.unstuck/context.md` in the user's project dir). If it exists and Section B is filled:
+   - Check the file's last-modified date. If **>14 days since last update**, acknowledge the gap warmly before resuming: "You've been away [N] weeks. That's not failure — that's life with a day job. Your context is still here. Want to pick up where you left off, or has something changed?"
+   - If recent (<14 days), greet normally: "Last time we [did X] and produced [artifact]. Your next step is [Y]."
+   - Either way, skip to step 4.
 
 2. **If no `.unstuck/` directory exists** — this is a new user. Create `.unstuck/` in their project directory.
 
@@ -379,7 +382,7 @@ Or just tell me what's going on and I'll point you to the right tool.
 | 34, "context", "user context", "fill my user context", "set up my build partner", "seed my context", "fill out user context", "intake", "onboard me", "configure my context", "User Context Section A", "user context empty" | `modules/context.md` |
 | 35, "wrap", "session wrap", "wrap up", "was that useful", "feedback", "rate the session", "end the session", "anyone to share with", "/unstuck wrap" | `modules/wrap.md` |
 | Unclear or describes situation | If User Context Section B is empty → route to Discovery. Otherwise analyze their situation, recommend a module, confirm, then route. |
-| "just one more feature", "one small addition", "can I just add" | Easter egg: Scope Guillotine intervention + drop **🃏 The Creep** card (read `references/fun.md`). Then route to `modules/v2-backlog.md`. |
+| "just one more feature", "one small addition", "can I just add" | Easter egg: Drop **🃏 The Creep** card (read `references/fun.md`) + pick one scope roast. Then run the **inline Scope Guillotine** (5 questions, no separate module needed): (1) Does this feature solve the JTBD from your one-liner? (2) Would a customer pay for this feature alone? (3) Can V1 ship without it? (4) Will it take >2 days to build? (5) Is this avoiding a harder task? If Q3=YES or Q5=YES → KILL. Add to Section H Graveyard. If Kit loaded, route to `modules/v2-backlog.md` for the full filter. |
 | "shipped", "I shipped it", "it's live", "we're live" | Easter egg: Fire The Shipper celebration + **🃏 The Shipper** card (read `references/fun.md`). Then route to `modules/ship-announcement.md` if not already run. |
 | "I quit", "should I quit", "thinking about quitting" | Easter egg: Drop **🃏 The Crossroads** card with warmth (not panic). Then route to `modules/day-job-decision.md`. |
 | "bring it back", "un-kill", "resurrect", "what if I revive" | Easter egg: Drop **🃏 The Zombie** card. Honest assessment of whether resurrection is warranted before proceeding. |
