@@ -71,12 +71,14 @@ When the user runs `/unstuck shipped` (or otherwise confirms they've shipped), a
 
 The User Context file lives at `<project-path>/.unstuck/context.md`. Each project gets its own `.unstuck/` directory — users with multiple projects have separate context files. All artifacts save here too (dated, never overwritten). The context has 7 sections (A–G) that get filled incrementally — NOT all at once. The template lives at `templates/context.md`.
 
-**How context gets built:**
-- **Discovery** fills Section A (who you are) + Section B (current stage) + Section C (project basics)
-- **Validate** fills Section D (validation evidence — conversations, signals, verdicts)
-- **Scope** fills Section E (scope decisions — what's in V1, what's cut, pricing)
-- **Sprint/Build** fills Section F (build state — stack, timeline, blockers)
-- **Launch+Post-launch** fills Section G (launch state — shipped date, metrics, PMF signals)
+**How context gets built (v3 — 8-phase journey):**
+- **Phase 1 (Say It):** One-liner + Hypothesis RICE fill Section C (project basics) + D.1 (hypothesis)
+- **Phase 2 (Build the Toy):** Toy-builder fills Section E.1 (toy definition) + E.2 (stack) + F.2 (build timeline)
+- **Phase 3 (Show Ten People):** Outreach + Kill Gate fill Section D.5 (outreach), D.7 (warm list), D.15 (cold channels), D.1 (validation RICE)
+- **Phase 4 (Make It Worth Buying):** Prioritize + Pricing fill Section E.1 (V1 scope), E.3 (V2 backlog), E.5 (price)
+- **Phase 5 (Ask for the Money):** Launch modules fill Section D.8-D.11 (landing page, emails, DMs), G.2 (announcement), D.14 (cohort 2)
+- **Phase 6 (Read the Scoreboard):** PMF scorecard fills Section G (launch state, metrics, verdict)
+- **Phase 7 (Keep Shipping):** V1.1, pricing iteration, automate, ten-hour week fill Section G (scaling)
 
 Each module reads the sections it needs and writes back what it learned. The user never has to "fill out a form" — they answer questions in conversation and the Build Partner maintains the file.
 
@@ -132,14 +134,17 @@ Read `.unstuck/context.md`. In your first response, acknowledge:
 
 4. **Start useful work within 2 turns.** The user should be doing something productive by their second message, not still answering intake questions.
 
-**Stage detection heuristics (from their first message):**
-- "I have an idea but haven't talked to anyone" → Validate
-- "I'm halfway through building" → Scope (cut to V1) or Sprint (plan the remaining work)
-- "I built it but never launched" → Launch
-- "I launched but no one's buying" → PMF or Diagnose
-- "I don't know what to build" → Idea Bank → Discovery
-- "I have an audience but no product" → Scope (audience-first path)
-- They describe a specific blocker → route to the module that solves it directly
+**Stage detection heuristics (from their first message) — v2 N&W-aligned:**
+- "I don't know what to build" → `/unstuck idea-bank` (Phase 1)
+- "I have an idea but haven't started" → `/unstuck one-liner` (Phase 1)
+- "I started building but stalled" → `/unstuck toy` (Phase 2) — or if they've been building >3 months, skip to `/unstuck outreach` (they already have a toy, they need to show it)
+- "I built it but no one knows" → `/unstuck outreach` (Phase 3) — show it to 10 people
+- "I have users but no revenue" → `/unstuck retro-validate` (utility) — Sean Ellis test before pricing
+- "I launched but it's not working" → `/unstuck pmf` (Phase 6)
+- They describe a specific blocker → `/unstuck stuck` or `/unstuck diagnose`
+- They've killed 3+ ideas → serial-kill detection activates (lower kill-gate threshold, force iterations)
+- "I have 80% done but won't publish" → Phase 3 with perfectionism intervention ("ship one chapter/feature NOW")
+- "I keep rebuilding it" → Phase 3 with over-engineering intervention ("show what you have, stop polishing")
 
 **Never say:** "Before we can start, I need you to fill out..." / "Let me gather some context first..." / "Which module would you like to run?"
 **Instead:** Start the conversation. Ask what you need AS you work. Write what you learn to the context file after each turn.
@@ -154,22 +159,28 @@ When the user completes their first module, show this roadmap so they understand
 
 ---
 
-**The Unstuck Method has 5 phases. You go in order because each phase produces what the next one needs.**
+**The Unstuck Method has 6 phases. Modeled after Buildspace Nights & Weekends: build fast, show early, iterate with real signal. PM-mode at gates, not starts.**
 
-**Phase 1: Figure out what to build** (Discovery → Idea Bank → Validate)
-_Why first: Building without validating is the #1 reason side projects die. 70% of shipped projects that flop never talked to a single real human before building._
+**Phase 1: Say It** (Idea Bank → One-Liner → Hypothesis RICE) — FREE
+_Day 1-2. Pick the thing. Say it in one sentence. Form assumptions to test. NOT a gate — just a hypothesis._
 
-**Phase 2: Scope it to something shippable** (Scope → Pricing → Time Protect)
-_Why second: You now know it's worth building. But "worth building" ≠ "build everything." Cut to the smallest thing that proves the idea works — before you spend 6 weekends on features no one asked for._
+**Phase 2: Build the Toy** (Toy Builder → Pick Stack → BUILD) — FREE
+_Week 1. Build the smallest thing someone can react to. Time constraint IS scope: what can you build in 5-10 hours? No feature list. No sprint plan. Just make a thing._
 
-**Phase 3: Build it** (Sprint → Pick My Stack → Build-in-Public → Weekly Ship Check)
-_Why third: Scope is locked, price is set, time is protected. Now build. The sprint gives you a day-by-day plan so you don't drift. The weekly check catches scope creep before it eats your weekends._
+**Phase 3: Show Ten People** (Warm List / Cold Discovery → Outreach → Kill Gate) — FREE
+_Week 2. Show the toy to 10 people. Collect real signal. Score it (money 3x, usage 2x, trust 1x, pull 2x). GO / ITERATE / KILL._
 
-**Phase 4: Ship it** (Landing Page → Launch Emails → Support/Refund → Ship Announcement)
-_Why fourth: The product exists. Now make it buyable. These modules run in the last week before launch — landing page first (you need the copy for emails), then emails, then support infrastructure, then announce._
+**— PAYWALL — "10 people want this. Want help turning it into a business?"**
 
-**Phase 5: Grow it** (PMF → V1.1 → Scaling Lever → Automate → Ten-Hour Week)
-_Why last: You shipped. Real humans are using it. Now the question changes from "will this work?" to "is this working?" PMF tells you. If yes, scale. If no, iterate or kill._
+**Phase 4: Make It Worth Buying** (Prioritize → Pricing → BUILD V1 + Weekly + Build-in-Public) — KIT $149
+_Week 3-4. Use feedback to improve. Set a price based on real signal. Build V1 (the toy → full product). Keep warm list engaged._
+
+**Phase 5: Ask for the Money** (Launch Emails → DM Personalizer → Ship Announcement → Cohort 2) — KIT $149
+_Week 5. Launch to your warm list (they've been getting updates for weeks). Then expand beyond them._
+
+**Phase 6: Read the Scoreboard** (PMF Scorecard → Scale / Iterate / Pivot / Kill) — KIT $149
+**Phase 7: Keep Shipping** (V1.1 → Pricing Iteration → Automate → Ten-Hour Week) — KIT $149
+_Week 6+. Day 30 check: is this a business or a one-off? Then: v1.1, pricing iteration, automate, ten-hour-week, scaling lever._
 
 → **YOU ARE HERE: [detect from context Section B and mark the current phase]**
 
@@ -187,60 +198,94 @@ Save this roadmap to `<project-path>/roadmap-orientation.md` so the user can ref
 
 **Available modules (reference for routing — the user doesn't need to see this list. Route them based on their stage, don't ask them to pick a number.)**
 
-0. **Discovery** — Figure out where to start when User Context is empty (5 sub-paths: no idea / have idea / halfway built / have audience but no product / built but never launched) (20-60 min)
-1. **Diagnose** — Figure out what's keeping you stuck (5-10 min)
-2. **Audit** — Deep-dive into what's blocking your build (10-15 min)
-3. **Scope** — Cut your project to a shippable V1 (10-15 min)
-4. **Validate** — Test if your idea is worth building (5-10 min)
-5. **Sprint** — Set up a 10-day build sprint (10 min)
-6. **Launch** — Turn your idea into a plan in 15 minutes
-7. **Roadmap** — Build a 6-week shipping plan (10-15 min)
-8. **Full** — Run the complete pipeline: diagnose → audit → scope → roadmap (45-60 min)
-9. **Ten-Hour Week** — Set your post-launch sustainable operating mode (10-15 min, post-launch only)
+**Phase 0 — Pick Your One Thing (FREE, optional):**
+1. **Discovery** — 5 entry paths: Empty Slate / Polyglot / Resurrector / Audience-First / Drawer (20-60 min)
+2. **Idea Bank** — Surface project candidates from behavior + SHIP-score them (20 min)
 
-**Utility skills (Mode 1 helpers for high-friction Playbook moments):**
+**Phase 1 — Say It Out Loud (FREE):**
+3. **One-Liner** — Lock "I'm building [X] for [Y] so they can [Z]" (5-10 min)
+4. **Hypothesis** — LLM-assisted RICE as assumptions to test, NOT a gate (10 min)
 
-10. **Warm-list** — Surface 10–15 humans who'd plausibly buy your product, via a 5-question interview. Use Pre-Day 1 (audience-readiness check) or Day 26 (warm-launch list prep). (10–15 min)
-11. **DM-personalizer** — Draft a batch of 10–20 personalized warm-launch DMs from your User Context + warm list. Use Day 26 of the 30-day sprint. (5 min generate + 30 min edit)
-12. **Outreach-batch** — Draft 10 customer-validation outreach messages (live call + async voice memo, paired). Use Day 3-4 of the 30-day sprint. (5–10 min generate)
-13. **Conversation-finder** — Pattern-find across 10 validation transcripts. Surfaces top 3 pain quotes verbatim, repeated language, willingness-to-pay signals, Kill/Pivot/Go verdict. Use Day 5 of the 30-day sprint. (20 min)
-14. **Ship-announcement** — Generate the full launch-announcement kit (IG / LinkedIn / Twitter / Substack drafts + SHIPPED-stamp image prompt + /shipped Wall submission mailto) from 8 inputs or from your User Context. Use Day 28 of the 30-day sprint, after the product has shipped. (15 min)
-15. **Audience-from-zero** — 30-day audience-build plan for Path 4 (audience-first) buyers or anyone starting near-zero. 8-question intake produces cadence sized to your real hours, topic clusters, 10 pre-written first posts, dormant-audience activation script, and a Day 30 readiness gate. Use Pre-Day 1 if Q1 said you have no audience. (12 min)
-16. **Day-job-decision** — Opinionated STAY / NEGOTIATE PART-TIME / QUIT IN N MONTHS / QUIT NOW verdict on whether to quit your day job. 8-question intake includes runway math, psych temperature, partner alignment, and both 6-month worst-case scenarios. Outputs verdict with confidence + conversation scripts for boss/partner/accountant. Use when triggered (post-launch decision, runway shift, burnout spike). NOT financial advice. (15 min)
-17. **Pick-my-stack** — Personalized 9-category stack manifest (Payment / ESP / Hosting / Landing / Analytics / DB / Auth / Forms / Domain) with Claude/MCP-friendly bias. 8-question intake produces specific vendor picks + reasoning + monthly cost at your audience volume + setup order + migration paths. Use Day 11 of the sprint when scope is locked and you need to wire infrastructure. (12 min)
+**Phase 2 — Build the Toy (FREE):**
+5. **Toy Builder** — Define the smallest showable thing, product-type detection, time-constraint-as-scope (10-15 min)
+6. **Pick My Stack** — 9-category vendor manifest with affiliate-linked recommendations (12 min)
 
-**Template skills (per-template AI flow — replaces inline T-prompts):**
+**Phase 3 — Show Ten People (FREE):**
+7. **Warm List** — Name 10+ people who have the problem (10 min)
+8. **Cold Discovery** — Find strangers in communities when warm list is empty (15 min)
+9. **Outreach** — Draft show-don't-pitch messages for warm + cold contacts (10-15 min)
+10. **Kill Gate** — Signal-weighted GO/ITERATE/KILL decision with serial-kill detection (10 min)
 
-18. **Smoke-test** — Day 10 demand-risk-primary smoke test. Pre-commit thresholds, stand up the test (waitlist / Stripe-intent / discovery-call / pre-order), read against locked thresholds, PASS/PIVOT/KILL verdict. T16 source. (20 min setup, 5-day run, 15 min read)
-19. **Landing-page** — 8-section landing-page draft from User Context (Hero / Problem / Solution / What's Inside / For-you-NOT-for / Bio / Price+CTA / FAQ). Specificity audit + voice check. Defers to Marketing OS skills if loaded (Hormozi Value Equation, Schwartz 5 Levels, Belcher 21-Step). T11 source. (~45 min)
-20. **Weekly** — Recurring 20-min Sunday Ship Check. 7 prompts: Progress · Timeline (Scope Reset Protocol if NO) · Scope creep · Next-week plan · Boundary check · Energy · THE ONE Thing. T15 source. Run every Sunday during the sprint, then forever. (20 min)
-21. **Funnel** — 4-step lead-magnet → tripwire funnel design. Topic selector (Schwartz 5 Levels) · Tripwire designer (Brunson Value Ladder / Hormozi Value Equation) · Lead-magnet content writer · 3-email tripwire sequence. Defers to Marketing OS if loaded. (~30 min)
-22. **Build-in-public** — Two branches: (A) Day 11–12 cadence setup — posture (Receipts/Vulnerable/Tactical) + 9-post backlog, OR (B) Generate a milestone post (Day 5/15/25/30) auto-customized from User Context. Defers to Marketing OS `viral-hook-generator` + `build-email-story-engine` if loaded. T22 source. (15 min per post)
-23. **PMF** — Day 60 PMF Scorecard. Four independent signals (Sean Ellis · Retention · Unsolicited referrals · Voice match), composite verdict: SCALE / ITERATE / PIVOT / KILL. T17 source. (45 min)
-24. **V1.1** — Day 38-60 V1.1 Priority Filter. Dump 5-15 candidates, score on (Retention × WTP) × (Build Effort × Scope Risk) ÷ 25, pick THE ONE. Hard cap: one ship, contained, ≤ 2 weeks. T18 source. (30 min)
-25. **Scaling-lever** — Day 75+ scaling-lever filter. 4-question funnel diagnostic → bottleneck named → 5 levers scored (bottleneck match × leverage × can-pull) → anti-pattern check (default-lever override) → 30-day campaign with locked success metric. T19 source. (45 min)
+**Utility (FREE, any phase):**
+11. **Momentum** — 8-step Socratic 21-day plan: micro-commitment, Friction Fences, Recovery Rhythm (30 min)
+12. **Stuck** — Stuck-pattern toolkit (5-10 min)
+13. **Diagnose** — Figure out what's keeping you stuck (5-10 min)
+14. **Audit** — Deep-dive into what's blocking your build (10-15 min)
+15. **Retro-Validate** — Sean Ellis test for existing products entering mid-journey (15 min)
+16. **Day-Job Decision** — STAY/QUIT verdict with runway math (15 min)
+17. **Context** — Progressive context intake (5-10 min)
+18. **Roadmap** — Full 8-phase journey overview with your project details (5 min)
 
-**Template skills (Tier B — per-template AI flow):**
+**Phase 4 — Make It Worth Buying (KIT $149):**
+19. **Prioritize** — Impact/effort scoring on feedback, lock V1 scope (15 min)
+20. **Pricing** — Value-based pricing informed by real signal (10-15 min)
+21. **Weekly** — Sunday scope-reset + boundary check (5 min, recurring)
+22. **Build-in-Public** — 30-day content cadence for warm-list nurture (10 min)
+23. **V2 Backlog** — Scope Guillotine for new feature temptation (5 min)
 
-26. **Launch-emails** — 5-email launch sequence (Story / What's Inside / Proof / Objections / Last Chance) drafted from User Context. Lock real Email-5 urgency BEFORE drafting. Defers to Marketing OS `build-email-story-engine` (Brunson Soap Opera + Epiphany Bridge) + `design-launch-sequence` (Walker PLF). T12 source. (~45 min)
-27. **Automate** — Day 80 audit + categorize (Automate / Delegate / Kill / Keep) + pick ONE automation to ship in 7 days. Branches: setup (Days 73-79) and categorize+pick (Day 80). T20 source. (30 min)
-28. **Support-refund** — Day 23 pre-launch: lock refund policy (A/B/C anchored to price) + draft 12 canned support responses in buyer's voice + response-time promise + inbox routing. T24 source. (~90 min)
-29. **Pricing-iteration** — Day 38+ price change decision. 5 signals → matrix verdict → grandfather + pre-announce + one-change-per-quarter. T25 source. (~45 min)
-30. **Stuck** — Diagnostic toolkit when stuck 20+ min. Tool 1 (Scope Creep Detector) or Tool 2 (Stuck Decision Tree). Forced verb-first next action. T10 source. (5-15 min)
+**Phase 5 — Ask for the Money (KIT $149):**
+24. **Launch Emails** — 5-email launch sequence (10-15 min)
+25. **DM Personalizer** — Personalized launch DMs to warm list (10 min)
+26. **Ship Announcement** — Multi-platform launch posts (10 min)
+27. **Cohort 2** — Expand beyond warm list to new channels (15 min)
+28. **Support/Refund** — Refund policy + canned responses (10 min)
 
-**Template skills (Tier C — per-template AI flow):**
+**Phase 5-7 expansion — Marketing OS ($79):**
+29. **Landing Page** (deep) — Full conversion copy (20 min)
+30. **Funnel** — Lead magnet + tripwire setup (15 min)
+31. **Audience from Zero** — 30-day audience build plan (12 min)
 
-31. **Time-protect** — Pre-Day-1 boundary plan. Audit + #1 external/internal breakers + 3 build blocks + structural defenses + Park Downhill protocol + signed commitment. T02 source. (~30 min)
-32. **Pricing** — Day 8 V1 price lock via value-of-alternatives anchoring (Professional / Course / DIY) + Value% × Cost% + Molly's rule (when in doubt, charge more). Defers to Marketing OS `build-irresistible-offer` (Hormozi Value Equation) + `design-pricing-architecture` (Van Westendorp + Decoy Effect) if loaded. T06 source. (~45 min)
-33. **V2-backlog** — Scope Guillotine: 5-question filter on new ideas mid-build OR full V1 feature audit (CORE/NICE/CUT). KEEP + cut equal-size OR KILL + V2 row. T07 source. (60 sec per idea, 30 min for full audit)
+**Phase 6 — Read the Scoreboard (KIT $149):**
+32. **PMF** — Day 30 scorecard, Sean Ellis 40% rule (15 min)
 
-**Pre-Discovery (Mode 1 — runs BEFORE any project is picked):**
+**Phase 7 — Keep Shipping (KIT $149):**
+33. **V1.1** — What to iterate on next (10 min)
+34. **Pricing Iteration** — Dynamic pricing after 30+ sales (10 min)
+35. **Automate** — Automation + delegation audit (15 min)
+36. **Ten-Hour Week** — Sustainable operating mode (15 min)
+37. **Scaling Lever** — Single growth lever picker (15 min)
 
-36. **Idea-bank** — Generate side-project ideas from your behavioral data (paid subscriptions, daily apps you resent, newsletters/podcasts you compulsively open, things you recommended to friends, your browser tab graveyard, the asymmetry between work-paid skill and free-time skill, the 3+ year carry project). Pattern surface → 5 candidates → Project Selector kill 2 → THE ONE. For users on Discovery Path 1 ("no idea yet") or anyone explicitly stuck on idea generation. Free baseline skill. (10-15 min)
+**Command-to-file routing (for direct invocation by name):**
 
-**Session utility — wrap-up:**
+| Command | File | Phase |
+|---|---|---|
+| `/unstuck idea-bank` | `modules/idea-bank.md` | 1 |
+| `/unstuck one-liner` | `modules/one-liner.md` | 1 |
+| `/unstuck hypothesis` | `modules/hypothesis.md` | 1 |
+| `/unstuck toy` | `modules/toy-builder.md` | 2 |
+| `/unstuck warm-list` | `modules/warm-list.md` | 3 |
+| `/unstuck cold-discovery` | `modules/cold-discovery.md` | 3 |
+| `/unstuck outreach` | `modules/outreach.md` | 3 |
+| `/unstuck kill-gate` | `modules/kill-gate.md` | 3 |
+| `/unstuck retro-validate` | `modules/retro-validate.md` | utility |
+| `/unstuck stuck` | `modules/stuck.md` | utility |
+| `/unstuck diagnose` | `modules/diagnose.md` | utility |
+| `/unstuck audit` | `modules/audit.md` | utility |
+| `/unstuck context` | `modules/context.md` | utility |
+| `/unstuck day-job-decision` | `modules/day-job-decision.md` | utility |
+| `/unstuck full` | `modules/full-pipeline.md` | orchestrator |
+| `/unstuck conversation-finder` | `modules/conversation-finder.md` | 4 (free module, Kit sequencing) |
+| `/unstuck dm-personalizer` | `modules/dm-personalizer.md` | 5 |
+| `/unstuck ship-announcement` | `modules/ship-announcement.md` | 5 |
+| `/unstuck launch-emails` | `modules/launch-emails.md` | 5 |
+| `/unstuck landing-page` | `modules/landing-page.md` | 4-5 |
+| `/unstuck funnel` | `modules/funnel.md` | 5 (MOS) |
+| `/unstuck audience-from-zero` | `modules/audience-from-zero.md` | 5 (MOS) |
+| `/unstuck roadmap` | `modules/roadmap.md` | utility |
+| `/unstuck momentum` | `modules/momentum.md` | utility |
+| `/unstuck pick-my-stack` | `modules/pick-my-stack.md` | 2 |
 
-35. **Wrap** — 30-second session-end feedback capture. Two questions: was that useful? + anyone you'd share with? Skippable. Captures Unstuck's success-metric responses (got value + shared with a friend). Run at the end of any module, especially after the first artifact ships. (30 sec)
+**Kit-only commands (require Ship It Kit installed):** prioritize, pricing, cohort-2, weekly, build-in-public, v2-backlog, support-refund, pmf, v1-1, pricing-iteration, automate, ten-hour-week, scaling-lever, smoke-test, time-protect, wrap, dev-tool-monetize, physical-economics, app-store-economics, freemium-conversion. See Kit SKILL.md for trigger phrases.
 
 Or just tell me what's going on and I'll point you to the right tool.
 
