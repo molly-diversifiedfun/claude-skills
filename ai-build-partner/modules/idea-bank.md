@@ -178,6 +178,31 @@ Output format for each idea:
 > **What V1 looks like in 10 days:** [concrete deliverable]
 > **First sale realistic in:** [number of weeks, honest]
 
+→ Next: **Section 9b** — SHIP Score each candidate
+
+---
+
+**Section 9b: SHIP Score (quantitative ranking)**
+
+Score each of the 5 candidates on 4 dimensions (1-5 each, **multiply** not add):
+
+> "Quick scoring round. For each idea, give me a gut 1-5 on four dimensions:
+> - **S = Size** — How many people have this problem? (1 = just me, 5 = read about it in industry publications)
+> - **H = Hurt** — How painful is it? (1 = mild annoyance, 5 = people are paying money to hack around it)
+> - **I = Implementation** — How fast can YOU build a sellable V1? (1 = months, 5 = 10 days)
+> - **P = Profit Path** — Clear path to money within 90 days? (1 = 'we'll figure it out', 5 = can name a price + payment mechanism + likely first buyer right now)"
+
+Present the scores as a table:
+
+| Idea | S | H | I | P | Total (S×H×I×P) |
+|------|---|---|---|---|-----------------|
+
+**Multiplication is load-bearing.** An idea scoring 5+5+1+1 = 12 under addition looks fine. Under multiplication: 25. An idea scoring 3×3×3×3 = 81 is 3x better. Multiplication correctly punishes any idea with a structural weakness.
+
+**Highest total wins.** Tied? Highest **I (Implementation)** wins — the faster-to-ship project beats the abstractly-better one. Always.
+
+Push back if the buyer scores all 4s and 5s: "If everything is a 4, nothing is a 4. Which dimension is honestly the weakest for each idea? That's where the real ranking lives."
+
 → Next: **Section 10** — kill pass (5 down to 1)
 
 ---
