@@ -96,9 +96,19 @@ Calculate: sum of (each signal × its weight).
 
 **3a — GO verdict (score 10+):**
 
-> "You have [score] points of real signal. [Summarize the strongest signals — name the people, quote what they said.] This is worth building.
+> "You have [score] points of real signal. [Summarize the strongest signals — name the people, quote what they said.] This is worth building."
+
+**The paywall bridge (verbatim after every GO verdict):**
+
+> "Here's what just happened: the free Build Partner got you from idea to validated signal. That's Phase 1-3 — most side projects never get this far.
 >
-> **Next step:** Phase 4 — iterate on feedback, set a price, and build V1. You'll need the Ship It Kit (`/unstuck` paid tier) to continue, or you can DIY the next steps."
+> **Phase 4-7 is where you turn signal into a business:** iterate on feedback, set a price from real data, build V1, launch to your warm list, and read the scoreboard at Day 30. That's what the Ship It Kit does — 25 templates, a 90-day Notion tracker, and the AI extension that makes this conversation 3x deeper.
+>
+> **Two paths from here:**
+> 1. **Get the Kit** ($149, or $179 bundled with Marketing OS) — [unstuckwithmolly.com/shop](https://unstuckwithmolly.com/shop)
+> 2. **DIY it** — you have the signal and the one-liner. Build V1, set a price, launch to your warm list. Come back to `/unstuck launch-day` when you're ready to go live."
+>
+> Either way, you earned this. The signal is real.
 
 **3b — ITERATE verdict (score 4-9):**
 
