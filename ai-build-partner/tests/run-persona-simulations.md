@@ -78,7 +78,8 @@ Report: PASS / FAIL per persona + specific break description if FAIL.
 - **Entry:** "I started building but stalled"
 - **Product type:** newsletter
 - **Context state:** empty but has existing 3 issues + 45 subs
-- **Expected chain:** toy-builder (detects existing work, routes "your toy already exists") → outreach → kill-gate (GO with re-engagement signals) → PAYWALL → pricing
+- **Expected chain:** toy-builder (pre-existing work import: catalogs 3 issues + 45 subs + tools into context, then detects existing showable work, routes to outreach) → kill-gate (GO with re-engagement signals) → PAYWALL → pricing
+- **Import detection:** toy-builder Step 0 sees empty context + described assets → writes C.3 (one-liner draft), E.1 (3 issues, 45 subs), E.2 (whatever platform), F.1 (last active date). Then routes to outreach because the toy already exists.
 - **Stall detection:** toy-builder Step 0 checks duration. <3 months = normal toy-builder flow
 
 ### 7. Anita — App, 8-Month Scope Creep
@@ -100,7 +101,8 @@ Report: PASS / FAIL per persona + specific break description if FAIL.
 - **Entry:** "I have an idea but haven't started"
 - **Product type:** physical
 - **Context state:** empty
-- **Expected chain:** one-liner → hypothesis → toy-builder (physical: 1 sample + photos + interest form) → outreach → kill-gate (GO) → PAYWALL → physical-economics → pricing
+- **Expected chain:** one-liner → hypothesis → toy-builder (physical: sourcing guidance fired — handmake/local maker/render options presented, then 1 sample + photos + interest form) → outreach → kill-gate (GO) → PAYWALL → physical-economics → pricing
+- **Sourcing guidance:** toy-builder Step 2 fires the physical product block — 4 options (handmake, local maker, render+form, sourcing-as-Day-1-action). Lin's analysis paralysis breaks because the answer to "where do I get a prototype?" is spelled out.
 - **Product-type module:** physical-economics.md
 
 ### 10. Rachel — Ebook, Perfectionism (80% done)
@@ -137,10 +139,10 @@ Report: PASS / FAIL per persona + specific break description if FAIL.
 | 3 | Priya | PASS — early warning at one-liner + serial-kill protocol at gate | kill count not read at one-liner Step 0, or threshold not lowered at gate | 🃏 Declarer, Toymaker, Guillotine, Mortician |
 | 4 | James | PASS — retro-validate → freemium (Kit) | retro-validate routes to pricing instead of freemium-conversion | 🃏 Merchant only (enters mid-journey) |
 | 5 | Kayla | PASS — community path, stack deferred | stack not deferred, or toy defined as software | 🃏 Declarer, Toymaker, Listener |
-| 6 | Marcus | PASS — toy-builder detects existing work | forced to rebuild something he already has | 🃏 Toymaker (existing work), Listener |
+| 6 | Marcus | PASS — pre-existing work imported + routed to outreach | context left empty despite described assets, OR forced to rebuild | 🃏 Toymaker (existing work), Listener |
 | 7 | Anita | PASS — toy-builder detects >3mo → outreach | sent to toy-builder to build more (instead of redirect) | 🃏 Listener, Bouncer, Guillotine |
 | 8 | David | PASS — service path, stack deferred | stack not deferred, or toy defined as software | 🃏 Declarer, Toymaker, Listener, Crossroads |
-| 9 | Lin | PASS — physical-economics (Kit) | sent to standard pricing without COGS | 🃏 Declarer, Toymaker, Listener |
+| 9 | Lin | PASS — sourcing guidance + physical-economics (Kit) | no sourcing help for physical builders, OR sent to standard pricing without COGS | 🃏 Declarer, Toymaker, Listener |
 | 10 | Rachel | PASS — perfectionism intervention at toy + re-entry detection if she disappears | told to finish book before showing, OR re-entry not detected after 7+ day gap | 🃏 Declarer, Toymaker, Listener, Creep |
 | 11 | Tomas | PASS — over-builder reframe (6+ months) + subset identification | skipped reframe and sent directly to outreach, or told "your 14 months were wasted" | 🃏 Listener, Bouncer, Guillotine, Creep |
 | 12 | Jess | PASS — cohort + workshop toy | toy = full program, not one workshop |

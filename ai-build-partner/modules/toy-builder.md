@@ -12,6 +12,18 @@ Before the Opening, read `.unstuck/context.md`:
 - Check **Section C.3** (one-liner) — REQUIRED. If missing, route to `/unstuck one-liner`.
 - Check **Section A.4** (hours/week) — if missing, ask Q1 from the hours-reality block below before proceeding.
 - Check **Section D.1** (hypothesis) — useful but not required. If present, reference the assumptions to test.
+- **Pre-existing work import:** If the user describes work done OUTSIDE the skill (e.g., "I already have 3 newsletter issues and 45 subscribers" / "I built a landing page last month" / "I have a prototype sitting in my garage") AND context Sections C-E are empty — catalog it before routing:
+
+  > "You've already done real work. Let me capture it so the system knows what exists."
+
+  Then write to context:
+  - **C.3:** one-liner (draft from what they described — ask them to confirm)
+  - **E.1:** what exists (list every asset: issues published, subscribers, code, prototypes, landing pages, email lists)
+  - **E.2:** stack used (whatever tools they already chose)
+  - **F.1:** when they last worked on it
+
+  After import, the routing logic picks up normally — if they have a showable thing, route to outreach. If not, proceed to define the toy. The point: don't make someone who already has 45 subscribers start from "what's your one-liner?" as if they're brand new.
+
 - **Stuck-type detection:** If the user says they've been building for 3+ months, they don't need this module — they need to SHOW what they have. But if they've been building for **6+ months**, the redirect needs an emotional reframe first. The structural advice ("show what you have") is correct, but without acknowledging the investment, it sounds like "those months were wasted."
 
   **For 3-6 months:** Write to context: `E.1: Toy definition — subset of existing [duration] build (user describes what exists).` Route: "You already have a toy — it's a subset of what you built. Skip to `/unstuck outreach` and show it to 10 people."
@@ -107,6 +119,15 @@ Help them scope ruthlessly. The toy must be:
 
 **Example of a 5/5 toy definition (dev tool):**
 > "Go binary: `dotsync`. Syncs .zshrc and .gitconfig between 2 machines via a git repo. 300 lines. Published on GitHub with MIT license and a README with a demo GIF."
+
+**Example of a 5/5 toy definition (physical product):**
+> "One handmade prototype of the leather cardholder — cut from scrap leather I already have, hand-stitched, not factory-perfect. Photos taken on my kitchen table with natural light (phone camera is fine). Google Form interest page: 'Handmade leather cardholder — $35 — would you buy this? Drop your email.' Share the form + photos to 10 people in r/LeatherCraft and my Instagram."
+
+**Physical product sourcing guidance (for buyers who don't know where to start):**
+- **If you can make one by hand:** make ONE. It doesn't need to be production-quality. A hand-sewn version, a 3D-printed version, a cobbled-together-from-parts version. The toy is the proof that the THING can exist, not that it can be manufactured.
+- **If you can't make it yourself:** look for a local maker, makerspace, or Etsy seller who does custom work in that material. One prototype, not a batch. Budget $50-200 for a single custom piece.
+- **If it's too expensive to prototype:** sketch it, render it (Canva, Figma, even hand-drawn), and pair the render with a landing page. "This is what I'm building. Would you buy it at $X?" A render + interest form IS a valid toy for physical products. You're testing demand, not manufacturing.
+- **If you're stuck on sourcing:** the sourcing research IS the first build session. Day 1 action: "Find 3 options for getting one prototype made. Pick the fastest. Order it." The toy ships when the prototype arrives + photos + interest form go live.
 
 Push back on:
 - "I'll build the full thing" → "No. One feature. One module. One session. The toy is small on purpose."
