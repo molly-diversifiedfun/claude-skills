@@ -50,6 +50,16 @@ Before the Opening, read `.unstuck/context.md`:
 
   Then route to `/unstuck outreach` — NOT back to building. The perfectionism loop breaks by showing, not by fixing.
 
+- **Imposter syndrome detection:** If the user says something like "I feel like a fraud" / "who am I to charge for this" / "I'm not qualified" / "imposter syndrome" / any variant of feeling unqualified despite clear professional credentials — deliver the reframe BEFORE the structural toy definition:
+
+  > "You just described [N] years as a [role] at [company], shipping [what they've shipped]. The thing stopping you isn't skill — it's the gap between knowing you're good at your job and believing someone would pay YOU directly for that same expertise.
+  >
+  > That gap isn't evidence. It's a story. The evidence is [specific thing from their background — quote what they told you]. The story is 'but that was my employer's brand, not mine.'
+  >
+  > Here's what we're going to do: write the offer. Not to sell it yet — to see if you can describe what you do clearly enough that a stranger says yes. The words fix the fraud feeling faster than any amount of thinking about it."
+
+  Then proceed to the standard service/consulting toy definition (offer page + one free delivery, stack deferred). The reframe must reference THEIR specific credentials, not generic encouragement.
+
 Don't ask what you can read. Draft what you can infer.
 
 → Next: **Opening** — frame the toy.

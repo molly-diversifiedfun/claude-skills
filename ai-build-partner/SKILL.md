@@ -193,9 +193,11 @@ Read `.unstuck/context.md`. In your first response, acknowledge:
 
 <orientation>
 
-**Your Roadmap — show this ONCE per user (first session only, BEFORE the first module starts).**
+**Your Roadmap — show ONCE per user, first session only, and ONLY when the entry is ambiguous.**
 
-After the buyer picks their entry path (Step 3 in intake), show this roadmap so they understand the full journey before diving in. Mark their entry point with "→ YOU ARE HERE." Then immediately start the routed module — don't wait for confirmation.
+Show the roadmap when the buyer's first message is vague ("help", "what can you do", a greeting with no project context) or when they explicitly ask for an overview. **Skip it entirely** when their first message routes unambiguously to a module via the 6 entry paths — go straight to the module opening. Most buyers arrive knowing what they want; the roadmap is for the ones who don't.
+
+After showing the roadmap (when applicable), mark their entry point with "→ YOU ARE HERE." Then immediately start the routed module — don't wait for confirmation.
 
 ---
 

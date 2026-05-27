@@ -128,6 +128,25 @@ Report: PASS / FAIL per persona + specific break description if FAIL.
 - **Expected chain:** one-liner → hypothesis → toy-builder (cohort: ONE live workshop, stack DEFERRED) → outreach → kill-gate (GO) → PAYWALL → pricing (cohort variant)
 - **Over-planning handling:** toy-builder forces "one workshop, not the full 6-week program"
 
+### 13. Alex — Course, Bad Idea (KILL verdict)
+- **Entry:** "I have an idea but haven't started"
+- **Product type:** content/course
+- **Context state:** empty
+- **One-liner:** "I'm building a course teaching senior engineers how to use Git"
+- **Expected chain:** one-liner → hypothesis (low RICE) → toy-builder (course: one module + landing page) → outreach → kill-gate (KILL — score 0-3)
+- **Kill gate signals:** 0 money + 0 usage + 1 trust (downloaded, never opened) + 0 pull = 1
+- **Expected behavior:** KILL verdict. Compassionate tone ("this specific idea didn't resonate, not you failed"). Graveyard entry written to context Section H. Routing to `/unstuck idea-bank` or `/unstuck one-liner`.
+- **What we're testing:** Does the kill feel humane? Does it acknowledge effort? Does it route forward without wallowing? Does the graveyard entry match fun.md spec?
+- **Cards earned:** Declarer, Toymaker, Guillotine (first kill)
+
+### 14. Priya (variant) — Serial-Kill Override (forced ITERATE on score 3)
+- **Entry:** Kill-gate with Priya's context (3 prior kills) and score 3
+- **Context state:** 3 previous KILLED entries + serial-kill protocol active
+- **Kill gate signals:** 0 money + 1 usage (2x) + 1 trust (1x) = 3
+- **Expected behavior:** Score 3 normally = KILL. But serial-kill protocol overrides to ITERATE ("I'm not letting you kill this one yet. One more try."). Forced iteration exception fires.
+- **What we're testing:** Does the serial-kill override prevent premature killing for repeat killers? Does it set gate_iteration: 1?
+- **Cards earned:** (none new — testing protocol behavior only)
+
 ---
 
 ## Expected Results Summary
@@ -145,7 +164,9 @@ Report: PASS / FAIL per persona + specific break description if FAIL.
 | 9 | Lin | PASS — sourcing guidance + physical-economics (Kit) | no sourcing help for physical builders, OR sent to standard pricing without COGS | 🃏 Declarer, Toymaker, Listener |
 | 10 | Rachel | PASS — perfectionism intervention at toy + re-entry detection if she disappears | told to finish book before showing, OR re-entry not detected after 7+ day gap | 🃏 Declarer, Toymaker, Listener, Creep |
 | 11 | Tomas | PASS — over-builder reframe (6+ months) + subset identification | skipped reframe and sent directly to outreach, or told "your 14 months were wasted" | 🃏 Listener, Bouncer, Guillotine, Creep |
-| 12 | Jess | PASS — cohort + workshop toy | toy = full program, not one workshop |
+| 12 | Jess | PASS — cohort + workshop toy | toy = full program, not one workshop | 🃏 Declarer, Toymaker, Listener |
+| 13 | Alex | PASS — KILL verdict, compassionate, routes to idea-bank | verdict is GO despite score 1, or tone is punitive | 🃏 Declarer, Toymaker, Guillotine |
+| 14 | Priya (v2) | PASS — serial-kill override forces ITERATE on score 3 | auto-kills despite 3+ prior kills, or doesn't set gate_iteration | (protocol test only) |
 
 ---
 
