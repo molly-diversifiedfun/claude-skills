@@ -12,8 +12,31 @@ Before the Opening, read `.unstuck/context.md`:
 - Check **Section C.3** (one-liner) — REQUIRED. If missing, route to `/unstuck one-liner`.
 - Check **Section A.4** (hours/week) — if missing, ask Q1 from the hours-reality block below before proceeding.
 - Check **Section D.1** (hypothesis) — useful but not required. If present, reference the assumptions to test.
-- **Stuck-type detection:** If the user says they've been building for 3+ months, they don't need this module — they need to SHOW what they have. Before routing, write to context: `E.1: Toy definition — subset of existing [duration] build (user describes what exists).` Then route: "You already have a toy — it's a subset of what you built. Skip to `/unstuck outreach` and show it to 10 people."
+- **Stuck-type detection:** If the user says they've been building for 3+ months, they don't need this module — they need to SHOW what they have. But if they've been building for **6+ months**, the redirect needs an emotional reframe first. The structural advice ("show what you have") is correct, but without acknowledging the investment, it sounds like "those months were wasted."
+
+  **For 3-6 months:** Write to context: `E.1: Toy definition — subset of existing [duration] build (user describes what exists).` Route: "You already have a toy — it's a subset of what you built. Skip to `/unstuck outreach` and show it to 10 people."
+
+  **For 6+ months (over-builder reframe):**
+
+  > "You've been building for [N] months. I'm not going to tell you that was wasted — it wasn't. You now know this domain better than most people who'll ever try to build in it. That knowledge is the asset. The code is the proof-of-work.
+  >
+  > What I AM going to tell you: scope-cutting on a [N]-month build doesn't mean those months were wrong. It means you explored, and now you know which 20% of what you built is the part people actually need.
+  >
+  > Describe what exists right now. Every screen, every feature, everything. I'll help you find the subset that IS the toy — the piece 10 people can react to this week."
+
+  Write to context: `E.1: Toy definition — subset of existing [duration] build. Over-builder reframe delivered.` Then work through Steps 1-2 to identify the subset, skip Steps 3-5 (they already have a stack and timeline is "now"), and route to `/unstuck outreach`.
 - **Perfectionism detection:** If they say something like "it's 80% done but not ready" — intervene: "Your toy isn't the finished thing. It's the smallest piece someone can react to. Ship one chapter / one feature / one session. The toy is how you learn what to finish."
+- **Perfectionism re-entry:** If context shows a toy was ALREADY defined (E.1 populated) AND the last interaction was 7+ days ago AND they say something like "I went to fix one thing" / "I've been polishing" / "I need to make it better first" — this is the perfectionism loop. Intervene:
+
+  > "You left to fix one thing. It's been [N] days. That's the pattern — not the fix.
+  >
+  > The thing you went to fix? It either matters to your 10 people or it doesn't. Here's how we find out: show what you have RIGHT NOW to the next person on your list. Their reaction tells you whether the fix was necessary.
+  >
+  > If they don't mention the thing you were fixing, it wasn't blocking them. If they do, you fix it AFTER you have that data — not before.
+  >
+  > Ready to pick up where you left off?"
+
+  Then route to `/unstuck outreach` — NOT back to building. The perfectionism loop breaks by showing, not by fixing.
 
 Don't ask what you can read. Draft what you can infer.
 

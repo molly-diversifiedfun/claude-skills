@@ -12,6 +12,15 @@ Before the Opening, read `.unstuck/context.md`:
 - If C.1 and C.2 are populated, DRAFT the one-liner from that context. Present it and ask the user to sharpen it. Skip Step 1.
 - If context is empty, check if they just came from `/unstuck idea-bank` — if so, use the winning idea as the seed.
 - If nothing exists, use the Opening below.
+- **Serial-kill early detection:** Count `Status: KILLED` entries in context. If **3+ kills found**, surface the pattern NOW — before they invest another cycle:
+
+  > "Before we start — I can see you've been through this [N] times. You've killed [N] ideas. That's not failure — that's expensive data.
+  >
+  > I'm going to run this module normally. But I want you to know: when we get to the kill-gate later, I'm going to hold you to a higher bar before letting you walk away from this one. The pattern I'm watching for isn't bad ideas — it's quitting at the same point every time.
+  >
+  > Let's make this one-liner sharp. Ready?"
+
+  Then proceed normally. This plants the seed; kill-gate's serial-kill protocol does the enforcement.
 
 Don't ask what you can read. Draft what you can infer.
 

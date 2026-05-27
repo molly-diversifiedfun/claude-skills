@@ -51,7 +51,8 @@ Report: PASS / FAIL per persona + specific break description if FAIL.
 - **Product type:** content (templates)
 - **Context state:** has 3 previous `Status: KILLED` entries
 - **Entry path:** 🎯 The Builder → intake routes to `/unstuck one-liner`
-- **Expected chain:** one-liner (🃏 Declarer) → hypothesis → toy-builder (🃏 Toymaker) → outreach → kill-gate (serial-kill protocol: threshold lowered to 7, forced 2 iterations)
+- **Expected chain:** one-liner (early serial-kill warning at Step 0 + 🃏 Declarer) → hypothesis → toy-builder (🃏 Toymaker) → outreach → kill-gate (serial-kill protocol: threshold lowered to 7, forced 2 iterations)
+- **Early detection:** one-liner Step 0 surfaces the quitting pattern before she invests another cycle ("I'm going to hold you to a higher bar")
 - **Serial-kill trigger:** kill-gate Step 0 counts 3+ kills → Step 3b activates
 - **Kill gate signals (attempt 1):** 0 money + 2 usage (2x) + 14 downloads (capped 5, 1x) + 2 pull (2x) = 0+4+5+4 = 13
 - **Cards earned:** Declarer, Toymaker, Guillotine (4th kill → increments), Mortician (at 5 cumulative). Priya is the card-richest persona for Kill cards.
@@ -108,13 +109,14 @@ Report: PASS / FAIL per persona + specific break description if FAIL.
 - **Context state:** empty but 80% written
 - **Expected chain:** toy-builder (perfectionism detection: "ship one chapter") → outreach (show one chapter as free PDF) → kill-gate → PAYWALL → pricing
 - **Perfectionism detection:** toy-builder Step 0 or intake heuristic line 145
+- **Re-entry scenario:** If Rachel returns after 7+ days saying "I went to fix the formatting" — toy-builder fires re-entry intervention, routes directly to outreach ("show what you have RIGHT NOW"), does NOT let her rebuild
 
 ### 11. Tomas — Mobile App, Over-Engineering (14 months)
 - **Entry:** "I started building but stalled" (14 months, rebuilt 3x)
 - **Product type:** mobile
 - **Context state:** empty but has 14 months of code
-- **Expected chain:** intake detects >3 months → routes to outreach DIRECTLY → kill-gate → PAYWALL → app-store-economics → pricing
-- **Over-engineer detection:** intake line 139 + line 146
+- **Expected chain:** toy-builder (6+ month over-builder reframe: acknowledges 14 months as domain expertise + proof-of-work, then identifies the 20% subset) → outreach → kill-gate → PAYWALL → app-store-economics → pricing
+- **Over-builder reframe:** toy-builder Step 0 fires the 6+ month path — "scope-cutting doesn't mean those months were wrong" — then walks through existing features to find the toy subset. Does NOT skip to outreach without identifying what to show.
 - **Product-type module:** app-store-economics.md
 
 ### 12. Jess — Cohort Course, Over-Planning (40-page doc)
@@ -132,15 +134,15 @@ Report: PASS / FAIL per persona + specific break description if FAIL.
 |---|---|---|---|---|
 | 1 | Sarah | PASS — Builder path → one-liner → toy → outreach → gate | intake doesn't route to one-liner for Builder path | 🃏 Declarer, Toymaker, Listener, Bouncer |
 | 2 | Mike | PASS — cold path + dev-tool-monetize (Kit) | cold-discovery not triggered, or dev-tool-monetize not routed | 🃏 Declarer, Toymaker, Listener |
-| 3 | Priya | PASS — serial-kill protocol at gate | kill count not read from context, or threshold not lowered | 🃏 Declarer, Toymaker, Guillotine, Mortician |
+| 3 | Priya | PASS — early warning at one-liner + serial-kill protocol at gate | kill count not read at one-liner Step 0, or threshold not lowered at gate | 🃏 Declarer, Toymaker, Guillotine, Mortician |
 | 4 | James | PASS — retro-validate → freemium (Kit) | retro-validate routes to pricing instead of freemium-conversion | 🃏 Merchant only (enters mid-journey) |
 | 5 | Kayla | PASS — community path, stack deferred | stack not deferred, or toy defined as software | 🃏 Declarer, Toymaker, Listener |
 | 6 | Marcus | PASS — toy-builder detects existing work | forced to rebuild something he already has | 🃏 Toymaker (existing work), Listener |
 | 7 | Anita | PASS — toy-builder detects >3mo → outreach | sent to toy-builder to build more (instead of redirect) | 🃏 Listener, Bouncer, Guillotine |
 | 8 | David | PASS — service path, stack deferred | stack not deferred, or toy defined as software | 🃏 Declarer, Toymaker, Listener, Crossroads |
 | 9 | Lin | PASS — physical-economics (Kit) | sent to standard pricing without COGS | 🃏 Declarer, Toymaker, Listener |
-| 10 | Rachel | PASS — perfectionism intervention at toy | told to finish book before showing (should say ship ONE chapter) | 🃏 Declarer, Toymaker, Listener, Creep |
-| 11 | Tomas | PASS — >3mo redirect + app-store (Kit) | sent to toy-builder to build, or standard pricing without cuts | 🃏 Listener, Bouncer, Guillotine, Creep |
+| 10 | Rachel | PASS — perfectionism intervention at toy + re-entry detection if she disappears | told to finish book before showing, OR re-entry not detected after 7+ day gap | 🃏 Declarer, Toymaker, Listener, Creep |
+| 11 | Tomas | PASS — over-builder reframe (6+ months) + subset identification | skipped reframe and sent directly to outreach, or told "your 14 months were wasted" | 🃏 Listener, Bouncer, Guillotine, Creep |
 | 12 | Jess | PASS — cohort + workshop toy | toy = full program, not one workshop |
 
 ---
