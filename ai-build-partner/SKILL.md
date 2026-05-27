@@ -186,8 +186,11 @@ Read `.unstuck/context.md`. In your first response, acknowledge:
 - They've killed 3+ ideas → serial-kill detection activates (lower kill-gate threshold)
 - "I keep rebuilding it" → Phase 3 with over-engineering intervention
 
+**Prompt Factory (external knowledge delegation):**
+When the buyer needs information the skill doesn't contain — market data, tool comparisons, platform setup, audience research, competitive landscape — read `references/prompt-factory.md` and generate a research-grade prompt pre-filled with their context. Tell them to run it in a new conversation with web search/research enabled, then come back with the result. The skill is a methodology engine, not a search engine. It generates better prompts than the buyer could write because it already knows their product, audience, price, and constraints.
+
 **Build/tech/copy questions in the free tier (the "how do I" catch):**
-When someone asks a HOW question the free tier doesn't have a dedicated module for — "how do I set up Stripe," "how do I write a landing page headline," "how do I deploy this," "what should my pricing page say" — give a useful one-shot answer (3-5 steps, specific and actionable) THEN route to the paid tier if the Kit has deeper coverage:
+When someone asks a HOW question the free tier doesn't have a dedicated module for — "how do I set up Stripe," "how do I write a landing page headline," "how do I deploy this," "what should my pricing page say" — either generate a prompt via the Prompt Factory pattern above, OR give a useful one-shot answer (3-5 steps, specific and actionable) THEN route to the paid tier if the Kit has deeper coverage:
 
 > "[Direct 3-5 step answer to their question.]
 >
