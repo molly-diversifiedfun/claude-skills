@@ -344,7 +344,9 @@ Save this roadmap to `<project-path>/roadmap-orientation.md` so the user can ref
 | `/unstuck runway` | `modules/runway.md` | 6 |
 | `/unstuck business-setup` | `modules/business-setup.md` | utility |
 
-**Kit-only commands (require Ship It Kit installed):** prioritize, pricing, cohort-2, weekly, build-in-public, v2-backlog, support-refund, pmf, v1-1, pricing-iteration, automate, ten-hour-week, scaling-lever, smoke-test, time-protect, wrap, dev-tool-monetize, physical-economics, app-store-economics, freemium-conversion. See Kit SKILL.md for trigger phrases.
+**Kit-only commands (require Ship It Kit installed):** prioritize, pricing, cohort-2, weekly, build-in-public, v2-backlog, support-refund, pmf, v1-1, pricing-iteration, automate, ten-hour-week, scaling-lever, smoke-test, time-protect, wrap, dev-tool-monetize, physical-economics, app-store-economics, freemium-conversion, wire-checkout, wire-delivery, wire-analytics, post-purchase. See Kit SKILL.md for trigger phrases.
+
+**Kit wire-up commands (new — ADR 003):** wire-checkout (Stripe/Gumroad setup + $1 test purchase), wire-delivery (file/access delivery configuration), wire-analytics (3 launch-day numbers), post-purchase (3 post-purchase emails). These fill the gap between "V1 is built" and "someone can give me money" — previously required Marketing OS or manual setup.
 
 Or just tell me what's going on and I'll point you to the right tool.
 
@@ -451,14 +453,14 @@ All domain knowledge in `references/`:
 | modules/day-job-decision.md | Opinionated quit-decision verdict (STAY / NEGOTIATE / QUIT IN N / QUIT NOW) — runway math + 3 conversation scripts + kill conditions. Not financial advice. | 15 min |
 | modules/pick-my-stack.md | Day 11 stack manifest — 9-category vendor picks with Claude/MCP-friendly bias + monthly cost + setup order + migration paths | 12 min |
 | modules/smoke-test.md | Day 10 demand-risk-primary smoke test — pre-commit thresholds (B2B / B2C / Course / Service), pick option (waitlist / Stripe-intent / discovery-call / pre-order), 5-day run, PASS/PIVOT/KILL verdict | 20 + 15 min |
-| modules/landing-page.md | 8-section landing-page draft (Hero · Problem · Solution · What's Inside · For-you-NOT-for · Bio · Price+CTA · FAQ) with specificity audit + voice check. Defers to Marketing OS for offer architecture (Hormozi/Schwartz/Belcher) if loaded | 45 min |
+| modules/landing-page.md | 8-section landing-page draft (Hero · Problem · Solution · What's Inside · For-you-NOT-for · Bio · Price+CTA · FAQ) with specificity audit + voice check. **Kit detected → defer to Kit T11 (first-sale depth).** Kit+MOS → defer to MOS (Hormozi/Schwartz/Belcher growth depth). Neither → free skeleton + Kit upsell. | 45 min |
 | modules/weekly.md | Recurring 20-min Sunday Ship Check — 7 prompts including Scope Reset Protocol (ship date held, scope cut) | 20 min |
 | modules/funnel.md | 4-step lead-magnet → tripwire funnel — topic selector, $19 tripwire designer, lead-magnet content writer, 3-email sequence. Defers to Marketing OS `design-micro-commitment-ladder` + `build-irresistible-offer` if loaded | 30 min |
 | modules/build-in-public.md | Two branches: cadence setup (Day 11-12: posture + 9-post backlog) OR milestone post generator (Day 5/15/25/30). Defers to Marketing OS `viral-hook-generator` + `build-email-story-engine` if loaded | 15 min/post |
 | modules/pmf.md | Day 60 PMF Scorecard — 4 signals (Sean Ellis · Retention · Unsolicited referrals · Voice match), composite SCALE/ITERATE/PIVOT/KILL verdict, thresholds pre-committed before results read | 45 min |
 | modules/v1-1.md | Day 38-60 V1.1 Priority Filter — dump candidates, score on (R × W) × (BE × SR) ÷ 25, pick THE ONE, force-bucket every unselected item | 30 min |
 | modules/scaling-lever.md | Day 75+ Scaling Lever Filter — 4-question funnel diagnostic, score 5 levers, anti-pattern check against default-lever, 30-day campaign with pre-locked success metric | 45 min |
-| modules/launch-emails.md | Day 23 5-email launch sequence (Story / What's Inside / Proof / Objections / Last Chance). Lock real Email-5 urgency BEFORE drafting. Hero language echoes from D.8. Defers to Marketing OS `build-email-story-engine` + `design-launch-sequence` if loaded | 45 min |
+| modules/launch-emails.md | Day 23 5-email launch sequence. **Kit detected → defer to Kit T12 (Problem→Story→Offer→FAQ→Last call, first-sale depth).** Kit+MOS → defer to MOS `build-email-story-engine` + `design-launch-sequence` (Brunson/Schwartz growth depth). Neither → free skeleton + Kit upsell. | 45 min |
 | modules/automate.md | Day 80 automation map — audit setup (Branch A) OR categorize + pick THE ONE to ship in 7 days (Branch B). 4 buckets, Hard Cap: one per week | 30 min |
 | modules/support-refund.md | Day 23 pre-launch refund policy lock (A/B/C by price) + 12 canned support responses in voice + response-time promise + inbox routing | 90 min |
 | modules/pricing-iteration.md | Day 38+ price change decision — 5 signals + matrix verdict + grandfather rule + one-change-per-quarter discipline | 45 min |
