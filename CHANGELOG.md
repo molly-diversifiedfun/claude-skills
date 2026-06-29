@@ -2,6 +2,16 @@
 
 All notable changes to this skill library. Newest first.
 
+## 2026-06-29 — Operational infrastructure: 2 skills shipped
+
+Closes the session-continuity gap. Also ships `TASKS.md` and `HANDOFF.md` to end 7 weeks of state reconstruction from `git log`.
+
+**Claude Code Power User**
+- `prompt-factory` — extracted from `ai-build-partner/references/` into a standalone skill; generates research-grade prompts pre-filled with your context when you need external knowledge (current pricing, tool comparisons, audience research, platform setup)
+- `session-resume` — reconstruct working state at session start in under 60s; reads `HANDOFF.md`, `TASKS.md`, and `git log`; also handles `ai-build-partner` context via `.unstuck/context.md`
+
+Total skill count: 25 → **27**.
+
 ## 2026-05-15 — Batches 3–5: 8 PRD'd skills shipped
 
 Closes the final 8 "coming soon" entries. Each ships with full pipeline (research → PRD → SKILL.md → README).

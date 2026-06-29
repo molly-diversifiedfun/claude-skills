@@ -3,7 +3,7 @@
 ![Stars](https://img.shields.io/github/stars/molly-diversifiedfun/claude-skills?style=flat-square&color=ff6b9d&label=stars)
 ![License](https://img.shields.io/github/license/molly-diversifiedfun/claude-skills?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/molly-diversifiedfun/claude-skills?style=flat-square)
-![Skills](https://img.shields.io/badge/skills-25-ff6b9d?style=flat-square)
+![Skills](https://img.shields.io/badge/skills-27-ff6b9d?style=flat-square)
 [![Changelog](https://img.shields.io/badge/changelog-latest-ff6b9d?style=flat-square)](./CHANGELOG.md)
 [![Tweet](https://img.shields.io/badge/share-on%20X-1DA1F2?style=flat-square)](https://twitter.com/intent/tweet?text=Free%20Claude%20skills%20%E2%80%94%2025%20research-backed%20skills%20for%20thinking%2C%20writing%2C%20learning%2C%20and%20shipping%3A%20https%3A%2F%2Fgithub.com%2Fmolly-diversifiedfun%2Fclaude-skills)
 
@@ -35,6 +35,7 @@ Same content. 78 words → 51 words. Zero AI-tell vocabulary. The skill ran a 7-
 
 ## Recently Shipped
 
+- **2026-06-29** — `prompt-factory` + `session-resume` — delegate external knowledge; reconstruct session state in 60s
 - **2026-05-15** — Final 8 PRD'd skills (`learn-anything`, `explain-like`, `research-brief`, `book-distiller`, `precision-editor`, `meeting-distiller`, `interview-coach`, `career-experiment`) — closes "coming soon"
 - **2026-05-14** — `followability-audit` — Color Check methodology from The Flamingo Effect
 - **2026-05-12** — `ai-build-partner` (Layer 1 of The Ship It System) + 4 marketing skills
@@ -121,6 +122,8 @@ Skills that find the gap between "what we built" and "what people are actually d
 | [`carl-manager`](./carl-manager/) | Manage CARL (Context Augmentation & Reinforcement Layer) domains and rules. Persistent memory for how you work — define rules once, they load automatically when relevant. |
 | [`carl-help`](./carl-help/) | Reference docs for CARL — what it is, how it works, file structure, rule format, troubleshooting. |
 | [`nano-banana`](./nano-banana/) | Image generation via Gemini CLI. Blog images, thumbnails, icons, diagrams, illustrations — any visual asset. Requires [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed. |
+| [`prompt-factory`](./prompt-factory/) | When you need external knowledge — tool pricing, competitive landscape, audience research, platform setup — generate a research-grade prompt pre-filled with your context instead of getting a guess. Run it in a search-enabled conversation, come back with the result. |
+| [`session-resume`](./session-resume/) | Reconstruct working state at the start of any session in under 60 seconds. Reads `HANDOFF.md`, `TASKS.md`, and recent git log to tell you what was in flight and what to do first. Pairs with `HANDOFF.md` maintenance. |
 
 ---
 
