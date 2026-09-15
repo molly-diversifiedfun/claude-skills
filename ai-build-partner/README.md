@@ -23,6 +23,10 @@ Don't read this whole README. Don't run Discovery yet. Just do this:
 2. Open Claude Code. Say:
    > *"Use the ai-build-partner skill. Run the **Diagnose** module. I'll describe my situation in one paragraph and you tell me which stuck pattern I'm in."*
 
+   Once the skill is loaded, every module has a one-word command. Diagnose is
+   `/unstuck diagnose`, and `/unstuck full` runs the whole intake. The sentence
+   above is what loads it the first time; after that, type the command.
+
 3. Paste one paragraph about your stuck project. You'll get back a named stuck pattern + one move to make today. ~5 minutes.
 
 If that felt useful, come back for Discovery (20-60 min) when you have time. Discovery builds the User Context that every other module uses — but Diagnose works without it.
@@ -108,7 +112,7 @@ If you ship once and never come back, you got partial value. The Sunday check is
 ./install.sh
 ```
 
-Then in any session: *"Use the ai-build-partner skill"* and answer the in-character check.
+Then in any session: *"Use the ai-build-partner skill"* and answer the in-character check. From there on it answers to `/unstuck <module>` — `/unstuck scope`, `/unstuck validate`, `/unstuck full`.
 
 ## Telemetry
 
