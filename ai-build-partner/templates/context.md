@@ -33,7 +33,7 @@
 - **D.2 Stuck pattern:** [from /unstuck diagnose — infrastructure score X/8, pattern name]
 - **D.3 Blocker analysis:** [from /unstuck audit — JTBD, top blockers, infrastructure gaps]
 - **D.5 Outreach plan:** [N warm + N cold communities, target responses by date]
-- **D.6 Launch plan:** [7-section plan from /unstuck launch]
+- **D.6 Launch plan:** [5-section plan from /unstuck launch — the one action, the first person by name, V1 and what was cut, the date, the hours, and whether V1 fit]
 - **D.7 Warm list:** [named humans from /unstuck outreach]
 - **D.8 Landing page copy:** [draft from /unstuck landing-page]
 - **D.9 Email sequence:** [5-email launch sequence from /unstuck launch-emails]

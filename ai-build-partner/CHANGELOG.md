@@ -12,6 +12,23 @@ _Working on:_ followability audit fixes — CHANGELOG, fast-path surface, synthe
 
 ---
 
+## [2.4.0] — 2026-09-16
+
+### Changed
+- **`/unstuck launch` moved onto the five.** The module asked a money-first seven — Big Idea, Who It's For, Core Offer, MVP Scope, Three First Steps, Launch Date, Success Metric — with pushback written around "why would they pay" and "prove people will pay". It now asks what the prompt at theshipitsystem.com/launch-prompt asks: the one action someone takes when it works, the first real person by name, everything that has to be true first, what that person would notice missing (V1), and the day plus the hours plus the arithmetic between them.
+- **Money is out of the exercise entirely.** No price, no "first sale by when", and no "which tool would you use" — from the other side of the screen that last one reads exactly like the price question. A first subscriber, member, reader or reply counts the same as a first customer.
+- **The vehicle question arrives**, between the dump and the cut: what is the smallest thing in the world that produces that action? One proposal, freely refused. Most lists are long because the vehicle is too big, not because the list is badly pruned.
+- **`templates/launch-plan.md`** rewritten to the five, and it now carries the cut list beside V1 — a shorter list is not visibly a decision; a list with its cuts next to it is.
+- **`/unstuck launch` added to the command table.** It was reachable only by keyword; the website had been advertising `/unstuck launch-plan`, which was never a command.
+
+### Fixed
+- **Section D.6's contract changed, and its readers were updated with it.** `launch-day.md` read a "success metric — the number that decides if the day worked" out of D.6, and the module no longer writes one. It now reads the ONE ACTION, which is the better signal on the day: "Priya replies about work" tells you more than "eight signups". `templates/context.md` and `day-job-decision.md` were describing the old shape too.
+
+### Why
+Four artifacts rendered the same One-Page Launch Plan and all four asked different questions — the prompt, the fill-in page, the PDF, and this module. Only the prompt had been through persona testing, and it was the only one that did not assume you are selling something. This audience ships newsletters, communities, open-source tools and portfolio pieces that never take a payment.
+
+The prompt's v12 also deliberately stops short of two things it used to do — sizing each V1 item in hours, and laying out the sessions between now and the date — on the grounds that the skill has the sittings to do them properly. That claim is now true rather than aspirational: the module's exit routes to `/unstuck scope` when V1 does not fit the hours, and to `/unstuck roadmap`, which already locks specific days and times, when it does.
+
 ## [2.3.0] — 2026-05-16
 
 ### Added
