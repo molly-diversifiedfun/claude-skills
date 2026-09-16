@@ -1,7 +1,18 @@
-name: Sync AI Build Partner buyer zip to unstuckwithmolly
+name: Sync AI Build Partner buyer zip to theshipitsystem
 
 # Fires when canonical AI Build Partner content changes on main. Repackages the
-# buyer zip and opens a PR against the unstuckwithmolly repo with the new artifact.
+# buyer zip and opens a PR against the theshipitsystem repo with the new artifact.
+#
+# TARGET REPO, 2026-09-16: this pointed at unstuckwithmolly, which has not held
+# the zip for some time. The kit is served from
+# theshipitsystem.com/portal/ai-build-partner-kit.zip - the URL in
+# src/data/unstuck-install.ts and in the Meta delivery email - and
+# unstuckwithmolly.com 307s to it. So every "successful" sync was updating a
+# file nobody downloads, and the last one ran on 2026-05-27 regardless: since
+# then every run has failed before its first step with "the job was not started
+# because your account is locked due to a billing issue". This workflow cannot
+# run at all until that is resolved; until then, the local equivalent below is
+# the only path.
 #
 # Local equivalent: bash scripts/package-ai-build-partner-kit.sh
 
@@ -27,23 +38,26 @@ jobs:
         with:
           path: claude-skills
 
-      - name: Checkout unstuckwithmolly
+      - name: Checkout theshipitsystem
         uses: actions/checkout@v4
         with:
-          repository: molly-diversifiedfun/unstuckwithmolly
+          repository: molly-diversifiedfun/theshipitsystem
+          # NOTE: this PAT was scoped for unstuckwithmolly. It needs access to
+          # theshipitsystem, or the checkout fails with a 404 that reads like a
+          # missing repo rather than a missing permission.
           token: ${{ secrets.UNSTUCK_REPO_PAT }}
-          path: unstuckwithmolly
+          path: theshipitsystem
 
       - name: Run packager
         env:
-          UNSTUCK_PATH: ${{ github.workspace }}/unstuckwithmolly
+          SITE_PATH: ${{ github.workspace }}/theshipitsystem
         run: |
           bash claude-skills/scripts/package-ai-build-partner-kit.sh
 
       - name: Create or update PR
         uses: peter-evans/create-pull-request@v6
         with:
-          path: unstuckwithmolly
+          path: theshipitsystem
           token: ${{ secrets.UNSTUCK_REPO_PAT }}
           commit-message: "feat: sync AI Build Partner buyer zip from claude-skills"
           branch: ai-build-partner-zip-sync
@@ -52,11 +66,14 @@ jobs:
           body: |
             Auto-synced from claude-skills commit ${{ github.sha }}.
 
-            **Updates:** `public/portal/ai-build-partner-kit.zip` (buyer download artifact).
+            **Updates:** `public/portal/ai-build-partner-kit.zip` and the second
+            served copy under `public/portal/downloads/ai-build-partner-kit/`
+            (buyer download artifacts - both paths are live).
 
             **Source:** https://github.com/molly-diversifiedfun/claude-skills/commit/${{ github.sha }}
 
             Once merged, Vercel deploys and the kit is live at:
-            https://www.unstuckwithmolly.com/portal/ai-build-partner-kit.zip
+            https://theshipitsystem.com/portal/ai-build-partner-kit.zip
           add-paths: |
             public/portal/ai-build-partner-kit.zip
+            public/portal/downloads/ai-build-partner-kit/ai-build-partner-kit.zip

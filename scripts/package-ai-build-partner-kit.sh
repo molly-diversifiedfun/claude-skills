@@ -21,9 +21,19 @@ CLAUDE_SKILLS_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 CLAUDE_SKILLS="$CLAUDE_SKILLS_ROOT/ai-build-partner"
 KIT_FILES="$CLAUDE_SKILLS/kit-files"
 
-# In CI: unstuckwithmolly is checked out alongside; set UNSTUCK_PATH to its checkout dir.
-# Locally: defaults to ~/github/unstuckwithmolly.
-UNSTUCK_PATH="${UNSTUCK_PATH:-$HOME/github/unstuckwithmolly}"
+# WHERE THE ZIP ACTUALLY GOES
+#
+# theshipitsystem, not unstuckwithmolly. The kit is served from
+# theshipitsystem.com/portal/ai-build-partner-kit.zip - that is the URL in
+# src/data/unstuck-install.ts and in the Meta delivery email - and
+# unstuckwithmolly.com 307s to it. unstuckwithmolly has not held the zip for
+# some time, so every sync that "succeeded" against it was updating a file
+# nobody downloads.
+#
+# SITE_PATH is the name; UNSTUCK_PATH is still read for callers that set it.
+# Locally: defaults to ~/github/theshipitsystem.
+SITE_PATH="${SITE_PATH:-${UNSTUCK_PATH:-$HOME/github/theshipitsystem}}"
+UNSTUCK_PATH="$SITE_PATH"
 OUTPUT_DIR="$UNSTUCK_PATH/public/portal"
 OUTPUT_FILE="$OUTPUT_DIR/ai-build-partner-kit.zip"
 
@@ -50,8 +60,16 @@ mkdir -p "$KIT_DIR"
 
 # 1. Copy claude-skills canonical content
 cp "$CLAUDE_SKILLS/SKILL.md" "$KIT_DIR/SKILL.md"
+# modules/, minus _archived: those are superseded versions kept for history, and
+# several still carry framing the live modules have moved off (the money-first
+# launch flow, for one). Shipping them to a buyer offers them a worse copy of a
+# module they already have. The zip built before this exclusion existed did not
+# contain them either - `cp -r` started pulling them in when _archived/ was
+# added, which nobody noticed because the sync had already stopped running.
 cp -r "$CLAUDE_SKILLS/modules" "$KIT_DIR/modules"
+rm -rf "$KIT_DIR/modules/_archived"
 cp -r "$CLAUDE_SKILLS/references" "$KIT_DIR/references"
+rm -rf "$KIT_DIR/references/_archived"
 cp -r "$CLAUDE_SKILLS/templates" "$KIT_DIR/templates"
 if [ -d "$CLAUDE_SKILLS/exports" ]; then
   cp -r "$CLAUDE_SKILLS/exports" "$KIT_DIR/exports"
@@ -86,6 +104,14 @@ mv "$OUTPUT_FILE.tmp" "$OUTPUT_FILE"
 SIZE=$(stat -f%z "$OUTPUT_FILE" 2>/dev/null || stat -c%s "$OUTPUT_FILE")
 echo ""
 echo "✅ Kit packaged → $OUTPUT_FILE ($SIZE bytes)"
-echo "   Download URL: unstuckwithmolly.com/portal/ai-build-partner-kit.zip"
+# The site serves the kit at TWO paths, and both are linked from live pages.
+# Writing one and not the other is how they drift.
+SECOND_COPY="$SITE_PATH/public/portal/downloads/ai-build-partner-kit/ai-build-partner-kit.zip"
+if [ -d "$(dirname "$SECOND_COPY")" ]; then
+  cp "$OUTPUT_FILE" "$SECOND_COPY"
+  echo "   also wrote: public/portal/downloads/ai-build-partner-kit/ai-build-partner-kit.zip"
+fi
+
+echo "   Download URL: theshipitsystem.com/portal/ai-build-partner-kit.zip"
 echo ""
-echo "Next: commit + push the updated zip in the unstuckwithmolly repo."
+echo "Next: commit + push the updated zip in the theshipitsystem repo."
