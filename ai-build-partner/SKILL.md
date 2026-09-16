@@ -362,7 +362,7 @@ Or just tell me what's going on and I'll point you to the right tool.
 | "scope", "cut", "guillotine", "scope creep" | `modules/kill-gate.md` |
 | "validate", "worth building", "rice", "test" | `modules/hypothesis.md` |
 | "sprint", "10 day", "build sprint" | `modules/roadmap.md` |
-| "launch", "plan" | `modules/launch.md` |
+| "launch", "plan", "one-page launch plan", "I already have a plan", "here's my launch plan" | `modules/launch.md` |
 | "abandoned", "built something and stopped", "resurrect" | `modules/retro-validate.md` |
 | "never launched", "80% done", "never pressed publish" | `modules/launch-day.md` |
 | "have followers", "subscribers but no product", "audience" | `modules/warm-list.md` |
@@ -440,7 +440,7 @@ All domain knowledge in `references/`:
 | modules/scope.md | Scope Guillotine — cut to shippable V1 | 10-15 min | You catch yourself adding features not in the scope doc |
 | modules/validate.md | RICE scoring + 10-Conversation Method | 5-10 min | You pivot your idea OR want to validate a V2 direction |
 | modules/sprint.md | 10-Day Build Sprint setup | 10 min | Every new sprint cycle, or when the current plan derails |
-| modules/launch.md | 15-Minute Launch Plan (7 questions) | 15 min | You realize your launch plan is stale or you're launching a new product |
+| modules/launch.md | 15-Minute Launch Plan (7 questions) — or paste a One-Page Launch Plan from the free prompt and it fills what it can and asks only the rest | 15 min (5 with a plan pasted) | You realize your launch plan is stale or you're launching a new product |
 | modules/roadmap.md | 6-week shipping plan | 10-15 min | End of each 6-week cycle to set the next one |
 | modules/full-pipeline.md | Complete Build Partner pipeline | 45-60 min | Starting fresh on a completely new project |
 | modules/ten-hour-week.md | Post-launch sustainable operating mode | 10-15 min | Quarterly, or when your hours creep above 10/week |

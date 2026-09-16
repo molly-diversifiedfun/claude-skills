@@ -16,6 +16,64 @@ Don't ask what you can read. Draft what you can infer.
 
 ---
 
+**Step 0.5 — If they already have a One-Page Launch Plan, take it**
+
+The free prompt at `theshipitsystem.com/launch-prompt` produces a One-Page
+Launch Plan in whatever AI they were already using. People arrive here holding
+one. Asking them seven questions they answered twenty minutes ago is the
+fastest way to lose them.
+
+So before the Opening, ask ONCE, in one line, whether they have a plan to
+paste. Yes or no, not an essay. **If no — fall through to the Opening below,
+completely unchanged.**
+
+If they paste one, map it. Accept loose formatting: prose, a bulleted plan, or
+the exact headings.
+
+| What the plan says | Where it lands here | Notes |
+|---|---|---|
+| The one action someone takes when it works | Seeds **Section 3** and **Section 7** | It is the observable thing, not a transformation and not a metric. Still ask both; open from this. |
+| The first real person, by name | Seeds **Section 2** | A name is not a persona. Still ask Section 2 — open with "You said <name>. Tell me about them." |
+| Everything that has to be true first | Nowhere | Working material, already superseded by V1. Do not carry it forward. |
+| What that person would notice missing — V1 | **Section 4**, as given | See rule 3. |
+| The part they keep redoing, named and closed | `.unstuck/context.md`, not this plan | It is a stuck pattern, not a launch-plan field. |
+| The day they get it, and the hours available | **Section 6**, as given | Carry the hours too — write them under the date, since Section 6 has no slot for them and they are what makes the date checkable. |
+| Three moves this week, with done-whens | **Section 5**, as given | |
+| The context block (`## B. The project`) | **Section 1** — working name, one-sentence outcome | This is the only place the project gets named; the plan body never names it. |
+
+Four rules, all load-bearing:
+
+1. **A tagged field is not an answer.** The prompt marks its own guesses
+   `[MY CALL]` and its gaps `[STILL FUZZY]`. Those tags exist precisely because
+   the user never answered. Ingesting them untagged launders another AI's guess
+   into their decision, silently, and every module downstream then reads it as
+   fact. Ask every tagged field in this module's own wording, exactly as if the
+   plan had left it blank.
+
+2. **Read it back before you use it.** Field by field: what you extracted and
+   where it landed. Ask them to confirm or correct. Show a blank as a blank —
+   never fill one from another field, from the project's shape, or from what a
+   plan like this usually says.
+
+3. **Do not re-cut V1.** That V1 came out of an item-by-item pass where the user
+   made every cut themselves, under a rule that said once something was out it
+   stayed out. Section 4 below says to push ruthlessly — **that instruction does
+   not apply to an ingested V1.** Take it as given. If it looks too big for the
+   date, say so once as arithmetic and move on. Do not reopen items, and do not
+   offer to add anything back.
+
+4. **There is no price in it.** The prompt bans money on purpose, so an ingested
+   plan carries no price and its V1 was never scoped to a paid thing. Sections
+   3, 4 and 7 are written assuming one. Ask whether there is a price before you
+   use that wording. If there isn't, the success metric is a first subscriber,
+   reader, member, or reply — those count the same here.
+
+Then run only the sections the plan did not fill, in the order below. Say one
+line up front naming which ones you are skipping and why, then skip them
+without further comment.
+
+---
+
 **Opening (output verbatim to the buyer):**
 
 > "Time to turn your idea into a plan you can act on. Seven questions. Fifteen minutes. No overthinking.
@@ -184,6 +242,12 @@ Append a summary to `.unstuck/context.md` under **Section D.6** (Launch Plan):
 This module is complete when:
 - [ ] All 7 sections filled in with specific answers
 - [ ] No vague or jargon-filled entries
+- [ ] If a plan was pasted: every `[MY CALL]` / `[STILL FUZZY]` field in it was
+      re-asked, not carried over
+- [ ] If a plan was pasted: the extraction was read back field by field and
+      confirmed, and no blank was filled by inference
+- [ ] If a plan was pasted: V1 was taken as given — no item reopened, cut, or
+      added back
 - [ ] Three first steps have verbs, days, and time estimates
 - [ ] Launch date is a specific calendar date
 - [ ] Success metric is measurable
