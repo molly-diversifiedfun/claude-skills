@@ -8,208 +8,292 @@
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
 Before the Opening, scan `.unstuck/context.md`:
-- Read **Section B.1** (project + audience), **Section D.2** (T05 Scope), **Section D.3** (T06 Pricing) if present
-- If populated, DRAFT the launch plan: pull product name + audience + price + ship date from context, propose JTBD + format + V1 features, name 3 candidate first-customers to text on launch day. Present the draft + ask the user to refine. Skip the 7-question intake — they already answered those upstream.
-- If `.unstuck/context.md` is empty, use the Opening below and run the question-by-question 7-section intake — and consider routing the user to `/unstuck discovery` first.
+- Read **Section B** (the project) and **Section D.2** (T05 Scope) if present.
+- If populated, DRAFT what you can: the project name, what it is, who it goes
+  to, and any ship date already locked. Present the draft and ask them to
+  correct it. Do not draft answers to the five below - those are theirs.
+- If `.unstuck/context.md` is empty, use the Opening and run the five.
 
-Don't ask what you can read. Draft what you can infer.
+Don't ask what you can read. Don't invent what you can't.
 
 ---
 
 **Step 0.5 — If they already have a One-Page Launch Plan, take it**
 
 The free prompt at `theshipitsystem.com/launch-prompt` produces a One-Page
-Launch Plan in whatever AI they were already using. People arrive here holding
-one. Asking them seven questions they answered twenty minutes ago is the
-fastest way to lose them.
+Launch Plan in whatever AI they were already using, and the fill-in page at
+`theshipitsystem.com/launch-plan` produces the same thing as a form. People
+arrive here holding one. Asking them five questions they answered twenty
+minutes ago is the fastest way to lose them.
 
 So before the Opening, ask ONCE, in one line, whether they have a plan to
-paste. Yes or no, not an essay. **If no — fall through to the Opening below,
+paste. Yes or no, not an essay. **If no - fall through to the Opening below,
 completely unchanged.**
 
-If they paste one, map it. Accept loose formatting: prose, a bulleted plan, or
-the exact headings.
+If they paste one, it maps ONE TO ONE onto the five sections below, because all
+three artifacts now ask the same five. Take each answer into its section and
+skip that section's questions.
 
-| What the plan says | Where it lands here | Notes |
-|---|---|---|
-| The one action someone takes when it works | Seeds **Section 3** and **Section 7** | It is the observable thing, not a transformation and not a metric. Still ask both; open from this. |
-| The first real person, by name | Seeds **Section 2** | A name is not a persona. Still ask Section 2 — open with "You said <name>. Tell me about them." |
-| Everything that has to be true first | Nowhere | Working material, already superseded by V1. Do not carry it forward. |
-| What that person would notice missing — V1 | **Section 4**, as given | See rule 3. |
-| The part they keep redoing, named and closed | `.unstuck/context.md`, not this plan | It is a stuck pattern, not a launch-plan field. |
-| The day they get it, and the hours available | **Section 6**, as given | Carry the hours too — write them under the date, since Section 6 has no slot for them and they are what makes the date checkable. |
-| Three moves this week, with done-whens | **Section 5**, as given | |
-| The context block (`## B. The project`) | **Section 1** — working name, one-sentence outcome | This is the only place the project gets named; the plan body never names it. |
+| What the plan says | Section |
+|---|---|
+| The one action someone takes when it works | 1 |
+| The first real person, by name | 2 |
+| Everything that has to be true first | 3 |
+| What that person would notice missing - V1 | 4 |
+| The day, the hours, and whether they agree | 5 |
+| Three moves, with done-whens | The closing block |
+| The context block (`## B. The project`) | Straight into `.unstuck/context.md` |
 
 Four rules, all load-bearing:
 
 1. **A tagged field is not an answer.** The prompt marks its own guesses
    `[MY CALL]` and its gaps `[STILL FUZZY]`. Those tags exist precisely because
-   the user never answered. Ingesting them untagged launders another AI's guess
-   into their decision, silently, and every module downstream then reads it as
-   fact. Ask every tagged field in this module's own wording, exactly as if the
-   plan had left it blank.
+   the user never answered. Ingesting one untagged launders another AI's guess
+   into their decision, and every module downstream then reads it as fact. Ask
+   every tagged field in this module's own wording, as if the plan had left it
+   blank.
 
-2. **Read it back before you use it.** Field by field: what you extracted and
-   where it landed. Ask them to confirm or correct. Show a blank as a blank —
-   never fill one from another field, from the project's shape, or from what a
-   plan like this usually says.
+2. **Read it back before you use it.** Section by section: what you extracted
+   and where it landed. Ask them to confirm or correct. Show a blank as a blank
+   - never fill one from another section, from the project's shape, or from
+   what a plan like this usually says.
 
-3. **Do not re-cut V1.** That V1 came out of an item-by-item pass where the user
-   made every cut themselves, under a rule that said once something was out it
-   stayed out. Section 4 below says to push ruthlessly — **that instruction does
-   not apply to an ingested V1.** Take it as given. If it looks too big for the
-   date, say so once as arithmetic and move on. Do not reopen items, and do not
-   offer to add anything back.
+3. **Do not re-cut V1.** That V1 came out of an item-by-item pass where the
+   user made every cut themselves, under a rule that said once something was
+   out it stayed out. Section 4 below still runs for someone starting cold -
+   **it does not run on an ingested V1.** Take it as given.
 
-4. **There is no price in it.** The prompt bans money on purpose, so an ingested
-   plan carries no price and its V1 was never scoped to a paid thing. Sections
-   3, 4 and 7 are written assuming one. Ask whether there is a price before you
-   use that wording. If there isn't, the success metric is a first subscriber,
-   reader, member, or reply — those count the same here.
+4. **An older plan may carry a price.** Plans made before the artifacts moved
+   off the money-first seven have a price field in them. Write it down in their
+   words if they mention it, put it in `.unstuck/context.md` where pricing
+   belongs, and ask nothing further. It is not part of this exercise.
 
-Then run only the sections the plan did not fill, in the order below. Say one
-line up front naming which ones you are skipping and why, then skip them
-without further comment.
+Then run only the sections the plan did not fill. Say one line up front naming
+which ones you're skipping and why, then skip them without further comment.
 
 ---
 
-**Opening (output verbatim to the buyer):**
+**Opening (output verbatim):**
 
-> "Time to turn your idea into a plan you can act on. Seven questions. Fifteen minutes. No overthinking.
+> "Let's get you a plan you could defend to someone who asked why.
 >
-> **One ground rule:** for any question, if you don't know the answer, you have three ways out:
-> - Type **`hint`** — I'll show another worked example
-> - Type **`guide me`** — I'll Socratic-interview you to your answer (3-5 sub-questions, then I'll synthesize)
-> - Type **`draft it`** — paste whatever rough version you have; I'll polish it and you edit
+> Five questions. We're not going to plan the whole thing - we're going to find
+> the first real person who sees it and work backwards from them.
+>
+> **One ground rule:** if you don't know an answer, you have three ways out:
+> - Type **`hint`** - I'll show another worked example
+> - Type **`guide me`** - I'll interview you to your answer, then synthesize
+> - Type **`draft it`** - paste whatever rough version you have; I'll polish it
 >
 > Ready?"
 
-Walk through each section one at a time. Push for specifics. Don't let them be vague. **Every question shows an example before asking** — buyers shouldn't have to guess what a 5/5 answer looks like. If the buyer invokes hint / guide me / draft it on any question, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
+One at a time. Ask, then STOP and wait. Do not answer for them, do not invent
+their side, and do not produce the plan until they have actually answered. If
+they invoke hint / guide me / draft it, fire the matching sub-flow from
+`references/core.md` `<answer_assistance>`.
+
+**Money is not part of this.** Not the scope, not the date, not the moves. Don't
+ask for a price, don't ask whether they'd charge later, and don't ask which tool
+they'd use - from the other side of the screen that last one reads exactly like
+the price question. A first subscriber, member, reader or reply counts here
+exactly the same as a first customer. If they raise a price themselves, write it
+down in their words and move on.
+
+**Quotes only.** If you turn a vague answer into something precise, show the
+conversion and tag it `[MY CALL]`. This bites hardest on quantities: "a couple
+of evenings, bit at the weekend" is not ten hours until you've shown them you
+read "a couple" as four and they agreed.
 
 ---
 
-**Section 1: The Big Idea**
+**Section 1: What does someone DO when it works?**
 
-**What we're writing:** Your product in one plain-English sentence.
+**What we're writing:** One action, by one person.
 
-"What are you building? Say it so a 12-year-old could understand it. One sentence."
+"When this works, what does someone actually DO? Not what you ship - what they
+do. One action."
 
 **Example of a 5/5 answer:**
-> "A 5-week paid cohort + workbook teaching junior PMs how to do real product strategy work instead of just grooming JIRA tickets."
+> "A gallery owner replies to my email and asks to see more work."
 
-Push back if it's jargon-filled or too abstract. Keep simplifying until it's clear. Stuck? Say "hint" and I'll show two more worked examples (course, app, newsletter).
+"It's live" is not an action - that's something you did. Push once,
+specifically. If what they want is invisible - "she reads it" - keep it as the
+action and note one visible sign underneath. Don't swap their goal for a metric
+you find easier to verify.
 
-→ Next: **Section 2** — define your specific customer persona
+→ Next: **Section 2** - one real person, by name
 
 ---
 
-**Section 2: Who It's For**
+**Section 2: Who's the first real person you'll send it to?**
 
-**What we're writing:** Your customer persona — one specific human, not a category.
+**What we're writing:** A name.
 
-"Who is this for? Get uncomfortably specific. Not 'entrepreneurs' — that's everyone. Picture ONE person and describe them."
+"Who's the first real person you'll send this to? Not a type of person. One
+name."
 
 **Example of a 5/5 answer:**
-> "Aamir, 26, PM at a B2B observability SaaS, 18 months in. Tuesday afternoon backlog grooming is the moment he thinks 'I didn't sign up for this' — he wants to do strategy work, not adjust story points. Reads Lenny's Newsletter on his commute."
+> "Priya. She runs the print studio on Bow Street and asked what I'd been
+> working on in July. I never answered because I had nothing to send."
 
-The 5/5 answer has: name, age, role, company type, behavioral specifics, and the exact-moment-of-pain. Push back if any of those slots are missing.
+"People who might hire me" is not a name. **If they genuinely cannot name one,
+stop the module here** - finding one person who wants this is the whole week,
+and that IS their plan. Make that the three moves and skip to the closing block.
 
-→ Next: **Section 3** — define the transformation, not the feature list
+→ Next: **Section 3** - the dump
 
 ---
 
-**Section 3: The Core Offer**
+**Section 3: What has to be true first?**
 
-**What we're writing:** The transformation (not the feature list).
+**What we're writing:** Everything, unedited.
 
-"What do they get, and why would they pay for it? Don't give me a feature list — give me the transformation. After they finish, what can they DO that they couldn't before?"
+"What has to be true before you'd send it to her? Everything. Don't trim it,
+don't tell me whether you really need it - that's the next question's job."
 
 **Example of a 5/5 answer:**
-> "After 5 weeks, Aamir walks into his next 1:1 with a written product strategy doc for his squad, gets buy-in from his EM, and stops being the JIRA admin. He can say 'I'm leading our roadmap' instead of 'I'm grooming the backlog.'"
+> "Pick twelve pieces. Scan the older ones. Write a line for each. Decide on a
+> name. Buy the domain. Build the site. Write an about page. Get a proper
+> headshot. Set up a contact form. Figure out the newsletter."
 
-People don't buy features. They buy outcomes. Push back if they give you a list of modules / lessons / templates — those are HOW, not WHAT.
+Don't help. Don't trim. Don't ask "do you really need that?" Let it get long -
+a short list means they edited themselves, so push once for more.
 
-→ Next: **Section 4** — cut to the smallest shippable version
+→ Next: **the one question worth more than the list**
 
 ---
 
-**Section 4: MVP Scope**
+**BEFORE SECTION 4 - THE VEHICLE**
 
-**What we're writing:** The smallest version that still works.
+Do this the moment the list is on the table, BEFORE going through it item by
+item. If the vehicle is wrong, working through ten items is ten questions about
+a thing they are not going to build.
 
-"What's the smallest thing you can ship that proves people will pay for this?"
+They've been at this for months, so its shape stopped being a choice long ago -
+it's now just what they assume the thing IS. **Most lists are long because the
+VEHICLE is too big, not because the list is badly pruned.**
 
-**Example of a 5/5 answer:**
-> "5 weekly live sessions (90 min each) + a 40-page workbook + a private Slack — no LMS, no recorded course library, no 1:1 calls. If 8 people pay $497 each, V1 is validated."
+So look at the action from Section 1, and the weight of what they just listed,
+and ask: what is the smallest thing in the world that produces that action?
+Then say whether it's what they described.
 
-Push ruthlessly. If it takes more than 4 weeks to build, it's too big. Push back: "What can you cut and still have something people would pay for?"
+> "She replies about work" - does that need a website, or three images and a
+> way to reply?
+> "Someone reads it" - does that need a site with an archive, or an email you
+> send from your own address?
+> "Illustrators give each other real feedback" - does that need a platform with
+> billing and a directory, or eight people in a group chat?
 
-→ Next: **Section 5** — three concrete tasks for this week
+If the smaller route is genuinely the same outcome, PUT IT TO THEM AS AN
+EITHER/OR and stop. Name what it costs, what it gives up, and how it gets the
+same action. It's a swap they accept or refuse, not a correction.
 
----
+Expect a flinch. Months went into the big version and the small one can feel
+like losing. Say the one true thing - the big version can still exist after the
+small one has already got them the thing - and then let it go.
 
-**Section 5: Three First Steps**
+**One proposal, freely refused.** If they say no, say "your call", carry on with
+theirs, and never mention it again - not as an aside, not as a note in the plan.
 
-**What we're writing:** Concrete tasks for this week — verb + day + duration.
-
-"Give me three things you're going to do THIS WEEK to move this forward. Each one needs a verb, a day, and a time estimate."
-
-**Example of a 5/5 answer:**
-> 1. **Tuesday, 90 min:** Draft Module 1 outline (Strategy vs. Tickets)
-> 2. **Thursday, 60 min:** Message 3 junior PMs in my network — ask if they'd pay $497 for this
-> 3. **Saturday, 2 hr:** Build the landing page (one page, Stripe payment link, no automations)
-
-**Bad answers** to push back on:
-- "Research competitors" (no day, no duration, vague verb)
-- "Work on the cohort" (no specifics)
-- "Set up tools" (passive — what tools, when?)
-
-→ Next: **Section 6** — pick a specific launch date
-
----
-
-**Section 6: Launch Date**
-
-**What we're writing:** A specific calendar date.
-
-"When is this shipping? Give me a month, day, and year. Not 'sometime in Q2.'"
-
-**Example of a 5/5 answer:**
-> "First cohort kicks off Monday June 15, 2026. Landing page goes live Friday May 22. Doors close Sunday June 8."
-
-The date creates pressure. Pressure creates decisions. Decisions create momentum. Push back hard on "I'm not sure yet" — pick a date now, you can adjust later.
-
-→ Next: **Section 7** — define one measurable success signal
+If they TAKE the swap, ask them to dump the small thing's list, and do NOT run
+Section 4 on it. They just built that list from scratch against the action, with
+the small version in front of them. Ask once instead: "anything on that list
+she wouldn't actually notice?" Take the answer and move on.
 
 ---
 
-**Section 7: Success Metric**
+**Section 4: What would THEY notice missing? - ONLY when they keep the original**
 
-**What we're writing:** ONE measurable signal.
+**What we're writing:** V1.
 
-"How will you know if this worked? Define success before you launch, or you'll move the goalposts forever."
+That list was built without the action in mind, so it's the one that needs going
+through. Item by item. Name the item, ask whether that one person would notice
+it missing, wait for the answer, then the next one. Every item gets asked.
 
-**Example of a 5/5 answer:**
-> "8 paying customers at $497 by June 15. Anything less than 5 = the offer or audience is wrong. More than 12 = next cohort gets a price test at $697."
+**You may not cut an item yourself.** You may not say "and the rest of these are
+out." You may not argue them out of one.
 
-Help them pick ONE measurable metric. Push back on multiples ("I want X and Y and Z") — what's the ONE thing that decides if V1 worked?
+If they answer YES and give a reason - they said why she'd notice - it stays. **A
+reason attached to a NO is a cut with an explanation on it, not a keep.** "I'd
+notice, she wouldn't" means OUT. Read what the reason argues FOR, not that a
+reason was given.
 
-→ Next: **Present** — generate the Launch Plan artifact
+What survives is V1. What doesn't is out of this plan - not "later", not "phase
+two". Don't offer a future date to soften the cut, and once something is out it
+does not come back, by their hand or yours.
+
+The cut has to be theirs. A scope they agreed to is one they'll keep; a scope
+you handed them is one they'll renegotiate at midnight.
+
+→ Next: **Section 5** - the date, and whether it's true
+
+---
+
+**Section 5: What day does she get it - and is that true?**
+
+**What we're writing:** A date, the hours, and the arithmetic between them.
+
+Ask both together: what day does that person get it, and roughly how many hours
+will they actually have between now and then. Offer a pick on the hours - "a
+couple of evenings, five a week, most of a weekend?" - because they won't know
+the number cold.
+
+**Read the hours back in DAILY terms before using them.** "Sixty a week is eight
+and a half hours every day for sixteen days, weekends included. Is that the real
+number?" People inflate this without meaning to lie, and a weekly total hides
+it. If they confirm an implausible number, use it and tag the verdict
+`[MY CALL]` so they can see whose optimism it was.
+
+If they give no hours at all, don't invent one and don't treat unbounded time as
+a pass. Say what you're assuming and tag it.
+
+Then do the arithmetic out loud - "three weeks at five hours is fifteen hours" -
+and say in one line whether V1 fits.
+
+If it doesn't fit, say so ONCE, plainly: the scope and the date can't both be
+true, and one of them will give. Then stop. Do not move the date, do not quietly
+redefine V1 so the arithmetic works, and do not start a second round of cutting
+here - that's `/unstuck scope`, and it's a different sitting. Shrinking what an
+item means until it fits is moving the date where they won't notice.
+
+"It'll be tight" is not a finding. Give them the number.
+
+→ Next: **the closing block**
+
+---
+
+**The closing block**
+
+1. One line: "You'd send this to <name> on <date>."
+2. Three moves for this week, each with what makes it done - built from their
+   own words where they exist, tagged `[MY CALL]` where they don't. Don't ask
+   for these first; write them, then ask them to confirm or swap one.
+3. Ask what's the smallest piece of move one they could finish today, under an
+   hour.
+4. One last question, once: they see it and nothing happens - what do you do?
+   Don't answer it for them. Don't soften it. Ask, and write down what they say.
+
+**A punt is not a confirmation.** "They look fine, whatever you think" at the
+end of a long conversation is the likeliest place someone gives up, and it's the
+one artifact they walk away with. Tag it and say so.
+
+→ Next: **Present**
 
 ---
 
 **Present the Launch Plan**
 
-Use template at templates/launch-plan.md. Hand the buyer the locked plan in paste-ready form for User Context Section D.6.
+Use the template at templates/launch-plan.md. Five headings, their answers
+under each, readable in thirty seconds. Mark anything unresolved
+`[STILL FUZZY]` and anything you decided `[MY CALL]`.
 
-→ Next: **Save** — persist the artifact
+→ Next: **Save**
 
 ---
 
 **Save artifact**
 
-Save the completed Launch Plan to `.unstuck/launch-YYYY-MM-DD.md` using the Write tool. Use today's date.
+Save to `.unstuck/launch-YYYY-MM-DD.md` using the Write tool. Use today's date.
 
 → Next: **Update context**
 
@@ -217,42 +301,50 @@ Save the completed Launch Plan to `.unstuck/launch-YYYY-MM-DD.md` using the Writ
 
 **Update context**
 
-Append a summary to `.unstuck/context.md` under **Section D.6** (Launch Plan):
-- Product name + one-line description
-- Target persona
-- MVP scope summary
-- Launch date
-- Success metric
+Append to `.unstuck/context.md` under **Section D.6** (Launch Plan):
+- Project name + one-line description
+- The one action, and the first person by name
+- V1 (what survived) and what was cut
+- Ship date, hours available, and whether V1 fit
 - Date locked
 
 ---
 
 **What's next**
 
-> **BRANCHING EXIT — pick the path that fits:**
+The plan says what they're doing. It doesn't get them doing it - and the two
+things this module deliberately stops short of both have homes:
+
+> **BRANCHING EXIT - pick the path that fits:**
 >
-> - **Early stage (no validation yet):** run `/unstuck validate` — you need real conversations before building.
-> - **Ready to build (validation done):** run `/unstuck scope` — lock your V1 features and ship date.
+> - **V1 didn't fit the hours:** run `/unstuck scope`. That's the second cut,
+>   done properly, with each item sized - which is the part this module refuses
+>   to do in the same sitting.
+> - **V1 fit, and the date is more than two weeks out:** run
+>   `/unstuck roadmap`. It turns the hours into actual sessions on actual days,
+>   which is the difference between a date and a plan.
+> - **No validation yet - nobody has said they want this:** run
+>   `/unstuck validate` before building anything.
 >
-↩ Come back to `/unstuck launch` when: your launch plan is stale or you're launching a new product.
+↩ Come back to `/unstuck launch` when: the plan is stale, or you're launching
+something new.
 
 </process>
 
 <success_criteria>
 This module is complete when:
-- [ ] All 7 sections filled in with specific answers
-- [ ] No vague or jargon-filled entries
-- [ ] If a plan was pasted: every `[MY CALL]` / `[STILL FUZZY]` field in it was
-      re-asked, not carried over
-- [ ] If a plan was pasted: the extraction was read back field by field and
-      confirmed, and no blank was filled by inference
-- [ ] If a plan was pasted: V1 was taken as given — no item reopened, cut, or
-      added back
-- [ ] Three first steps have verbs, days, and time estimates
-- [ ] Launch date is a specific calendar date
-- [ ] Success metric is measurable
-- [ ] Launch Plan artifact delivered
-- [ ] Artifact saved to `.unstuck/launch-YYYY-MM-DD.md`
+- [ ] All five sections filled in with specific answers
+- [ ] The one action is something the OTHER person does, not something they ship
+- [ ] Section 2 is a name, or the module stopped and made finding one the plan
+- [ ] The vehicle question was asked before Section 4, and asked once
+- [ ] Every V1 cut was theirs - no item cut, argued away, or restored by you
+- [ ] The hours were read back in daily terms and the arithmetic was shown
+- [ ] Money appears nowhere: no price asked, no "first sale", no tooling question
+- [ ] Three moves, each with what makes it done
+- [ ] The last question asked and their answer written down, not supplied
+- [ ] Launch Plan artifact delivered and saved to `.unstuck/launch-YYYY-MM-DD.md`
 - [ ] Context updated in `.unstuck/context.md` Section D.6
+- [ ] If a plan was pasted: every `[MY CALL]` / `[STILL FUZZY]` field re-asked,
+      the extraction read back and confirmed, and V1 taken as given
 - [ ] Next module recommended
 </success_criteria>

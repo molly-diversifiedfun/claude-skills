@@ -12,7 +12,7 @@ This module runs on LAUNCH DAY (or the night before). Everything upstream should
 
 - **Section B.1** (product + audience + ship date): confirm today IS launch day (or tomorrow)
 - **Section D.3** (T06 Pricing): locked price — used in checkout test
-- **Section D.6** (Launch Plan): success metric — the number that decides if the day worked
+- **Section D.6** (Launch Plan): the ONE ACTION — what someone does when this works, and the first person by name. Since `/unstuck launch` moved onto the five, D.6 holds a behaviour rather than a sales number, and the behaviour is the better signal: "Priya replies about work" tells you more on the day than "eight signups".
 - **Section D.7** (warm list): the humans getting DMs today
 - **Section D.8** (landing page): the URL going live
 - **Section D.9** (launch emails): the sequence that fires today
@@ -26,7 +26,7 @@ This module runs on LAUNCH DAY (or the night before). Everything upstream should
 | Price locked | D.3 | STOP. Run `/unstuck pricing` first. |
 | DMs drafted | D.11 | Not blocking — can draft today. Run `/unstuck dm-personalizer` inline. |
 | Email sequence armed | D.9 | Not blocking — can send manually. Note the gap. |
-| Success metric set | D.6 | Not blocking — set it now (Step 1). |
+| The one action set | D.6 | Not blocking — set it now (Step 1). |
 
 If landing page OR price is missing, DO NOT proceed. Route back. Everything else can be patched on the fly.
 
@@ -62,7 +62,7 @@ Walk through each item. Don't skip. Every item that fails gets fixed NOW, not af
 - [ ] **Email sequence armed:** If you have a launch-day email queued, is it scheduled? Correct send time? Correct segment? Preview it one more time.
 - [ ] **DMs ready to send:** Are your personalized DMs from `/unstuck dm-personalizer` in your drafts (Gmail or copy-paste)? If not, we'll draft them in Step 3.
 - [ ] **Announcement posts ready:** Are your platform announcements from `/unstuck ship-announcement` drafted? If not, we'll use them in the timeline.
-- [ ] **Success metric remembered:** "I'll know today worked if ___." Pull from D.6. If not set: "Pick a number now. How many sales or signups in the first 48 hours = 'this is working'?"
+- [ ] **The one action remembered:** "I'll know today worked if ___." Pull the one action from D.6. If not set: "Name it now. What does ONE person have to DO in the first 48 hours for this to have worked?" Take a behaviour, and take a number only if they give one - a first subscriber, member, reader or reply counts the same as a first customer.
 
 **If checkout or delivery fails:** STOP. Fix it. Do not send a single DM until the purchase flow works end to end. Sending people to a broken checkout is worse than launching a day late.
 
@@ -288,7 +288,7 @@ PRE-LAUNCH CHECKLIST:
 - Landing page live: [URL]
 - Email sequence armed: [YES/NO]
 - DMs ready: [N drafted]
-- Success metric: [paste from D.6]
+- The one action: [paste from D.6]
 
 TIMELINE (customized):
 [paste the buyer's adjusted timeline from Step 2]

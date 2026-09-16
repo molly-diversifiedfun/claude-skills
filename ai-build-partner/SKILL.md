@@ -331,6 +331,7 @@ Save this roadmap to `<project-path>/roadmap-orientation.md` so the user can ref
 | `/unstuck full` | `modules/full-pipeline.md` | orchestrator |
 | `/unstuck conversation-finder` | `modules/conversation-finder.md` | 4 (free module, Kit sequencing) |
 | `/unstuck dm-personalizer` | `modules/dm-personalizer.md` | 5 |
+| `/unstuck launch` | `modules/launch.md` | 4 |
 | `/unstuck launch-day` | `modules/launch-day.md` | 5 |
 | `/unstuck ship-announcement` | `modules/ship-announcement.md` | 5 |
 | `/unstuck launch-emails` | `modules/launch-emails.md` | 5 |
@@ -440,7 +441,7 @@ All domain knowledge in `references/`:
 | modules/scope.md | Scope Guillotine — cut to shippable V1 | 10-15 min | You catch yourself adding features not in the scope doc |
 | modules/validate.md | RICE scoring + 10-Conversation Method | 5-10 min | You pivot your idea OR want to validate a V2 direction |
 | modules/sprint.md | 10-Day Build Sprint setup | 10 min | Every new sprint cycle, or when the current plan derails |
-| modules/launch.md | 15-Minute Launch Plan (7 questions) — or paste a One-Page Launch Plan from the free prompt and it fills what it can and asks only the rest | 15 min (5 with a plan pasted) | You realize your launch plan is stale or you're launching a new product |
+| modules/launch.md | One-Page Launch Plan (5 questions) — works backwards from the first real person who sees it. Money is out of the exercise entirely. Paste a plan from theshipitsystem.com/launch-prompt or /launch-plan and it maps one-to-one and asks only what's missing | 15 min (5 with a plan pasted) | Your launch plan is stale, or you're launching something new |
 | modules/roadmap.md | 6-week shipping plan | 10-15 min | End of each 6-week cycle to set the next one |
 | modules/full-pipeline.md | Complete Build Partner pipeline | 45-60 min | Starting fresh on a completely new project |
 | modules/ten-hour-week.md | Post-launch sustainable operating mode | 10-15 min | Quarterly, or when your hours creep above 10/week |

@@ -8,7 +8,7 @@
 **Step 0 — Check User Context first (Mode 1 behavior)**
 
 Before the Opening, scan `.unstuck/context.md`:
-- Read **Section A** (about you — day job, runway notes, family situation if present), **Section D.6** (Launch Plan — current side-project metrics), and any prior D.8 if this isn't the first time the buyer ran this skill
+- Read **Section A** (about you — day job, runway notes, family situation if present), **Section D.6** (Launch Plan — the one action, the first person, V1, the date and the hours), and any prior D.8 if this isn't the first time the buyer ran this skill
 - If Section A is populated with day-job + runway data, infer Q2, Q4 from context. Always ASK Q1 (trigger), Q3 (current side MRR — changes monthly), Q5 (psych temp — changes daily), Q6 (partner status), Q7-Q8 (worst-case scenarios) directly.
 - If User Context is empty, run the full 8-question intake.
 

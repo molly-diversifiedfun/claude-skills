@@ -1,49 +1,68 @@
 <template>
 ```markdown
-# 15-Minute Launch Plan
+# One-Page Launch Plan
 
 **Name:** [name]
 **Date:** [today's date]
 
----
-
-## 1. The Big Idea
-
-[One sentence a 12-year-old could understand]
-
-## 2. Who It's For
-
-[Uncomfortably specific target audience — demographics, situation, pain point]
-
-## 3. The Core Offer
-
-[The transformation they're buying — not features, outcomes]
-
-## 4. MVP Scope
-
-[The smallest thing that proves people will pay — buildable in 4 weeks or less]
-
-## 5. Three First Steps (This Week)
-
-1. **[Day], [time estimate]:** [Verb-first action]
-2. **[Day], [time estimate]:** [Verb-first action]
-3. **[Day], [time estimate]:** [Verb-first action]
-
-## 6. Launch Date
-
-**[Month Day, Year]**
-
-## 7. Success Metric
-
-[One measurable number that tells you it worked]
+**The project:** [working name] — [what it is, in one sentence]
 
 ---
 
-## What's Next
+## 1. What someone does when it works
 
-[Recommendation for next module based on their stage]
+[One action, by one person. Not what they shipped — what the other person does.]
+
+[If that action is invisible, one visible sign underneath.]
+
+## 2. The first real person
+
+[A name. Not a type of person.]
+
+## 3. What has to be true first
+
+[The unedited dump, one per line. Kept here so the cut below is visible as a
+decision rather than a shorter list.]
+
+## 4. What they'd notice missing — V1
+
+[What survived the item-by-item pass. Short enough to hold in your head.]
+
+**Out, and staying out:**
+[What didn't survive. Not "later", not "phase two".]
+
+## 5. The date, and whether it's true
+
+**They get it:** [Month Day, Year]
+**Hours between now and then:** [the number, with the conversion shown if you
+made one — tag it [MY CALL]]
+**Does V1 fit:** [the arithmetic out loud, then the verdict in one line. If it
+doesn't fit, say so once and stop — do not move the date here.]
 
 ---
-*Built with the Unstuck Method — [unstuckwithmolly.com](https://unstuckwithmolly.com?ref=ai-build-partner&module=launch)*
+
+## Then, this week
+
+You'd send this to [name] on [date].
+
+1. **[Verb-first action]** — done when: [what makes it done]
+2. **[Verb-first action]** — done when: [what makes it done]
+3. **[Verb-first action]** — done when: [what makes it done]
+
+**Smallest piece of move one, under an hour:** [their answer]
+
+**They see it and nothing happens — what do you do?** [their answer, written
+down, not supplied]
+
+---
+
+## What's next
+
+[Recommendation based on where they landed: /unstuck scope if V1 didn't fit,
+/unstuck roadmap if it did and the date is more than two weeks out,
+/unstuck validate if nobody has said they want this yet.]
+
+---
+*Built with the Unstuck Method — [theshipitsystem.com](https://theshipitsystem.com?ref=ai-build-partner&module=launch)*
 ```
 </template>
