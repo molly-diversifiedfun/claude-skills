@@ -52,6 +52,17 @@ If they say "no" or "skip to project" — confirm they want to skip Section A (s
 
 If at any point they invoke `hint` / `guide me` / `draft it`, fire the corresponding sub-flow from `references/core.md` `<answer_assistance>`.
 
+**Step 0.5 — The Launch Plan check.**
+
+Before Q1, ask once, in one short line, whether they already have a plan or a Section B block to paste. Offer it as a yes/no, not an essay.
+
+- **If they paste something:**
+  1. Parse whatever Section B fields it contains (working name, one-sentence outcome, target customer, format, ship date, why this not the other ideas). Accept loose formatting — they may paste prose, a bulleted plan, or the exact block.
+  2. Read back what you extracted, field by field, and ask them to confirm or correct. Never accept a field you inferred without showing it. Mark a field as blank rather than guessing it. A fabricated context block poisons all downstream modules.
+  3. Any Section B field the paste did NOT cover: ask it, using the existing Q6/Q7/Q8 wording already in this file — do not invent new question wording.
+  4. Then SKIP the rest of Section B questioning and go straight to Section A (Q1-Q5) and onward. Say one line explaining you are skipping ahead because they already did that part. (When you reach Section B later in the module, silently skip it).
+- **If they say no, or have nothing to paste:** fall through to the existing Q1 flow completely unchanged.
+
 → Next: **Section A** — 5 questions about you (name, hours, blocks, runway, pattern).
 
 ---
