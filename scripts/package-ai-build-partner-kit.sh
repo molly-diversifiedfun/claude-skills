@@ -55,7 +55,9 @@ fi
 STAGE=$(mktemp -d)
 trap "rm -rf '$STAGE'" EXIT
 
-KIT_DIR="$STAGE/ai-build-partner"
+# The folder name is what Claude shows; SKILL.md `name: unstuck` is the
+# slash command every ad and install page tells people to type.
+KIT_DIR="$STAGE/unstuck"
 mkdir -p "$KIT_DIR"
 
 # 1. Copy claude-skills canonical content
@@ -96,7 +98,7 @@ echo "  Kit files: $KIT_FILES_COUNT (MSP + brand-guide + voice-dna + personas + 
 
 # 4. Zip it
 cd "$STAGE"
-zip -qr "$OUTPUT_FILE.tmp" ai-build-partner
+zip -qr "$OUTPUT_FILE.tmp" unstuck
 
 # 5. Atomically replace
 mv "$OUTPUT_FILE.tmp" "$OUTPUT_FILE"
