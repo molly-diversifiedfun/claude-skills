@@ -7,11 +7,16 @@
 
 **Step 0 — Context check**
 
-This module is called FROM `/unstuck outreach` (warm path). It helps users name and contextualize the people they already know who have the problem their toy solves.
+This module runs two ways: called FROM `/unstuck outreach` (warm path), or on its own (routed here, typed directly, or arriving from a One-Page Launch Plan). Either way it helps users name and contextualize the people they already know who have the problem they're solving. It does NOT need a toy — naming people comes before building anything.
 
-Read `.unstuck/context.md`:
-- **Section C.3** (one-liner) — needed to know what problem to filter for
-- **Section C.5** (audience) ��� the target buyer description
+Note which way you arrived: **from outreach** or **standalone**. Step 3 ends differently.
+
+Read `.unstuck/context.md` for two things — who it's for, and the problem:
+- **Who:** Section C.5 (audience). If empty, use "Target customer" from the project block, or WHO IT'S FOR from a pasted launch plan.
+- **Problem:** Section C.3 (one-liner) or C.2 (problem space). If empty, use "One-sentence outcome" from the project block, or THE PAIN TO SOLVE FIRST from a pasted launch plan.
+- **Names already given:** Section D.7, or WHERE THEY ARE from a pasted launch plan. Start the list with these — never ask for them again.
+
+If neither who nor the problem is anywhere, ask once: "In one line — who is it for, and what's the problem they have?" Use the answer and move on. Don't route elsewhere first.
 
 → Next: **Opening**
 
@@ -19,7 +24,7 @@ Read `.unstuck/context.md`:
 
 **Opening (output verbatim to the buyer):**
 
-> "Let's name the people. Not 'my LinkedIn network' — specific humans you could text right now who have the problem your toy solves.
+> "Let's name the people. Not 'my LinkedIn network' — specific humans you could text right now who have the problem you're solving.
 >
 > Think: coworkers, ex-colleagues, people who've DMed you, people you've seen post about this problem, people in your communities who complain about this."
 
@@ -29,7 +34,7 @@ Read `.unstuck/context.md`:
 
 **Step 1: Mining prompts**
 
-Ask these one at a time until they hit 10+ names:
+Start from any names already in context — read them back. Then ask these one at a time until they hit 10+ names:
 
 1. "Who at your current or past companies has this problem?"
 2. "Who's DMed or emailed you about something related to this?"
@@ -66,7 +71,7 @@ For each name, capture:
 > | 4 | Jen Park | Conference 2025 | Said "tell me when you build this" | Text |
 > | ... | ... | ... | ... | ... |
 
-→ Next: **Step 3** — save and return to outreach.
+→ Next: **Step 3** — save, then hand off.
 
 ---
 
@@ -77,7 +82,10 @@ Save to `.unstuck/warm-list-<YYYY-MM-DD>.md` using the Write tool. Include the f
 Update `.unstuck/context.md`:
 - **D.7:** Warm list — [N] named humans, channels identified. See `.unstuck/warm-list-<date>.md` for full list.
 
-**Return to `/unstuck outreach`** — this module is a sub-step, not a standalone endpoint. The outreach module uses this list to draft personalized messages.
+**Then hand off — depends on how you arrived:**
+
+- **From outreach:** return to `/unstuck outreach`. It uses this list to draft personalized messages.
+- **Standalone:** don't send them to outreach (it needs a toy they may not have). End with the next move: "Message the top five this week. Not a pitch — ask about the last time this problem happened to them." Offer once to draft that message from their one-liner and the "why them" column, in their voice, under 60 words, nothing about price.
 
 </process>
 
@@ -87,5 +95,5 @@ This module is complete when:
 - [ ] One line of context per person (connection + why them + channel)
 - [ ] Artifact saved to `.unstuck/warm-list-<date>.md`
 - [ ] Context updated (D.7)
-- [ ] Returns to outreach flow
+- [ ] From outreach: returns to outreach flow. Standalone: ends on "message the top five" with the draft offered — no route to outreach or toy
 </success_criteria>
