@@ -1,13 +1,13 @@
 ---
 name: viral-hook-generator
-description: Generates 40+ hook variations across 8 proven psychological categories for any topic, offer, or content idea — ready for social media, ads, emails, and video content.
+description: Generates 40+ hook variations across 8 proven psychological categories for any topic, offer, or content idea, each built on the Triple Hook structure (context, lean, contrarian snapback) — ready for social media, ads, emails, and video content.
 ---
 
 # Viral Hook Generator
 
 ## What This Skill Does
 
-This skill is the "top of funnel factory" — the first thing your audience sees. Given any topic, offer, or content idea, it produces 40+ hook variations organized across 8 psychologically-proven categories. Each hook is under 20 words, platform-optimized, and scored for effectiveness.
+This skill is the "top of funnel factory" — the first thing your audience sees. Given any topic, offer, or content idea, it produces 40+ hook variations organized across 8 psychologically-proven categories. Each hook is built on the Triple Hook structure (Context → Lean → Contrarian Snapback), each sentence is under 20 words, and every hook is platform-optimized and scored for effectiveness.
 
 The 8 hook categories and their underlying psychology:
 
@@ -34,6 +34,28 @@ The 8 hook categories and their underlying psychology:
 
 8. **Absurdist Hook** — "[Extreme/funny scenario] is easier than [their current struggle]."
    Pattern interrupt through humor and absurdity. Shareability through relatability.
+
+## The Triple Hook (structure every hook must follow)
+
+The 8 categories set the *angle*. The Triple Hook sets the *structure*. Every hook, in every category, is built from three beats in this order. Source: Kallaway (@kallawaymarketing), "Triple Hook Method" reel, Oct 2026.
+
+1. **Context — first, and front-loaded.** The opening words say what the piece is about. Viewers only keep watching when they have a vested interest in the topic, so they must know the topic instantly. Put the topic in the first few words, not the back half of the first sentence. For video, land it in all three channels at once: spoken audio, on-screen text, and caption.
+2. **Lean — make them curious in a direction.** Give them a reason to lean in rather than opt out, using one of: proof or a stat that validates the incoming claim, a specific pain point, a specific benefit they want, or something surprising or unexpected. Context + Lean together open the curiosity loop.
+3. **Contrarian Snapback — yank the line the other way.** Once they're leaning one direction, say something that pulls them onto a different path than the one they expected. This is the beat most hooks skip and the one that does the most work.
+
+**Length:** Context + Lean usually fit in sentence one; the Snapback is often sentence two. Each sentence stays under 20 words. Text-only formats (email subjects, thumbnails, ad headlines) compress to Context + Lean and save the Snapback for the preview text, title, or first body line.
+
+**Self-test (run on every hook before output):** Read the first one to two sentences on their own.
+- Is the topic clear immediately, in the first few words? If not, rewrite — this is the most common failure.
+- Is there a lean (proof, pain, benefit, or surprise)?
+- Is there a snapback that reverses the direction they were leaning? If a hook has no snapback, either add one or mark it `[no snapback]` so it's a deliberate choice.
+
+**Example (topic: turning workplace expertise into a first product):**
+- Context: "Your first digital product is already in your work Slack."
+- Lean: "The questions coworkers DM you every week are the outline."
+- Snapback: "But don't build the thing they ask about most."
+
+Kallaway states his data shows that delaying context increases skip rate dramatically. He gives no figure and it's unverified — never cite a number for it.
 
 ## Phase 1
 
@@ -171,7 +193,7 @@ Only include columns for platforms the user specified in Question 4.
 
 Apply these platform-specific formatting rules:
 
-- **Instagram/TikTok:** First line IS the hook. Must land in 3 seconds. Visual-first language.
+- **Instagram/TikTok:** First line IS the hook. Context in the first few words, snapback by the second line. Give spoken line + on-screen text + caption. Visual-first language.
 - **LinkedIn:** Professional tone. Can be slightly longer. Lead with an insight, not a gimmick.
 - **Email:** Subject line under 50 characters + preview text under 90 characters.
 - **Twitter/X:** Under 280 characters. Punchy. Tweetable. Standalone value.
@@ -181,17 +203,20 @@ Apply these platform-specific formatting rules:
 
 ### Section 3: Hook Effectiveness Scoring
 
-Score each of the Top 10 hooks across three dimensions:
+Score each of the Top 10 hooks across four dimensions:
 
-| # | Hook | Scroll-Stop Power (1-10) | Curiosity Gap (1-10) | Relevance (1-10) | Total (/30) |
-|---|------|------------------------|---------------------|------------------|-------------|
-| 1 | [hook] | X | X | X | XX |
+| # | Hook | Context Speed (1-10) | Lean (1-10) | Snapback (1-10) | Relevance (1-10) | Total (/40) |
+|---|------|---------------------|-------------|-----------------|------------------|-------------|
+| 1 | [hook] | X | X | X | X | XX |
 
 **Scoring criteria:**
 
-- **Scroll-Stop Power:** Would this make someone physically stop scrolling? Measures pattern interrupt strength.
-- **Curiosity Gap:** Does this create an open loop that MUST be resolved? Do you need to keep reading?
+- **Context Speed:** How fast is the topic clear? 10 = the first few words name it; 5 or below = it arrives in the back half of the sentence or later.
+- **Lean:** How strongly does it pull the viewer forward — proof, pain, benefit, or surprise? Does it open a loop they need closed?
+- **Snapback:** Does it reverse the direction they were leaning? 1-2 if there is no snapback.
 - **Relevance:** Does this connect to the audience's actual pain or desire? Will they feel "this is about ME"?
+
+Scores are judgment, not performance data. Say so in the output.
 
 Rank the table from highest total score to lowest.
 
@@ -202,6 +227,7 @@ For the Top 5 hooks (by score), provide a bridge that transitions from hook to c
 Format each as:
 
 **Hook:** "[the hook]"
+**Triple Hook breakdown:** Context: "[...]" / Lean: "[...]" / Snapback: "[...]"
 **Bridge sentence:** "[1-2 sentences that transition from the hook to the main content]"
 **Content direction:** "[What the rest of the post/video/email should cover to deliver on the hook's promise]"
 
@@ -210,7 +236,10 @@ The bridge must deliver on the hook's implied promise. No bait and switch.
 ## Rules
 
 - Generate EXACTLY 5 hooks per category, 8 categories = 40 hooks minimum.
-- Every hook must be under 20 words. Hooks are SHORT.
+- Every hook follows the Triple Hook: Context first, then Lean, then Contrarian Snapback. Run the self-test on each one.
+- Context goes in the first few words. A hook that opens with a teaser and names the topic later fails.
+- For video hooks, specify the on-screen text and caption line alongside the spoken line so context lands in all three.
+- Every sentence in a hook must be under 20 words. Hooks are SHORT.
 - No generic hooks. Every hook must reference the specific topic and audience from Phase 1.
 - Callout hooks must name a SPECIFIC persona or behavior, not a vague group.
 - Data hooks must use [PLACEHOLDER] for statistics if real data was not provided. Never fabricate statistics.
